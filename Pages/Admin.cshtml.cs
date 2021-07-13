@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
@@ -11,7 +12,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace sms.Pages
 {
-    [Authorize(Roles = "Administrators")]
+    [Authorize(Roles = "Адміністратор")]
     public class AdminModel : PageModel
     {
         public SelectList RoleNameSL { get; set; }
@@ -35,9 +36,12 @@ namespace sms.Pages
 
             foreach(var u in users)
             {
+                string role;
                 var user = await _usermanager.FindByIdAsync(u.Id);
                 var roles = await _usermanager.GetRolesAsync(user);
-                userRoles.Add(new UserRoles { RoleName = roles[0], UserId = u.Id, UserName = u.UserName });
+                if (roles.Count == 0) role = "Оберіть";
+                else role = roles[0];
+                userRoles.Add(new UserRoles { RoleName = role, UserId = u.Id, UserName = u.UserName });
             }
 
             var rolesQuery = _context.Roles.OrderBy(r=>r.Name);
@@ -61,8 +65,9 @@ namespace sms.Pages
     public class UserRoles
     {
         public string UserId { get; set; }
+        [Display(Name = "Користувач")]
         public string UserName { get; set; }
-        //public string RoleId { get; set; }
+        [Display(Name = "Повноваження")]
         public string RoleName { get; set; }
     }
 }

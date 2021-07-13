@@ -33,7 +33,7 @@ namespace sms.Areas.Identity.Pages.Account
             [BindProperty]
             [Required]
             [DataType(DataType.Text)]
-            [Display(Name = "Recovery Code")]
+            [Display(Name = "Код відновлення")]
             public string RecoveryCode { get; set; }
         }
 
@@ -43,7 +43,7 @@ namespace sms.Areas.Identity.Pages.Account
             var user = await _signInManager.GetTwoFactorAuthenticationUserAsync();
             if (user == null)
             {
-                throw new InvalidOperationException($"Unable to load two-factor authentication user.");
+                throw new InvalidOperationException($"Неможливо знайти користувача з двофакторною аутентифікацією.");
             }
 
             ReturnUrl = returnUrl;
@@ -61,7 +61,7 @@ namespace sms.Areas.Identity.Pages.Account
             var user = await _signInManager.GetTwoFactorAuthenticationUserAsync();
             if (user == null)
             {
-                throw new InvalidOperationException($"Unable to load two-factor authentication user.");
+                throw new InvalidOperationException($"Неможливо знайти користувача з двофакторною аутентифікацією.");
             }
 
             var recoveryCode = Input.RecoveryCode.Replace(" ", string.Empty);
@@ -70,18 +70,18 @@ namespace sms.Areas.Identity.Pages.Account
 
             if (result.Succeeded)
             {
-                _logger.LogInformation("User with ID '{UserId}' logged in with a recovery code.", user.Id);
+                _logger.LogInformation("Користувач з ID '{UserId}' увійшов з кодом відновлення.", user.Id);
                 return LocalRedirect(returnUrl ?? Url.Content("~/"));
             }
             if (result.IsLockedOut)
             {
-                _logger.LogWarning("User with ID '{UserId}' account locked out.", user.Id);
+                _logger.LogWarning("Обліковий запис користувача з ID '{UserId}' тимчасово призупинено.", user.Id);
                 return RedirectToPage("./Lockout");
             }
             else
             {
-                _logger.LogWarning("Invalid recovery code entered for user with ID '{UserId}' ", user.Id);
-                ModelState.AddModelError(string.Empty, "Invalid recovery code entered.");
+                _logger.LogWarning("Введений неправильний код відновлення для користувача з ID '{UserId}' ", user.Id);
+                ModelState.AddModelError(string.Empty, "Введено неправильний код відновлення.");
                 return Page();
             }
         }

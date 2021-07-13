@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace sms.Pages
 {
-    [Authorize(Roles = "Administrators, Stewards")]
+    [Authorize(Roles = "Адміністратор, Завгосп")]
     public class StewardModel : PageModel
     {
         public void OnGet()

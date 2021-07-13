@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace sms.Pages
 {
-    [Authorize(Roles = "Administrators, Teachers")]
+    [Authorize(Roles = "Адміністратор, Вчитель")]
     public class TeacherModel : PageModel
     {
         public void OnGet()

@@ -44,7 +44,7 @@ namespace sms.Areas.Identity.Pages.Account.Manage
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                return NotFound($"Неможливо знайти користувача з ID '{_userManager.GetUserId(User)}'.");
             }
 
             HasAuthenticator = await _userManager.GetAuthenticatorKeyAsync(user) != null;
@@ -60,11 +60,11 @@ namespace sms.Areas.Identity.Pages.Account.Manage
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                return NotFound($"Неможливо знайти користувача з ID '{_userManager.GetUserId(User)}'.");
             }
 
             await _signInManager.ForgetTwoFactorClientAsync();
-            StatusMessage = "The current browser has been forgotten. When you login again from this browser you will be prompted for your 2fa code.";
+            StatusMessage = "Цей браузер забуто. Коли ви знову зайдете з цього браузера, Вас попросять ввести код двофакторної аутентифікації.";
             return RedirectToPage();
         }
     }

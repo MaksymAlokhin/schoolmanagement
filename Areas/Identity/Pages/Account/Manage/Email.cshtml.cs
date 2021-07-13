@@ -45,7 +45,7 @@ namespace sms.Areas.Identity.Pages.Account.Manage
         {
             [Required]
             [EmailAddress]
-            [Display(Name = "New email")]
+            [Display(Name = "Нова пошта")]
             public string NewEmail { get; set; }
         }
 
@@ -67,7 +67,7 @@ namespace sms.Areas.Identity.Pages.Account.Manage
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                return NotFound($"Неможливо знайти користувача з ID '{_userManager.GetUserId(User)}'.");
             }
 
             await LoadAsync(user);
@@ -79,7 +79,7 @@ namespace sms.Areas.Identity.Pages.Account.Manage
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                return NotFound($"Неможливо знайти користувача з ID '{_userManager.GetUserId(User)}'.");
             }
 
             if (!ModelState.IsValid)
@@ -101,14 +101,14 @@ namespace sms.Areas.Identity.Pages.Account.Manage
                     protocol: Request.Scheme);
                 await _emailSender.SendEmailAsync(
                     Input.NewEmail,
-                    "Confirm your email",
-                    $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                    "Підтвердіть пошту",
+                    $"Будь ласка, підтвердіть ваш обліковий запис <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>натиснувши тут</a>.");
 
-                StatusMessage = "Confirmation link to change email sent. Please check your email.";
+                StatusMessage = "Посилання для підтвердження зміни пошти надіслано. Будь ласка, перевірте Вашу пошту.";
                 return RedirectToPage();
             }
 
-            StatusMessage = "Your email is unchanged.";
+            StatusMessage = "Вашу пошту не змінено.";
             return RedirectToPage();
         }
 
@@ -117,7 +117,7 @@ namespace sms.Areas.Identity.Pages.Account.Manage
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                return NotFound($"Неможливо знайти користувача з ID '{_userManager.GetUserId(User)}'.");
             }
 
             if (!ModelState.IsValid)
@@ -137,10 +137,10 @@ namespace sms.Areas.Identity.Pages.Account.Manage
                 protocol: Request.Scheme);
             await _emailSender.SendEmailAsync(
                 email,
-                "Confirm your email",
-                $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                "Підтвердіть пошту",
+                $"Будь ласка, підтвердіть ваш обліковий запис <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>натиснувши тут</a>.");
 
-            StatusMessage = "Verification email sent. Please check your email.";
+            StatusMessage = "Лист підтвердження надіслано. Будь ласка, перевірте пошту.";
             return RedirectToPage();
         }
     }

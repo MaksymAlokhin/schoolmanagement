@@ -33,12 +33,12 @@ namespace sms.Areas.Identity.Pages.Account
         public class InputModel
         {
             [Required]
-            [StringLength(7, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+            [StringLength(7, ErrorMessage = "{0} повинен бути довжиною принаймні {2} та максимум {1} символів.", MinimumLength = 6)]
             [DataType(DataType.Text)]
-            [Display(Name = "Authenticator code")]
+            [Display(Name = "Код аутентифікатора")]
             public string TwoFactorCode { get; set; }
 
-            [Display(Name = "Remember this machine")]
+            [Display(Name = "Запам'ятати цей пристрій")]
             public bool RememberMachine { get; set; }
         }
 
@@ -49,7 +49,7 @@ namespace sms.Areas.Identity.Pages.Account
 
             if (user == null)
             {
-                throw new InvalidOperationException($"Unable to load two-factor authentication user.");
+                throw new InvalidOperationException($"Неможливо знайти користувача з двофакторною аутентифікацією.");
             }
 
             ReturnUrl = returnUrl;
@@ -70,7 +70,7 @@ namespace sms.Areas.Identity.Pages.Account
             var user = await _signInManager.GetTwoFactorAuthenticationUserAsync();
             if (user == null)
             {
-                throw new InvalidOperationException($"Unable to load two-factor authentication user.");
+                throw new InvalidOperationException($"Неможливо знайти користувача з двофакторною аутентифікацією.");
             }
 
             var authenticatorCode = Input.TwoFactorCode.Replace(" ", string.Empty).Replace("-", string.Empty);
@@ -79,18 +79,18 @@ namespace sms.Areas.Identity.Pages.Account
 
             if (result.Succeeded)
             {
-                _logger.LogInformation("User with ID '{UserId}' logged in with 2fa.", user.Id);
+                _logger.LogInformation("Користувач з ID '{UserId}' зайшов з двофакторною аутентифікацією.", user.Id);
                 return LocalRedirect(returnUrl);
             }
             else if (result.IsLockedOut)
             {
-                _logger.LogWarning("User with ID '{UserId}' account locked out.", user.Id);
+                _logger.LogWarning("Обліковий запис користувача з ID '{UserId}' тимчасово призупинено.", user.Id);
                 return RedirectToPage("./Lockout");
             }
             else
             {
-                _logger.LogWarning("Invalid authenticator code entered for user with ID '{UserId}'.", user.Id);
-                ModelState.AddModelError(string.Empty, "Invalid authenticator code.");
+                _logger.LogWarning("Неправильний код аутентифікації введено для користувача з ID '{UserId}'.", user.Id);
+                ModelState.AddModelError(string.Empty, "Неправильний код аутентифікації.");
                 return Page();
             }
         }

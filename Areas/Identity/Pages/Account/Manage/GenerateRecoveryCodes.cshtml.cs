@@ -33,14 +33,14 @@ namespace sms.Areas.Identity.Pages.Account.Manage
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                return NotFound($"Неможливо знайти користувача з ID '{_userManager.GetUserId(User)}'.");
             }
 
             var isTwoFactorEnabled = await _userManager.GetTwoFactorEnabledAsync(user);
             if (!isTwoFactorEnabled)
             {
                 var userId = await _userManager.GetUserIdAsync(user);
-                throw new InvalidOperationException($"Cannot generate recovery codes for user with ID '{userId}' because they do not have 2FA enabled.");
+                throw new InvalidOperationException($"Неможливо згенерувати коди відновлення для користувача з ID '{userId}', тому що двофакторна аутентифікація не увімкнена.");
             }
 
             return Page();
@@ -51,21 +51,21 @@ namespace sms.Areas.Identity.Pages.Account.Manage
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                return NotFound($"Неможливо знайти користувача з ID '{_userManager.GetUserId(User)}'.");
             }
 
             var isTwoFactorEnabled = await _userManager.GetTwoFactorEnabledAsync(user);
             var userId = await _userManager.GetUserIdAsync(user);
             if (!isTwoFactorEnabled)
             {
-                throw new InvalidOperationException($"Cannot generate recovery codes for user with ID '{userId}' as they do not have 2FA enabled.");
+                throw new InvalidOperationException($"Неможливо згенерувати коди відновлення для користувача з ID '{userId}', так як двофакторна аутентифікація не увімкнена.");
             }
 
             var recoveryCodes = await _userManager.GenerateNewTwoFactorRecoveryCodesAsync(user, 10);
             RecoveryCodes = recoveryCodes.ToArray();
 
-            _logger.LogInformation("User with ID '{UserId}' has generated new 2FA recovery codes.", userId);
-            StatusMessage = "You have generated new recovery codes.";
+            _logger.LogInformation("Користувач з ID {0} згенерував нові коди відновлення двофакторної аутентифікації.", userId); //originally '{UserId}' now {0}
+            StatusMessage = "Ви згенерували нові коди відновлення.";
             return RedirectToPage("./ShowRecoveryCodes");
         }
     }

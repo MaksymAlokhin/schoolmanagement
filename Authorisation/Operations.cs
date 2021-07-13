@@ -16,11 +16,11 @@ namespace sms.Authorisation
             public static readonly string ApproveOperationName = "Approve";
             public static readonly string RejectOperationName = "Reject";
 
-            public static readonly string AdministratorsRole ="Administrators";
-            public static readonly string StewardsRole = "Stewards";
-            public static readonly string TeachersRole = "Teachers";
-            public static readonly string LibrariansRole = "Librarians";
-            public static readonly string ParentsRole = "Parents";
+            public static readonly string AdministratorsRole ="Адміністратор";
+            public static readonly string StewardsRole = "Завгосп";
+            public static readonly string TeachersRole = "Вчитель";
+            public static readonly string LibrariansRole = "Бібліотекар";
+            public static readonly string ParentsRole = "Батьки";
         }
     }
 }
