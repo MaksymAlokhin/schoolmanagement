@@ -1,0 +1,75 @@
+﻿@page
+@model sms.Pages.AdminModel
+@{
+    ViewData["Title"] = "Admin";
+    ViewData["ActivePage"] = NavPages.Admin;
+    Layout = "~/Pages/Shared/_LayoutInner.cshtml";
+}
+
+<h2>Assign Roles</h2>
+
+<h4>Users</h4>
+<hr />
+@*<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div class="form-group">
+                <label asp-for="Role.Name" class="control-label"></label>
+                <select asp-for="Role.Id" class="form-control"
+                        asp-items="@Model.RoleNameSL"></select>
+                <span asp-validation-for="Role.Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>*@
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.userRoles[0].UserName)
+            </th>
+            <th>
+                Role
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.userRoles)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    <form method="post">
+                        <div class="form-group col-md-4">
+                            <input type="hidden" name="mainid" value="@item.UserId"/>
+                            <select class="userselect" asp-items="@Model.RoleNameSL" name="rolename">
+                                <option selected>@item.RoleName</option>
+                            </select>
+                        </div>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+<script>
+    $(function () {
+        $(".userselect").change(function () {
+            $(this).closest('form').submit();
+        })
+    })
+</script>
+}
