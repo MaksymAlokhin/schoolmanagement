@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+
 
 namespace sms.Pages
 {
@@ -18,37 +20,62 @@ namespace sms.Pages
         public SelectList RoleNameSL { get; set; }
         private readonly Data.ApplicationDbContext _context;
         private readonly UserManager<IdentityUser> _usermanager;
-        public AdminModel(sms.Data.ApplicationDbContext context, UserManager<IdentityUser> usermanager)
+        private readonly IConfiguration Configuration;
+        public bool NoRoles { get; set; }
+
+        public AdminModel(sms.Data.ApplicationDbContext context, 
+            UserManager<IdentityUser> usermanager, 
+            IConfiguration configuration)
         {
             _context = context;
             _usermanager = usermanager;
+            Configuration = configuration;
+            NoRoles = true;
         }
         //public UserRolesData userRolesData { get; set; }
         public IList<UserRoles> userRoles { get; set; }
 
         public IList<IdentityUser> users { get; set; }
-        public async Task<IActionResult> OnGetAsync()
+        public async Task OnGetAsync(bool NoRoles = true)
         {
+            var test = NoRoles;
+
             userRoles = new List<UserRoles>();
             users = await _context.Users
                 .OrderBy(u => u.UserName)
                 .ToListAsync();
 
-            foreach(var u in users)
+            foreach (var u in users)
             {
                 string role;
                 var user = await _usermanager.FindByIdAsync(u.Id);
                 var roles = await _usermanager.GetRolesAsync(user);
-                if (roles.Count == 0) role = "ќбер≥ть";
-                else role = roles[0];
-                userRoles.Add(new UserRoles { RoleName = role, UserId = u.Id, UserName = u.UserName });
+                if (NoRoles && roles.Count == 0)
+                {
+                    role = "ќбер≥ть";
+                    userRoles.Add(new UserRoles { RoleName = role, UserId = u.Id, UserName = u.UserName });
+                }
+                else if (!NoRoles && !(roles.Count == 0))
+                {
+                    role = roles[0];
+                    userRoles.Add(new UserRoles { RoleName = role, UserId = u.Id, UserName = u.UserName });
+                }
+                else if (!NoRoles && roles.Count == 0)
+                {
+                    role = "ќбер≥ть";
+                    userRoles.Add(new UserRoles { RoleName = role, UserId = u.Id, UserName = u.UserName });
+                }
+
+                //if (roles.Count == 0) role = "ќбер≥ть";
+                //else role = roles[0];
+                //userRoles.Add(new UserRoles { RoleName = role, UserId = u.Id, UserName = u.UserName });
             }
 
             var rolesQuery = _context.Roles.OrderBy(r=>r.Name);
 
             RoleNameSL = new SelectList(rolesQuery.AsNoTracking(),
                         "Name", "Name");
-            return Page();
+            //return Page();
         }
 
         public async Task<IActionResult> OnPostAsync(string mainid, string rolename)
