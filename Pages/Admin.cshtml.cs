@@ -20,7 +20,9 @@ namespace sms.Pages
         public SelectList RoleNameSL { get; set; }
         private readonly Data.ApplicationDbContext _context;
         private readonly UserManager<IdentityUser> _usermanager;
+        private readonly RoleManager<IdentityUser> _rolemanager;
         private readonly IConfiguration Configuration;
+        public PaginatedList<UserRoles> userRolesPaginated { get; set; }
         public bool NoRoles { get; set; }
 
         public AdminModel(sms.Data.ApplicationDbContext context, 
@@ -30,16 +32,15 @@ namespace sms.Pages
             _context = context;
             _usermanager = usermanager;
             Configuration = configuration;
-            NoRoles = true;
+            //NoRoles = true;
         }
         //public UserRolesData userRolesData { get; set; }
         public IList<UserRoles> userRoles { get; set; }
 
         public IList<IdentityUser> users { get; set; }
-        public async Task OnGetAsync(bool NoRoles = true)
+        public async Task OnGetAsync(bool noRoles, int? pageIndex)
         {
-            var test = NoRoles;
-
+            NoRoles = noRoles;
             userRoles = new List<UserRoles>();
             users = await _context.Users
                 .OrderBy(u => u.UserName)
@@ -52,7 +53,7 @@ namespace sms.Pages
                 var roles = await _usermanager.GetRolesAsync(user);
                 if (NoRoles && roles.Count == 0)
                 {
-                    role = "Оберіть";
+                    role = "Без повноважень";
                     userRoles.Add(new UserRoles { RoleName = role, UserId = u.Id, UserName = u.UserName });
                 }
                 else if (!NoRoles && !(roles.Count == 0))
@@ -62,29 +63,31 @@ namespace sms.Pages
                 }
                 else if (!NoRoles && roles.Count == 0)
                 {
-                    role = "Оберіть";
+                    role = "Без повноважень";
                     userRoles.Add(new UserRoles { RoleName = role, UserId = u.Id, UserName = u.UserName });
                 }
-
-                //if (roles.Count == 0) role = "Оберіть";
-                //else role = roles[0];
-                //userRoles.Add(new UserRoles { RoleName = role, UserId = u.Id, UserName = u.UserName });
             }
 
-            var rolesQuery = _context.Roles.OrderBy(r=>r.Name);
-
+            //Dropdown for roles
+            var rolesQuery = _context.Roles.OrderBy(r => r.Name);
             RoleNameSL = new SelectList(rolesQuery.AsNoTracking(),
                         "Name", "Name");
-            //return Page();
+            
+            //Pagination
+            var pageSize = Configuration.GetValue("PageSize", 5);
+            userRolesPaginated = PaginatedList<UserRoles>.CreateFromList(
+                userRoles, pageIndex ?? 1, pageSize);
         }
 
         public async Task<IActionResult> OnPostAsync(string mainid, string rolename)
         {
             //IEnumerable<string> roles = _context.Roles.Select(x => x.Name).OrderBy(x=>x).ToList();
+            var rolesQuery = _context.Roles.OrderBy(r => r.Name).ToList();
+            string result = string.Join(",", rolesQuery);
             var user = await _usermanager.FindByIdAsync(mainid);
             var roles = await _usermanager.GetRolesAsync(user);
             await _usermanager.RemoveFromRolesAsync(user, roles);
-            await _usermanager.AddToRoleAsync(user, rolename);
+            if (result.Contains(rolename)) await _usermanager.AddToRoleAsync(user, rolename);
             return RedirectToPage("./Admin");
         }
 

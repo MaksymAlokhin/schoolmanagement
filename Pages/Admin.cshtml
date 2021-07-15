@@ -7,33 +7,44 @@
 }
 
 <h2>Змініть повноваження</h2>
-@*asp-page-handler="filter" asp-page="./Admin"*@
+
 <form method="get">
     <div class="form-action col-md-4">
-        <label asp-for="@Model.NoRoles">Без повноважень</label>
-        <input asp-for="@Model.NoRoles" type="checkbox" value="@Model.NoRoles" /> |
-        @*<input type="checkbox"
-            name="NoRoles"
-            value="@Model.NoRoles"
-            @(Html.Raw(@Model.NoRoles ? "checked=\"checked\"" : "")) />*@
-
+        <label>Без повноважень</label>
+        <input type="checkbox" value="True" data-val="true" data-val-required="The NoRoles field is required." id="noRoles" name="noRoles" @(Html.Raw(Model.NoRoles ? "checked=\"checked\"" : "")) /> |
         <input type="submit" value="Фільтр" class="btn btn-primary" />
     </div>
 </form>
+
+@*<form method="get">
+        <div class="form-action col-md-4">
+            <label asp-for="@Model.NoRoles">Без повноважень</label>
+            <input asp-for="@Model.NoRoles" type="checkbox" value="@Model.NoRoles" /> |
+            <input type="submit" value="Фільтр" class="btn btn-primary" />
+        </div>
+    </form>*@
+
+@*<form method="get">
+        <div class="form-action col-md-4">
+            <label asp-for="@Model.NoRoles">Без повноважень</label>
+            <input asp-for="@Model.NoRoles" type="checkbox" value="@Model.NoRoles" /> |
+            <input type="submit" value="Фільтр" class="btn btn-primary" />
+        </div>
+    </form>*@
 
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.userRoles[0].UserName)
+                @Html.DisplayNameFor(model => model.userRolesPaginated[0].UserName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.userRoles[0].RoleName)
+                @Html.DisplayNameFor(model => model.userRolesPaginated[0].RoleName)
             </th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.userRoles)
+        @foreach (var item in Model.userRolesPaginated)
         {
             <tr>
                 <td>
@@ -41,12 +52,14 @@
                 </td>
                 <td>
                     <form method="post">
-                        <div class="form-group col-md-4">
+                        <span class="form-group col-md-4">
                             <input type="hidden" name="mainid" value="@item.UserId" />
                             <select class="userselect" asp-items="@Model.RoleNameSL" name="rolename">
                                 <option selected>@item.RoleName</option>
+                                <option>Без повноважень</option>
                             </select>
-                        </div>
+                            <input type="submit" value="Змінити" class="btn btn-primary"/>
+                        </span>
                     </form>
                 </td>
             </tr>
@@ -54,13 +67,32 @@
     </tbody>
 </table>
 
+@{
+    var prevDisabled = !Model.userRolesPaginated.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.userRolesPaginated.HasNextPage ? "disabled" : "";
+}
+
+<a asp-page="./Admin"
+   asp-route-noRoles="@Model.NoRoles"
+   asp-route-pageIndex="@(Model.userRolesPaginated.PageIndex - 1)"
+   class="btn btn-primary @prevDisabled">
+    Попередня
+</a>
+<a asp-page="./Admin"
+   asp-route-noRoles="@Model.NoRoles"
+   asp-route-pageIndex="@(Model.userRolesPaginated.PageIndex + 1)"
+   class="btn btn-primary @nextDisabled">
+    Наступна
+</a>
+
+
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    <script>
-        $(function () {
-            $(".userselect").change(function () {
-                $(this).closest('form').submit();
+    @*<script>
+            $(function () {
+                $(".userselect").change(function () {
+                    $(this).closest('form').submit();
+                })
             })
-        })
-    </script>
+        </script>*@
 }
