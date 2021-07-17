@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "d:\\3\\sms\\sms.csproj": {}
+    "d:\\КПІ\\Projects\\sms\\sms.csproj": {}
   },
   "projects": {
-    "d:\\3\\sms\\sms.csproj": {
+    "d:\\КПІ\\Projects\\sms\\sms.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\3\\sms\\sms.csproj",
+        "projectUniqueName": "d:\\КПІ\\Projects\\sms\\sms.csproj",
         "projectName": "sms",
-        "projectPath": "d:\\3\\sms\\sms.csproj",
+        "projectPath": "d:\\КПІ\\Projects\\sms\\sms.csproj",
         "packagesPath": "C:\\Users\\Maksym\\.nuget\\packages\\",
-        "outputPath": "d:\\3\\sms\\obj\\",
+        "outputPath": "d:\\КПІ\\Projects\\sms\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -92,7 +92,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

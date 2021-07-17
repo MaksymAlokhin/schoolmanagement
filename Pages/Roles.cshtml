@@ -1,8 +1,8 @@
 ﻿@page
-@model sms.Pages.AdminModel
+@model sms.Pages.RolesModel
 @{
-    ViewData["Title"] = "Admin";
-    ViewData["ActivePage"] = NavPages.Admin;
+    ViewData["Title"] = "Повноваження";
+    ViewData["ActivePage"] = NavPages.Roles;
     Layout = "~/Pages/Shared/_LayoutInner.cshtml";
 }
 
@@ -11,26 +11,9 @@
 <form method="get">
     <div class="form-action col-md-4">
         <label>Без повноважень</label>
-        <input type="checkbox" value="True" data-val="true" data-val-required="The NoRoles field is required." id="noRoles" name="noRoles" @(Html.Raw(Model.NoRoles ? "checked=\"checked\"" : "")) /> |
-        <input type="submit" value="Фільтр" class="btn btn-primary" />
+        <input type="checkbox" value="True" data-val="true" onchange="this.form.submit();" data-val-required="The NoRoles field is required." id="noRoles" name="noRoles" @(Html.Raw(Model.NoRoles ? "checked=\"checked\"" : "")) />
     </div>
 </form>
-
-@*<form method="get">
-        <div class="form-action col-md-4">
-            <label asp-for="@Model.NoRoles">Без повноважень</label>
-            <input asp-for="@Model.NoRoles" type="checkbox" value="@Model.NoRoles" /> |
-            <input type="submit" value="Фільтр" class="btn btn-primary" />
-        </div>
-    </form>*@
-
-@*<form method="get">
-        <div class="form-action col-md-4">
-            <label asp-for="@Model.NoRoles">Без повноважень</label>
-            <input asp-for="@Model.NoRoles" type="checkbox" value="@Model.NoRoles" /> |
-            <input type="submit" value="Фільтр" class="btn btn-primary" />
-        </div>
-    </form>*@
 
 <table class="table">
     <thead>
@@ -54,11 +37,13 @@
                     <form method="post">
                         <span class="form-group col-md-4">
                             <input type="hidden" name="mainid" value="@item.UserId" />
-                            <select class="userselect" asp-items="@Model.RoleNameSL" name="rolename">
+                            <select class="userselect" asp-items="@Model.RoleNameSL" name="rolename" onchange="this.form.submit();">
                                 <option selected>@item.RoleName</option>
                                 <option>Без повноважень</option>
                             </select>
-                            <input type="submit" value="Змінити" class="btn btn-primary"/>
+                            <input type="hidden" name="noRoles" value="@Model.NoRoles" />
+                            <input type="hidden" name="@Model.userRolesPaginated.PageIndex" value="@item.UserId" />
+                            @*<input type="submit" value="Змінити" class="btn btn-primary" />*@
                         </span>
                     </form>
                 </td>

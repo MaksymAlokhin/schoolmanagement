@@ -15,7 +15,7 @@ using Microsoft.Extensions.Configuration;
 namespace sms.Pages
 {
     [Authorize(Roles = "Адміністратор")]
-    public class AdminModel : PageModel
+    public class RolesModel : PageModel
     {
         public SelectList RoleNameSL { get; set; }
         private readonly Data.ApplicationDbContext _context;
@@ -25,7 +25,7 @@ namespace sms.Pages
         public PaginatedList<UserRoles> userRolesPaginated { get; set; }
         public bool NoRoles { get; set; }
 
-        public AdminModel(sms.Data.ApplicationDbContext context, 
+        public RolesModel(sms.Data.ApplicationDbContext context, 
             UserManager<IdentityUser> usermanager, 
             IConfiguration configuration)
         {
@@ -79,7 +79,7 @@ namespace sms.Pages
                 userRoles, pageIndex ?? 1, pageSize);
         }
 
-        public async Task<IActionResult> OnPostAsync(string mainid, string rolename)
+        public async Task<IActionResult> OnPostAsync(string mainid, string rolename, bool noRoles, int? pageIndex)
         {
             //IEnumerable<string> roles = _context.Roles.Select(x => x.Name).OrderBy(x=>x).ToList();
             var rolesQuery = _context.Roles.OrderBy(r => r.Name).ToList();
@@ -87,8 +87,10 @@ namespace sms.Pages
             var user = await _usermanager.FindByIdAsync(mainid);
             var roles = await _usermanager.GetRolesAsync(user);
             await _usermanager.RemoveFromRolesAsync(user, roles);
+            //noroles is not added (or you get error)
             if (result.Contains(rolename)) await _usermanager.AddToRoleAsync(user, rolename);
-            return RedirectToPage("./Admin");
+            //return RedirectToAction("OnGetAsync", new { noRoles = "noRoles", pageIndex = "pageIndex" });
+            return RedirectToPage("./Admin", new { noRoles = noRoles, pageIndex = pageIndex });
         }
 
     }
