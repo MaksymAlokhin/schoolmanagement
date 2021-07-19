@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using sms.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,5 +13,11 @@ namespace sms.Data
             : base(options)
         {
         }
+
+        public DbSet<Grade> Grades { get; set; }
+        public DbSet<Lesson> Lessons { get; set; }
+        public DbSet<Student> Students { get; set; }
+        public DbSet<Subject> Subjects { get; set; }
+        public DbSet<Teacher> Teachers { get; set; }
     }
 }

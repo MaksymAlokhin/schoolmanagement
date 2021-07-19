@@ -8,7 +8,10 @@ namespace sms.Models
 {
     public class Subject
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
+
+        [Required]
+        [StringLength(50)]
         [Display(Name = "Предмет")]
         public string Name { get; set; }
 

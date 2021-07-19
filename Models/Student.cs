@@ -10,7 +10,7 @@ namespace sms
 {
     public class Student
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
 
         [Required]
         [StringLength(50, ErrorMessage = "Прізвище не може бути довше за 50 символів.")]
@@ -22,7 +22,6 @@ namespace sms
         [Display(Name = "Ім'я")]
         public string FirstName { get; set; }
 
-        [Required]
         [StringLength(50, ErrorMessage = "По батькові не може бути довше за 50 символів.")]
         [Display(Name = "По батькові")]
         public string Patronymic { get; set; }
@@ -31,6 +30,11 @@ namespace sms
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name = "Дата народження")]
         public DateTime DateOfBirth { get; set; }
+
+        [StringLength(50)]
+        [Display(Name = "Адреса")]
+        public string Address { get; set; }
+
         [Display(Name = "ПІБ")]
         public string FullName
         {
@@ -39,7 +43,7 @@ namespace sms
                 return LastName + ", " + FirstName + ", " + Patronymic;
             }
         }
-
+        public int GradeId { get; set; }
         public Grade Grade { get; set; }
     }
 }

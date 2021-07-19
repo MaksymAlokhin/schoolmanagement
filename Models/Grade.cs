@@ -8,7 +8,8 @@ namespace sms.Models
 {
     public class Grade
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
+
         [Display(Name = "Клас")]
         public int Number { get; set; }
         [Display(Name = "Буква")]
