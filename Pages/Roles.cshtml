@@ -57,13 +57,13 @@
     var nextDisabled = !Model.userRolesPaginated.HasNextPage ? "disabled" : "";
 }
 
-<a asp-page="./Admin"
+<a asp-page="./Roles"
    asp-route-noRoles="@Model.NoRoles"
    asp-route-pageIndex="@(Model.userRolesPaginated.PageIndex - 1)"
    class="btn btn-primary @prevDisabled">
     Попередня
 </a>
-<a asp-page="./Admin"
+<a asp-page="./Roles"
    asp-route-noRoles="@Model.NoRoles"
    asp-route-pageIndex="@(Model.userRolesPaginated.PageIndex + 1)"
    class="btn btn-primary @nextDisabled">

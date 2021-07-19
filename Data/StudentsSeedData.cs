@@ -603,7 +603,7 @@ namespace sms.Data
             LastName = "Тіщенко",
             FirstName = "Таїсія",
             Patronymic = "Едуардівна",
-            DateOfBirth = DateTime.Parse("2010-15-12"),
+            DateOfBirth = DateTime.Parse("2010-05-12"),
             Address = "вул. Кармелюка, буд. 44, кв. 15",
         };
         #endregion

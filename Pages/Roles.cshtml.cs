@@ -90,7 +90,7 @@ namespace sms.Pages
             //noroles is not added (or you get error)
             if (result.Contains(rolename)) await _usermanager.AddToRoleAsync(user, rolename);
             //return RedirectToAction("OnGetAsync", new { noRoles = "noRoles", pageIndex = "pageIndex" });
-            return RedirectToPage("./Admin", new { noRoles = noRoles, pageIndex = pageIndex });
+            return RedirectToPage("./Roles", new { noRoles = noRoles, pageIndex = pageIndex });
         }
 
     }

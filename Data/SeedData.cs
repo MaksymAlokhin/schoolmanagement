@@ -102,12 +102,22 @@ namespace sms.Data
             {
                 return;   // DB has been seeded
             }
+            //var gr = new Grade[]
+            //{
+            //            new Grade
+            //            {
+            //                Number = 1,
+            //                Letter = "А",
+            //            }
 
-            context.Students.AddRange(StudentsSeedData.data);
-            context.Grades.AddRange(GradesSeedData.data);
-            context.Teachers.AddRange(TeachersSeedData.data);
-            context.Subjects.AddRange(SubjectsSeedData.data);
-            context.Lessons.AddRange(LessonsSeedData.data);
+            //};
+            //context.AddRange(gr);
+
+            context.AddRange(StudentsSeedData.data);
+            context.AddRange(GradesSeedData.data);
+            context.AddRange(TeachersSeedData.data);
+            context.AddRange(SubjectsSeedData.data);
+            context.AddRange(LessonsSeedData.data);
             context.SaveChanges();
         }
 
