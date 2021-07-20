@@ -23,15 +23,6 @@ namespace sms.Pages
         public TimeTableModel(ApplicationDbContext context)
         {
             _context = context;
-            lessons = _context.Lessons
-                .Where(i => i.day == day.Ïí)
-                .Include(i => i.Teacher)
-                    .ThenInclude(c => c.Subjects)
-                .Include(i => i.Subject)
-                    .ThenInclude(g => g.Teachers)
-                .Include(i => i.Grade)
-                .OrderBy(i => i.Teacher.LastName)
-                .ToList();
         }
         public async Task OnGetAsync(day ttday = day.Ïí)
         {
