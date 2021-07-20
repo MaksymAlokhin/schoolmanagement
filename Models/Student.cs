@@ -40,7 +40,7 @@ namespace sms
         {
             get
             {
-                return LastName + ", " + FirstName + ", " + Patronymic;
+                return LastName + " " + FirstName + " " + Patronymic;
             }
         }
         public int GradeId { get; set; }

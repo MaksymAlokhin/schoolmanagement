@@ -14,6 +14,17 @@ namespace sms.Data
         {
         }
 
+        //not necessary to configure enum to string conversion, it is by default so(?)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Lesson>()
+                .Property(e => e.day)
+                .HasConversion(
+                v => v.ToString(),
+                v => (day)Enum.Parse(typeof(day), v));
+        }
+
         public DbSet<Grade> Grades { get; set; }
         public DbSet<Lesson> Lessons { get; set; }
         public DbSet<Student> Students { get; set; }

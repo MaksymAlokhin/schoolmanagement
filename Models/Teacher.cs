@@ -30,7 +30,7 @@ namespace sms.Models
         {
             get
             {
-                return LastName + ", " + FirstName + ", " + Patronymic;
+                return LastName + " " + FirstName + " " + Patronymic;
             }
         }
         public ICollection<Subject> Subjects { get; set; }

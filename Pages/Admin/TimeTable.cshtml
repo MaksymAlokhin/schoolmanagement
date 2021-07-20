@@ -1,0 +1,73 @@
+﻿@page
+@model sms.Pages.TimeTableModel
+
+<div class="form-group">
+    <form method="get">
+        <label class="control-label">Оберіть день:</label>
+        <select style="width:60px" name="ttday" onchange="this.form.submit();">
+            @{var day_list = Html.GetEnumSelectList<Models.day>();
+                foreach (var item in day_list)
+                {
+                    if (item.Text == Model.selectedDay.ToString())
+                    {
+                        <option value="@item.Value" selected>@item.Text</option>
+                    }
+                    else
+                    {
+                        <option value="@item.Value">@item.Text</option>
+                    }
+
+                }
+            }
+        </select>
+    </form>
+</div>
+
+
+<div class="table-responsive col-container" id="schoolTable">
+    <table class="table table-hover table-bordered table-striped">
+        <thead>
+            <tr>
+                @{
+                    <th scope="col"></th>
+                    for (var i = 1; i <= 8; i++)
+                    {
+                        <th scope="col">
+                            @i
+                        </th>
+                    }
+                }
+            </tr>
+        </thead>
+        <tbody>
+            
+                @{
+                    for (var teacher = 0; teacher < Model.teachers.Count; teacher++)
+                    {
+                            <tr>
+                                <th scope="row">@Model.teachers[teacher].FullName</th>
+                                @{
+                                    for (var slot = 1; slot <= 8; slot++)
+                                    {
+                                        <td>
+                                            <a asp-page="/Admin/TimeTable"
+                                               asp-route-day="@Model.selectedDay"
+                                               asp-route-slot="@slot"
+                                               asp-route-teacher="@Model.teachers[teacher].Id"
+                                               class="btn btn-link">
+                                                @{
+                                                    var les = @Model.lessons.Where(i => i.Teacher.Id == Model.teachers[teacher].Id).Where(i => i.day == Model.selectedDay).Where(i => i.Slot == slot).Select(i => i.Grade.FullName);
+                                                    foreach (var i in les)
+                                                    { @i };
+                                                }
+
+                                            </a>
+                                        </td>
+                                    }
+                                }
+                            </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>

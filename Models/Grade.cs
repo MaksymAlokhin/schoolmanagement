@@ -14,6 +14,13 @@ namespace sms.Models
         public int Number { get; set; }
         [Display(Name = "Буква")]
         public string Letter { get; set; }
+        public string FullName
+        {
+            get
+            {
+                return Number + "-" + Letter;
+            }
+        }
 
         public ICollection<Student> Students { get; set; }
     }

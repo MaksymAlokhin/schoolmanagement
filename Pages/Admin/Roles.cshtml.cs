@@ -20,7 +20,7 @@ namespace sms.Pages
         public SelectList RoleNameSL { get; set; }
         private readonly Data.ApplicationDbContext _context;
         private readonly UserManager<IdentityUser> _usermanager;
-        private readonly RoleManager<IdentityUser> _rolemanager;
+        //private readonly RoleManager<IdentityUser> _rolemanager;
         private readonly IConfiguration Configuration;
         public PaginatedList<UserRoles> userRolesPaginated { get; set; }
         public bool NoRoles { get; set; }
@@ -90,7 +90,7 @@ namespace sms.Pages
             //noroles is not added (or you get error)
             if (result.Contains(rolename)) await _usermanager.AddToRoleAsync(user, rolename);
             //return RedirectToAction("OnGetAsync", new { noRoles = "noRoles", pageIndex = "pageIndex" });
-            return RedirectToPage("./Roles", new { noRoles = noRoles, pageIndex = pageIndex });
+            return RedirectToPage("./Admin/Roles", new { noRoles = noRoles, pageIndex = pageIndex });
         }
 
     }

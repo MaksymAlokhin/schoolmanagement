@@ -102,16 +102,6 @@ namespace sms.Data
             {
                 return;   // DB has been seeded
             }
-            //var gr = new Grade[]
-            //{
-            //            new Grade
-            //            {
-            //                Number = 1,
-            //                Letter = "А",
-            //            }
-
-            //};
-            //context.AddRange(gr);
 
             context.AddRange(StudentsSeedData.data);
             context.AddRange(GradesSeedData.data);
