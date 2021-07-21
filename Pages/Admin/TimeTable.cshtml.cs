@@ -18,19 +18,19 @@ namespace sms.Pages
         private readonly ApplicationDbContext _context;
         public List<sms.Models.Lesson> lessons;
         public List<sms.Models.Teacher> teachers;
-        public day selectedDay;
+        public string selectedDay;
 
         public TimeTableModel(ApplicationDbContext context)
         {
             _context = context;
         }
-        public async Task OnGetAsync(day ttday = day.Ïí)
+        public async Task OnGetAsync(string ttday = "Ïí")
         {
             teachers = await _context.Teachers
                 .OrderBy(i => i.LastName)
                 .ToListAsync();
             lessons = await _context.Lessons
-                .Where(i=>i.day == ttday)
+                .Where(i=>i.day == (day)Enum.Parse(typeof(day), ttday))
                 .Include(i => i.Teacher)
                     .ThenInclude(c => c.Subjects)
                 .Include(i => i.Subject)

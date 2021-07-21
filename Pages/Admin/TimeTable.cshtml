@@ -1,5 +1,9 @@
 ﻿@page
 @model sms.Pages.TimeTableModel
+@{
+    ViewData["Title"] = "Розклад";
+}
+
 
 <div class="form-group">
     <form method="get">
@@ -46,7 +50,7 @@
                     {
                         <td style="text-align:center">
                             @{
-                                var les = @Model.lessons.Where(i => i.Teacher.Id == Model.teachers[teacher].Id).Where(i => i.day == Model.selectedDay).Where(i => i.Slot == slot).Select(i => i.Grade.FullName);
+                                var les = @Model.lessons.Where(i => i.Teacher.Id == Model.teachers[teacher].Id).Where(i => i.day == (Models.day)Enum.Parse(typeof(Models.day), Model.selectedDay)).Where(i => i.Slot == slot).Select(i => i.Grade.FullName);
                                 var empty = (les.Count() == 0);
                                 var buttonType = empty ? "btn-light" : "btn-secondary";
                             }
@@ -55,8 +59,10 @@
                                asp-route-slot="@slot"
                                asp-route-teacher="@Model.teachers[teacher].Id"
                                class="btn @buttonType">
-                                @if (empty) {<text>+</text>}
-                                @foreach (var i in les) {@i}
+                                @if (empty)
+                                {<text>+</text>}
+                                @foreach (var i in les)
+                                {@i}
                             </a>
                         </td>
                     }

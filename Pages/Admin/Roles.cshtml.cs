@@ -81,16 +81,17 @@ namespace sms.Pages
 
         public async Task<IActionResult> OnPostAsync(string mainid, string rolename, bool noRoles, int? pageIndex)
         {
+            NoRoles = noRoles;
             //IEnumerable<string> roles = _context.Roles.Select(x => x.Name).OrderBy(x=>x).ToList();
             var rolesQuery = _context.Roles.OrderBy(r => r.Name).ToList();
             string result = string.Join(",", rolesQuery);
             var user = await _usermanager.FindByIdAsync(mainid);
             var roles = await _usermanager.GetRolesAsync(user);
             await _usermanager.RemoveFromRolesAsync(user, roles);
-            //noroles is not added (or you get error)
+            //Без повноважень is not added (or you get error)
             if (result.Contains(rolename)) await _usermanager.AddToRoleAsync(user, rolename);
             //return RedirectToAction("OnGetAsync", new { noRoles = "noRoles", pageIndex = "pageIndex" });
-            return RedirectToPage("./Admin/Roles", new { noRoles = noRoles, pageIndex = pageIndex });
+            return RedirectToPage("/Admin/Roles", new { noRoles = noRoles, pageIndex = pageIndex });
         }
 
     }

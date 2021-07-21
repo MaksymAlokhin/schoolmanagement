@@ -1,0 +1,35 @@
+﻿@page
+@model sms.Pages.Grades.DeleteModel
+
+@{
+    ViewData["Title"] = "Видалити";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Видалити</h1>
+
+<h3>Ви впевнені, що хочете видалити?</h3>
+<div>
+    <h4>Клас</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Grade.Number)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Grade.Number)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Grade.Letter)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Grade.Letter)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Grade.Id" />
+        <input type="submit" value="Видалити" class="btn btn-danger" /> |
+        <a asp-page="./Index">Назад</a>
+    </form>
+</div>

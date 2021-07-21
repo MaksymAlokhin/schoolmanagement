@@ -20,11 +20,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Pages\Grades\" />
-    <Folder Include="Pages\Lessons\" />
-    <Folder Include="Pages\Teachers\" />
-    <Folder Include="Pages\Subjects\" />
-    <Folder Include="Pages\Students\" />
     <Folder Include="Pages\Users\" />
   </ItemGroup>
 

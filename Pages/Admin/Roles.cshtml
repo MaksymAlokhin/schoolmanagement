@@ -2,8 +2,6 @@
 @model sms.Pages.RolesModel
 @{
     ViewData["Title"] = "Повноваження";
-    ViewData["ActivePage"] = NavPages.Roles;
-    Layout = "~/Pages/Shared/_LayoutInner.cshtml";
 }
 
 <h2>Змініть повноваження</h2>
@@ -41,8 +39,10 @@
                                 <option selected>@item.RoleName</option>
                                 <option>Без повноважень</option>
                             </select>
-                            <input type="hidden" name="noRoles" value="@Model.NoRoles" />
-                            <input type="hidden" name="@Model.userRolesPaginated.PageIndex" value="@item.UserId" />
+                            @*<input type="hidden" name="noRoles" value="@Model.NoRoles" />*@
+                            @*<input type="hidden" name="noRoles" value="@ViewContext.RouteData.Values["noRoles"]" />*@
+                            <input type="hidden" name="@Model.NoRoles" />
+                            <input type="hidden" name="@Model.userRolesPaginated.PageIndex" />
                             @*<input type="submit" value="Змінити" class="btn btn-primary" />*@
                         </span>
                     </form>
