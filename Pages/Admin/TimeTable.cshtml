@@ -28,50 +28,39 @@
     <table class="table table-hover table-bordered table-striped">
         <thead>
             <tr>
-                @{
-                    <th scope="col"></th>
-                    for (var i = 1; i <= 8; i++)
-                    {
-                        <th scope="col" style="text-align:center">
-                            @i
-                        </th>
-                    }
+                <th scope="col"></th>
+                @for (var i = 1; i <= 8; i++)
+                {
+                    <th scope="col" style="text-align:center">
+                        @i
+                    </th>
                 }
             </tr>
         </thead>
         <tbody>
-            @{
-                for (var teacher = 0; teacher < Model.teachers.Count; teacher++)
-                {
-                    <tr>
-                        <th scope="row">@Model.teachers[teacher].FullName</th>
-                        @{
-                            for (var slot = 1; slot <= 8; slot++)
-                            {
-                                <td style="text-align:center">
-                                    @{
-                                        var les = @Model.lessons.Where(i => i.Teacher.Id == Model.teachers[teacher].Id).Where(i => i.day == Model.selectedDay).Where(i => i.Slot == slot).Select(i => i.Grade.FullName);
-                                        var empty = (les.Count() == 0);
-                                        var buttonType = empty ? "btn-light" : "btn-secondary";
-                                    }
-                                    <a asp-page="/Admin/TimeTable"
-                                       asp-route-day="@Model.selectedDay"
-                                       asp-route-slot="@slot"
-                                       asp-route-teacher="@Model.teachers[teacher].Id"
-                                       class="btn @buttonType">
-                                        @{
-                                            if (empty)
-                                            {<text>+</text>};
-                                        foreach (var i in les)
-                                        { @i };
-                                        }
-
-                                    </a>
-                                </td>
+            @for (var teacher = 0; teacher < Model.teachers.Count; teacher++)
+            {
+                <tr>
+                    <th scope="row">@Model.teachers[teacher].FullName</th>
+                    @for (var slot = 1; slot <= 8; slot++)
+                    {
+                        <td style="text-align:center">
+                            @{
+                                var les = @Model.lessons.Where(i => i.Teacher.Id == Model.teachers[teacher].Id).Where(i => i.day == Model.selectedDay).Where(i => i.Slot == slot).Select(i => i.Grade.FullName);
+                                var empty = (les.Count() == 0);
+                                var buttonType = empty ? "btn-light" : "btn-secondary";
                             }
-                        }
-                    </tr>
-                }
+                            <a asp-page="/Admin/TimeTable"
+                               asp-route-day="@Model.selectedDay"
+                               asp-route-slot="@slot"
+                               asp-route-teacher="@Model.teachers[teacher].Id"
+                               class="btn @buttonType">
+                                @if (empty) {<text>+</text>}
+                                @foreach (var i in les) {@i}
+                            </a>
+                        </td>
+                    }
+                </tr>
             }
         </tbody>
     </table>
