@@ -32,7 +32,6 @@ namespace sms.Pages
             _context = context;
             _usermanager = usermanager;
             Configuration = configuration;
-            //NoRoles = true;
         }
         //public UserRolesData userRolesData { get; set; }
         public IList<UserRoles> userRoles { get; set; }

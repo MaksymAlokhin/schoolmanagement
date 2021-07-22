@@ -17,60 +17,81 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link text-dark dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Адміністратор</a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="/Admin/Roles">Повноваження</a>
-                                <a class="dropdown-item" href="/Admin/TimeTable">Розклад</a>
-                                <a class="dropdown-item" href="/Dictionary/Teachers/Index">Довідник: вчителі</a>
-                                <a class="dropdown-item" href="/Dictionary/Grades/Index">Довідник: класи</a>
-                                <a class="dropdown-item" href="/Dictionary/Students/Index">Довідник: учні</a>
-                                <a class="dropdown-item" href="/Dictionary/Subjects/Index">Довідник: предмети</a>
-                            </div>
-                        </li>
+                        @if (ViewContext.HttpContext.User.IsInRole("Адміністратор"))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link text-dark dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Адміністратор</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="/Admin/Roles">Повноваження</a>
+                                    <a class="dropdown-item" href="/Admin/TimeTable">Розклад</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="/Dictionary/Teachers/Index">Довідник: вчителі</a>
+                                    <a class="dropdown-item" href="/Dictionary/Grades/Index">Довідник: класи</a>
+                                    <a class="dropdown-item" href="/Dictionary/Students/Index">Довідник: учні</a>
+                                    <a class="dropdown-item" href="/Dictionary/Subjects/Index">Довідник: предмети</a>
+                                </div>
+                            </li>
+                        }
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link text-dark dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Завгосп</a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="/Steward/Template">Меню</a>
-                            </div>
-                        </li>
+                        @if (ViewContext.HttpContext.User.IsInRole("Адміністратор") || ViewContext.HttpContext.User.IsInRole("Завгосп"))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link text-dark dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Завгосп</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="/StewardPages/Template">Меню</a>
+                                </div>
+                            </li>
+                        }
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link text-dark dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Вчитель</a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="/Teacher/Template">Меню</a>
-                            </div>
-                        </li>
+                        @if (ViewContext.HttpContext.User.IsInRole("Адміністратор") || ViewContext.HttpContext.User.IsInRole("Вчитель"))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link text-dark dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Вчитель</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="/TeacherPages/Template">Меню</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="/Dictionary/Teachers/Index">Довідник: вчителі</a>
+                                    <a class="dropdown-item" href="/Dictionary/Grades/Index">Довідник: класи</a>
+                                    <a class="dropdown-item" href="/Dictionary/Students/Index">Довідник: учні</a>
+                                    <a class="dropdown-item" href="/Dictionary/Subjects/Index">Довідник: предмети</a>
+                                </div>
+                            </li>
+                        }
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link text-dark dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Бібліотекар</a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="/Librarian/Template">Меню</a>
-                            </div>
-                        </li>
+                        @if (ViewContext.HttpContext.User.IsInRole("Адміністратор") || ViewContext.HttpContext.User.IsInRole("Бібліотекар"))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link text-dark dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Бібліотекар</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="/LibrarianPages/Template">Меню</a>
+                                </div>
+                            </li>
+                        }
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link text-dark dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Батьки</a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="/Parent/Template">Меню</a>
-                            </div>
-                        </li>
+                        @if (ViewContext.HttpContext.User.IsInRole("Адміністратор") || ViewContext.HttpContext.User.IsInRole("Батьки"))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link text-dark dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Батьки</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="/ParentPages/Template">Меню</a>
+                                </div>
+                            </li>
+                        }
 
                         @*<li class="nav-item dropdown">
-                            <a class="nav-link text-dark dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Example</a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Separated link</a>
-                            </div>
-                        </li>*@
-
+                                <a class="nav-link text-dark dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Example</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Separated link</a>
+                                </div>
+                            </li>*@
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>

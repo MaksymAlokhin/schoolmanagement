@@ -39,11 +39,8 @@
                                 <option selected>@item.RoleName</option>
                                 <option>Без повноважень</option>
                             </select>
-                            @*<input type="hidden" name="noRoles" value="@Model.NoRoles" />*@
-                            @*<input type="hidden" name="noRoles" value="@ViewContext.RouteData.Values["noRoles"]" />*@
                             <input type="hidden" name="@Model.NoRoles" />
                             <input type="hidden" name="@Model.userRolesPaginated.PageIndex" />
-                            @*<input type="submit" value="Змінити" class="btn btn-primary" />*@
                         </span>
                     </form>
                 </td>
