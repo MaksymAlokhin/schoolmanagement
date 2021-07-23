@@ -7,18 +7,18 @@
 
 <div class="form-group">
     <form method="get">
-        <label class="control-label">Оберіть день:</label>
-        <select style="width:60px" name="ttday" onchange="this.form.submit();">
+        <label class="control-label"><i class="fas fa-calendar-day"></i></label>
+        <select style="width:60px" name="day" onchange="this.form.submit();">
             @{var day_list = Html.GetEnumSelectList<Models.day>();
                 foreach (var item in day_list)
                 {
-                    if (item.Text == Model.selectedDay.ToString())
+                    if (item.Text == Model.selectedDay)
                     {
-                        <option value="@item.Value" selected>@item.Text</option>
+                        <option value="@item.Text" selected>@item.Text</option>
                     }
                     else
                     {
-                        <option value="@item.Value">@item.Text</option>
+                        <option value="@item.Text">@item.Text</option>
                     }
 
                 }
@@ -60,7 +60,7 @@
                                asp-route-teacher="@Model.teachers[teacher].Id"
                                class="btn @buttonType">
                                 @if (empty)
-                                {<text>+</text>}
+                                {<i class="fas fa-plus"></i>}
                                 @foreach (var i in les)
                                 {@i}
                             </a>

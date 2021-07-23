@@ -18,7 +18,14 @@ namespace sms.Models
         {
             get
             {
-                return Number + "-" + Letter;
+                if (string.IsNullOrEmpty(Letter))
+                {
+                    return Number.ToString();
+                }
+                else
+                {
+                    return Number + "-" + Letter;
+                }
             }
         }
 

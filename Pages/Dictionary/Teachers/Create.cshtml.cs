@@ -21,25 +21,39 @@ namespace sms.Pages.Teachers
             _context = context;
         }
 
-        public IActionResult OnGet()
-        {
-            return Page();
-        }
-
+        public List<int> selectedSubjects { get; set; }
+        public SelectList SubjectNameSL { get; set; }
         [BindProperty]
         public Teacher Teacher { get; set; }
 
-        // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
-        public async Task<IActionResult> OnPostAsync()
+        public IActionResult OnGet()
         {
-            if (!ModelState.IsValid)
+            var subjectsQuery = _context.Subjects.OrderBy(r => r.Name);
+            SubjectNameSL = new SelectList(subjectsQuery, "Id", "Name"); //list, id, value
+
+            return Page();
+        }
+
+        // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
+        public async Task<IActionResult> OnPostAsync(int[] selectedSubjects)
+        {
+            var newTeacher = new Teacher();
+            newTeacher.Subjects = new List<Subject>();
+
+            if (await TryUpdateModelAsync<Teacher>(
+                            newTeacher,
+                            "Teacher",
+                            i => i.LastName, i => i.FirstName, i => i.Patronymic))
             {
-                return Page();
+                foreach(var subj in selectedSubjects)
+                {
+                    newTeacher.Subjects.Add(_context.Subjects.Single(s => s.Id == subj));
+                }
+
+                _context.Teachers.Add(newTeacher);
+                await _context.SaveChangesAsync();
+                return RedirectToPage("./Index");
             }
-
-            _context.Teachers.Add(Teacher);
-            await _context.SaveChangesAsync();
-
             return RedirectToPage("./Index");
         }
     }

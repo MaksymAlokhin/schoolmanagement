@@ -24,13 +24,13 @@ namespace sms.Pages
         {
             _context = context;
         }
-        public async Task OnGetAsync(string ttday = "Ïí")
+        public async Task OnGetAsync(string day = "Ïí")
         {
             teachers = await _context.Teachers
                 .OrderBy(i => i.LastName)
                 .ToListAsync();
             lessons = await _context.Lessons
-                .Where(i=>i.day == (day)Enum.Parse(typeof(day), ttday))
+                .Where(i=>i.day == (day)Enum.Parse(typeof(day), day))
                 .Include(i => i.Teacher)
                     .ThenInclude(c => c.Subjects)
                 .Include(i => i.Subject)
@@ -38,7 +38,7 @@ namespace sms.Pages
                 .Include(i => i.Grade)
                 .OrderBy(i => i.Teacher.LastName)
                 .ToListAsync();
-            selectedDay = ttday;
+            selectedDay = day;
         }
     }
 }

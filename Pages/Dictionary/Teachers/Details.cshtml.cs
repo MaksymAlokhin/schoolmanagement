@@ -30,7 +30,7 @@ namespace sms.Pages.Teachers
                 return NotFound();
             }
 
-            Teacher = await _context.Teachers.FirstOrDefaultAsync(m => m.Id == id);
+            Teacher = await _context.Teachers.Include(x => x.Subjects).FirstOrDefaultAsync(m => m.Id == id);
 
             if (Teacher == null)
             {

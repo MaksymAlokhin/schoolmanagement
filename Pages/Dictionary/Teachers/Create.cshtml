@@ -29,6 +29,10 @@
                 <input asp-for="Teacher.Patronymic" class="form-control" />
                 <span asp-validation-for="Teacher.Patronymic" class="text-danger"></span>
             </div>
+
+            <select asp-for="selectedSubjects" asp-items="Model.SubjectNameSL" size="10">
+            </select>
+
             <div class="form-group">
                 <input type="submit" value="Створити" class="btn btn-primary" />
             </div>

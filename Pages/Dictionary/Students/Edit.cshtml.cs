@@ -22,7 +22,9 @@ namespace sms.Pages.Students
             _context = context;
         }
         public SelectList GradeNumbersSL { get; set; }
+        public int GradeNumber { get; set; }
         public SelectList GradeLettersSL { get; set; }
+        public string GradeLetter { get; set; }
 
         [BindProperty]
         public Student Student { get; set; }
@@ -50,23 +52,18 @@ namespace sms.Pages.Students
 
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(int? id, int GradeNumber, string GradeLetter)
         {
-            var test = Student;
-            var studentToUpdate = new Student();
+            var studentToUpdate = _context.Students.Include(t => t.Grade).Single(s => s.Id == id);
 
             if (await TryUpdateModelAsync<Student>(
                             studentToUpdate,
                             "Student",
-                            i => i.Id, i => i.LastName, i => i.FirstName, i => i.Patronymic,
+                            i => i.LastName, i => i.FirstName, i => i.Patronymic,
                             i => i.DateOfBirth, i => i.Address))
             {
-                var number = Convert.ToInt32(HttpContext.Request.Form["Student.Grade.Number"]);
-                var letter = Convert.ToString(HttpContext.Request.Form["Student.Grade.Letter"]);
-                studentToUpdate.GradeId = _context.Grades.Where(x => x.Number == number).Where(x => x.Letter == letter).FirstOrDefault().Id;
+                studentToUpdate.Grade = _context.Grades.Where(x => x.Number == GradeNumber).Where(x => x.Letter == GradeLetter).Single();
             }
-
-            _context.Attach(studentToUpdate).State = EntityState.Modified;
 
             try
             {

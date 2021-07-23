@@ -9,7 +9,7 @@
 <form method="get">
     <div class="form-action col-md-4">
         <label>Без повноважень</label>
-        <input type="checkbox" value="True" data-val="true" onchange="this.form.submit();" data-val-required="The NoRoles field is required." id="noRoles" name="noRoles" @(Html.Raw(Model.NoRoles ? "checked=\"checked\"" : "")) />
+        <input type="checkbox" value="True" data-val="true" onchange="this.form.submit();" data-val-required="The NoRolesCheckbox field is required." id="noRoles" name="noRoles" @(Html.Raw(Model.NoRolesCheckbox ? "checked=\"checked\"" : "")) />
     </div>
 </form>
 
@@ -39,7 +39,7 @@
                                 <option selected>@item.RoleName</option>
                                 <option>Без повноважень</option>
                             </select>
-                            <input type="hidden" name="@Model.NoRoles" />
+                            <input type="hidden" name="@Model.NoRolesCheckbox" />
                             <input type="hidden" name="@Model.userRolesPaginated.PageIndex" />
                         </span>
                     </form>
@@ -55,16 +55,16 @@
 }
 
 <a asp-page="/Admin/Roles"
-   asp-route-noRoles="@Model.NoRoles"
+   asp-route-noRoles="@Model.NoRolesCheckbox"
    asp-route-pageIndex="@(Model.userRolesPaginated.PageIndex - 1)"
    class="btn btn-primary @prevDisabled">
-    Попередня
+    <i class="fas fa-arrow-alt-circle-left fa-lg"></i>
 </a>
 <a asp-page="/Admin/Roles"
-   asp-route-noRoles="@Model.NoRoles"
+   asp-route-noRoles="@Model.NoRolesCheckbox"
    asp-route-pageIndex="@(Model.userRolesPaginated.PageIndex + 1)"
    class="btn btn-primary @nextDisabled">
-    Наступна
+    <i class="fas fa-arrow-alt-circle-right fa-lg"></i>
 </a>
 
 

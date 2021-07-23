@@ -30,6 +30,25 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Teacher.Patronymic)
         </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Teacher.Subjects.First().Name)
+        </dt>
+        <dd class="col-sm-10">
+            <table class="table">
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Teacher.Subjects.First().Name)</th>
+                </tr>
+                @foreach (var item in Model.Teacher.Subjects)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </dd>
     </dl>
 </div>
 <div>

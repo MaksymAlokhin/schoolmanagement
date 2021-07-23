@@ -9,35 +9,66 @@
 <h1>Список класів</h1>
 
 <p>
-    <a asp-page="Create">Створити</a>
+    <a asp-page="Create"><i class="fas fa-plus-circle fa-lg"></i></a>
 </p>
+
+<form asp-page="./Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            <input type="text" name="SearchString" value="@Model.CurrentFilter" placeholder="Пошук"/>
+            <button type="submit" class="btn btn-default">
+                <i class="fa fa-search"></i>
+            </button> |
+            <a asp-page="./Index" class="btn btn-default"><i class="fas fa-times"></i></a>
+        </p>
+    </div>
+</form>
+
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Grade[0].Number)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Grade[0].Letter)
+                <a asp-page="./Index" asp-route-sortOrder="@Model.NameSort"
+                   asp-route-currentFilter="@Model.CurrentFilter">
+                    @Html.DisplayNameFor(model => model.Grade[0].FullName)
+                </a>
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Grade) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Number)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Letter)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Редагувати</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Деталі</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Видалити</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.Grade)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FullName)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id"><i class="fas fa-pencil-alt fa-lg"></i></a> |
+                    <a asp-page="./Details" asp-route-id="@item.Id"><i class="fas fa-eye fa-lg"></i></a> |
+                    <a asp-page="./Delete" asp-route-id="@item.Id"><i class="fas fa-trash fa-lg"></i></a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+
+@{
+    var prevDisabled = !Model.Grade.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.Grade.HasNextPage ? "disabled" : "";
+}
+
+<a asp-page="./Index"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.Grade.PageIndex - 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   class="btn btn-primary @prevDisabled">
+    <i class="fas fa-arrow-alt-circle-left fa-lg"></i>
+</a>
+<a asp-page="./Index"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.Grade.PageIndex + 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   class="btn btn-primary @nextDisabled">
+    <i class="fas fa-arrow-alt-circle-right fa-lg"></i>
+</a>

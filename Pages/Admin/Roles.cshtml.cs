@@ -23,7 +23,7 @@ namespace sms.Pages
         //private readonly RoleManager<IdentityUser> _rolemanager;
         private readonly IConfiguration Configuration;
         public PaginatedList<UserRoles> userRolesPaginated { get; set; }
-        public bool NoRoles { get; set; }
+        public bool NoRolesCheckbox { get; set; }
 
         public RolesModel(sms.Data.ApplicationDbContext context, 
             UserManager<IdentityUser> usermanager, 
@@ -39,7 +39,7 @@ namespace sms.Pages
         public IList<IdentityUser> users { get; set; }
         public async Task OnGetAsync(bool noRoles, int? pageIndex)
         {
-            NoRoles = noRoles;
+            NoRolesCheckbox = noRoles;
             userRoles = new List<UserRoles>();
             users = await _context.Users
                 .OrderBy(u => u.UserName)
@@ -50,17 +50,17 @@ namespace sms.Pages
                 string role;
                 var user = await _usermanager.FindByIdAsync(u.Id);
                 var roles = await _usermanager.GetRolesAsync(user);
-                if (NoRoles && roles.Count == 0)
+                if (NoRolesCheckbox && roles.Count == 0)
                 {
                     role = "Без повноважень";
                     userRoles.Add(new UserRoles { RoleName = role, UserId = u.Id, UserName = u.UserName });
                 }
-                else if (!NoRoles && !(roles.Count == 0))
+                else if (!NoRolesCheckbox && !(roles.Count == 0))
                 {
                     role = roles[0];
                     userRoles.Add(new UserRoles { RoleName = role, UserId = u.Id, UserName = u.UserName });
                 }
-                else if (!NoRoles && roles.Count == 0)
+                else if (!NoRolesCheckbox && roles.Count == 0)
                 {
                     role = "Без повноважень";
                     userRoles.Add(new UserRoles { RoleName = role, UserId = u.Id, UserName = u.UserName });
@@ -80,16 +80,23 @@ namespace sms.Pages
 
         public async Task<IActionResult> OnPostAsync(string mainid, string rolename, bool noRoles, int? pageIndex)
         {
-            NoRoles = noRoles;
-            //IEnumerable<string> roles = _context.Roles.Select(x => x.Name).OrderBy(x=>x).ToList();
+            //Save checkbox state
+            NoRolesCheckbox = noRoles;
+            //Get all roles
             var rolesQuery = _context.Roles.OrderBy(r => r.Name).ToList();
-            string result = string.Join(",", rolesQuery);
+            string allroles = string.Join(",", rolesQuery);
+
+            //Get user and his role by id
             var user = await _usermanager.FindByIdAsync(mainid);
             var roles = await _usermanager.GetRolesAsync(user);
+
+            //Remove old role before adding new one
             await _usermanager.RemoveFromRolesAsync(user, roles);
+
+            //Check if there is an existing role befor assigning it.
             //Без повноважень is not added (or you get error)
-            if (result.Contains(rolename)) await _usermanager.AddToRoleAsync(user, rolename);
-            //return RedirectToAction("OnGetAsync", new { noRoles = "noRoles", pageIndex = "pageIndex" });
+            if (allroles.Contains(rolename)) await _usermanager.AddToRoleAsync(user, rolename);
+
             return RedirectToPage("/Admin/Roles", new { noRoles = noRoles, pageIndex = pageIndex });
         }
 

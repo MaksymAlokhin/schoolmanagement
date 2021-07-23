@@ -31,8 +31,6 @@ namespace sms.Pages.Students
         public string CurrentSort { get; set; }
         public PaginatedList<Student> Student { get; set; }
 
-        //public IList<Student> Student { get;set; }
-
         public async Task OnGetAsync(string sortOrder,
             string currentFilter, string searchString, int? pageIndex)
         {
@@ -82,7 +80,7 @@ namespace sms.Pages.Students
                     break;
             }
 
-            var pageSize = Configuration.GetValue("PageSize", 4);
+            var pageSize = Configuration.GetValue("PageSize", 5);
             Student = await PaginatedList<Student>.CreateAsync(
                 studentsIQ.AsNoTracking(), pageIndex ?? 1, pageSize);
         }
