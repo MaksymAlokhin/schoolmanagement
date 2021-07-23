@@ -24,6 +24,9 @@ namespace sms.Pages.Subjects
 
         [BindProperty]
         public Subject Subject { get; set; }
+        public List<int> selectedTeachers { get; set; }
+        public SelectList TeacherNameSL { get; set; }
+
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -32,7 +35,18 @@ namespace sms.Pages.Subjects
                 return NotFound();
             }
 
-            Subject = await _context.Subjects.FirstOrDefaultAsync(m => m.Id == id);
+            var teachersQuery = _context.Teachers.OrderBy(r => r.LastName);
+            TeacherNameSL = new SelectList(teachersQuery.AsNoTracking(), "Id", "FullName"); //list, id, value
+
+
+            Subject = await _context.Subjects.Include(s => s.Teachers).FirstOrDefaultAsync(m => m.Id == id);
+
+            //Generate selected items
+            selectedTeachers = new List<int>();
+            foreach (var teacher in Subject.Teachers)
+            {
+                selectedTeachers.Add(teacher.Id);
+            }
 
             if (Subject == null)
             {
@@ -43,14 +57,21 @@ namespace sms.Pages.Subjects
 
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(int? id, int[] selectedTeachers)
         {
             if (!ModelState.IsValid)
             {
                 return Page();
             }
 
-            _context.Attach(Subject).State = EntityState.Modified;
+            var subjectToUpdate = _context.Subjects.Include(t => t.Teachers).Single(t => t.Id == id);
+
+            if (await TryUpdateModelAsync<Subject>(
+                            subjectToUpdate,
+                            "Subject", i => i.Name))
+            {
+                UpdateSubjectTeachers(selectedTeachers, subjectToUpdate);
+            }
 
             try
             {
@@ -75,5 +96,40 @@ namespace sms.Pages.Subjects
         {
             return _context.Subjects.Any(e => e.Id == id);
         }
+
+        private void UpdateSubjectTeachers(int[] selectedTeachers, Subject subjectToUpdate)
+        {
+            {
+                if (selectedTeachers == null)
+                {
+                    subjectToUpdate.Teachers = new List<Teacher>();
+                    return;
+                }
+
+                var selectedTeachersHS = new HashSet<int>(selectedTeachers);
+                var subjectTeachers = new HashSet<int>
+                    (subjectToUpdate.Teachers.Select(s => s.Id));
+                foreach (var teacher in _context.Teachers)
+                {
+                    if (selectedTeachersHS.Contains(teacher.Id))
+                    {
+                        if (!subjectTeachers.Contains(teacher.Id))
+                        {
+                            subjectToUpdate.Teachers.Add(teacher);
+                        }
+                    }
+                    else
+                    {
+                        if (subjectTeachers.Contains(teacher.Id))
+                        {
+                            var subjectToRemove = subjectToUpdate.Teachers.Single(
+                                                            s => s.Id == teacher.Id);
+                            subjectToUpdate.Teachers.Remove(subjectToRemove);
+                        }
+                    }
+                }
+            }
+        }
+
     }
 }

@@ -20,6 +20,11 @@
                 <span asp-validation-for="Subject.Name" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Subject.Teachers" class="control-label">Вчителі</label><br />
+                <select asp-for="selectedTeachers" asp-items="Model.TeacherNameSL" size="10">
+                </select>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Створити" class="btn btn-primary" />
             </div>
         </form>

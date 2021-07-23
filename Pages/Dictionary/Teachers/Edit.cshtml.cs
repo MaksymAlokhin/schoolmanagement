@@ -55,9 +55,6 @@ namespace sms.Pages.Teachers
             }
             return Page();
         }
-
-        
-        
         
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see https://aka.ms/RazorPagesCRUD.
@@ -69,7 +66,6 @@ namespace sms.Pages.Teachers
             }
 
             var teacherToUpdate = _context.Teachers.Include(t => t.Subjects).Single(t => t.Id == id);
-            //Teacher.Subjects = new List<Subject>();
 
             if (await TryUpdateModelAsync<Teacher>(
                             teacherToUpdate,

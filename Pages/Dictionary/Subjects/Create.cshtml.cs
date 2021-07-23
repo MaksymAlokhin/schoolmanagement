@@ -23,23 +23,38 @@ namespace sms.Pages.Subjects
 
         public IActionResult OnGet()
         {
+            var teachersQuery = _context.Teachers.OrderBy(r => r.LastName);
+            TeacherNameSL = new SelectList(teachersQuery, "Id", "FullName"); //list, id, value
             return Page();
         }
+        public List<int> selectedTeachers { get; set; }
+        public SelectList TeacherNameSL { get; set; }
 
         [BindProperty]
         public Subject Subject { get; set; }
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(int[] selectedTeachers)
         {
-            if (!ModelState.IsValid)
+            var newSubject = new Subject();
+            newSubject.Teachers = new List<Teacher>();
+
+            if (await TryUpdateModelAsync<Subject>(
+                            newSubject,
+                            "Subject", i => i.Name))
             {
-                return Page();
+                if (selectedTeachers.Any())
+                {
+                    foreach (var teacher in selectedTeachers)
+                    {
+                        newSubject.Teachers.Add(_context.Teachers.Single(s => s.Id == teacher));
+                    }
+                }
+
+                _context.Subjects.Add(Subject);
+                await _context.SaveChangesAsync();
+                return RedirectToPage("./Index");
             }
-
-            _context.Subjects.Add(Subject);
-            await _context.SaveChangesAsync();
-
             return RedirectToPage("./Index");
         }
     }
