@@ -102,6 +102,22 @@ namespace sms.Data
             {
                 return;   // DB has been seeded
             }
+            if (context.Grades.Any())
+            {
+                return;
+            }
+            if (context.Teachers.Any())
+            {
+                return;
+            }
+            if (context.Subjects.Any())
+            {
+                return;
+            }
+            if (context.Lessons.Any())
+            {
+                return;
+            }
 
             context.AddRange(StudentsSeedData.data);
             context.AddRange(GradesSeedData.data);

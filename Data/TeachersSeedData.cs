@@ -54,6 +54,26 @@ namespace sms.Data
                    chemistry
                }
         };
+        public static Teacher honcharuk = new Teacher
+        {
+            LastName = "Гончарук",
+            FirstName = "Андрій",
+            Patronymic = "Михайлович",
+            Subjects = new List<Subject>
+               {
+                   crafts
+               }
+        };
+        public static Teacher moskalenko = new Teacher
+        {
+            LastName = "Москаленко",
+            FirstName = "Наталія",
+            Patronymic = "Олександрівна",
+            Subjects = new List<Subject>
+               {
+                   health
+               }
+        };
         public static Teacher bulachok = new Teacher
         {
             LastName = "Булачок",
@@ -278,7 +298,19 @@ namespace sms.Data
             Patronymic = "Володимирівна",
             Subjects = new List<Subject>
                {
-                   primary
+                   design,
+                   individual,
+                   litreading,
+                   maths_primary,
+                   literacy,
+                   arts_primary,
+                   health_primary,
+                   writing,
+                   nature_primary,
+                   crafts_primary,
+                   ukrainian_primary,
+                   iexplore,
+                   iandworld
                }
         };
         public static Teacher vlasiuk = new Teacher
@@ -288,8 +320,20 @@ namespace sms.Data
             Patronymic = "Сергіївна",
             Subjects = new List<Subject>
                {
-                   primary
-               }
+                   design,
+                   individual,
+                   litreading,
+                   maths_primary,
+                   literacy,
+                   arts_primary,
+                   health_primary,
+                   writing,
+                   nature_primary,
+                   crafts_primary,
+                   ukrainian_primary,
+                   iexplore,
+                   iandworld
+            }
         };
         public static Teacher horlova = new Teacher
         {
@@ -298,8 +342,20 @@ namespace sms.Data
             Patronymic = "Кузьмівна",
             Subjects = new List<Subject>
                {
-                   primary
-               }
+                   design,
+                   individual,
+                   litreading,
+                   maths_primary,
+                   literacy,
+                   arts_primary,
+                   health_primary,
+                   writing,
+                   nature_primary,
+                   crafts_primary,
+                   ukrainian_primary,
+                   iexplore,
+                   iandworld
+            }
         };
         public static Teacher yeroshkina = new Teacher
         {
@@ -308,8 +364,20 @@ namespace sms.Data
             Patronymic = "Вікторівна",
             Subjects = new List<Subject>
                {
-                   primary
-               }
+                   design,
+                   individual,
+                   litreading,
+                   maths_primary,
+                   literacy,
+                   arts_primary,
+                   health_primary,
+                   writing,
+                   nature_primary,
+                   crafts_primary,
+                   ukrainian_primary,
+                   iexplore,
+                   iandworld
+            }
         };
         public static Teacher zadorozhnia = new Teacher
         {
@@ -318,8 +386,20 @@ namespace sms.Data
             Patronymic = "Іванівна",
             Subjects = new List<Subject>
                {
-                   primary
-               }
+                   design,
+                   individual,
+                   litreading,
+                   maths_primary,
+                   literacy,
+                   arts_primary,
+                   health_primary,
+                   writing,
+                   nature_primary,
+                   crafts_primary,
+                   ukrainian_primary,
+                   iexplore,
+                   iandworld
+            }
         };
         public static Teacher hnots = new Teacher
         {
@@ -328,8 +408,20 @@ namespace sms.Data
             Patronymic = "Петрівна",
             Subjects = new List<Subject>
                {
-                   primary
-               }
+                   design,
+                   individual,
+                   litreading,
+                   maths_primary,
+                   literacy,
+                   arts_primary,
+                   health_primary,
+                   writing,
+                   nature_primary,
+                   crafts_primary,
+                   ukrainian_primary,
+                   iexplore,
+                   iandworld
+            }
         };
         public static Teacher lavrychenko = new Teacher
         {
@@ -338,8 +430,20 @@ namespace sms.Data
             Patronymic = "Василівна",
             Subjects = new List<Subject>
                {
-                   primary
-               }
+                   design,
+                   individual,
+                   litreading,
+                   maths_primary,
+                   literacy,
+                   arts_primary,
+                   health_primary,
+                   writing,
+                   nature_primary,
+                   crafts_primary,
+                   ukrainian_primary,
+                   iexplore,
+                   iandworld
+            }
         };
         public static Teacher lonska = new Teacher
         {
@@ -348,8 +452,20 @@ namespace sms.Data
             Patronymic = "Михайлівна",
             Subjects = new List<Subject>
                {
-                   primary
-               }
+                   design,
+                   individual,
+                   litreading,
+                   maths_primary,
+                   literacy,
+                   arts_primary,
+                   health_primary,
+                   writing,
+                   nature_primary,
+                   crafts_primary,
+                   ukrainian_primary,
+                   iexplore,
+                   iandworld
+            }
         };
         public static Teacher mandro = new Teacher
         {
@@ -358,8 +474,20 @@ namespace sms.Data
             Patronymic = "Олександрівна",
             Subjects = new List<Subject>
                {
-                   primary
-               }
+                   design,
+                   individual,
+                   litreading,
+                   maths_primary,
+                   literacy,
+                   arts_primary,
+                   health_primary,
+                   writing,
+                   nature_primary,
+                   crafts_primary,
+                   ukrainian_primary,
+                   iexplore,
+                   iandworld
+            }
         };
         public static Teacher nanivska = new Teacher
         {
@@ -368,8 +496,20 @@ namespace sms.Data
             Patronymic = "Михайлівна",
             Subjects = new List<Subject>
                {
-                   primary
-               }
+                   design,
+                   individual,
+                   litreading,
+                   maths_primary,
+                   literacy,
+                   arts_primary,
+                   health_primary,
+                   writing,
+                   nature_primary,
+                   crafts_primary,
+                   ukrainian_primary,
+                   iexplore,
+                   iandworld
+            }
         };
         public static Teacher nimchenko = new Teacher
         {
@@ -378,8 +518,20 @@ namespace sms.Data
             Patronymic = "Миколаївна",
             Subjects = new List<Subject>
                {
-                   primary
-               }
+                   design,
+                   individual,
+                   litreading,
+                   maths_primary,
+                   literacy,
+                   arts_primary,
+                   health_primary,
+                   writing,
+                   nature_primary,
+                   crafts_primary,
+                   ukrainian_primary,
+                   iexplore,
+                   iandworld
+            }
         };
         public static Teacher plotnik = new Teacher
         {
@@ -388,8 +540,20 @@ namespace sms.Data
             Patronymic = "Вікторівна",
             Subjects = new List<Subject>
                {
-                   primary
-               }
+                   design,
+                   individual,
+                   litreading,
+                   maths_primary,
+                   literacy,
+                   arts_primary,
+                   health_primary,
+                   writing,
+                   nature_primary,
+                   crafts_primary,
+                   ukrainian_primary,
+                   iexplore,
+                   iandworld
+            }
         };
         public static Teacher symonenko_p = new Teacher
         {
@@ -398,8 +562,20 @@ namespace sms.Data
             Patronymic = "Василівна",
             Subjects = new List<Subject>
                {
-                   primary
-               }
+                   design,
+                   individual,
+                   litreading,
+                   maths_primary,
+                   literacy,
+                   arts_primary,
+                   health_primary,
+                   writing,
+                   nature_primary,
+                   crafts_primary,
+                   ukrainian_primary,
+                   iexplore,
+                   iandworld
+            }
         };
         public static Teacher sovenko = new Teacher
         {
@@ -408,8 +584,20 @@ namespace sms.Data
             Patronymic = "Іванівна",
             Subjects = new List<Subject>
                {
-                   primary
-               }
+                   design,
+                   individual,
+                   litreading,
+                   maths_primary,
+                   literacy,
+                   arts_primary,
+                   health_primary,
+                   writing,
+                   nature_primary,
+                   crafts_primary,
+                   ukrainian_primary,
+                   iexplore,
+                   iandworld
+            }
         };
         public static Teacher sulyma = new Teacher
         {
@@ -418,8 +606,20 @@ namespace sms.Data
             Patronymic = "Іванівна",
             Subjects = new List<Subject>
                {
-                   primary
-               }
+                   design,
+                   individual,
+                   litreading,
+                   maths_primary,
+                   literacy,
+                   arts_primary,
+                   health_primary,
+                   writing,
+                   nature_primary,
+                   crafts_primary,
+                   ukrainian_primary,
+                   iexplore,
+                   iandworld
+            }
         };
         #endregion
         public static List<Teacher> data;
@@ -450,6 +650,8 @@ namespace sms.Data
             data.Add(slavov);
             data.Add(tverdokhlibova);
             data.Add(shevchenko);
+            data.Add(honcharuk);
+            data.Add(moskalenko);
             data.Add(bondarenko);
             data.Add(vlasiuk);
             data.Add(horlova);

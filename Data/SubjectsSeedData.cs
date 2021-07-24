@@ -30,7 +30,22 @@ namespace sms.Data
         public static Subject ukrlit = new Subject { Name = "Українська література" };
         public static Subject wliterature = new Subject { Name = "Зарубіжна література" };
         public static Subject pt = new Subject { Name = "Фізична культура" };
-        public static Subject primary = new Subject { Name = "Початкові класи" };
+        public static Subject design = new Subject { Name = "Дизайн і технології" };
+        public static Subject individual = new Subject { Name = "Індивідуальні заняття" };
+        public static Subject litreading = new Subject { Name = "Літературне читання" };
+        public static Subject maths_primary = new Subject { Name = "Математика" };
+        public static Subject literacy = new Subject { Name = "Навчання грамоти" };
+        public static Subject arts_primary = new Subject { Name = "Образотворче мистецтво" };
+        public static Subject health = new Subject { Name = "Основи здоров'я" };
+        public static Subject health_primary = new Subject { Name = "Основи здоров'я" };
+        public static Subject writing = new Subject { Name = "Письмо" };
+        public static Subject nature_primary = new Subject { Name = "Природознавство" };
+        public static Subject crafts = new Subject { Name = "Трудове навчання" };
+        public static Subject crafts_primary = new Subject { Name = "Трудове навчання" };
+        public static Subject iexplore = new Subject { Name = "Я досліджую світ" };
+        public static Subject ukrainian_primary = new Subject { Name = "Українська мова" };
+        public static Subject iandworld = new Subject { Name = "Я у світі" };
+
         #endregion
         public static List<Subject> data;
         static SubjectsSeedData()
@@ -56,7 +71,21 @@ namespace sms.Data
             data.Add(ukrlit);
             data.Add(wliterature);
             data.Add(pt);
-            data.Add(primary);
+            data.Add(design);
+            data.Add(individual);
+            data.Add(litreading);
+            data.Add(literacy);
+            data.Add(health);
+            data.Add(writing);
+            data.Add(crafts);
+            data.Add(iexplore);
+            data.Add(iandworld);
+            data.Add(maths_primary);
+            data.Add(arts_primary);
+            data.Add(health_primary);
+            data.Add(nature_primary);
+            data.Add(crafts_primary);
+            data.Add(ukrainian_primary);
         }
     }
 }
