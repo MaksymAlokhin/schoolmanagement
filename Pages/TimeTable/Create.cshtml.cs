@@ -49,7 +49,8 @@ namespace sms.Pages.TimeTable
                 takenGrades.Add(lesson.Grade.FullName);
             }
 
-            allGrades = _context.Grades.OrderBy(x => x.Number).ThenBy(x => x.Letter).Select(x => x.FullName).Distinct().ToList();
+            allGrades = _context.Grades.Select(x => x.FullName).Distinct().ToList();
+            allGrades.Sort();
 
             GradesList = new List<SelectListItem>();
             foreach (string grade in allGrades)
@@ -59,7 +60,6 @@ namespace sms.Pages.TimeTable
                     GradesList.Add(new SelectListItem { Value = $"{grade}", Text = $"{grade}" });
                 }
             }
-            GradesList.OrderBy(g => g.Value);
             #endregion
 
             var subjectsQuery = _context.Subjects.Include(s => s.Teachers).Where(t => t.Teachers.Any(k => k.Id == teacher)).OrderBy(s => s.Name);
