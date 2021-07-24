@@ -43,10 +43,8 @@ namespace sms.Pages.Students
             {
                 return NotFound();
             }
-            var numbersQuery = _context.Grades.OrderBy(x => x.Number).Select(x => x.Number).Distinct();
-            var lettersQuery = _context.Grades.OrderBy(x => x.Letter).Select(x => x.Letter).Distinct();
-            GradeNumbersSL = new SelectList(numbersQuery);
-            GradeLettersSL = new SelectList(lettersQuery);
+            GradeNumbersSL = new SelectList(_context.Grades.OrderBy(x => x.Number).Select(x => x.Number).Distinct());
+            GradeLettersSL = new SelectList(_context.Grades.OrderBy(x => x.Letter).Select(x => x.Letter).Distinct());
             return Page();
         }
 

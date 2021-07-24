@@ -40,11 +40,11 @@
                 <span asp-validation-for="Student.Address" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="GradeNumber" class="control-label"></label>
+                <label asp-for="GradeNumber" class="control-label">Клас</label>
                 <select asp-for="GradeNumber" class="form-control" asp-items="@Model.GradeNumbersSL"></select>
             </div>
             <div class="form-group">
-                <label asp-for="GradeLetter" class="control-label"></label>
+                <label asp-for="GradeLetter" class="control-label">Буква</label>
                 <select asp-for="GradeLetter" class="form-control" asp-items="@Model.GradeLettersSL"></select>
             </div>
             <div class="form-group">

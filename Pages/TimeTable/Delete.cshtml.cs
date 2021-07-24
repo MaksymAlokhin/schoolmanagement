@@ -9,22 +9,26 @@ using Microsoft.EntityFrameworkCore;
 using sms.Data;
 using sms.Models;
 
-namespace sms.Pages.Lessons
+namespace sms.Pages.TimeTable
 {
-    [Authorize(Roles = "Адміністратор, Вчитель")]
-    public class DetailsModel : PageModel
+    [Authorize(Roles = "Адміністратор")]
+    public class DeleteModel : PageModel
     {
         private readonly sms.Data.ApplicationDbContext _context;
+        public string day;
 
-        public DetailsModel(sms.Data.ApplicationDbContext context)
+        public DeleteModel(sms.Data.ApplicationDbContext context)
         {
             _context = context;
         }
 
+        [BindProperty]
         public Lesson Lesson { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
+            day = _context.Lessons.Single(l => l.Id == id).Day;
+
             if (id == null)
             {
                 return NotFound();
@@ -40,6 +44,24 @@ namespace sms.Pages.Lessons
                 return NotFound();
             }
             return Page();
+        }
+
+        public async Task<IActionResult> OnPostAsync(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            Lesson = await _context.Lessons.FindAsync(id);
+
+            if (Lesson != null)
+            {
+                _context.Lessons.Remove(Lesson);
+                await _context.SaveChangesAsync();
+            }
+
+            return RedirectToPage("./Index", new { day = $"{day}" });
         }
     }
 }

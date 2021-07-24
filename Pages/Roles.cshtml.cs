@@ -97,7 +97,7 @@ namespace sms.Pages
             //Без повноважень is not added (or you get error)
             if (allroles.Contains(rolename)) await _usermanager.AddToRoleAsync(user, rolename);
 
-            return RedirectToPage("/Admin/Roles", new { noRoles = noRoles, pageIndex = pageIndex });
+            return RedirectToPage("/TimeTable", new { noRoles = noRoles, pageIndex = pageIndex });
         }
 
     }

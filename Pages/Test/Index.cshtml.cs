@@ -2,16 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using sms.Data;
 using sms.Models;
 
-namespace sms.Pages.Lessons
+namespace sms.Pages.Test
 {
-    [Authorize(Roles = "Адміністратор, Вчитель")]
     public class IndexModel : PageModel
     {
         private readonly sms.Data.ApplicationDbContext _context;

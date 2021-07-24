@@ -16,7 +16,7 @@ namespace sms.Data
             #region vasylieva
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 1,
                 Room = "105",
                 Grade = a5,
@@ -25,7 +25,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 3,
                 Room = "105",
                 Grade = a7,
@@ -34,7 +34,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 5,
                 Room = "105",
                 Grade = a9,
@@ -43,7 +43,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 7,
                 Room = "105",
                 Grade = a11,
@@ -52,7 +52,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 4,
                 Room = "105",
                 Grade = a11,
@@ -61,7 +61,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 5,
                 Room = "105",
                 Grade = a7,
@@ -70,7 +70,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 8,
                 Room = "105",
                 Grade = a9,
@@ -79,7 +79,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 4,
                 Room = "105",
                 Grade = a5,
@@ -88,7 +88,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 5,
                 Room = "105",
                 Grade = a11,
@@ -97,7 +97,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 7,
                 Room = "105",
                 Grade = a9,
@@ -106,7 +106,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 5,
                 Room = "105",
                 Grade = a11,
@@ -115,7 +115,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 6,
                 Room = "105",
                 Grade = a9,
@@ -124,7 +124,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 2,
                 Room = "105",
                 Grade = a9,
@@ -133,7 +133,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 3,
                 Room = "105",
                 Grade = a11,
@@ -142,7 +142,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 6,
                 Room = "105",
                 Grade = a5,
@@ -153,7 +153,7 @@ namespace sms.Data
             #region kurach
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 1,
                 Room = "106",
                 Grade = b5,
@@ -162,7 +162,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 2,
                 Room = "106",
                 Grade = a6,
@@ -171,7 +171,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 3,
                 Room = "106",
                 Grade = b7,
@@ -180,7 +180,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 4,
                 Room = "106",
                 Grade = a8,
@@ -189,7 +189,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 5,
                 Room = "106",
                 Grade = b9,
@@ -198,7 +198,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 6,
                 Room = "106",
                 Grade = a10,
@@ -207,7 +207,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 7,
                 Room = "106",
                 Grade = b11,
@@ -216,7 +216,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 4,
                 Room = "106",
                 Grade = b11,
@@ -225,7 +225,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 5,
                 Room = "106",
                 Grade = b7,
@@ -234,7 +234,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 6,
                 Room = "106",
                 Grade = a6,
@@ -243,7 +243,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 7,
                 Room = "106",
                 Grade = a10,
@@ -252,7 +252,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 8,
                 Room = "106",
                 Grade = b9,
@@ -261,7 +261,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 1,
                 Room = "106",
                 Grade = a8,
@@ -270,7 +270,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 2,
                 Room = "106",
                 Grade = a10,
@@ -279,7 +279,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 3,
                 Room = "106",
                 Grade = a6,
@@ -288,7 +288,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 4,
                 Room = "106",
                 Grade = b5,
@@ -297,7 +297,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 5,
                 Room = "106",
                 Grade = b11,
@@ -306,7 +306,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 7,
                 Room = "106",
                 Grade = b9,
@@ -315,16 +315,16 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 4,
                 Room = "106",
-                Grade = a9,
+                Grade = a6,
                 Subject = french,
                 Teacher = kurach
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 5,
                 Room = "106",
                 Grade = b11,
@@ -333,7 +333,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 6,
                 Room = "106",
                 Grade = b9,
@@ -342,7 +342,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 7,
                 Room = "106",
                 Grade = a8,
@@ -351,7 +351,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 8,
                 Room = "106",
                 Grade = a10,
@@ -360,7 +360,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 1,
                 Room = "106",
                 Grade = a6,
@@ -369,7 +369,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 2,
                 Room = "106",
                 Grade = b9,
@@ -378,16 +378,16 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 3,
                 Room = "106",
-                Grade = b7,
+                Grade = b11,
                 Subject = english,
                 Teacher = kurach
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 6,
                 Room = "106",
                 Grade = b5,
@@ -396,7 +396,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 7,
                 Room = "106",
                 Grade = a8,
@@ -407,7 +407,7 @@ namespace sms.Data
             #region martynenko
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 2,
                 Room = "107",
                 Grade = b6,
@@ -416,7 +416,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 4,
                 Room = "107",
                 Grade = b8,
@@ -425,7 +425,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 6,
                 Room = "107",
                 Grade = b10,
@@ -434,7 +434,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 6,
                 Room = "107",
                 Grade = b6,
@@ -443,7 +443,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 7,
                 Room = "107",
                 Grade = b10,
@@ -452,7 +452,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 1,
                 Room = "107",
                 Grade = b8,
@@ -461,7 +461,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 2,
                 Room = "107",
                 Grade = b10,
@@ -470,7 +470,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 3,
                 Room = "107",
                 Grade = b6,
@@ -479,7 +479,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 4,
                 Room = "107",
                 Grade = b6,
@@ -488,7 +488,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 7,
                 Room = "107",
                 Grade = b8,
@@ -497,7 +497,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 8,
                 Room = "107",
                 Grade = b10,
@@ -506,7 +506,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 1,
                 Room = "107",
                 Grade = b6,
@@ -515,7 +515,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 7,
                 Room = "107",
                 Grade = b8,
@@ -526,7 +526,7 @@ namespace sms.Data
             #region boyarska
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 2,
                 Room = "108",
                 Grade = a5,
@@ -535,7 +535,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 3,
                 Room = "108",
                 Grade = a6,
@@ -544,7 +544,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 4,
                 Room = "108",
                 Grade = a7,
@@ -553,7 +553,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 5,
                 Room = "108",
                 Grade = a8,
@@ -562,7 +562,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 6,
                 Room = "108",
                 Grade = a9,
@@ -571,7 +571,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 7,
                 Room = "108",
                 Grade = a10,
@@ -580,7 +580,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 8,
                 Room = "108",
                 Grade = a11,
@@ -589,7 +589,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 4,
                 Room = "108",
                 Grade = a7,
@@ -598,7 +598,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 5,
                 Room = "108",
                 Grade = a6,
@@ -607,7 +607,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 6,
                 Room = "108",
                 Grade = a10,
@@ -616,7 +616,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 7,
                 Room = "108",
                 Grade = a9,
@@ -625,7 +625,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 1,
                 Room = "108",
                 Grade = a10,
@@ -634,7 +634,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 2,
                 Room = "108",
                 Grade = a6,
@@ -643,7 +643,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 5,
                 Room = "108",
                 Grade = a5,
@@ -652,7 +652,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 6,
                 Room = "108",
                 Grade = a9,
@@ -661,7 +661,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 7,
                 Room = "108",
                 Grade = a7,
@@ -670,7 +670,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 3,
                 Room = "108",
                 Grade = a6,
@@ -679,7 +679,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 4,
                 Room = "108",
                 Grade = a11,
@@ -688,7 +688,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 5,
                 Room = "108",
                 Grade = a9,
@@ -697,7 +697,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 6,
                 Room = "108",
                 Grade = a5,
@@ -706,7 +706,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 1,
                 Room = "108",
                 Grade = a9,
@@ -715,7 +715,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 2,
                 Room = "108",
                 Grade = a7,
@@ -724,7 +724,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 4,
                 Room = "108",
                 Grade = a11,
@@ -733,7 +733,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 5,
                 Room = "108",
                 Grade = a5,
@@ -742,7 +742,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 6,
                 Room = "108",
                 Grade = a8,
@@ -751,7 +751,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 8,
                 Room = "108",
                 Grade = a10,
@@ -762,7 +762,7 @@ namespace sms.Data
             #region dybka
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 2,
                 Room = "109",
                 Grade = b5,
@@ -771,7 +771,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 3,
                 Room = "109",
                 Grade = b6,
@@ -780,7 +780,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 4,
                 Room = "109",
                 Grade = b7,
@@ -789,7 +789,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 5,
                 Room = "109",
                 Grade = b8,
@@ -798,7 +798,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 6,
                 Room = "109",
                 Grade = b9,
@@ -807,7 +807,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 7,
                 Room = "109",
                 Grade = b10,
@@ -816,7 +816,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 8,
                 Room = "109",
                 Grade = b11,
@@ -825,7 +825,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 4,
                 Room = "109",
                 Grade = b7,
@@ -834,7 +834,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 5,
                 Room = "109",
                 Grade = b6,
@@ -843,7 +843,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 6,
                 Room = "109",
                 Grade = b10,
@@ -852,7 +852,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 7,
                 Room = "109",
                 Grade = b9,
@@ -861,7 +861,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 1,
                 Room = "109",
                 Grade = b10,
@@ -870,7 +870,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 2,
                 Room = "109",
                 Grade = b6,
@@ -879,7 +879,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 5,
                 Room = "109",
                 Grade = b5,
@@ -888,7 +888,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 6,
                 Room = "109",
                 Grade = b9,
@@ -897,7 +897,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 7,
                 Room = "109",
                 Grade = b7,
@@ -906,7 +906,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 3,
                 Room = "109",
                 Grade = b6,
@@ -915,7 +915,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 4,
                 Room = "109",
                 Grade = b11,
@@ -924,7 +924,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 5,
                 Room = "109",
                 Grade = b9,
@@ -933,7 +933,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 6,
                 Room = "109",
                 Grade = b5,
@@ -942,7 +942,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 1,
                 Room = "109",
                 Grade = b9,
@@ -951,7 +951,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 2,
                 Room = "109",
                 Grade = b7,
@@ -960,7 +960,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 4,
                 Room = "109",
                 Grade = b11,
@@ -969,7 +969,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 5,
                 Room = "109",
                 Grade = b5,
@@ -978,7 +978,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 6,
                 Room = "109",
                 Grade = b8,
@@ -987,7 +987,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 8,
                 Room = "109",
                 Grade = b10,
@@ -998,7 +998,7 @@ namespace sms.Data
             #region ponomarenko
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 1,
                 Room = "110",
                 Grade = a11,
@@ -1007,7 +1007,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 3,
                 Room = "110",
                 Grade = a5,
@@ -1016,7 +1016,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 4,
                 Room = "110",
                 Grade = a6,
@@ -1025,7 +1025,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 5,
                 Room = "110",
                 Grade = a7,
@@ -1034,7 +1034,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 6,
                 Room = "110",
                 Grade = a8,
@@ -1043,7 +1043,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 7,
                 Room = "110",
                 Grade = a9,
@@ -1052,7 +1052,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 8,
                 Room = "110",
                 Grade = a10,
@@ -1061,7 +1061,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 5,
                 Room = "110",
                 Grade = a10,
@@ -1070,7 +1070,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 6,
                 Room = "110",
                 Grade = a5,
@@ -1079,7 +1079,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 8,
                 Room = "110",
                 Grade = a11,
@@ -1088,7 +1088,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 1,
                 Room = "110",
                 Grade = a6,
@@ -1097,7 +1097,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 2,
                 Room = "110",
                 Grade = b8,
@@ -1106,7 +1106,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 3,
                 Room = "110",
                 Grade = a10,
@@ -1115,7 +1115,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 4,
                 Room = "110",
                 Grade = b11,
@@ -1124,7 +1124,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 6,
                 Room = "110",
                 Grade = a5,
@@ -1133,7 +1133,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 8,
                 Room = "110",
                 Grade = a9,
@@ -1142,7 +1142,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 2,
                 Room = "110",
                 Grade = b6,
@@ -1151,7 +1151,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 3,
                 Room = "110",
                 Grade = a11,
@@ -1160,7 +1160,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 4,
                 Room = "110",
                 Grade = b9,
@@ -1169,7 +1169,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 5,
                 Room = "110",
                 Grade = b10,
@@ -1178,7 +1178,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 6,
                 Room = "110",
                 Grade = a8,
@@ -1187,7 +1187,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 2,
                 Room = "110",
                 Grade = a6,
@@ -1196,7 +1196,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 3,
                 Room = "110",
                 Grade = b9,
@@ -1205,7 +1205,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 4,
                 Room = "110",
                 Grade = a5,
@@ -1214,7 +1214,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 5,
                 Room = "110",
                 Grade = a8,
@@ -1223,7 +1223,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 7,
                 Room = "110",
                 Grade = a10,
@@ -1234,7 +1234,7 @@ namespace sms.Data
             #region synko
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 1,
                 Room = "111",
                 Grade = b11,
@@ -1243,7 +1243,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 3,
                 Room = "111",
                 Grade = b5,
@@ -1252,7 +1252,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 4,
                 Room = "111",
                 Grade = b6,
@@ -1261,7 +1261,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 5,
                 Room = "111",
                 Grade = b7,
@@ -1270,7 +1270,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 6,
                 Room = "111",
                 Grade = b8,
@@ -1279,7 +1279,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 7,
                 Room = "111",
                 Grade = b9,
@@ -1288,7 +1288,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 8,
                 Room = "111",
                 Grade = b10,
@@ -1297,7 +1297,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 1,
                 Room = "111",
                 Grade = a11,
@@ -1306,7 +1306,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 2,
                 Room = "111",
                 Grade = a9,
@@ -1315,7 +1315,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 4,
                 Room = "111",
                 Grade = a6,
@@ -1324,7 +1324,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 5,
                 Room = "111",
                 Grade = b10,
@@ -1333,7 +1333,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 6,
                 Room = "111",
                 Grade = b5,
@@ -1342,7 +1342,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 7,
                 Room = "111",
                 Grade = a8,
@@ -1351,7 +1351,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 8,
                 Room = "111",
                 Grade = b11,
@@ -1360,7 +1360,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 1,
                 Room = "111",
                 Grade = b6,
@@ -1369,7 +1369,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 3,
                 Room = "111",
                 Grade = b10,
@@ -1378,7 +1378,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 4,
                 Room = "111",
                 Grade = a11,
@@ -1387,7 +1387,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 6,
                 Room = "111",
                 Grade = b5,
@@ -1396,7 +1396,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 8,
                 Room = "111",
                 Grade = b9,
@@ -1405,7 +1405,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 2,
                 Room = "111",
                 Grade = a6,
@@ -1414,7 +1414,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 3,
                 Room = "111",
                 Grade = b11,
@@ -1423,7 +1423,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 4,
                 Room = "111",
                 Grade = a9,
@@ -1432,7 +1432,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 5,
                 Room = "111",
                 Grade = a10,
@@ -1441,7 +1441,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 6,
                 Room = "111",
                 Grade = b7,
@@ -1450,7 +1450,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 2,
                 Room = "111",
                 Grade = b6,
@@ -1459,7 +1459,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 3,
                 Room = "111",
                 Grade = a9,
@@ -1468,7 +1468,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 4,
                 Room = "111",
                 Grade = b5,
@@ -1477,7 +1477,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 5,
                 Room = "111",
                 Grade = b8,
@@ -1486,7 +1486,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 7,
                 Room = "111",
                 Grade = b10,
@@ -1497,7 +1497,7 @@ namespace sms.Data
             #region kholodiuk
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 2,
                 Room = "112",
                 Grade = a11,
@@ -1506,7 +1506,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 4,
                 Room = "112",
                 Grade = a5,
@@ -1515,7 +1515,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 6,
                 Room = "112",
                 Grade = a7,
@@ -1524,7 +1524,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 8,
                 Room = "112",
                 Grade = a9,
@@ -1533,7 +1533,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 2,
                 Room = "112",
                 Grade = a11,
@@ -1542,7 +1542,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 3,
                 Room = "112",
                 Grade = a7,
@@ -1551,7 +1551,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 5,
                 Room = "112",
                 Grade = a5,
@@ -1560,7 +1560,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 6,
                 Room = "112",
                 Grade = a9,
@@ -1569,7 +1569,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 4,
                 Room = "112",
                 Grade = a6,
@@ -1578,7 +1578,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 5,
                 Room = "112",
                 Grade = a9,
@@ -1587,7 +1587,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 6,
                 Room = "112",
                 Grade = a7,
@@ -1596,7 +1596,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 7,
                 Room = "112",
                 Grade = a11,
@@ -1605,7 +1605,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 2,
                 Room = "112",
                 Grade = a11,
@@ -1614,7 +1614,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 5,
                 Room = "112",
                 Grade = a5,
@@ -1623,7 +1623,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 7,
                 Room = "112",
                 Grade = a7,
@@ -1632,7 +1632,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 8,
                 Room = "112",
                 Grade = a9,
@@ -1641,7 +1641,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 1,
                 Room = "112",
                 Grade = a7,
@@ -1650,7 +1650,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 3,
                 Room = "112",
                 Grade = a6,
@@ -1659,7 +1659,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 4,
                 Room = "112",
                 Grade = a9,
@@ -1668,7 +1668,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 5,
                 Room = "112",
                 Grade = a11,
@@ -1679,7 +1679,7 @@ namespace sms.Data
             #region kyrianov
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 1,
                 Room = "113",
                 Grade = a10,
@@ -1688,7 +1688,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 2,
                 Room = "113",
                 Grade = b11,
@@ -1697,7 +1697,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 4,
                 Room = "113",
                 Grade = b5,
@@ -1706,7 +1706,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 5,
                 Room = "113",
                 Grade = a6,
@@ -1715,7 +1715,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 6,
                 Room = "113",
                 Grade = b7,
@@ -1724,7 +1724,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 7,
                 Room = "113",
                 Grade = a8,
@@ -1733,7 +1733,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 8,
                 Room = "113",
                 Grade = b9,
@@ -1742,7 +1742,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 2,
                 Room = "113",
                 Grade = b11,
@@ -1751,7 +1751,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 3,
                 Room = "113",
                 Grade = b7,
@@ -1760,7 +1760,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 4,
                 Room = "113",
                 Grade = a10,
@@ -1769,7 +1769,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 5,
                 Room = "113",
                 Grade = b5,
@@ -1778,7 +1778,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 6,
                 Room = "113",
                 Grade = b9,
@@ -1787,7 +1787,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 3,
                 Room = "113",
                 Grade = a8,
@@ -1796,7 +1796,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 4,
                 Room = "113",
                 Grade = b6,
@@ -1805,7 +1805,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 5,
                 Room = "113",
                 Grade = b9,
@@ -1814,7 +1814,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 6,
                 Room = "113",
                 Grade = b7,
@@ -1823,7 +1823,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 7,
                 Room = "113",
                 Grade = b11,
@@ -1832,7 +1832,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 8,
                 Room = "113",
                 Grade = a10,
@@ -1841,7 +1841,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 1,
                 Room = "113",
                 Grade = a6,
@@ -1850,7 +1850,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 2,
                 Room = "113",
                 Grade = b11,
@@ -1859,7 +1859,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 4,
                 Room = "113",
                 Grade = a8,
@@ -1868,7 +1868,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 5,
                 Room = "113",
                 Grade = b5,
@@ -1877,7 +1877,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 6,
                 Room = "113",
                 Grade = a10,
@@ -1886,7 +1886,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 7,
                 Room = "113",
                 Grade = b7,
@@ -1895,7 +1895,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 8,
                 Room = "113",
                 Grade = b9,
@@ -1904,7 +1904,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 1,
                 Room = "113",
                 Grade = b7,
@@ -1913,7 +1913,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 3,
                 Room = "113",
                 Grade = b6,
@@ -1922,7 +1922,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 4,
                 Room = "113",
                 Grade = b9,
@@ -1931,7 +1931,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 5,
                 Room = "113",
                 Grade = b11,
@@ -1940,7 +1940,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 6,
                 Room = "113",
                 Grade = a10,
@@ -1951,7 +1951,7 @@ namespace sms.Data
             #region shafran
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 1,
                 Room = "114",
                 Grade = b10,
@@ -1960,7 +1960,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 5,
                 Room = "114",
                 Grade = b6,
@@ -1969,7 +1969,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 7,
                 Room = "114",
                 Grade = b8,
@@ -1978,7 +1978,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 4,
                 Room = "114",
                 Grade = b10,
@@ -1987,7 +1987,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 3,
                 Room = "114",
                 Grade = b8,
@@ -1996,7 +1996,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 8,
                 Room = "114",
                 Grade = b10,
@@ -2005,7 +2005,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 1,
                 Room = "114",
                 Grade = b6,
@@ -2014,7 +2014,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 4,
                 Room = "114",
                 Grade = b8,
@@ -2023,7 +2023,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 6,
                 Room = "114",
                 Grade = b10,
@@ -2032,7 +2032,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 6,
                 Room = "114",
                 Grade = b10,
@@ -2043,7 +2043,7 @@ namespace sms.Data
             #region bulachok
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 1,
                 Room = "115",
                 Grade = a9,
@@ -2052,7 +2052,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 2,
                 Room = "115",
                 Grade = a10,
@@ -2061,7 +2061,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 3,
                 Room = "115",
                 Grade = a11,
@@ -2070,7 +2070,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 1,
                 Room = "115",
                 Grade = b11,
@@ -2079,7 +2079,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 2,
                 Room = "115",
                 Grade = b9,
@@ -2088,7 +2088,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 3,
                 Room = "115",
                 Grade = a5,
@@ -2097,7 +2097,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 4,
                 Room = "115",
                 Grade = b6,
@@ -2106,7 +2106,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 5,
                 Room = "115",
                 Grade = a8,
@@ -2115,7 +2115,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 6,
                 Room = "115",
                 Grade = a7,
@@ -2124,7 +2124,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 7,
                 Room = "115",
                 Grade = b8,
@@ -2133,7 +2133,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 8,
                 Room = "115",
                 Grade = a10,
@@ -2142,7 +2142,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 2,
                 Room = "115",
                 Grade = a8,
@@ -2151,7 +2151,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 5,
                 Room = "115",
                 Grade = a6,
@@ -2160,7 +2160,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 6,
                 Room = "115",
                 Grade = b11,
@@ -2169,7 +2169,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 1,
                 Room = "115",
                 Grade = b7,
@@ -2178,7 +2178,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 2,
                 Room = "115",
                 Grade = b9,
@@ -2187,7 +2187,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 4,
                 Room = "115",
                 Grade = b10,
@@ -2196,7 +2196,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 5,
                 Room = "115",
                 Grade = b6,
@@ -2205,7 +2205,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 6,
                 Room = "115",
                 Grade = a7,
@@ -2214,7 +2214,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 3,
                 Room = "115",
                 Grade = a7,
@@ -2223,7 +2223,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 4,
                 Room = "115",
                 Grade = b8,
@@ -2232,7 +2232,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 5,
                 Room = "115",
                 Grade = a9,
@@ -2241,7 +2241,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 6,
                 Room = "115",
                 Grade = a11,
@@ -2252,7 +2252,7 @@ namespace sms.Data
             #region smychnikova
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 1,
                 Room = "116",
                 Grade = a8,
@@ -2261,7 +2261,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 2,
                 Room = "116",
                 Grade = a9,
@@ -2270,7 +2270,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 4,
                 Room = "116",
                 Grade = a11,
@@ -2279,7 +2279,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 6,
                 Room = "116",
                 Grade = a6,
@@ -2288,7 +2288,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 3,
                 Room = "116",
                 Grade = a11,
@@ -2297,7 +2297,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 4,
                 Room = "116",
                 Grade = a5,
@@ -2306,7 +2306,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 5,
                 Room = "116",
                 Grade = a9,
@@ -2315,7 +2315,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 6,
                 Room = "116",
                 Grade = a8,
@@ -2324,7 +2324,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 2,
                 Room = "116",
                 Grade = a11,
@@ -2333,7 +2333,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 3,
                 Room = "116",
                 Grade = a9,
@@ -2342,7 +2342,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 4,
                 Room = "116",
                 Grade = a8,
@@ -2351,7 +2351,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 6,
                 Room = "116",
                 Grade = a6,
@@ -2360,7 +2360,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 1,
                 Room = "116",
                 Grade = a11,
@@ -2369,7 +2369,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 3,
                 Room = "116",
                 Grade = a9,
@@ -2378,7 +2378,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 5,
                 Room = "116",
                 Grade = a8,
@@ -2387,7 +2387,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 6,
                 Room = "116",
                 Grade = a6,
@@ -2396,7 +2396,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 2,
                 Room = "116",
                 Grade = a11,
@@ -2405,7 +2405,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 4,
                 Room = "116",
                 Grade = a6,
@@ -2416,7 +2416,7 @@ namespace sms.Data
             #region manko
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 1,
                 Room = "117",
                 Grade = b8,
@@ -2425,7 +2425,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 2,
                 Room = "117",
                 Grade = b9,
@@ -2434,7 +2434,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 3,
                 Room = "117",
                 Grade = a10,
@@ -2443,7 +2443,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 4,
                 Room = "117",
                 Grade = b11,
@@ -2452,7 +2452,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 5,
                 Room = "117",
                 Grade = a5,
@@ -2461,7 +2461,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 6,
                 Room = "117",
                 Grade = b6,
@@ -2470,7 +2470,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 7,
                 Room = "117",
                 Grade = a7,
@@ -2479,7 +2479,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 1,
                 Room = "117",
                 Grade = a10,
@@ -2488,7 +2488,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 2,
                 Room = "117",
                 Grade = a7,
@@ -2497,7 +2497,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 3,
                 Room = "117",
                 Grade = b11,
@@ -2506,7 +2506,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 4,
                 Room = "117",
                 Grade = b5,
@@ -2515,7 +2515,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 5,
                 Room = "117",
                 Grade = b9,
@@ -2524,7 +2524,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 6,
                 Room = "117",
                 Grade = b8,
@@ -2533,7 +2533,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 1,
                 Room = "117",
                 Grade = a5,
@@ -2542,7 +2542,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 2,
                 Room = "117",
                 Grade = b11,
@@ -2551,7 +2551,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 3,
                 Room = "117",
                 Grade = b9,
@@ -2560,7 +2560,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 4,
                 Room = "117",
                 Grade = b8,
@@ -2569,7 +2569,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 5,
                 Room = "117",
                 Grade = a7,
@@ -2578,7 +2578,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 6,
                 Room = "117",
                 Grade = b6,
@@ -2587,7 +2587,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 7,
                 Room = "117",
                 Grade = a10,
@@ -2596,7 +2596,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 1,
                 Room = "117",
                 Grade = b11,
@@ -2605,7 +2605,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 2,
                 Room = "117",
                 Grade = a7,
@@ -2614,7 +2614,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 3,
                 Room = "117",
                 Grade = b9,
@@ -2623,7 +2623,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 4,
                 Room = "117",
                 Grade = a5,
@@ -2632,7 +2632,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 5,
                 Room = "117",
                 Grade = b8,
@@ -2641,7 +2641,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 6,
                 Room = "117",
                 Grade = b6,
@@ -2650,7 +2650,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 7,
                 Room = "117",
                 Grade = a10,
@@ -2659,7 +2659,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 1,
                 Room = "117",
                 Grade = a10,
@@ -2668,7 +2668,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 2,
                 Room = "117",
                 Grade = b11,
@@ -2677,7 +2677,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 3,
                 Room = "117",
                 Grade = a5,
@@ -2686,7 +2686,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 4,
                 Room = "117",
                 Grade = b6,
@@ -2695,7 +2695,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 5,
                 Room = "117",
                 Grade = a10,
@@ -2704,7 +2704,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 7,
                 Room = "117",
                 Grade = a7,
@@ -2715,7 +2715,7 @@ namespace sms.Data
             #region shulga
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 3,
                 Room = "118",
                 Grade = b10,
@@ -2724,7 +2724,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 5,
                 Room = "118",
                 Grade = b5,
@@ -2733,7 +2733,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 7,
                 Room = "118",
                 Grade = b7,
@@ -2742,7 +2742,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 1,
                 Room = "118",
                 Grade = b10,
@@ -2751,7 +2751,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 2,
                 Room = "118",
                 Grade = b7,
@@ -2760,7 +2760,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 1,
                 Room = "118",
                 Grade = b5,
@@ -2769,7 +2769,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 5,
                 Room = "118",
                 Grade = b7,
@@ -2778,7 +2778,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 7,
                 Room = "118",
                 Grade = b10,
@@ -2787,7 +2787,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 2,
                 Room = "118",
                 Grade = b7,
@@ -2796,7 +2796,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 4,
                 Room = "118",
                 Grade = b5,
@@ -2805,7 +2805,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 7,
                 Room = "118",
                 Grade = b10,
@@ -2814,7 +2814,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 1,
                 Room = "118",
                 Grade = b10,
@@ -2823,7 +2823,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 3,
                 Room = "118",
                 Grade = b5,
@@ -2832,7 +2832,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 5,
                 Room = "118",
                 Grade = b10,
@@ -2841,7 +2841,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 7,
                 Room = "118",
                 Grade = b7,
@@ -2852,7 +2852,7 @@ namespace sms.Data
             #region zviahelskyi
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 1,
                 Room = "205",
                 Grade = b9,
@@ -2861,7 +2861,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 2,
                 Room = "205",
                 Grade = b10,
@@ -2870,7 +2870,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 3,
                 Room = "205",
                 Grade = b11,
@@ -2879,7 +2879,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 4,
                 Room = "205",
                 Grade = a10,
@@ -2888,7 +2888,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 1,
                 Room = "205",
                 Grade = a7,
@@ -2897,7 +2897,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 2,
                 Room = "205",
                 Grade = a6,
@@ -2906,7 +2906,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 3,
                 Room = "205",
                 Grade = b5,
@@ -2915,7 +2915,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 4,
                 Room = "205",
                 Grade = a9,
@@ -2924,7 +2924,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 5,
                 Room = "205",
                 Grade = b8,
@@ -2933,7 +2933,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 6,
                 Room = "205",
                 Grade = b7,
@@ -2942,7 +2942,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 8,
                 Room = "205",
                 Grade = b10,
@@ -2951,7 +2951,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 1,
                 Room = "205",
                 Grade = b11,
@@ -2960,7 +2960,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 5,
                 Room = "205",
                 Grade = b6,
@@ -2969,7 +2969,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 6,
                 Room = "205",
                 Grade = a11,
@@ -2978,7 +2978,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 1,
                 Room = "205",
                 Grade = a7,
@@ -2987,7 +2987,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 2,
                 Room = "205",
                 Grade = a9,
@@ -2996,7 +2996,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 4,
                 Room = "205",
                 Grade = a10,
@@ -3005,7 +3005,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 5,
                 Room = "205",
                 Grade = a6,
@@ -3014,7 +3014,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 6,
                 Room = "205",
                 Grade = b8,
@@ -3023,7 +3023,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 3,
                 Room = "205",
                 Grade = b7,
@@ -3032,7 +3032,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 4,
                 Room = "205",
                 Grade = a8,
@@ -3041,7 +3041,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 5,
                 Room = "205",
                 Grade = b9,
@@ -3050,7 +3050,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 6,
                 Room = "205",
                 Grade = b11,
@@ -3061,7 +3061,7 @@ namespace sms.Data
             # region havro
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 1,
                 Room = "206",
                 Grade = a6,
@@ -3070,7 +3070,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 3,
                 Room = "206",
                 Grade = a8,
@@ -3079,7 +3079,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 5,
                 Room = "206",
                 Grade = a11,
@@ -3088,7 +3088,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 6,
                 Room = "206",
                 Grade = a5,
@@ -3097,7 +3097,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 1,
                 Room = "206",
                 Grade = a8,
@@ -3106,7 +3106,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 2,
                 Room = "206",
                 Grade = a5,
@@ -3115,7 +3115,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 3,
                 Room = "206",
                 Grade = a6,
@@ -3124,7 +3124,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 4,
                 Room = "206",
                 Grade = a8,
@@ -3133,7 +3133,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 5,
                 Room = "206",
                 Grade = a11,
@@ -3142,7 +3142,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 2,
                 Room = "206",
                 Grade = a5,
@@ -3151,7 +3151,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 3,
                 Room = "206",
                 Grade = a11,
@@ -3160,7 +3160,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 5,
                 Room = "206",
                 Grade = a8,
@@ -3169,7 +3169,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 1,
                 Room = "206",
                 Grade = a8,
@@ -3178,7 +3178,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 3,
                 Room = "206",
                 Grade = a5,
@@ -3187,7 +3187,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 6,
                 Room = "206",
                 Grade = a11,
@@ -3196,7 +3196,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 1,
                 Room = "206",
                 Grade = a11,
@@ -3205,7 +3205,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 2,
                 Room = "206",
                 Grade = a5,
@@ -3214,7 +3214,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 3,
                 Room = "206",
                 Grade = a8,
@@ -3223,7 +3223,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 5,
                 Room = "206",
                 Grade = a6,
@@ -3234,7 +3234,7 @@ namespace sms.Data
             #region symonenko_u
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 1,
                 Room = "207",
                 Grade = b6,
@@ -3243,7 +3243,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 3,
                 Room = "207",
                 Grade = b8,
@@ -3252,7 +3252,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 5,
                 Room = "207",
                 Grade = b11,
@@ -3261,7 +3261,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 6,
                 Room = "207",
                 Grade = b5,
@@ -3270,7 +3270,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 1,
                 Room = "207",
                 Grade = b8,
@@ -3279,7 +3279,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 2,
                 Room = "207",
                 Grade = b5,
@@ -3288,7 +3288,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 3,
                 Room = "207",
                 Grade = b6,
@@ -3297,7 +3297,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 4,
                 Room = "207",
                 Grade = b8,
@@ -3306,7 +3306,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 5,
                 Room = "207",
                 Grade = b11,
@@ -3315,7 +3315,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 2,
                 Room = "207",
                 Grade = b5,
@@ -3324,7 +3324,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 3,
                 Room = "207",
                 Grade = b11,
@@ -3333,7 +3333,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 5,
                 Room = "207",
                 Grade = b8,
@@ -3342,7 +3342,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 1,
                 Room = "207",
                 Grade = b8,
@@ -3351,7 +3351,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 3,
                 Room = "207",
                 Grade = b5,
@@ -3360,7 +3360,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 6,
                 Room = "207",
                 Grade = b11,
@@ -3369,7 +3369,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 1,
                 Room = "207",
                 Grade = b11,
@@ -3378,7 +3378,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 2,
                 Room = "207",
                 Grade = b5,
@@ -3387,7 +3387,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 3,
                 Room = "207",
                 Grade = b8,
@@ -3396,7 +3396,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 5,
                 Room = "207",
                 Grade = b6,
@@ -3407,7 +3407,7 @@ namespace sms.Data
             #region kyrylusha
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 2,
                 Room = "208",
                 Grade = a7,
@@ -3416,7 +3416,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 4,
                 Room = "208",
                 Grade = a9,
@@ -3425,7 +3425,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 5,
                 Room = "208",
                 Grade = a10,
@@ -3434,7 +3434,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 1,
                 Room = "208",
                 Grade = a9,
@@ -3443,7 +3443,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 3,
                 Room = "208",
                 Grade = a10,
@@ -3452,7 +3452,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 3,
                 Room = "208",
                 Grade = a7,
@@ -3461,7 +3461,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 4,
                 Room = "208",
                 Grade = a9,
@@ -3470,7 +3470,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 5,
                 Room = "208",
                 Grade = a10,
@@ -3479,7 +3479,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 1,
                 Room = "208",
                 Grade = a9,
@@ -3488,7 +3488,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 2,
                 Room = "208",
                 Grade = a10,
@@ -3497,7 +3497,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 3,
                 Room = "208",
                 Grade = a7,
@@ -3506,7 +3506,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 2,
                 Room = "208",
                 Grade = a10,
@@ -3515,7 +3515,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 4,
                 Room = "208",
                 Grade = a7,
@@ -3524,7 +3524,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 6,
                 Room = "208",
                 Grade = a9,
@@ -3535,7 +3535,7 @@ namespace sms.Data
             #region verbova_u
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 2,
                 Room = "209",
                 Grade = b7,
@@ -3544,7 +3544,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 4,
                 Room = "209",
                 Grade = b9,
@@ -3553,7 +3553,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 5,
                 Room = "209",
                 Grade = b10,
@@ -3562,7 +3562,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 1,
                 Room = "209",
                 Grade = b9,
@@ -3571,7 +3571,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 3,
                 Room = "209",
                 Grade = b10,
@@ -3580,7 +3580,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 3,
                 Room = "209",
                 Grade = b7,
@@ -3589,7 +3589,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 4,
                 Room = "209",
                 Grade = b9,
@@ -3598,7 +3598,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 5,
                 Room = "209",
                 Grade = b10,
@@ -3607,7 +3607,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 1,
                 Room = "209",
                 Grade = b9,
@@ -3616,7 +3616,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 2,
                 Room = "209",
                 Grade = b10,
@@ -3625,7 +3625,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 3,
                 Room = "209",
                 Grade = b7,
@@ -3634,7 +3634,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 2,
                 Room = "209",
                 Grade = b10,
@@ -3643,7 +3643,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 4,
                 Room = "209",
                 Grade = b7,
@@ -3652,7 +3652,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 6,
                 Room = "209",
                 Grade = b9,
@@ -3663,7 +3663,16 @@ namespace sms.Data
             #region verbova_p
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
+                Slot = 1,
+                Room = "210",
+                Grade = a7,
+                Subject = physics,
+                Teacher = verbova_p
+            },
+            new Lesson
+            {
+                Day = "Пн",
                 Slot = 3,
                 Room = "210",
                 Grade = a9,
@@ -3672,7 +3681,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 4,
                 Room = "210",
                 Grade = b10,
@@ -3681,7 +3690,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 1,
                 Room = "210",
                 Grade = b7,
@@ -3690,7 +3699,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 2,
                 Room = "210",
                 Grade = b6,
@@ -3699,7 +3708,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 3,
                 Room = "210",
                 Grade = a8,
@@ -3708,7 +3717,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 4,
                 Room = "210",
                 Grade = b9,
@@ -3717,7 +3726,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 6,
                 Room = "210",
                 Grade = a11,
@@ -3726,7 +3735,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 7,
                 Room = "210",
                 Grade = a7,
@@ -3735,7 +3744,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 1,
                 Room = "210",
                 Grade = a7,
@@ -3744,7 +3753,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 2,
                 Room = "210",
                 Grade = b9,
@@ -3753,7 +3762,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 4,
                 Room = "210",
                 Grade = b10,
@@ -3762,7 +3771,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 6,
                 Room = "210",
                 Grade = b8,
@@ -3771,7 +3780,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 8,
                 Room = "210",
                 Grade = a11,
@@ -3780,7 +3789,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 1,
                 Room = "210",
                 Grade = b5,
@@ -3789,7 +3798,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 2,
                 Room = "210",
                 Grade = a8,
@@ -3798,7 +3807,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 3,
                 Room = "210",
                 Grade = a10,
@@ -3807,7 +3816,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 4,
                 Room = "210",
                 Grade = a7,
@@ -3816,7 +3825,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 7,
                 Room = "210",
                 Grade = b11,
@@ -3825,7 +3834,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 1,
                 Room = "210",
                 Grade = b8,
@@ -3834,7 +3843,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 3,
                 Room = "210",
                 Grade = a10,
@@ -3843,7 +3852,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 5,
                 Room = "210",
                 Grade = b7,
@@ -3852,7 +3861,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 6,
                 Room = "210",
                 Grade = a6,
@@ -3861,7 +3870,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 7,
                 Room = "210",
                 Grade = a11,
@@ -3870,7 +3879,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 8,
                 Room = "210",
                 Grade = a9,
@@ -3881,7 +3890,7 @@ namespace sms.Data
             #region melnychuk
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 2,
                 Room = "210",
                 Grade = a8,
@@ -3890,7 +3899,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 6,
                 Room = "210",
                 Grade = a11,
@@ -3899,7 +3908,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 1,
                 Room = "210",
                 Grade = a6,
@@ -3908,7 +3917,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 2,
                 Room = "210",
                 Grade = a8,
@@ -3917,7 +3926,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 7,
                 Room = "210",
                 Grade = a11,
@@ -3926,7 +3935,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 1,
                 Room = "210",
                 Grade = a11,
@@ -3935,7 +3944,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 2,
                 Room = "210",
                 Grade = a7,
@@ -3944,7 +3953,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 3,
                 Room = "210",
                 Grade = a5,
@@ -3953,7 +3962,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 4,
                 Room = "210",
                 Grade = a7,
@@ -3962,7 +3971,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 7,
                 Room = "210",
                 Grade = a8,
@@ -3971,7 +3980,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 8,
                 Room = "210",
                 Grade = b11,
@@ -3980,7 +3989,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 2,
                 Room = "210",
                 Grade = a5,
@@ -3989,7 +3998,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 3,
                 Room = "210",
                 Grade = a8,
@@ -3998,7 +4007,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 5,
                 Room = "210",
                 Grade = a7,
@@ -4007,7 +4016,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 8,
                 Room = "210",
                 Grade = a11,
@@ -4016,7 +4025,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 1,
                 Room = "210",
                 Grade = a5,
@@ -4025,7 +4034,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 2,
                 Room = "210",
                 Grade = a8,
@@ -4034,7 +4043,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 6,
                 Room = "210",
                 Grade = a7,
@@ -4043,7 +4052,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 8,
                 Room = "210",
                 Grade = a11,
@@ -4054,7 +4063,7 @@ namespace sms.Data
             #region slavov
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 2,
                 Room = "212",
                 Grade = b8,
@@ -4063,7 +4072,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 6,
                 Room = "212",
                 Grade = b11,
@@ -4072,7 +4081,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 1,
                 Room = "212",
                 Grade = b6,
@@ -4081,7 +4090,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 2,
                 Room = "212",
                 Grade = b8,
@@ -4090,7 +4099,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 3,
                 Room = "212",
                 Grade = a9,
@@ -4099,7 +4108,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 7,
                 Room = "212",
                 Grade = b11,
@@ -4108,7 +4117,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 1,
                 Room = "212",
                 Grade = a9,
@@ -4117,7 +4126,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 2,
                 Room = "212",
                 Grade = b7,
@@ -4126,7 +4135,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 3,
                 Room = "212",
                 Grade = b5,
@@ -4135,7 +4144,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 4,
                 Room = "212",
                 Grade = b7,
@@ -4144,7 +4153,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 6,
                 Room = "212",
                 Grade = a10,
@@ -4153,7 +4162,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 7,
                 Room = "212",
                 Grade = b8,
@@ -4162,7 +4171,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 1,
                 Room = "212",
                 Grade = a10,
@@ -4171,7 +4180,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 2,
                 Room = "212",
                 Grade = b5,
@@ -4180,7 +4189,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 3,
                 Room = "212",
                 Grade = b8,
@@ -4189,7 +4198,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 5,
                 Room = "212",
                 Grade = b7,
@@ -4198,7 +4207,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 7,
                 Room = "212",
                 Grade = a9,
@@ -4207,7 +4216,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 8,
                 Room = "212",
                 Grade = b11,
@@ -4216,7 +4225,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 1,
                 Room = "212",
                 Grade = b5,
@@ -4225,7 +4234,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 2,
                 Room = "212",
                 Grade = b8,
@@ -4234,7 +4243,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 4,
                 Room = "212",
                 Grade = a10,
@@ -4243,7 +4252,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 6,
                 Room = "212",
                 Grade = b7,
@@ -4252,7 +4261,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 7,
                 Room = "212",
                 Grade = a9,
@@ -4261,7 +4270,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 8,
                 Room = "212",
                 Grade = b11,
@@ -4272,7 +4281,7 @@ namespace sms.Data
             #region tverdokhlibova
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 1,
                 Room = "213",
                 Grade = a5,
@@ -4281,7 +4290,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 2,
                 Room = "213",
                 Grade = a10,
@@ -4290,7 +4299,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 3,
                 Room = "213",
                 Grade = b9,
@@ -4299,7 +4308,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 1,
                 Room = "213",
                 Grade = b9,
@@ -4308,7 +4317,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 6,
                 Room = "213",
                 Grade = b10,
@@ -4317,7 +4326,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 1,
                 Room = "213",
                 Grade = b10,
@@ -4326,7 +4335,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 7,
                 Room = "213",
                 Grade = b9,
@@ -4335,7 +4344,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 4,
                 Room = "213",
                 Grade = b10,
@@ -4344,7 +4353,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 7,
                 Room = "213",
                 Grade = b9,
@@ -4355,7 +4364,16 @@ namespace sms.Data
             #region shevchenko
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
+                Slot = 1,
+                Room = "214",
+                Grade = b7,
+                Subject = chemistry,
+                Teacher = shevchenko
+            },
+            new Lesson
+            {
+                Day = "Пн",
                 Slot = 3,
                 Room = "214",
                 Grade = b9,
@@ -4364,7 +4382,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 1,
                 Room = "214",
                 Grade = b5,
@@ -4373,7 +4391,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 2,
                 Room = "214",
                 Grade = b10,
@@ -4382,7 +4400,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 3,
                 Room = "214",
                 Grade = b8,
@@ -4391,7 +4409,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 6,
                 Room = "214",
                 Grade = b11,
@@ -4400,7 +4418,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 7,
                 Room = "214",
                 Grade = b7,
@@ -4409,7 +4427,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 1,
                 Room = "214",
                 Grade = b7,
@@ -4418,7 +4436,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 2,
                 Room = "214",
                 Grade = a9,
@@ -4427,7 +4445,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 4,
                 Room = "214",
                 Grade = a10,
@@ -4436,7 +4454,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 6,
                 Room = "214",
                 Grade = a8,
@@ -4445,7 +4463,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 1,
                 Room = "214",
                 Grade = a5,
@@ -4454,7 +4472,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 2,
                 Room = "214",
                 Grade = b8,
@@ -4463,7 +4481,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 3,
                 Room = "214",
                 Grade = b10,
@@ -4472,7 +4490,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 4,
                 Room = "214",
                 Grade = b7,
@@ -4481,7 +4499,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 7,
                 Room = "214",
                 Grade = a11,
@@ -4490,7 +4508,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 1,
                 Room = "214",
                 Grade = a8,
@@ -4499,7 +4517,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 3,
                 Room = "214",
                 Grade = b10,
@@ -4508,7 +4526,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 5,
                 Room = "214",
                 Grade = a7,
@@ -4517,7 +4535,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 6,
                 Room = "214",
                 Grade = b6,
@@ -4526,7 +4544,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 7,
                 Room = "214",
                 Grade = b11,
@@ -4535,7 +4553,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 8,
                 Room = "214",
                 Grade = b9,
@@ -4546,7 +4564,7 @@ namespace sms.Data
             #region bondarenko
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 1,
                 Room = "305",
                 Grade = a1,
@@ -4555,7 +4573,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 2,
                 Room = "305",
                 Grade = a1,
@@ -4564,7 +4582,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 3,
                 Room = "305",
                 Grade = a1,
@@ -4573,7 +4591,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 4,
                 Room = "305",
                 Grade = a1,
@@ -4582,7 +4600,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 1,
                 Room = "305",
                 Grade = a1,
@@ -4591,7 +4609,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 2,
                 Room = "305",
                 Grade = a1,
@@ -4600,7 +4618,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 3,
                 Room = "305",
                 Grade = a1,
@@ -4609,7 +4627,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 4,
                 Room = "305",
                 Grade = a1,
@@ -4618,7 +4636,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 1,
                 Room = "305",
                 Grade = a1,
@@ -4627,7 +4645,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 2,
                 Room = "305",
                 Grade = a1,
@@ -4636,7 +4654,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 3,
                 Room = "305",
                 Grade = a1,
@@ -4645,7 +4663,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 4,
                 Room = "305",
                 Grade = a1,
@@ -4654,7 +4672,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 1,
                 Room = "305",
                 Grade = a1,
@@ -4663,7 +4681,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 2,
                 Room = "305",
                 Grade = a1,
@@ -4672,7 +4690,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 3,
                 Room = "305",
                 Grade = a1,
@@ -4681,7 +4699,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 4,
                 Room = "305",
                 Grade = a1,
@@ -4690,7 +4708,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 1,
                 Room = "305",
                 Grade = a1,
@@ -4699,7 +4717,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 2,
                 Room = "305",
                 Grade = a1,
@@ -4708,7 +4726,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 3,
                 Room = "305",
                 Grade = a1,
@@ -4717,7 +4735,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 4,
                 Room = "305",
                 Grade = a1,
@@ -4728,7 +4746,7 @@ namespace sms.Data
             #region vlasiuk
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 1,
                 Room = "306",
                 Grade = b1,
@@ -4737,7 +4755,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 2,
                 Room = "306",
                 Grade = b1,
@@ -4746,7 +4764,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 3,
                 Room = "306",
                 Grade = b1,
@@ -4755,7 +4773,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 4,
                 Room = "306",
                 Grade = b1,
@@ -4764,7 +4782,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 1,
                 Room = "306",
                 Grade = b1,
@@ -4773,7 +4791,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 2,
                 Room = "306",
                 Grade = b1,
@@ -4782,7 +4800,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 3,
                 Room = "306",
                 Grade = b1,
@@ -4791,7 +4809,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 4,
                 Room = "306",
                 Grade = b1,
@@ -4800,7 +4818,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 1,
                 Room = "306",
                 Grade = b1,
@@ -4809,7 +4827,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 2,
                 Room = "306",
                 Grade = b1,
@@ -4818,7 +4836,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 3,
                 Room = "306",
                 Grade = b1,
@@ -4827,7 +4845,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 4,
                 Room = "306",
                 Grade = b1,
@@ -4836,7 +4854,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 1,
                 Room = "306",
                 Grade = b1,
@@ -4845,7 +4863,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 2,
                 Room = "306",
                 Grade = b1,
@@ -4854,7 +4872,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 3,
                 Room = "306",
                 Grade = b1,
@@ -4863,7 +4881,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 4,
                 Room = "306",
                 Grade = b1,
@@ -4872,7 +4890,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 1,
                 Room = "306",
                 Grade = b1,
@@ -4881,7 +4899,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 2,
                 Room = "306",
                 Grade = b1,
@@ -4890,7 +4908,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 3,
                 Room = "306",
                 Grade = b1,
@@ -4899,7 +4917,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 4,
                 Room = "306",
                 Grade = b1,
@@ -4910,7 +4928,7 @@ namespace sms.Data
             #region horlova
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 1,
                 Room = "307",
                 Grade = a2,
@@ -4919,7 +4937,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 2,
                 Room = "307",
                 Grade = a2,
@@ -4928,7 +4946,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 3,
                 Room = "307",
                 Grade = a2,
@@ -4937,7 +4955,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 4,
                 Room = "307",
                 Grade = a2,
@@ -4946,7 +4964,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 1,
                 Room = "307",
                 Grade = a2,
@@ -4955,7 +4973,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 2,
                 Room = "307",
                 Grade = a2,
@@ -4964,7 +4982,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 3,
                 Room = "307",
                 Grade = a2,
@@ -4973,7 +4991,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 4,
                 Room = "307",
                 Grade = a2,
@@ -4982,7 +5000,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 1,
                 Room = "307",
                 Grade = a2,
@@ -4991,7 +5009,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 2,
                 Room = "307",
                 Grade = a2,
@@ -5000,7 +5018,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 3,
                 Room = "307",
                 Grade = a2,
@@ -5009,7 +5027,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 4,
                 Room = "307",
                 Grade = a2,
@@ -5018,7 +5036,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 1,
                 Room = "307",
                 Grade = a2,
@@ -5027,7 +5045,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 2,
                 Room = "307",
                 Grade = a2,
@@ -5036,7 +5054,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 3,
                 Room = "307",
                 Grade = a2,
@@ -5045,7 +5063,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 4,
                 Room = "307",
                 Grade = a2,
@@ -5054,7 +5072,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 1,
                 Room = "307",
                 Grade = a2,
@@ -5063,7 +5081,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 2,
                 Room = "307",
                 Grade = a2,
@@ -5072,7 +5090,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 3,
                 Room = "307",
                 Grade = a2,
@@ -5081,7 +5099,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 4,
                 Room = "307",
                 Grade = a2,
@@ -5092,7 +5110,7 @@ namespace sms.Data
             #region yeroshkina
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 1,
                 Room = "308",
                 Grade = b2,
@@ -5101,7 +5119,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 2,
                 Room = "308",
                 Grade = b2,
@@ -5110,7 +5128,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 3,
                 Room = "308",
                 Grade = b2,
@@ -5119,7 +5137,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 4,
                 Room = "308",
                 Grade = b2,
@@ -5128,7 +5146,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 1,
                 Room = "308",
                 Grade = b2,
@@ -5137,7 +5155,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 2,
                 Room = "308",
                 Grade = b2,
@@ -5146,7 +5164,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 3,
                 Room = "308",
                 Grade = b2,
@@ -5154,7 +5172,7 @@ namespace sms.Data
                 Teacher = yeroshkina
             },new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 4,
                 Room = "308",
                 Grade = b2,
@@ -5163,7 +5181,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 1,
                 Room = "308",
                 Grade = b2,
@@ -5172,7 +5190,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 2,
                 Room = "308",
                 Grade = b2,
@@ -5181,7 +5199,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 3,
                 Room = "308",
                 Grade = b2,
@@ -5190,7 +5208,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 4,
                 Room = "308",
                 Grade = b2,
@@ -5199,7 +5217,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 1,
                 Room = "308",
                 Grade = b2,
@@ -5208,7 +5226,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 2,
                 Room = "308",
                 Grade = b2,
@@ -5217,7 +5235,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 3,
                 Room = "308",
                 Grade = b2,
@@ -5226,7 +5244,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 4,
                 Room = "308",
                 Grade = b2,
@@ -5235,7 +5253,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 1,
                 Room = "308",
                 Grade = b2,
@@ -5244,7 +5262,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 2,
                 Room = "308",
                 Grade = b2,
@@ -5253,7 +5271,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 3,
                 Room = "308",
                 Grade = b2,
@@ -5262,7 +5280,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 4,
                 Room = "308",
                 Grade = b2,
@@ -5273,7 +5291,7 @@ namespace sms.Data
             #region zadorozhnia
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 1,
                 Room = "309",
                 Grade = a3,
@@ -5282,7 +5300,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 2,
                 Room = "309",
                 Grade = a3,
@@ -5291,7 +5309,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 3,
                 Room = "309",
                 Grade = a3,
@@ -5300,7 +5318,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 4,
                 Room = "309",
                 Grade = a3,
@@ -5309,7 +5327,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 5,
                 Room = "309",
                 Grade = a3,
@@ -5318,7 +5336,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 1,
                 Room = "309",
                 Grade = a3,
@@ -5327,7 +5345,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 2,
                 Room = "309",
                 Grade = a3,
@@ -5336,7 +5354,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 3,
                 Room = "309",
                 Grade = a3,
@@ -5345,7 +5363,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 4,
                 Room = "309",
                 Grade = a3,
@@ -5354,7 +5372,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 5,
                 Room = "309",
                 Grade = a3,
@@ -5363,7 +5381,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 1,
                 Room = "309",
                 Grade = a3,
@@ -5372,7 +5390,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 2,
                 Room = "309",
                 Grade = a3,
@@ -5381,7 +5399,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 3,
                 Room = "309",
                 Grade = a3,
@@ -5390,7 +5408,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 4,
                 Room = "309",
                 Grade = a3,
@@ -5399,7 +5417,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 5,
                 Room = "309",
                 Grade = a3,
@@ -5408,7 +5426,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 1,
                 Room = "309",
                 Grade = a3,
@@ -5417,7 +5435,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 2,
                 Room = "309",
                 Grade = a3,
@@ -5426,7 +5444,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 3,
                 Room = "309",
                 Grade = a3,
@@ -5435,7 +5453,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 4,
                 Room = "309",
                 Grade = a3,
@@ -5444,7 +5462,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 5,
                 Room = "309",
                 Grade = a3,
@@ -5453,7 +5471,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 1,
                 Room = "309",
                 Grade = a3,
@@ -5462,7 +5480,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 2,
                 Room = "309",
                 Grade = a3,
@@ -5471,7 +5489,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 3,
                 Room = "309",
                 Grade = a3,
@@ -5480,7 +5498,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 4,
                 Room = "309",
                 Grade = a3,
@@ -5489,7 +5507,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 5,
                 Room = "309",
                 Grade = a3,
@@ -5500,7 +5518,7 @@ namespace sms.Data
             #region hnots
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 1,
                 Room = "310",
                 Grade = b3,
@@ -5509,7 +5527,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 2,
                 Room = "310",
                 Grade = b3,
@@ -5518,7 +5536,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 3,
                 Room = "310",
                 Grade = b3,
@@ -5527,7 +5545,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 4,
                 Room = "310",
                 Grade = b3,
@@ -5536,7 +5554,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 5,
                 Room = "310",
                 Grade = b3,
@@ -5545,7 +5563,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 1,
                 Room = "310",
                 Grade = b3,
@@ -5554,7 +5572,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 2,
                 Room = "310",
                 Grade = b3,
@@ -5563,7 +5581,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 3,
                 Room = "310",
                 Grade = b3,
@@ -5572,7 +5590,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 4,
                 Room = "310",
                 Grade = b3,
@@ -5581,7 +5599,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 5,
                 Room = "310",
                 Grade = b3,
@@ -5590,7 +5608,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 1,
                 Room = "310",
                 Grade = b3,
@@ -5599,7 +5617,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 2,
                 Room = "310",
                 Grade = b3,
@@ -5608,7 +5626,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 3,
                 Room = "310",
                 Grade = b3,
@@ -5617,7 +5635,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 4,
                 Room = "310",
                 Grade = b3,
@@ -5626,7 +5644,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 5,
                 Room = "310",
                 Grade = b3,
@@ -5635,7 +5653,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 1,
                 Room = "310",
                 Grade = b3,
@@ -5644,7 +5662,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 2,
                 Room = "310",
                 Grade = b3,
@@ -5653,7 +5671,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 3,
                 Room = "310",
                 Grade = b3,
@@ -5662,7 +5680,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 4,
                 Room = "310",
                 Grade = b3,
@@ -5671,7 +5689,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 5,
                 Room = "310",
                 Grade = b3,
@@ -5680,7 +5698,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 1,
                 Room = "310",
                 Grade = b3,
@@ -5689,7 +5707,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 2,
                 Room = "310",
                 Grade = b3,
@@ -5698,7 +5716,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 3,
                 Room = "310",
                 Grade = b3,
@@ -5707,7 +5725,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 4,
                 Room = "310",
                 Grade = b3,
@@ -5716,7 +5734,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 5,
                 Room = "310",
                 Grade = b3,
@@ -5727,7 +5745,7 @@ namespace sms.Data
             #region lavrychenko
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 1,
                 Room = "311",
                 Grade = a4,
@@ -5736,7 +5754,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 2,
                 Room = "311",
                 Grade = a4,
@@ -5745,7 +5763,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 3,
                 Room = "311",
                 Grade = a4,
@@ -5754,7 +5772,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 4,
                 Room = "311",
                 Grade = a4,
@@ -5763,7 +5781,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 5,
                 Room = "311",
                 Grade = a4,
@@ -5772,7 +5790,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 1,
                 Room = "311",
                 Grade = a4,
@@ -5781,7 +5799,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 2,
                 Room = "311",
                 Grade = a4,
@@ -5790,7 +5808,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 3,
                 Room = "311",
                 Grade = a4,
@@ -5799,7 +5817,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 4,
                 Room = "311",
                 Grade = a4,
@@ -5808,7 +5826,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 5,
                 Room = "311",
                 Grade = a4,
@@ -5817,7 +5835,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 1,
                 Room = "311",
                 Grade = a4,
@@ -5826,7 +5844,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 2,
                 Room = "311",
                 Grade = a4,
@@ -5835,7 +5853,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 3,
                 Room = "311",
                 Grade = a4,
@@ -5844,7 +5862,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 4,
                 Room = "311",
                 Grade = a4,
@@ -5853,7 +5871,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 5,
                 Room = "311",
                 Grade = a4,
@@ -5862,7 +5880,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 1,
                 Room = "311",
                 Grade = a4,
@@ -5871,7 +5889,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 2,
                 Room = "311",
                 Grade = a4,
@@ -5880,7 +5898,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 3,
                 Room = "311",
                 Grade = a4,
@@ -5889,7 +5907,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 4,
                 Room = "311",
                 Grade = a4,
@@ -5898,7 +5916,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 5,
                 Room = "311",
                 Grade = a4,
@@ -5907,7 +5925,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 1,
                 Room = "311",
                 Grade = a4,
@@ -5916,7 +5934,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 2,
                 Room = "311",
                 Grade = a4,
@@ -5925,7 +5943,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 3,
                 Room = "311",
                 Grade = a4,
@@ -5934,7 +5952,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 4,
                 Room = "311",
                 Grade = a4,
@@ -5943,7 +5961,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 5,
                 Room = "311",
                 Grade = a4,
@@ -5954,7 +5972,7 @@ namespace sms.Data
             #region lonska
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 1,
                 Room = "312",
                 Grade = b4,
@@ -5963,7 +5981,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 2,
                 Room = "312",
                 Grade = b4,
@@ -5972,7 +5990,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 3,
                 Room = "312",
                 Grade = b4,
@@ -5981,7 +5999,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 4,
                 Room = "312",
                 Grade = b4,
@@ -5990,7 +6008,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пн,
+                Day = "Пн",
                 Slot = 5,
                 Room = "312",
                 Grade = b4,
@@ -5999,7 +6017,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 1,
                 Room = "312",
                 Grade = b4,
@@ -6008,7 +6026,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 2,
                 Room = "312",
                 Grade = b4,
@@ -6017,7 +6035,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 3,
                 Room = "312",
                 Grade = b4,
@@ -6026,7 +6044,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 4,
                 Room = "312",
                 Grade = b4,
@@ -6035,7 +6053,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Вт,
+                Day = "Вт",
                 Slot = 5,
                 Room = "312",
                 Grade = b4,
@@ -6044,7 +6062,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 1,
                 Room = "312",
                 Grade = b4,
@@ -6053,7 +6071,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 2,
                 Room = "312",
                 Grade = b4,
@@ -6062,7 +6080,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 3,
                 Room = "312",
                 Grade = b4,
@@ -6071,7 +6089,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 4,
                 Room = "312",
                 Grade = b4,
@@ -6080,7 +6098,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Ср,
+                Day = "Ср",
                 Slot = 5,
                 Room = "312",
                 Grade = b4,
@@ -6089,7 +6107,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 1,
                 Room = "312",
                 Grade = b4,
@@ -6098,7 +6116,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 2,
                 Room = "312",
                 Grade = b4,
@@ -6107,7 +6125,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 3,
                 Room = "312",
                 Grade = b4,
@@ -6116,7 +6134,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 4,
                 Room = "312",
                 Grade = b4,
@@ -6125,7 +6143,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Чт,
+                Day = "Чт",
                 Slot = 5,
                 Room = "312",
                 Grade = b4,
@@ -6134,7 +6152,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 1,
                 Room = "312",
                 Grade = b4,
@@ -6143,7 +6161,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 2,
                 Room = "312",
                 Grade = b4,
@@ -6152,7 +6170,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 3,
                 Room = "312",
                 Grade = b4,
@@ -6161,7 +6179,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 4,
                 Room = "312",
                 Grade = b4,
@@ -6170,7 +6188,7 @@ namespace sms.Data
             },
             new Lesson
             {
-                day = day.Пт,
+                Day = "Пт",
                 Slot = 5,
                 Room = "312",
                 Grade = b4,

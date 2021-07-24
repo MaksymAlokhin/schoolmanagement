@@ -1,5 +1,5 @@
 ﻿@page
-@model sms.Pages.TimeTableModel
+@model sms.Pages.TimeTable.IndexModel
 @{
     ViewData["Title"] = "Розклад";
 }
@@ -9,8 +9,7 @@
     <form method="get">
         <label class="control-label"><i class="fas fa-calendar-day"></i></label>
         <select style="width:60px" name="day" onchange="this.form.submit();">
-            @{var day_list = Html.GetEnumSelectList<Models.day>();
-                foreach (var item in day_list)
+                @foreach (var item in Model.Days)
                 {
                     if (item.Text == Model.selectedDay)
                     {
@@ -22,7 +21,6 @@
                     }
 
                 }
-            }
         </select>
     </form>
 </div>
@@ -50,11 +48,12 @@
                     {
                         <td style="text-align:center">
                             @{
-                                var les = @Model.lessons.Where(i => i.Teacher.Id == Model.teachers[teacher].Id).Where(i => i.day == (Models.day)Enum.Parse(typeof(Models.day), Model.selectedDay)).Where(i => i.Slot == slot).Select(i => i.Grade.FullName);
+                                var les = @Model.lessons.Where(i => i.TeacherId == Model.teachers[teacher].Id).Where(i => i.Day == Model.selectedDay).Where(i => i.Slot == slot).Select(i => i.Grade.FullName);
                                 var empty = (les.Count() == 0);
                                 var buttonType = empty ? "btn-light" : "btn-secondary";
+                                var link = empty ? "./Create" : "./Edit";
                             }
-                            <a asp-page="/Admin/TimeTable"
+                                <a asp-page="@link"
                                asp-route-day="@Model.selectedDay"
                                asp-route-slot="@slot"
                                asp-route-teacher="@Model.teachers[teacher].Id"

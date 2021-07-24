@@ -1,23 +1,23 @@
 ﻿@page
-@model sms.Pages.Lessons.CreateModel
+@model sms.Pages.Test.CreateModel
 
 @{
-    ViewData["Title"] = "Створити";
+    ViewData["Title"] = "Create";
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
-<h1>Створити</h1>
+<h1>Create</h1>
 
-<h4>Урок</h4>
+<h4>Lesson</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Lesson.day" class="control-label"></label>
-                <select asp-for="Lesson.day" class="form-control"></select>
-                <span asp-validation-for="Lesson.day" class="text-danger"></span>
+                <label asp-for="Lesson.Day" class="control-label"></label>
+                <input asp-for="Lesson.Day" class="form-control" />
+                <span asp-validation-for="Lesson.Day" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Lesson.Slot" class="control-label"></label>
@@ -42,14 +42,14 @@
                 <select asp-for="Lesson.TeacherId" class ="form-control" asp-items="ViewBag.TeacherId"></select>
             </div>
             <div class="form-group">
-                <input type="submit" value="Створити" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-page="Index">Назад</a>
+    <a asp-page="Index">Back to List</a>
 </div>
 
 @section Scripts {

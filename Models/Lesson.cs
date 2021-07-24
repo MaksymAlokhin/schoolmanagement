@@ -7,27 +7,14 @@ using System.Threading.Tasks;
 
 namespace sms.Models
 {
-    public enum day
-    {
-        Пн,
-        Вт,
-        Ср,
-        Чт,
-        Пт
-    }
     public class Lesson
     {
         public int Id { get; set; }
 
-        //[Required]
-        //[Display(Name = "День")]
-        //[StringLength(50)]
-        //public string Day { get; set; }
-
-        [Column(TypeName = "nvarchar(16)")]
         [Required]
         [Display(Name = "День")]
-        public day day { get; set; }
+        [StringLength(16)]
+        public string Day { get; set; }
 
         [Required]
         [Display(Name = "№ уроку")]

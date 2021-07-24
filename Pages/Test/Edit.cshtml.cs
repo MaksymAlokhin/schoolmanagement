@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -10,9 +9,8 @@ using Microsoft.EntityFrameworkCore;
 using sms.Data;
 using sms.Models;
 
-namespace sms.Pages.Lessons
+namespace sms.Pages.Test
 {
-    [Authorize(Roles = "Адміністратор")]
     public class EditModel : PageModel
     {
         private readonly sms.Data.ApplicationDbContext _context;
