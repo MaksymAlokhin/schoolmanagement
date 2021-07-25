@@ -10,6 +10,17 @@ namespace sms.Data
     public static class TeachersSeedData
     {
         #region Create teachers
+        public static Teacher lisichkina = new Teacher
+        {
+            LastName = "Лісічкіна",
+            FirstName = "Світлана",
+            Patronymic = "Миколаївна",
+            Subjects = new List<Subject>
+               {
+                english
+               }
+        };
+
         public static Teacher boyarska = new Teacher
         {
             LastName = "Боярська",
@@ -84,7 +95,8 @@ namespace sms.Data
                    history,
                    whistory,
                    uhistory,
-                   jurisprudence
+                   jurisprudence,
+                   civileduc
                }
         };
         public static Teacher smychnikova = new Teacher
@@ -108,7 +120,8 @@ namespace sms.Data
             Subjects = new List<Subject>
                {
                    it,
-                   arts
+                   arts,
+                   finearts
                }
         };
         public static Teacher zviahelskyi = new Teacher
@@ -128,7 +141,8 @@ namespace sms.Data
             Patronymic = "Олександрівна",
             Subjects = new List<Subject>
                {
-                   physics
+                   physics,
+                   astronomy
                }
         };
         public static Teacher kyrianov = new Teacher
@@ -268,7 +282,8 @@ namespace sms.Data
             Patronymic = "Ігорович",
             Subjects = new List<Subject>
                {
-                   pt
+                   pt,
+                   civildef
                }
         };
         public static Teacher slavov = new Teacher
@@ -278,7 +293,8 @@ namespace sms.Data
             Patronymic = "Георгійович",
             Subjects = new List<Subject>
                {
-                   pt
+                   pt,
+                   civildef
                }
         };
         public static Teacher tverdokhlibova = new Teacher
@@ -288,7 +304,8 @@ namespace sms.Data
             Patronymic = "Борисівна",
             Subjects = new List<Subject>
                {
-                   pt
+                   pt,
+                   civildef
                }
         };
         public static Teacher bondarenko = new Teacher
@@ -303,14 +320,15 @@ namespace sms.Data
                    litreading,
                    maths_primary,
                    literacy,
-                   arts_primary,
+                   finearts_primary,
                    health_primary,
                    writing,
                    nature_primary,
                    crafts_primary,
                    ukrainian_primary,
                    iexplore,
-                   iandworld
+                   iandworld,
+                   reading
                }
         };
         public static Teacher vlasiuk = new Teacher
@@ -325,14 +343,15 @@ namespace sms.Data
                    litreading,
                    maths_primary,
                    literacy,
-                   arts_primary,
+                   finearts_primary,
                    health_primary,
                    writing,
                    nature_primary,
                    crafts_primary,
                    ukrainian_primary,
                    iexplore,
-                   iandworld
+                   iandworld,
+                   reading
             }
         };
         public static Teacher horlova = new Teacher
@@ -347,14 +366,15 @@ namespace sms.Data
                    litreading,
                    maths_primary,
                    literacy,
-                   arts_primary,
+                   finearts_primary,
                    health_primary,
                    writing,
                    nature_primary,
                    crafts_primary,
                    ukrainian_primary,
                    iexplore,
-                   iandworld
+                   iandworld,
+                   reading
             }
         };
         public static Teacher yeroshkina = new Teacher
@@ -369,14 +389,15 @@ namespace sms.Data
                    litreading,
                    maths_primary,
                    literacy,
-                   arts_primary,
+                   finearts_primary,
                    health_primary,
                    writing,
                    nature_primary,
                    crafts_primary,
                    ukrainian_primary,
                    iexplore,
-                   iandworld
+                   iandworld,
+                   reading
             }
         };
         public static Teacher zadorozhnia = new Teacher
@@ -391,14 +412,15 @@ namespace sms.Data
                    litreading,
                    maths_primary,
                    literacy,
-                   arts_primary,
+                   finearts_primary,
                    health_primary,
                    writing,
                    nature_primary,
                    crafts_primary,
                    ukrainian_primary,
                    iexplore,
-                   iandworld
+                   iandworld,
+                   reading
             }
         };
         public static Teacher hnots = new Teacher
@@ -413,14 +435,15 @@ namespace sms.Data
                    litreading,
                    maths_primary,
                    literacy,
-                   arts_primary,
+                   finearts_primary,
                    health_primary,
                    writing,
                    nature_primary,
                    crafts_primary,
                    ukrainian_primary,
                    iexplore,
-                   iandworld
+                   iandworld,
+                   reading
             }
         };
         public static Teacher lavrychenko = new Teacher
@@ -435,14 +458,15 @@ namespace sms.Data
                    litreading,
                    maths_primary,
                    literacy,
-                   arts_primary,
+                   finearts_primary,
                    health_primary,
                    writing,
                    nature_primary,
                    crafts_primary,
                    ukrainian_primary,
                    iexplore,
-                   iandworld
+                   iandworld,
+                   reading
             }
         };
         public static Teacher lonska = new Teacher
@@ -457,14 +481,15 @@ namespace sms.Data
                    litreading,
                    maths_primary,
                    literacy,
-                   arts_primary,
+                   finearts_primary,
                    health_primary,
                    writing,
                    nature_primary,
                    crafts_primary,
                    ukrainian_primary,
                    iexplore,
-                   iandworld
+                   iandworld,
+                   reading
             }
         };
         public static Teacher mandro = new Teacher
@@ -479,14 +504,15 @@ namespace sms.Data
                    litreading,
                    maths_primary,
                    literacy,
-                   arts_primary,
+                   finearts_primary,
                    health_primary,
                    writing,
                    nature_primary,
                    crafts_primary,
                    ukrainian_primary,
                    iexplore,
-                   iandworld
+                   iandworld,
+                   reading
             }
         };
         public static Teacher nanivska = new Teacher
@@ -501,14 +527,15 @@ namespace sms.Data
                    litreading,
                    maths_primary,
                    literacy,
-                   arts_primary,
+                   finearts_primary,
                    health_primary,
                    writing,
                    nature_primary,
                    crafts_primary,
                    ukrainian_primary,
                    iexplore,
-                   iandworld
+                   iandworld,
+                   reading
             }
         };
         public static Teacher nimchenko = new Teacher
@@ -523,14 +550,15 @@ namespace sms.Data
                    litreading,
                    maths_primary,
                    literacy,
-                   arts_primary,
+                   finearts_primary,
                    health_primary,
                    writing,
                    nature_primary,
                    crafts_primary,
                    ukrainian_primary,
                    iexplore,
-                   iandworld
+                   iandworld,
+                   reading
             }
         };
         public static Teacher plotnik = new Teacher
@@ -545,14 +573,15 @@ namespace sms.Data
                    litreading,
                    maths_primary,
                    literacy,
-                   arts_primary,
+                   finearts_primary,
                    health_primary,
                    writing,
                    nature_primary,
                    crafts_primary,
                    ukrainian_primary,
                    iexplore,
-                   iandworld
+                   iandworld,
+                   reading
             }
         };
         public static Teacher symonenko_p = new Teacher
@@ -567,14 +596,15 @@ namespace sms.Data
                    litreading,
                    maths_primary,
                    literacy,
-                   arts_primary,
+                   finearts_primary,
                    health_primary,
                    writing,
                    nature_primary,
                    crafts_primary,
                    ukrainian_primary,
                    iexplore,
-                   iandworld
+                   iandworld,
+                   reading
             }
         };
         public static Teacher sovenko = new Teacher
@@ -589,14 +619,15 @@ namespace sms.Data
                    litreading,
                    maths_primary,
                    literacy,
-                   arts_primary,
+                   finearts_primary,
                    health_primary,
                    writing,
                    nature_primary,
                    crafts_primary,
                    ukrainian_primary,
                    iexplore,
-                   iandworld
+                   iandworld,
+                   reading
             }
         };
         public static Teacher sulyma = new Teacher
@@ -611,14 +642,15 @@ namespace sms.Data
                    litreading,
                    maths_primary,
                    literacy,
-                   arts_primary,
+                   finearts_primary,
                    health_primary,
                    writing,
                    nature_primary,
                    crafts_primary,
                    ukrainian_primary,
                    iexplore,
-                   iandworld
+                   iandworld,
+                   reading
             }
         };
         #endregion
@@ -626,6 +658,7 @@ namespace sms.Data
         static TeachersSeedData()
         {
             data = new List<Teacher>();
+            data.Add(lisichkina);
             data.Add(vasylieva);
             data.Add(kurach);
             data.Add(martynenko);

@@ -4870,7 +4870,7 @@ namespace sms.Data
                 Slot = 4,
                 Room = "305",
                 Grade = a1,
-                Subject = arts_primary,
+                Subject = finearts_primary,
                 Teacher = bondarenko
             },
             new Lesson
@@ -4989,7 +4989,7 @@ namespace sms.Data
                 Slot = 2,
                 Room = "306",
                 Grade = b1,
-                Subject = arts_primary,
+                Subject = finearts_primary,
                 Teacher = vlasiuk
             },
             new Lesson
@@ -5106,7 +5106,7 @@ namespace sms.Data
                 Slot = 4,
                 Room = "306",
                 Grade = b1,
-                Subject = arts_primary,
+                Subject = finearts_primary,
                 Teacher = vlasiuk
             },
             new Lesson
@@ -5225,7 +5225,7 @@ namespace sms.Data
                 Slot = 4,
                 Room = "307",
                 Grade = a2,
-                Subject = arts_primary,
+                Subject = finearts_primary,
                 Teacher = horlova
             },
             new Lesson
@@ -5344,7 +5344,7 @@ namespace sms.Data
                 Slot = 3,
                 Room = "308",
                 Grade = b2,
-                Subject = arts_primary,
+                Subject = finearts_primary,
                 Teacher = yeroshkina
             },new Lesson
             {
@@ -5462,7 +5462,7 @@ namespace sms.Data
                 Slot = 3,
                 Room = "309",
                 Grade = a3,
-                Subject = arts_primary,
+                Subject = finearts_primary,
                 Teacher = zadorozhnia
             },
             new Lesson
@@ -5579,7 +5579,7 @@ namespace sms.Data
                 Slot = 5,
                 Room = "309",
                 Grade = a3,
-                Subject = arts_primary,
+                Subject = finearts_primary,
                 Teacher = zadorozhnia
             },
             new Lesson
@@ -5698,7 +5698,7 @@ namespace sms.Data
                 Slot = 1,
                 Room = "310",
                 Grade = b3,
-                Subject = arts_primary,
+                Subject = finearts_primary,
                 Teacher = hnots
             },
             new Lesson
@@ -5815,7 +5815,7 @@ namespace sms.Data
                 Slot = 5,
                 Room = "310",
                 Grade = b3,
-                Subject = arts_primary,
+                Subject = finearts_primary,
                 Teacher = hnots
             },
             #endregion
@@ -5934,7 +5934,7 @@ namespace sms.Data
                 Slot = 5,
                 Room = "311",
                 Grade = a4,
-                Subject = arts_primary,
+                Subject = finearts_primary,
                 Teacher = lavrychenko
             },
             new Lesson
@@ -6053,7 +6053,7 @@ namespace sms.Data
                 Slot = 1,
                 Room = "312",
                 Grade = b4,
-                Subject = arts_primary,
+                Subject = finearts_primary,
                 Teacher = lonska
             },
             new Lesson
@@ -6170,7 +6170,7 @@ namespace sms.Data
                 Slot = 1,
                 Room = "312",
                 Grade = b4,
-                Subject = arts_primary,
+                Subject = finearts_primary,
                 Teacher = lonska
             },
             new Lesson
