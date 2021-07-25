@@ -2755,7 +2755,7 @@ namespace sms.Data
             new Lesson
             {
                 Day = "Пн",
-                Slot = 3,
+                Slot = 5,
                 Room = "205",
                 Grade = a3,
                 Subject = music,

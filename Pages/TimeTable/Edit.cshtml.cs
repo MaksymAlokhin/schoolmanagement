@@ -56,8 +56,7 @@ namespace sms.Pages.TimeTable
                 takenGrades.Add(lesson.Grade.FullName);
             }
 
-            allGrades = _context.Grades.Select(x => x.FullName).Distinct().ToList();
-            allGrades.Sort();
+            allGrades = _context.Grades.OrderBy(g => g.Number).ThenBy(g => g.Letter).Select(x => x.FullName).ToList();
             GradesList = new List<SelectListItem>();
             foreach (string grade in allGrades)
             {

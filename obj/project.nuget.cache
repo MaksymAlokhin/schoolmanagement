@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "skRrWDBCqt20laqnU/OoA6Sov4IzHua3ubTX8nKeZkI1mV08mJw1fq5ARYlnmEsaYLb2kWnTxzoZYG894CaIAw==",
+  "dgSpecHash": "p4Ox3gijKeJrYsSR80UR7ENsCtVz5VJXsACc6v5gXpljS4+2+uvTWRgiYivVma5XuDx2motXEoW0AtW/fJwpvw==",
   "success": true,
-  "projectFilePath": "d:\\КПІ\\Projects\\sms\\sms.csproj",
+  "projectFilePath": "D:\\КПІ\\Projects\\sms\\sms.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Maksym\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Maksym\\.nuget\\packages\\microsoft.aspnetcore.authentication.google\\5.0.8\\microsoft.aspnetcore.authentication.google.5.0.8.nupkg.sha512",

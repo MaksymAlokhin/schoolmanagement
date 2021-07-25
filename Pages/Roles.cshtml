@@ -9,7 +9,8 @@
 <form method="get">
     <div class="form-action col-md-4">
         <label>Без повноважень</label>
-        <input type="checkbox" value="True" data-val="true" onchange="this.form.submit();" data-val-required="The NoRolesCheckbox field is required." id="noRoles" name="noRoles" @(Html.Raw(Model.NoRolesCheckbox ? "checked=\"checked\"" : "")) />
+        <input asp-for="NoRolesCheckbox" type="checkbox" value="True" data-val="true" onchange="this.form.submit();" data-val-required="The NoRolesCheckbox field is required." id="noRoles" name="noRoles" />
+        @*<input type="checkbox" value="True" data-val="true" onchange="this.form.submit();" data-val-required="The NoRolesCheckbox field is required." id="noRoles" name="noRoles" @(Html.Raw(Model.NoRolesCheckbox ? "checked=\"checked\"" : "")) />*@
     </div>
 </form>
 
@@ -35,8 +36,8 @@
                     <form method="post">
                         <span class="form-group col-md-4">
                             <input type="hidden" name="mainid" value="@item.UserId" />
-                            <select class="userselect" asp-items="@Model.RoleNameSL" name="rolename" onchange="this.form.submit();">
-                                <option selected>@item.RoleName</option>
+                            <select class="userselect" asp-for="@item.RoleName" asp-items="@Model.RoleNameSL" name="rolename" onchange="this.form.submit();">
+                                @*<option selected>@item.RoleName</option>*@
                                 <option>Без повноважень</option>
                             </select>
                             <input type="hidden" name="@Model.NoRolesCheckbox" />

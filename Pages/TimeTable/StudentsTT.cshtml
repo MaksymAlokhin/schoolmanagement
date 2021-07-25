@@ -2,3 +2,43 @@
 @model sms.Pages.TimeTable.StudentsTTModel
 @{
 }
+<form method="get">
+    <div class="form-group">
+        <label asp-for="selectedGrade" class="control-label"><i class="fas fa-users"></i></label>
+        <select asp-for="selectedGrade" name="gradeId" style="width:auto" asp-items="Model.grades" onchange="this.form.submit();"></select>
+    </div>
+</form>
+
+<div class="table-responsive col-container" id="schoolTable">
+    <table class="table table-hover table-bordered table-striped">
+        <thead>
+            <tr>
+                <th scope="col" style="text-align:center">№ ур.</th>
+                @foreach (var item in Model.days)
+                {
+                    <th scope="col" style="text-align:center">
+                        @item
+                    </th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var slot in Model.slots)
+            {
+                <tr>
+                    <th scope="row" style="text-align:center">@slot</th>
+                    @for (var day = 0; day < 5; day++)
+                    {
+                <td style="text-align:center">
+                    @{
+                        var les = @Model.lessons.Where(l => l.Day == Model.days[day]).Where(l => l.Slot == slot).Select(l => l.Subject.Name);
+                    }
+                    @foreach (var i in les)
+                    {@i}
+                </td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

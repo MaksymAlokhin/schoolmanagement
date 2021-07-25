@@ -4,27 +4,32 @@
     ViewData["Title"] = "Розклад";
 }
 
-
-<div class="form-group">
-    <form method="get">
+@*<form method="get">
+    <div class="form-group">
         <label class="control-label"><i class="fas fa-calendar-day"></i></label>
         <select style="width:60px" name="day" onchange="this.form.submit();">
-                @foreach (var item in Model.Days)
+            @foreach (var item in Model.Days)
+            {
+                if (item.Text == Model.selectedDay)
                 {
-                    if (item.Text == Model.selectedDay)
-                    {
-                        <option value="@item.Text" selected>@item.Text</option>
-                    }
-                    else
-                    {
-                        <option value="@item.Text">@item.Text</option>
-                    }
-
+                    <option value="@item.Text" selected>@item.Text</option>
                 }
-        </select>
-    </form>
-</div>
+                else
+                {
+                    <option value="@item.Text">@item.Text</option>
+                }
 
+            }
+        </select>
+    </div>
+</form>*@
+
+<form method="get">
+    <div class="form-group">
+        <label asp-for="selectedDay" class="control-label"><i class="fas fa-calendar-day"></i></label>
+        <select asp-for="selectedDay" name="day" style="width:auto" asp-items="Model.Days" onchange="this.form.submit();"></select>
+    </div>
+</form>
 
 <div class="table-responsive col-container" id="schoolTable">
     <table class="table table-hover table-bordered table-striped">
@@ -53,7 +58,7 @@
                                 var buttonType = empty ? "btn-light" : "btn-secondary";
                                 var link = empty ? "./Create" : "./Edit";
                             }
-                                <a asp-page="@link"
+                            <a asp-page="@link"
                                asp-route-day="@Model.selectedDay"
                                asp-route-slot="@slot"
                                asp-route-teacher="@Model.teachers[teacher].Id"
