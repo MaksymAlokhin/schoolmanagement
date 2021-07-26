@@ -24,9 +24,7 @@ namespace sms.Pages.TimeTable
         public Lesson Lesson { get; set; }
 
         public List<SelectListItem> GradesList { get; set; }
-        public string SelectedGrade { get; set; }
         public SelectList SubjectNameSL { get; set; }
-        public int SelectedSubject { get; set; }
 
         public async Task<IActionResult> OnGetAsync(string day, int slot, int teacher)
         {
@@ -40,23 +38,22 @@ namespace sms.Pages.TimeTable
             #region Generate Droplist of available Grades for this day and slot
             var LessonsOnThisDayAndSlot = _context.Lessons.Include(l => l.Grade).Where(l => l.Day == day).Where(l => l.Slot == slot).ToList();
 
-            List<string> allGrades = new List<string>();
-            List<string> takenGrades = new List<string>();
-            List<string> freeGrades = new List<string>();
+            //List<string> allGrades = new List<string>();
+            List<int> takenGrades = new List<int>();
 
             foreach (Lesson lesson in LessonsOnThisDayAndSlot)
             {
-                takenGrades.Add(lesson.Grade.FullName);
+                takenGrades.Add(lesson.GradeId);
             }
 
-            allGrades = _context.Grades.OrderBy(g => g.Number).ThenBy(g => g.Letter).Select(x => x.FullName).ToList();
+            var allGrades = _context.Grades.OrderBy(g => g.Number).ThenBy(g => g.Letter);
 
             GradesList = new List<SelectListItem>();
-            foreach (string grade in allGrades)
+            foreach (Grade grade in allGrades)
             {
-                if(!takenGrades.Contains(grade))
+                if(!takenGrades.Contains(grade.Id))
                 {
-                    GradesList.Add(new SelectListItem { Value = $"{grade}", Text = $"{grade}" });
+                    GradesList.Add(new SelectListItem { Value = $"{grade.Id}", Text = $"{grade.FullName}" });
                 }
             }
             #endregion
@@ -70,29 +67,15 @@ namespace sms.Pages.TimeTable
 
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
-        public async Task<IActionResult> OnPostAsync(string SelectedGrade, string SelectedSubject)
+        public async Task<IActionResult> OnPostAsync()
         {
-            int gradeId = 0;
-            foreach (var x in  _context.Grades)
-            {
-                if (x.FullName == SelectedGrade)
-                {
-                    gradeId = x.Id;
-                }
-            }
 
             Lesson newLesson = new Lesson();
             if (await TryUpdateModelAsync<Lesson>(
                 newLesson,
                 "Lesson",
-                i => i.Day, i => i.Slot, i=>i.TeacherId, i => i.Room))
+                i => i.Day, i => i.Slot, i=>i.TeacherId, i => i.Room, i => i.GradeId, i => i.SubjectId))
             {
-                newLesson.Grade = _context.Grades
-                    .Where(x => x.Id == gradeId)
-                    .Single();
-                newLesson.Subject = _context.Subjects
-                    .Where(x => x.Id == int.Parse(SelectedSubject))
-                    .Single();
                 _context.Lessons.Add(newLesson);
                 await _context.SaveChangesAsync();
                 return RedirectToPage("./Index", new { day = $"{Lesson.Day}" });

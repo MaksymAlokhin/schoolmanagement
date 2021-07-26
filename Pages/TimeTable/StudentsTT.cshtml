@@ -1,7 +1,13 @@
 ﻿@page
 @model sms.Pages.TimeTable.StudentsTTModel
+
 @{
+    ViewData["Title"] = "Розклад уроків - учні";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
 }
+
+<h1>Розклад уроків - учні</h1>
+
 <form method="get">
     <div class="form-group">
         <label asp-for="selectedGrade" class="control-label"><i class="fas fa-users"></i></label>
@@ -29,13 +35,13 @@
                     <th scope="row" style="text-align:center">@slot</th>
                     @for (var day = 0; day < 5; day++)
                     {
-                <td style="text-align:center">
-                    @{
-                        var les = @Model.lessons.Where(l => l.Day == Model.days[day]).Where(l => l.Slot == slot).Select(l => l.Subject.Name);
-                    }
-                    @foreach (var i in les)
-                    {@i}
-                </td>
+                        <td style="text-align:center">
+                            @{
+                                var les = @Model.lessons.Where(l => l.Day == Model.days[day]).Where(l => l.Slot == slot).Select(l => l.Subject.Name);
+                            }
+                            @foreach (var i in les)
+                            {@i}
+                        </td>
                     }
                 </tr>
             }

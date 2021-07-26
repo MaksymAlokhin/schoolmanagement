@@ -37,17 +37,17 @@ namespace sms.Data
         public static Subject design = new Subject { Name = "Дизайн і технології" };
         public static Subject individual = new Subject { Name = "Індивідуальні заняття" };
         public static Subject litreading = new Subject { Name = "Літературне читання" };
-        public static Subject maths_primary = new Subject { Name = "Математика" };
+        public static Subject maths_primary = new Subject { Name = "Математика (поч.шк.)" };
         public static Subject literacy = new Subject { Name = "Навчання грамоти" };
-        public static Subject finearts_primary = new Subject { Name = "Образотворче мистецтво" };
+        public static Subject finearts_primary = new Subject { Name = "Образотворче мистецтво (поч.шк.)" };
         public static Subject health = new Subject { Name = "Основи здоров'я" };
-        public static Subject health_primary = new Subject { Name = "Основи здоров'я" };
+        public static Subject health_primary = new Subject { Name = "Основи здоров'я (поч.шк.)" };
         public static Subject writing = new Subject { Name = "Письмо" };
-        public static Subject nature_primary = new Subject { Name = "Природознавство" };
+        public static Subject nature_primary = new Subject { Name = "Природознавство (поч.шк.)" };
         public static Subject crafts = new Subject { Name = "Труд. навч. / Технол." };
-        public static Subject crafts_primary = new Subject { Name = "Трудове навчання" };
+        public static Subject crafts_primary = new Subject { Name = "Трудове навчання (поч.шк.)" };
         public static Subject iexplore = new Subject { Name = "Я досліджую світ" };
-        public static Subject ukrainian_primary = new Subject { Name = "Українська мова" };
+        public static Subject ukrainian_primary = new Subject { Name = "Українська мова (поч.шк.)" };
         public static Subject iandworld = new Subject { Name = "Я у світі" };
         public static Subject reading = new Subject { Name = "Читання" };
 

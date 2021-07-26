@@ -25,9 +25,7 @@ namespace sms.Pages.TimeTable
         [BindProperty]
         public Lesson Lesson { get; set; }
         public List<SelectListItem> GradesList { get; set; }
-        public string SelectedGrade { get; set; }
         public SelectList SubjectNameSL { get; set; }
-        public int SelectedSubject { get; set; }
 
         public async Task<IActionResult> OnGetAsync(string day, int slot, int teacher)
         {
@@ -37,8 +35,6 @@ namespace sms.Pages.TimeTable
                 .Include(l => l.Subject)
                 .Include(l => l.Teacher).FirstOrDefaultAsync(m => m.Day == day && m.Slot == slot && m.TeacherId == teacher);
 
-            SelectedGrade = Lesson.Grade.FullName;
-
             if (Lesson == null)
             {
                 return NotFound();
@@ -47,22 +43,26 @@ namespace sms.Pages.TimeTable
             #region Generate Droplist of available Grades for this day and slot
             var LessonsOnThisDayAndSlot = _context.Lessons.Include(l => l.Grade).Where(l => l.Day == day).Where(l => l.Slot == slot).ToList();
 
-            List<string> allGrades = new List<string>();
-            List<string> takenGrades = new List<string>();
-            List<string> freeGrades = new List<string>();
+            List<int> takenGrades = new List<int>();
 
             foreach (Lesson lesson in LessonsOnThisDayAndSlot)
             {
-                takenGrades.Add(lesson.Grade.FullName);
+                takenGrades.Add(lesson.GradeId);
             }
 
-            allGrades = _context.Grades.OrderBy(g => g.Number).ThenBy(g => g.Letter).Select(x => x.FullName).ToList();
+            var allGrades = _context.Grades.OrderBy(g => g.Number).ThenBy(g => g.Letter);
             GradesList = new List<SelectListItem>();
-            foreach (string grade in allGrades)
+            foreach (Grade grade in allGrades)
             {
-                if (!takenGrades.Contains(grade))
+                if (!takenGrades.Contains(grade.Id))
                 {
-                    GradesList.Add(new SelectListItem { Value = $"{grade}", Text = $"{grade}" });
+                    GradesList.Add(new SelectListItem { Value = $"{grade.Id}", Text = $"{grade.FullName}"});
+                }
+                else if (grade.Id == Lesson.GradeId)
+                {
+                    var item = new SelectListItem { Value = $"{grade.Id}", Text = $"{grade.FullName}" };
+                    item.Selected = true;
+                    GradesList.Add(item);
                 }
             }
             #endregion
@@ -75,37 +75,13 @@ namespace sms.Pages.TimeTable
 
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync(string SelectedGrade, string SelectedSubject)
+        public async Task<IActionResult> OnPostAsync()
         {
-            int gradeId = 0;
-            foreach (var x in _context.Grades)
-            {
-                if (x.FullName == SelectedGrade)
-                {
-                    gradeId = x.Id;
-                }
-            }
-            
-            if (await TryUpdateModelAsync<Lesson>(
-                Lesson,
-                "Lesson",
-                i => i.Room, i => i.Subject))
-            {
-                Lesson.Grade = _context.Grades
-                    .Where(x => x.Id == gradeId)
-                    .Single();
-                Lesson.Subject = _context.Subjects
-                    .Where(x => x.Id == int.Parse(SelectedSubject))
-                    .Single();
-            }
-
             if (!ModelState.IsValid)
             {
                 return Page();
             }
-
             _context.Attach(Lesson).State = EntityState.Modified;
-
             try
             {
                 await _context.SaveChangesAsync();

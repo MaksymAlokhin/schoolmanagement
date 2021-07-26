@@ -13,10 +13,13 @@ namespace sms.Models
         public int Quantity { get; set; }
 
         public int GradeId { get; set; }
+        [Display(Name = "Клас")]
         public Grade Grade { get; set; }
         public int SubjectId { get; set; }
+        [Display(Name = "Предмет")]
         public Subject Subject { get; set; }
         public int TeacherId { get; set; }
+        [Display(Name = "Вчитель")]
         public Teacher Teacher { get; set; }
     }
 }

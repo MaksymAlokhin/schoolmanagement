@@ -1,0 +1,51 @@
+﻿@page
+@model sms.Pages.Dictionary.Curricula.EditModel
+
+@{
+    ViewData["Title"] = "Редагувати";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Редагувати</h1>
+
+<h4>Навантаження</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Curriculum.Id" />
+            <div class="form-group">
+                <label asp-for="Curriculum.Quantity" class="control-label"></label>
+                <input asp-for="Curriculum.Quantity" class="form-control" />
+                <span asp-validation-for="Curriculum.Quantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Curriculum.Grade.FullName" class="control-label">Клас</label>
+                <select asp-for="Curriculum.GradeId" class="form-control" asp-items="Model.GradesList"></select>
+                <span asp-validation-for="Curriculum.GradeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Curriculum.Teacher.FullName" class="control-label"></label>
+                <select asp-for="Curriculum.TeacherId" class="form-control" asp-items="ViewBag.TeacherId"></select>
+                <span asp-validation-for="Curriculum.TeacherId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Curriculum.Subject.Name" class="control-label"></label>
+                <select asp-for="Curriculum.SubjectId" class="form-control" asp-items="ViewBag.SubjectId"></select>
+                <span asp-validation-for="Curriculum.SubjectId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Зберегти" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index" asp-route-gradeId="@Model.Curriculum.GradeId">Назад</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

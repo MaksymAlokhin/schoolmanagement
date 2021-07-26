@@ -98,32 +98,31 @@ namespace sms.Data
         }
         public static void SeedDB(ApplicationDbContext context, string adminID)
         {
-            if (context.Students.Any())
+            if (!context.Students.Any())
             {
-                return;   // DB has been seeded
+                context.AddRange(StudentsSeedData.data);
             }
-            if (context.Grades.Any())
+            if (!context.Grades.Any())
             {
-                return;
+                context.AddRange(GradesSeedData.data);
             }
-            if (context.Teachers.Any())
+            if (!context.Teachers.Any())
             {
-                return;
+                context.AddRange(TeachersSeedData.data);
             }
-            if (context.Subjects.Any())
+            if (!context.Subjects.Any())
             {
-                return;
+                context.AddRange(SubjectsSeedData.data);
             }
-            if (context.Lessons.Any())
+            if (!context.Lessons.Any())
             {
-                return;
+                context.AddRange(LessonsSeedData.data);
+            }
+            if (!context.Curricula.Any())
+            {
+                context.AddRange(CurriculaSeedData.data);
             }
 
-            context.AddRange(StudentsSeedData.data);
-            context.AddRange(GradesSeedData.data);
-            context.AddRange(TeachersSeedData.data);
-            context.AddRange(SubjectsSeedData.data);
-            context.AddRange(LessonsSeedData.data);
             context.SaveChanges();
         }
 

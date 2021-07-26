@@ -25,7 +25,7 @@ namespace sms.Models
         [Display(Name = "По батькові")]
         public string Patronymic { get; set; }
 
-        [Display(Name = "ПІБ")]
+        [Display(Name = "ПІБ вчителя")]
         public string FullName
         {
             get

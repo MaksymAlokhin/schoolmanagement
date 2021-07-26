@@ -35,7 +35,7 @@ namespace sms
         [Display(Name = "Адреса")]
         public string Address { get; set; }
 
-        [Display(Name = "ПІБ")]
+        [Display(Name = "ПІБ учня")]
         public string FullName
         {
             get
