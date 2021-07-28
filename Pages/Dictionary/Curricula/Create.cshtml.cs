@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using sms.Data;
 using sms.Models;
 
@@ -14,6 +15,7 @@ namespace sms.Pages.Dictionary.Curricula
     {
         private readonly sms.Data.ApplicationDbContext _context;
         public List<SelectListItem> GradesList { get; set; }
+        public List<SelectListItem> SubjectsSL { get; set; }
 
         public CreateModel(sms.Data.ApplicationDbContext context)
         {
@@ -32,7 +34,15 @@ namespace sms.Pages.Dictionary.Curricula
                 GradesList.Add(new SelectListItem { Value = $"{grade.Id}", Text = $"{grade.FullName}" });
             }
 
-            ViewData["SubjectId"] = new SelectList(_context.Subjects.OrderBy(s => s.Name), "Id", "Name");
+            SubjectsSL = new List<SelectListItem>()
+            {
+                new SelectListItem
+                {
+                    Value = null,
+                    Text = " "
+                }
+            };
+
             ViewData["TeacherId"] = new SelectList(_context.Teachers.OrderBy(t => t.LastName).ThenBy(t => t.FirstName), "Id", "FullName");
             return Page();
         }
@@ -52,6 +62,27 @@ namespace sms.Pages.Dictionary.Curricula
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index", new { gradeId = $"{Curriculum.GradeId}" });
+        }
+
+        public JsonResult OnGetSubjects(string teacherId)
+        {
+            if (!string.IsNullOrWhiteSpace(teacherId))
+            {
+
+                IEnumerable<SelectListItem> subjects = _context.Subjects.AsNoTracking()
+                        .OrderBy(n => n.Name)
+                        .Where(n => n.Teachers.Any(t => t.Id == int.Parse(teacherId)))
+                        .Select(n =>
+                           new SelectListItem
+                           {
+                               Value = n.Id.ToString(),
+                               Text = n.Name
+                           }).ToList();
+                //var subj = new SelectList(subjects, "Value", "Text");
+
+                return new JsonResult(subjects);
+            }
+            return null;
         }
     }
 }

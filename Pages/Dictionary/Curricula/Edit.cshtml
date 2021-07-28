@@ -32,7 +32,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Curriculum.Subject.Name" class="control-label"></label>
-                <select asp-for="Curriculum.SubjectId" class="form-control" asp-items="ViewBag.SubjectId"></select>
+                <select asp-for="Curriculum.SubjectId" class="form-control" asp-items="Model.SubjectsSL"></select>
                 <span asp-validation-for="Curriculum.SubjectId" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -46,6 +46,20 @@
     <a asp-page="./Index" asp-route-gradeId="@Model.Curriculum.GradeId">Назад</a>
 </div>
 
-@section Scripts {
+@section scripts{
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $(function () {
+            $("#Curriculum_TeacherId").on("change", function () {
+                var teacherId = $(this).val();
+                $("#Curriculum_SubjectId").empty();
+                $("#Curriculum_SubjectId").append("<option value=''>Оберіть предмет</option>");
+                $.getJSON(`?handler=Subjects&teacherId=${teacherId}`, (data) => {
+                    $.each(data, function (i, item) {
+                        $("#Curriculum_SubjectId").append(`<option value="${item.value}">${item.text}</option>`);
+                    });
+                });
+            });
+        });
+    </script>
 }
