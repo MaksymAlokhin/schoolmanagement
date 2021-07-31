@@ -98,6 +98,15 @@ namespace sms.Data
         }
         public static void SeedDB(ApplicationDbContext context, string adminID)
         {
+            //context.Database.ExecuteSqlRaw("TRUNCATE TABLE [Curricula]");
+            //context.Database.ExecuteSqlRaw("TRUNCATE TABLE [Lessons]");
+            //context.Database.ExecuteSqlRaw("TRUNCATE TABLE [Students]");
+            //context.Database.ExecuteSqlRaw("TRUNCATE TABLE [Grades]");
+            //context.Database.ExecuteSqlRaw("TRUNCATE TABLE [Teachers]");
+            //context.Database.ExecuteSqlRaw("TRUNCATE TABLE [Subjects]");
+
+            //context.SaveChanges();
+
             if (!context.Students.Any())
             {
                 context.AddRange(StudentsSeedData.data);
