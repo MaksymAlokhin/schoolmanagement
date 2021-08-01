@@ -16,7 +16,9 @@ namespace sms.Pages.TimeTable
         List<int> allTeachersIds;
         List<Curriculum> curricula;
         public List<Lesson> lessons;
-        List<Tuple<int, int>> maxLessonsPerDay; //grade, quantity
+        public List<Tuple<int, int>> freeLastLessons; //Day, slot
+        //public List<DaySlotCombo> freeLastLessons;
+        public List<Tuple<int, int>> maxLessonsPerDay; //grade, quantity
         Random random;
         public Generator(sms.Data.ApplicationDbContext context,
                           ILogger<IndexModel> logger)
@@ -34,7 +36,7 @@ namespace sms.Pages.TimeTable
                     Qty = g.Sum(c => c.Quantity)
                 })
                 .OrderByDescending(c => c.Qty)
-                .Select(c=> c.Id)
+                .Select(c => c.Id)
                 .ToList();
 
             lessons = new List<Lesson>();
@@ -113,7 +115,10 @@ namespace sms.Pages.TimeTable
 
         public void RemoveGaps()
         {
+            //!!!! remove below in production
+            //lessons = _context.Lessons.ToList();
             List<Lesson> stranded = new List<Lesson>();
+            List<Lesson> conflictingLessons = new List<Lesson>();
             foreach (int grade in allGradesIds)
             {
                 for (int day = 1; day <= 5; day++)
@@ -124,44 +129,108 @@ namespace sms.Pages.TimeTable
                         if (lessons.Any(l => l.Day == ((Day)day).ToString() && l.Slot == slot && l.GradeId == grade) &&
                          !lessons.Any(l => l.Day == ((Day)day).ToString() && l.Slot == slot - 1 && l.GradeId == grade))
                         {
-                            _logger.LogInformation("Gap detected at day {1}, slot {2}, grade {3}", day, slot-1, grade);
+                            _logger.LogInformation("Gap detected at day {1}, slot {2}, grade {3}", day, slot - 1, grade);
                             Lesson lonelyLesson = lessons.Single(l => l.Day == ((Day)day).ToString()
                                 && l.Slot == slot && l.GradeId == grade);
-                            //Find a conflicting lesson
+                            //Find a conflicting lesson on this day
                             Lesson conflictingLesson = lessons
                                 .Find(l => l.Day == ((Day)day).ToString() && l.Slot == slot - 1 && l.TeacherId == lonelyLesson.TeacherId);
-                            if (conflictingLesson is null) 
-                                continue;
-                            //Find free slots of the teacher for this day
-                            List<int> teacherFreeSlots = new List<int>();
-                            for (int slt = 1; slt <= 8; slt++)
+                            if (conflictingLesson is null)
                             {
-                                if (!lessons.Any(l => l.Day == ((Day)day).ToString() && l.Slot == slt && l.TeacherId == lonelyLesson.TeacherId))
+                                //If previous slot is empty, just move the lesson one slot earliler
+                                //Impossible with generated timetable, but possible if there were previous swaps
+                                //where there were 2 lessons on an island
+                                if (!lessons.Any(l => l.Day == ((Day)day).ToString() && l.Slot == lonelyLesson.Slot - 1 && l.GradeId == lonelyLesson.GradeId))
                                 {
-                                    teacherFreeSlots.Add(slt);
+                                    lonelyLesson.Slot--;
+                                    _logger.LogInformation("Gap removed at day {1}, slot {2}, grade {3}", day, slot - 1, grade);
+                                    RemoveGaps();
                                 }
                             }
-                            //Find potential lessons to swap with
-                            List<Lesson> swappable = new List<Lesson>();
-                            foreach (int slt in teacherFreeSlots)
+                            else
                             {
-                                swappable.AddRange(lessons
-                                    .FindAll(l => l.Day == ((Day)day).ToString() && l.Slot == slt && l.GradeId == conflictingLesson.GradeId));
-                            }
-                            //Check if the lesson's teacher has a free lesson where the conflicting lesson is, so that we can swap
-                            foreach(Lesson lesson in swappable)
-                            {
-                                if(!lessons.Any(l=>l.Day == ((Day)day).ToString() && l.Slot == conflictingLesson.Slot && l.TeacherId == lesson.TeacherId))
-                                {
-                                    int temp = lesson.Slot;
-                                    lesson.Slot = conflictingLesson.Slot;
-                                    conflictingLesson.Slot = temp;
-                                    if(!lessons.Any(l => l.Day == ((Day)day).ToString() && l.Slot == lonelyLesson.Slot-1 && l.GradeId == lonelyLesson.GradeId))
+                                conflictingLessons.Add(conflictingLesson);
+                                //Find conflicting lessons on other days
+                                //Find number of lessons on each day for the conflicting grade
+                                var howManyLessonsPerDay = lessons
+                                    .Where(l => l.GradeId == grade && l.Day != ((Day)day).ToString())
+                                    .GroupBy(g => new { g.GradeId, g.Day })
+                                    .Select(g => new
                                     {
-                                        lonelyLesson.Slot--;
+                                        Day = (int)(Day)Enum.Parse(typeof(Day), g.Key.Day),
+                                        Qty = g.Count()
+                                    })
+                                    .Where(g => g.Qty < 8)
+                                    .OrderBy(g => g.Qty)
+                                    .ToList();
+                                //Find first free lesson on each day and determine conflicting lessons (lonely teacher has a lesson at this slot)
+                                freeLastLessons = new List<Tuple<int, int>>();
+                                foreach (var item in howManyLessonsPerDay)
+                                {
+                                    Lesson tempLesson = lessons
+                                        .Find(l => l.Day == ((Day)item.Day).ToString()
+                                        && l.Slot == item.Qty + 1
+                                        && l.TeacherId == lonelyLesson.TeacherId);
+                                    if (tempLesson is null)
+                                    {
+                                        freeLastLessons.Add(new Tuple<int, int>(item.Day, item.Qty + 1));
                                     }
-                                    _logger.LogInformation("Gap removed at day {1}, slot {2}, grade {3}", day, slot-1, grade); 
-                                    RemoveGaps();
+                                    else conflictingLessons.Add(tempLesson);
+                                }
+                                foreach (Lesson conflictSpot in conflictingLessons)
+                                {
+                                    //Find free slots of the conflicting teacher for this day
+                                    List<int> teacherFreeSlots = new List<int>();
+                                    for (int slt = 1; slt <= 8; slt++)
+                                    {
+                                        if (!lessons.Any(l => l.Day == conflictSpot.Day && l.Slot == slt && l.TeacherId == lonelyLesson.TeacherId))
+                                        {
+                                            teacherFreeSlots.Add(slt);
+                                        }
+                                    }
+                                    //Find potential lessons of other teachers to swap with
+                                    List<Lesson> swappable = new List<Lesson>();
+                                    foreach (int slt in teacherFreeSlots)
+                                    {
+                                        swappable.AddRange(lessons
+                                            .FindAll(l => l.Day == conflictSpot.Day && l.Slot == slt && l.GradeId == conflictSpot.GradeId));
+                                    }
+                                    //Check if the lesson's teacher has a free lesson where the conflicting lesson is, so that we can swap
+                                    foreach (Lesson lesson in swappable)
+                                    {
+                                        if (!lessons.Any(l => l.Day == conflictSpot.Day && l.Slot == conflictSpot.Slot && l.TeacherId == lesson.TeacherId))
+                                        {
+                                            int tempSlot = lesson.Slot;
+                                            lesson.Slot = conflictSpot.Slot;
+                                            conflictingLesson.Slot = tempSlot;
+                                            if (!lessons.Any(l => l.Day == conflictSpot.Day && l.Slot == lonelyLesson.Slot - 1 && l.GradeId == lonelyLesson.GradeId))
+                                            {
+                                                lonelyLesson.Day = conflictSpot.Day;
+                                                lonelyLesson.Slot = lesson.Slot;
+                                            }
+                                            _logger.LogInformation("Gap removed at day {1}, slot {2}, grade {3}", day, slot - 1, grade);
+                                            RemoveGaps();
+                                            break; //we use only first free slot, rest is discarded
+                                        }
+                                        else
+                                        {
+                                            //If cannot swap in any day, put the lesson at the end of the day as the last lesson
+                                            //(day is chosen as containing the least number of lessons)
+                                            foreach (var daySlotCombo in freeLastLessons)
+                                            {
+                                                if (daySlotCombo is null) continue;
+                                                else
+                                                {
+                                                    lonelyLesson.Day = ((Day)daySlotCombo.Item1).ToString();
+                                                    lonelyLesson.Slot = daySlotCombo.Item2;
+                                                    _logger.LogInformation("Gap removed at day {1}, slot {2}, grade {3}", day, slot - 1, grade);
+                                                    RemoveGaps();
+                                                    break; //we use only first free slot, rest is discarded
+                                                }
+                                            }
+                                        }
+                                    }
+                                    break;
                                 }
                             }
                         }
