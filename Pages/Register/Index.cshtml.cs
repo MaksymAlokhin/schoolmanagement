@@ -146,7 +146,7 @@ namespace sms.Pages.Register
         }
         public async Task<IActionResult> OnPostAsync(int studentId, int day, string mark, int year, int month, int gradeId, int subjectId)
         {
-            var existingGradebook = _context.Gradebooks.Single(g => g.LessonDate == new DateTime(year, month, day)
+            var existingGradebook = _context.Gradebooks.SingleOrDefault(g => g.LessonDate == new DateTime(year, month, day)
                 && g.StudentId == studentId && g.SubjectId == subjectId);
             if (existingGradebook == null)
             {
