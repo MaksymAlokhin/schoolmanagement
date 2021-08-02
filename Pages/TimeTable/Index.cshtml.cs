@@ -13,7 +13,7 @@ using sms.Models;
 
 namespace sms.Pages.TimeTable
 {
-    [Authorize(Roles = "Адміністратор")]
+    [Authorize(Roles = "Адміністратор, Вчитель")]
     public class IndexModel : PageModel
     {
         private readonly ApplicationDbContext _context;

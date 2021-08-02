@@ -1,0 +1,50 @@
+﻿@page
+@model sms.Pages.Register.DetailsModel
+
+@{
+    ViewData["Title"] = "Деталі";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Деталі</h1>
+
+<div>
+    <h4>Оцінка</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Gradebook.LessonDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Gradebook.LessonDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Gradebook.Mark)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Gradebook.Mark)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Gradebook.Student)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Gradebook.Student.FirstName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Gradebook.Subject)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Gradebook.Subject.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Gradebook.Teacher)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Gradebook.Teacher.FirstName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Gradebook.Id">Редагувати</a> |
+    <a asp-page="./Index">Назад</a>
+</div>

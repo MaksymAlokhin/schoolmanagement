@@ -43,6 +43,13 @@ namespace sms
                 return LastName + " " + FirstName + " " + Patronymic;
             }
         }
+        public string ShortName
+        {
+            get
+            {
+                return LastName + " " + FirstName[0] + "." + Patronymic[0] + ".";
+            }
+        }
         public int GradeId { get; set; }
         public Grade Grade { get; set; }
     }

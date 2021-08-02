@@ -1,0 +1,56 @@
+﻿@page
+@model sms.Pages.Register.EditModel
+
+@{
+    ViewData["Title"] = "Редагувати";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Редагувати</h1>
+
+<h4>Оцінка</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Gradebook.Id" />
+            <div class="form-group">
+                <label asp-for="Gradebook.LessonDate" class="control-label"></label>
+                <input asp-for="Gradebook.LessonDate" class="form-control" />
+                <span asp-validation-for="Gradebook.LessonDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Gradebook.Mark" class="control-label"></label>
+                <input asp-for="Gradebook.Mark" class="form-control" />
+                <span asp-validation-for="Gradebook.Mark" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Gradebook.StudentId" class="control-label"></label>
+                <select asp-for="Gradebook.StudentId" class="form-control" asp-items="ViewBag.StudentId"></select>
+                <span asp-validation-for="Gradebook.StudentId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Gradebook.SubjectId" class="control-label"></label>
+                <select asp-for="Gradebook.SubjectId" class="form-control" asp-items="ViewBag.SubjectId"></select>
+                <span asp-validation-for="Gradebook.SubjectId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Gradebook.TeacherId" class="control-label"></label>
+                <select asp-for="Gradebook.TeacherId" class="form-control" asp-items="ViewBag.TeacherId"></select>
+                <span asp-validation-for="Gradebook.TeacherId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Назад</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
