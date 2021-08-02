@@ -16,12 +16,14 @@ namespace sms.Pages.Register
     public class IndexModel : PageModel
     {
         private readonly sms.Data.ApplicationDbContext _context;
-        public IList<Gradebook> Gradebook { get; set; }
+        public IList<Gradebook> gradebook { get; set; }
         public List<SelectListItem> grades;
-        public int? selectedGrade;
-        public int? selectedSubject;
-        public int? selectedMonth;
-        public int? selectedYear;
+        public int selectedGrade;
+        public int selectedSubject;
+        public int selectedMonth;
+        public int selectedYear;
+        public string selectedMark;
+        public int NowYear = DateTime.Now.Year;
         public List<SelectListItem> SubjectsSL { get; set; }
         public List<Student> students;
         public int days;
@@ -55,21 +57,38 @@ namespace sms.Pages.Register
             new SelectListItem { Value = "12", Text = "Грудень" }
         };
 
+        public List<SelectListItem> Marks { get; } = new List<SelectListItem>
+        {
+            new SelectListItem { Value = null, Text = " " },
+            new SelectListItem { Value = "0", Text = "Н" },
+            new SelectListItem { Value = "1", Text = "1" },
+            new SelectListItem { Value = "2", Text = "2" },
+            new SelectListItem { Value = "3", Text = "3" },
+            new SelectListItem { Value = "4", Text = "4" },
+            new SelectListItem { Value = "5", Text = "5" },
+            new SelectListItem { Value = "6", Text = "6" },
+            new SelectListItem { Value = "7", Text = "7" },
+            new SelectListItem { Value = "8", Text = "8" },
+            new SelectListItem { Value = "9", Text = "9" },
+            new SelectListItem { Value = "10", Text = "10" },
+            new SelectListItem { Value = "11", Text = "11" },
+            new SelectListItem { Value = "12", Text = "12" }
+        };
+
         public IndexModel(sms.Data.ApplicationDbContext context)
         {
             _context = context;
         }
 
-        public async Task OnGetAsync(int? gradeId, int? subjectId, int? yearId, int? monthId)
+        public async Task OnGetAsync(int gradeId = 0, int subjectId = 0, int year = 0, int month = 9)
         {
             selectedGrade = gradeId;
             selectedSubject = subjectId;
-            selectedMonth = monthId;
+            selectedMonth = month;
+            if (year == 0) selectedYear = DateTime.Now.Year;
+            else selectedYear = year;
 
-            if (yearId == null) selectedYear = DateTime.Now.Year;
-            else selectedYear = yearId;
-
-            if (gradeId != null)
+            if (gradeId != 0)
             {
                 SubjectsSL = _context.Curricula
                     .AsNoTracking()
@@ -95,13 +114,13 @@ namespace sms.Pages.Register
                     };
 
             }
-            if (monthId != null && yearId != null)
+            if (month != 0 && year != 0)
             {
-                days = DateTime.DaysInMonth((int)selectedYear, (int)monthId);
+                days = DateTime.DaysInMonth(selectedYear, month);
             }
             else { days = 31; }
-            
-            if (gradeId != null)
+
+            if (gradeId != 0)
             {
                 students = await _context.Students
                     .Where(g => g.GradeId == gradeId)
@@ -118,12 +137,40 @@ namespace sms.Pages.Register
                 grades.Add(new SelectListItem { Value = $"{g.Id}", Text = $"{g.FullName}" });
             }
 
-            Gradebook = await _context.Gradebooks
+            gradebook = await _context.Gradebooks
                 .Include(g => g.Student)
                 .Include(g => g.Subject)
                 .Include(g => g.Teacher)
-                .Where(g => g.LessonDate.Month == monthId && g.LessonDate.Year == yearId && g.SubjectId == subjectId && g.Student.GradeId == gradeId)
+                .Where(g => g.LessonDate.Month == month && g.LessonDate.Year == year && g.SubjectId == subjectId && g.Student.GradeId == gradeId)
                 .ToListAsync();
+        }
+        public async Task<IActionResult> OnPostAsync(int studentId, int day, string mark, int year, int month, int gradeId, int subjectId)
+        {
+            var existingGradebook = _context.Gradebooks.Single(g => g.LessonDate == new DateTime(year, month, day)
+                && g.StudentId == studentId && g.SubjectId == subjectId);
+            if (existingGradebook == null)
+            {
+                var newGradebook = new Gradebook
+                {
+                    LessonDate = new DateTime(year, month, day),
+                    Mark = mark,
+                    StudentId = studentId,
+                    SubjectId = subjectId,
+                    TeacherId = _context.Curricula.Single(c => c.GradeId == gradeId && c.SubjectId == subjectId).TeacherId
+                };
+                _context.Gradebooks.Add(newGradebook);
+                await _context.SaveChangesAsync();
+            }
+            else existingGradebook.Mark = mark;
+            await _context.SaveChangesAsync();
+
+            return RedirectToPage("./Index", new
+            {
+                gradeId = $"{ gradeId }",
+                subjectId = $"{ subjectId }",
+                year = $"{ year }",
+                month = $"{ month }"
+            });
         }
         public JsonResult OnGetSubjects(string gradeId)
         {

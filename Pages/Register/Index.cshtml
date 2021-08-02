@@ -27,13 +27,13 @@
             <div class="col-sm-2">
                 <div class="form-group">
                     <label asp-for="selectedMonth" class="control-label"><i class="fas fa-calendar-alt"></i></label>
-                    <select asp-for="selectedMonth" name="monthId" style="width:auto" asp-items="Model.Months"></select>
+                    <select asp-for="selectedMonth" name="month" style="width:auto" asp-items="Model.Months"></select>
                 </div>
             </div>
             <div class="col-sm-2">
                 <div class="form-group">
                     <label asp-for="selectedYear" class="control-label"><i class="fas fa-calendar"></i></label>
-                    <select asp-for="selectedYear" name="yearId" style="width:auto" asp-items="Model.YearSL"></select>
+                    <select asp-for="selectedYear" name="year" style="width:auto" asp-items="Model.YearSL"></select>
                 </div>
             </div>
             <div class="col-sm-2 form-actions no-color">
@@ -49,7 +49,7 @@
         <thead>
             <tr>
                 <th scope="col" style="text-align:center">#</th>
-                <th scope="col" style="text-align:center">ПІБ Учня / День</th>
+                <th scope="col" style="text-align:center">ПІБ Учня / Число</th>
                 @for (var i = 1; i <= Model.days; i++)
                 {
                     <th scope="col" style="text-align:center">
@@ -66,25 +66,36 @@
                     <th scope="row">@Model.students[student].ShortName</th>
                     @for (var day = 1; day <= Model.days; day++)
                     {
-                        <td style="text-align:center">
-                            @{
-                                var mark = @Model.Gradebook.Where(i => i.StudentId == Model.students[student].Id).Where(i => i.LessonDate == new DateTime((int)Model.selectedYear, (int)Model.selectedMonth, day)).Select(i => i.Mark);
-                                var empty = (mark.Count() == 0);
-                                var buttonType = empty ? "btn-light" : "btn-secondary";
-                                var link = empty ? "./Create" : "./Edit";
-                            }
-                            <a asp-page="@link"
-                               asp-route-gradeId="@Model.selectedGrade"
-                               asp-route-subjectId="@Model.selectedSubject"
-                               asp-route-monthId="@Model.selectedMonth"
-                               asp-route-yearId="@Model.selectedYear"
-                               class="btn @buttonType">
-                                @if (empty)
-                                {<i class="fas fa-plus"></i>}
-                                @foreach (var i in mark)
-                                {@i}
-                            </a>
-                        </td>
+                <td style="text-align:center">
+                    @{
+                        var mark = @Model.gradebook.Where(i => i.StudentId == Model.students[student].Id).Where(i => i.LessonDate == new DateTime(Model.selectedYear, Model.selectedMonth, day)).Select(i => i.Mark).ToList().FirstOrDefault();
+                        var empty = (mark == null);
+                        var buttonType = empty ? "btn-light" : "btn-secondary";
+                        var link = empty ? "./Create" : "./Edit";
+                    }
+                    <form method="post">
+                        <div class="form-group">
+                            <select asp-for="@mark" name="mark" style="width:auto" asp-items="Model.Marks" onchange="this.form.submit();"></select>
+                        </div>
+                        <input type="hidden" name="day" value="@day" />
+                        <input type="hidden" name="studentId" value="@Model.students[student].Id" />
+                        <input type="hidden" name="year" value="@Model.selectedYear" />
+                        <input type="hidden" name="month" value="@Model.selectedMonth" />
+                        <input type="hidden" name="gradeId" value="@Model.selectedGrade" />
+                        <input type="hidden" name="subjectId" value="@Model.selectedSubject" />
+                    </form>
+                    @*<a asp-page="@link"
+           asp-route-gradeId="@Model.selectedGrade"
+           asp-route-subjectId="@Model.selectedSubject"
+           asp-route-month="@Model.selectedMonth"
+           asp-route-year="@Model.selectedYear"
+           class="btn @buttonType">
+            @if (empty)
+            {<i class="fas fa-plus"></i>}
+            @foreach (var i in mark)
+            {@i}
+        </a>*@
+                </td>
                     }
                 </tr>
             }
@@ -128,25 +139,25 @@
         <thead>
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.Gradebook[0].LessonDate)
+                    @Html.DisplayNameFor(model => model.gradebook[0].LessonDate)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Gradebook[0].Mark)
+                    @Html.DisplayNameFor(model => model.gradebook[0].Mark)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Gradebook[0].Student)
+                    @Html.DisplayNameFor(model => model.gradebook[0].Student)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Gradebook[0].Subject)
+                    @Html.DisplayNameFor(model => model.gradebook[0].Subject)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Gradebook[0].Teacher)
+                    @Html.DisplayNameFor(model => model.gradebook[0].Teacher)
                 </th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
-    @foreach (var item in Model.Gradebook) {
+    @foreach (var item in Model.gradebook) {
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.LessonDate)
