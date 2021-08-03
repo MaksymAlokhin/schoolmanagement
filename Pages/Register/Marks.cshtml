@@ -51,7 +51,8 @@
             <tr>
                 <th scope="col" style="text-align:center" class="col-1">#</th>
                 <th scope="col" style="text-align: center" class="col-4">Предмет</th>
-                <th scope="col" style="text-align: center" class="col-7">Оцінки</th>
+                <th scope="col" style="text-align: center" class="col-6">Оцінки</th>
+                <th scope="col" style="text-align: center" class="col-1">Середній бал</th>
             </tr>
         </thead>
         <tbody>
@@ -64,6 +65,11 @@
                         @{
                             var marks = @Model.gradebook.Where(i => i.SubjectId == Model.subjects[subject].Id).ToList();
                             marks.RemoveAll(s => s.Mark == "0");
+                            double avg = 0;
+                            bool empty = true;
+                            if (marks.Count() > 0) empty = false;
+                            if(!empty) avg = marks.Average(x => int.Parse(x.Mark));
+
                             System.Text.StringBuilder sb = new System.Text.StringBuilder();
                             foreach (var mark in marks)
                             {
@@ -71,9 +77,11 @@
                                 sb.Append(", ");
                             }
                             if (sb.Length > 0) sb.Remove(sb.Length - 2, 2);
-                            var markk = sb.ToString();
                         }
-                        @markk
+                        @sb
+                    </td>
+                    <td>
+                        @if (!empty) { @avg.ToString("F1"); }
                     </td>
                 </tr>
             }
