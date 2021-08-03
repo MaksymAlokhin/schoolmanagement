@@ -27,6 +27,8 @@ namespace sms.Pages.Register
         public List<SelectListItem> SubjectsSL { get; set; }
         public List<Student> students;
         public int days;
+        public PaginatedList<int> pages { get; set; }
+        public int? selectedPage;
 
         public List<SelectListItem> YearSL { get; } = new List<SelectListItem>
         {
@@ -80,11 +82,12 @@ namespace sms.Pages.Register
             _context = context;
         }
 
-        public async Task OnGetAsync(int gradeId = 0, int subjectId = 0, int year = 0, int month = 9)
+        public async Task OnGetAsync(int? pageIndex, int gradeId = 0, int subjectId = 0, int year = 0, int month = 9)
         {
             selectedGrade = gradeId;
             selectedSubject = subjectId;
             selectedMonth = month;
+            selectedPage = pageIndex;
             if (year == 0) selectedYear = DateTime.Now.Year;
             else selectedYear = year;
 
@@ -120,6 +123,11 @@ namespace sms.Pages.Register
             }
             else { days = 31; }
 
+            var slots = Enumerable.Range(1, days).ToList();
+            var pageSize = 11;
+            pages = PaginatedList<int>.CreateFromList(slots, pageIndex ?? 1, pageSize);
+
+
             if (gradeId != 0)
             {
                 students = await _context.Students
@@ -144,11 +152,11 @@ namespace sms.Pages.Register
                 .Where(g => g.LessonDate.Month == month && g.LessonDate.Year == year && g.SubjectId == subjectId && g.Student.GradeId == gradeId)
                 .ToListAsync();
         }
-        public async Task<IActionResult> OnPostAsync(int studentId, int day, string mark, int year, int month, int gradeId, int subjectId)
+        public async Task<IActionResult> OnPostAsync(int studentId, int day, string mark, int year, int month, int gradeId, int subjectId, int pageIndex)
         {
             var existingGradebook = _context.Gradebooks.SingleOrDefault(g => g.LessonDate == new DateTime(year, month, day)
                 && g.StudentId == studentId && g.SubjectId == subjectId);
-            if (existingGradebook == null)
+            if (existingGradebook == null && mark != null)
             {
                 var newGradebook = new Gradebook
                 {
@@ -161,11 +169,19 @@ namespace sms.Pages.Register
                 _context.Gradebooks.Add(newGradebook);
                 await _context.SaveChangesAsync();
             }
-            else existingGradebook.Mark = mark;
+            else
+            {
+                if (mark == null)
+                {
+                    _context.Remove(existingGradebook);
+                }
+                else existingGradebook.Mark = mark;
+            }
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index", new
             {
+                pageIndex = $"{ pageIndex }",
                 gradeId = $"{ gradeId }",
                 subjectId = $"{ subjectId }",
                 year = $"{ year }",
