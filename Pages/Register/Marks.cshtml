@@ -57,23 +57,25 @@
         <tbody>
             @for (var subject = 0; subject < Model.subjects.Count; subject++)
             {
-            <tr>
-                <th scope="row" style="text-align:center">@(subject + 1)</th>
-                <th scope="row">@Model.subjects[subject].Name</th>
-                <td>
-                    @{
-                        var marks = @Model.gradebook.Where(i => i.SubjectId == Model.subjects[subject].Id).ToList();
-                        marks.RemoveAll(s => s.Mark == "0");
-                    }
-                    @foreach (var mark in marks)
-                    {
-                        @if (mark.Mark == marks[marks.Count() - 1].Mark)
-                        {@mark.Mark}
-                        else
-                        {@mark.Mark<text>, </text>}
-                    }
-                </td>
-            </tr>
+                <tr>
+                    <th scope="row" style="text-align:center">@(subject + 1)</th>
+                    <th scope="row">@Model.subjects[subject].Name</th>
+                    <td>
+                        @{
+                            var marks = @Model.gradebook.Where(i => i.SubjectId == Model.subjects[subject].Id).ToList();
+                            marks.RemoveAll(s => s.Mark == "0");
+                            System.Text.StringBuilder sb = new System.Text.StringBuilder();
+                            foreach (var mark in marks)
+                            {
+                                sb.Append(mark.Mark);
+                                sb.Append(", ");
+                            }
+                            if (sb.Length > 0) sb.Remove(sb.Length - 2, 2);
+                            var markk = sb.ToString();
+                        }
+                        @markk
+                    </td>
+                </tr>
             }
         </tbody>
     </table>
