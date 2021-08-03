@@ -85,17 +85,6 @@
                                 <input type="hidden" name="gradeId" value="@Model.selectedGrade" />
                                 <input type="hidden" name="subjectId" value="@Model.selectedSubject" />
                             </form>
-                            @*<a asp-page="@link"
-                                   asp-route-gradeId="@Model.selectedGrade"
-                                   asp-route-subjectId="@Model.selectedSubject"
-                                   asp-route-month="@Model.selectedMonth"
-                                   asp-route-year="@Model.selectedYear"
-                                   class="btn @buttonType">
-                                    @if (empty)
-                                    {<i class="fas fa-plus"></i>}
-                                    @foreach (var i in mark)
-                                    {@i}
-                                </a>*@
                         </td>
                     }
                 </tr>
@@ -115,7 +104,7 @@
    asp-route-subjectId="@Model.selectedSubject"
    asp-route-year="@Model.selectedYear"
    asp-route-month="@Model.selectedMonth"
-   class="btn btn-primary @prevDisabled">
+   class="btn btn-secondary @prevDisabled">
     <i class="fas fa-arrow-alt-circle-left fa-lg"></i>
 </a>
 <a asp-page="./Index"
@@ -124,7 +113,7 @@
    asp-route-subjectId="@Model.selectedSubject"
    asp-route-year="@Model.selectedYear"
    asp-route-month="@Model.selectedMonth"
-   class="btn btn-primary @nextDisabled">
+   class="btn btn-secondary @nextDisabled">
     <i class="fas fa-arrow-alt-circle-right fa-lg"></i>
 </a>
 
@@ -146,65 +135,3 @@
         });
     </script>
 }
-
-@*@page
-    @model sms.Pages.Register.IndexModel
-
-    @{
-        ViewData["Title"] = "Index";
-        Layout = "~/Pages/Shared/_Layout.cshtml";
-    }
-
-    <h1>Index</h1>
-
-    <p>
-        <a asp-page="Create">Create New</a>
-    </p>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.gradebook[0].LessonDate)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.gradebook[0].Mark)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.gradebook[0].Student)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.gradebook[0].Subject)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.gradebook[0].Teacher)
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-    @foreach (var item in Model.gradebook) {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.LessonDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Mark)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Student.FirstName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Subject.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Teacher.FirstName)
-                </td>
-                <td>
-                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-                </td>
-            </tr>
-    }
-        </tbody>
-    </table>*@

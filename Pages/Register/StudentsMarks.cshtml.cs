@@ -30,7 +30,7 @@ namespace sms.Pages.Register
         public int NowYear = DateTime.Now.Year;
         public List<SelectListItem> SubjectsSL { get; set; }
         public List<Student> students;
-        public int days;
+        public List<int> weekdays;
         public PaginatedList<int> pages { get; set; }
         public int? selectedPage;
 
@@ -98,15 +98,32 @@ namespace sms.Pages.Register
                     };
 
             }
-            if (month != 0 && year != 0)
-            {
-                days = DateTime.DaysInMonth(selectedYear, month);
-            }
-            else { days = 31; }
 
-            var slots = Enumerable.Range(1, days).ToList();
+            #region get list of days that actually have lessons on them
+            var ukrDays = await _context.Lessons
+                .Where(l => l.GradeId == gradeId && l.SubjectId == subjectId)
+                .GroupBy(g => g.Day)
+                .Select(g => g.Key).ToListAsync();
+            List<int> dayNumbers = new List<int>();
+            foreach(string d in ukrDays)
+            {
+                dayNumbers.Add((int)Enum.Parse(typeof(UkrDay), d));
+            }
+            List<DayOfWeek> engDays = new List<DayOfWeek>();
+            foreach (int d in dayNumbers)
+            {
+                engDays.Add(((DayOfWeek)d));
+            }
+            weekdays = new List<int>();
+            foreach(DayOfWeek d in engDays)
+            {
+                weekdays.AddRange(AllDatesInMonth(year, month).Where(i => i.DayOfWeek == d).Select(i => i.Day).ToList());
+            }
+            weekdays.Sort();
+            #endregion
+
             var pageSize = 11;
-            pages = PaginatedList<int>.CreateFromList(slots, pageIndex ?? 1, pageSize);
+            pages = PaginatedList<int>.CreateFromList(weekdays, pageIndex ?? 1, pageSize);
 
 
             if (gradeId != 0)
@@ -156,6 +173,14 @@ namespace sms.Pages.Register
                 return new JsonResult(subjects);
             }
             return null;
+        }
+        public IEnumerable<DateTime> AllDatesInMonth(int year, int month)
+        {
+            int days = DateTime.DaysInMonth(year, month);
+            for (int day = 1; day <= days; day++)
+            {
+                yield return new DateTime(year, month, day);
+            }
         }
     }
 }

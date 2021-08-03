@@ -157,7 +157,7 @@ namespace sms.Pages.TimeTable
                                     .GroupBy(g => new { g.GradeId, g.Day })
                                     .Select(g => new
                                     {
-                                        Day = (int)(Day)Enum.Parse(typeof(Day), g.Key.Day),
+                                        Day = (int)(Day)Enum.Parse(typeof(Day), g.Key.Day), //(int)Enum.Parse(typeof(Day), g.Key.Day) - also possible
                                         Qty = g.Count()
                                     })
                                     .Where(g => g.Qty < 8)
