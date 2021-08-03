@@ -86,7 +86,7 @@ namespace sms.Pages.Register
             selectedGrade = gradeId;
             selectedSubject = subjectId;
             selectedMonth = month;
-            selectedPage = pageIndex;
+            selectedPage = pageIndex ?? 1;
             if (year == 0) selectedYear = DateTime.Now.Year;
             else selectedYear = year;
 
