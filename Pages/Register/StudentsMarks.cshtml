@@ -1,4 +1,212 @@
 ﻿@page
 @model sms.Pages.Register.StudentsMarksModel
+
 @{
+    ViewData["Title"] = "Навчальні досягнення";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
 }
+
+<h1>Навчальні досягнення</h1>
+<div class="container">
+    <form method="get">
+        <div class="row">
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <label asp-for="selectedGrade" class="control-label"><i class="fas fa-users"></i></label>
+                    <select asp-for="selectedGrade" name="gradeId" style="width:auto" asp-items="Model.grades">
+                        <option value="0">Оберіть клас</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label asp-for="selectedSubject" class="control-label"><i class="fas fa-book-open"></i></label>
+                    <select asp-for="selectedSubject" name="subjectId" style="width:auto" asp-items="Model.SubjectsSL"></select>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <label asp-for="selectedMonth" class="control-label"><i class="fas fa-calendar-alt"></i></label>
+                    <select asp-for="selectedMonth" name="month" style="width:auto" asp-items="Model.Months"></select>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <label asp-for="selectedYear" class="control-label"><i class="fas fa-calendar"></i></label>
+                    <select asp-for="selectedYear" name="year" style="width:auto" asp-items="Model.YearSL"></select>
+                </div>
+            </div>
+            <div class="col-sm-2 form-actions no-color">
+                <input type="submit" value="Відкрити" class="btn btn-secondary btn-sm" />
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<div class="table-responsive col-container table-sm text-nowrap" id="schoolTable">
+    <table class="table table-hover table-bordered table-striped">
+        <thead>
+            <tr>
+                <th scope="col" style="text-align:center">#</th>
+                <th scope="col" style="text-align:center">ПІБ Учня / Число</th>
+                @foreach (var day in @Model.pages)
+                {
+                    <th scope="col" style="text-align:center">
+                        @day
+                    </th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @for (var student = 0; student < Model.students.Count; student++)
+            {
+                <tr>
+                    <th scope="row">@(student+1)</th>
+                    <th scope="row">@Model.students[student].ShortName</th>
+                    @foreach (var day in @Model.pages)
+                    {
+                        <td style="text-align:center">
+                            @{
+                                var mark = @Model.gradebook.Where(i => i.StudentId == Model.students[student].Id).Where(i => i.LessonDate == new DateTime(Model.selectedYear, Model.selectedMonth, day)).Select(i => i.Mark).ToList().FirstOrDefault();
+                                if (mark == "0") mark = "Н";
+                                var empty = (mark == null);
+                                var buttonType = empty ? "btn-light" : "btn-secondary";
+                                var link = empty ? "./Create" : "./Edit";
+                            }
+                            @mark
+                            @*<form method="post">
+                                <div class="form-group">
+                                    <select asp-for="@mark" name="mark" style="width:auto" asp-items="Model.Marks" onchange="this.form.submit();"></select>
+                                </div>
+                                <input type="hidden" name="pageIndex" value="@Model.selectedPage" />
+                                <input type="hidden" name="day" value="@day" />
+                                <input type="hidden" name="studentId" value="@Model.students[student].Id" />
+                                <input type="hidden" name="year" value="@Model.selectedYear" />
+                                <input type="hidden" name="month" value="@Model.selectedMonth" />
+                                <input type="hidden" name="gradeId" value="@Model.selectedGrade" />
+                                <input type="hidden" name="subjectId" value="@Model.selectedSubject" />
+                            </form>*@
+                            @*<a asp-page="@link"
+                                   asp-route-gradeId="@Model.selectedGrade"
+                                   asp-route-subjectId="@Model.selectedSubject"
+                                   asp-route-month="@Model.selectedMonth"
+                                   asp-route-year="@Model.selectedYear"
+                                   class="btn @buttonType">
+                                    @if (empty)
+                                    {<i class="fas fa-plus"></i>}
+                                    @foreach (var i in mark)
+                                    {@i}
+                                </a>*@
+                        </td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@{
+    var prevDisabled = !Model.pages.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.pages.HasNextPage ? "disabled" : "";
+}
+
+<a asp-page="./StudentsMarks"
+   asp-route-pageIndex="@(Model.pages.PageIndex - 1)"
+   asp-route-gradeId="@Model.selectedGrade"
+   asp-route-subjectId="@Model.selectedSubject"
+   asp-route-year="@Model.selectedYear"
+   asp-route-month="@Model.selectedMonth"
+   class="btn btn-primary @prevDisabled">
+    <i class="fas fa-arrow-alt-circle-left fa-lg"></i>
+</a>
+<a asp-page="./StudentsMarks"
+   asp-route-pageIndex="@(Model.pages.PageIndex + 1)"
+   asp-route-gradeId="@Model.selectedGrade"
+   asp-route-subjectId="@Model.selectedSubject"
+   asp-route-year="@Model.selectedYear"
+   asp-route-month="@Model.selectedMonth"
+   class="btn btn-primary @nextDisabled">
+    <i class="fas fa-arrow-alt-circle-right fa-lg"></i>
+</a>
+
+
+@section scripts{
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $(function () {
+            $("#selectedGrade").on("change", function () {
+                var gradeId = $(this).val();
+                $("#selectedSubject").empty();
+                $("#selectedSubject").append("<option value=''>Оберіть предмет</option>");
+                $.getJSON(`?handler=Subjects&gradeId=${gradeId}`, (data) => {
+                    $.each(data, function (i, item) {
+                        $("#selectedSubject").append(`<option value="${item.value}">${item.text}</option>`);
+                    });
+                });
+            });
+        });
+    </script>
+}
+
+@*@page
+    @model sms.Pages.Register.IndexModel
+
+    @{
+        ViewData["Title"] = "Index";
+        Layout = "~/Pages/Shared/_Layout.cshtml";
+    }
+
+    <h1>Index</h1>
+
+    <p>
+        <a asp-page="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.gradebook[0].LessonDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.gradebook[0].Mark)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.gradebook[0].Student)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.gradebook[0].Subject)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.gradebook[0].Teacher)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model.gradebook) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LessonDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mark)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Student.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Subject.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Teacher.FirstName)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+    }
+        </tbody>
+    </table>*@
