@@ -23,7 +23,6 @@ namespace sms.Pages.Register
         public int selectedMonth;
         public int selectedYear;
         public string selectedMark;
-        public int NowYear = DateTime.Now.Year;
         public List<SelectListItem> SubjectsSL { get; set; }
         public List<Student> students;
         public List<int> weekdays;

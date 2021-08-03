@@ -1,0 +1,99 @@
+﻿@page
+@model sms.Pages.Register.MarksModel
+
+@{
+    ViewData["Title"] = "Навчальні досягнення";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Навчальні досягнення</h1>
+<div class="container">
+    <form method="get">
+        <div class="row">
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <label asp-for="selectedGrade" class="control-label"><i class="fas fa-users"></i></label>
+                    <select asp-for="selectedGrade" name="gradeId" style="width:auto" asp-items="Model.grades">
+                        <option value="0">Оберіть клас</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label asp-for="selectedStudent" class="control-label"><i class="fas fa-user"></i></label>
+                    <select asp-for="selectedStudent" name="studentId" style="width:auto" asp-items="Model.StudentsSL"></select>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <label asp-for="selectedMonth" class="control-label"><i class="fas fa-calendar-alt"></i></label>
+                    <select asp-for="selectedMonth" name="month" style="width:auto" asp-items="Model.Months"></select>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <label asp-for="selectedYear" class="control-label"><i class="fas fa-calendar"></i></label>
+                    <select asp-for="selectedYear" name="year" style="width:auto" asp-items="Model.YearSL"></select>
+                </div>
+            </div>
+            <div class="col-sm-2 form-actions no-color">
+                <input type="submit" value="Показати" class="btn btn-secondary btn-sm" />
+            </div>
+
+        </div>
+    </form>
+</div>
+
+
+<div class="table-responsive col-container text-nowrap" id="schoolTable">
+    <table class="table table-hover table-bordered table-striped">
+        <thead>
+            <tr>
+                <th scope="col" style="text-align:center" class="col-1">#</th>
+                <th scope="col" style="text-align: center" class="col-4">Предмет</th>
+                <th scope="col" style="text-align: center" class="col-7">Оцінки</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (var subject = 0; subject < Model.subjects.Count; subject++)
+            {
+            <tr>
+                <th scope="row" style="text-align:center">@(subject + 1)</th>
+                <th scope="row">@Model.subjects[subject].Name</th>
+                <td>
+                    @{
+                        var marks = @Model.gradebook.Where(i => i.SubjectId == Model.subjects[subject].Id).ToList();
+                        marks.RemoveAll(s => s.Mark == "0");
+                    }
+                    @foreach (var mark in marks)
+                    {
+                        @if (mark.Mark == marks[marks.Count() - 1].Mark)
+                        {@mark.Mark}
+                        else
+                        {@mark.Mark<text>, </text>}
+                    }
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+@section scripts{
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $(function () {
+            $("#selectedGrade").on("change", function () {
+                var gradeId = $(this).val();
+                $("#selectedStudent").empty();
+                $("#selectedStudent").append("<option value=''>Оберіть учня</option>");
+                $.getJSON(`?handler=Students&gradeId=${gradeId}`, (data) => {
+                    $.each(data, function (i, item) {
+                        $("#selectedStudent").append(`<option value="${item.value}">${item.text}</option>`);
+                    });
+                });
+            });
+        });
+    </script>
+}

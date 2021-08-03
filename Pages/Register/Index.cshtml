@@ -62,16 +62,13 @@
             @for (var student = 0; student < Model.students.Count; student++)
             {
                 <tr>
-                    <th scope="row">@(student+1)</th>
+                    <th scope="row" style="text-align:center">@(student+1)</th>
                     <th scope="row">@Model.students[student].ShortName</th>
                     @foreach (var day in @Model.pages)
                     {
                         <td style="text-align:center">
                             @{
                                 var mark = @Model.gradebook.Where(i => i.StudentId == Model.students[student].Id).Where(i => i.LessonDate == new DateTime(Model.selectedYear, Model.selectedMonth, day)).Select(i => i.Mark).ToList().FirstOrDefault();
-                                var empty = (mark == null);
-                                var buttonType = empty ? "btn-light" : "btn-secondary";
-                                var link = empty ? "./Create" : "./Edit";
                             }
                             <form method="post">
                                 <div class="form-group">
