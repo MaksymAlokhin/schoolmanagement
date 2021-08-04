@@ -1,4 +1,4 @@
-п»їusing System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,34 +7,44 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using sms.Data;
 using sms.Models;
 
 namespace sms.Pages.Register
 {
-    [Authorize(Roles = "РђРґРјС–РЅС–СЃС‚СЂР°С‚РѕСЂ, Р’С‡РёС‚РµР»СЊ")]
-    public class DetailsModel : PageModel
+    [Authorize(Roles = "Адміністратор, Вчитель")]
+    public class StatisticsModel : PageModel
     {
-        private readonly sms.Data.ApplicationDbContext _context;
-
-        public DetailsModel(sms.Data.ApplicationDbContext context)
+        public StatisticsModel(sms.Data.ApplicationDbContext context)
         {
             _context = context;
         }
+        private readonly sms.Data.ApplicationDbContext _context;
+        public List<SelectListItem> YearSL { get; } = new List<SelectListItem>
+        {
+            new SelectListItem { Value = $"{DateTime.Now.Year-2}", Text = $"{DateTime.Now.Year-2}" },
+            new SelectListItem { Value = $"{DateTime.Now.Year-1}", Text = $"{DateTime.Now.Year-1}" },
+            new SelectListItem { Value = $"{DateTime.Now.Year}", Text = $"{DateTime.Now.Year}" },
+            new SelectListItem { Value = $"{DateTime.Now.Year+1}", Text = $"{DateTime.Now.Year+1}" },
+            new SelectListItem { Value = $"{DateTime.Now.Year+2}", Text = $"{DateTime.Now.Year+2}" }
+        };
+        public List<SelectListItem> SemesterSL { get; } = new List<SelectListItem>
+        {
+            new SelectListItem { Value = "1", Text = "І семестр" },
+            new SelectListItem { Value = "2", Text = "ІІ семестр" }
+        };
+        public SelectList YearList;
         public List<Grade> grades;
         public List<Gradebook> gradebooks;
-        public List<Subject> subjects;
+        public List<Curriculum> curricula;
         public int selectedYear;
-        public int selectedGrade;
         public int selectedSemester;
-
-        public async Task<IActionResult> OnGetAsync(int gradeId, int year, int semester)
+        public async Task OnGetAsync(int year = 0, int semester = 1)
         {
+            YearList = new SelectList(YearSL, "Value", "Text", $"{DateTime.Now.Year}");
             grades = _context.Grades.OrderBy(g => g.Number).ThenBy(g => g.Letter).ToList();
             if (year == 0) selectedYear = DateTime.Now.Year;
             else selectedYear = year;
             selectedSemester = semester;
-            selectedGrade = gradeId;
             DateTime startDate1 = new DateTime(selectedYear, 9, 1);
             DateTime startDate2 = new DateTime(selectedYear, 1, 1);
             DateTime endDate1 = new DateTime(selectedYear, 12, 31);
@@ -54,18 +64,13 @@ namespace sms.Pages.Register
             }
             gradebooks = _context.Gradebooks
                 .Include(g => g.Student)
-                .Where(g => g.LessonDate >= startDate && g.LessonDate <= endDate && g.Student.GradeId == gradeId)
+                .Where(g => g.LessonDate >= startDate && g.LessonDate <= endDate)
                 .ToList();
-
-            subjects = _context.Curricula
+            
+            curricula = _context.Curricula
                 .AsNoTracking()
                 .Include(g => g.Subject)
-                .Where(g => g.GradeId == gradeId)
-                .OrderBy(g => g.Subject.Name)
-                .Select(g => g.Subject)
                 .ToList();
-
-            return Page();
         }
     }
 }

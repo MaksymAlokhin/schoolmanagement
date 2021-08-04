@@ -2,49 +2,45 @@
 @model sms.Pages.Register.DetailsModel
 
 @{
-    ViewData["Title"] = "Деталі";
+    ViewData["Title"] = "Статистичні дані по класу";
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
-<h1>Деталі</h1>
+<h1>Статистичні дані по класу</h1>
 
-<div>
-    <h4>Оцінка</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Gradebook.LessonDate)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Gradebook.LessonDate)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Gradebook.Mark)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Gradebook.Mark)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Gradebook.Student)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Gradebook.Student.FirstName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Gradebook.Subject)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Gradebook.Subject.Name)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Gradebook.Teacher)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Gradebook.Teacher.FirstName)
-        </dd>
-    </dl>
+<div class="table-responsive col-container text-nowrap" id="schoolTable">
+    <table class="table table-hover table-bordered table-striped table-sm" style="width:auto">
+        <thead>
+            <tr>
+                <th scope="col" style="text-align:center" class="col-auto">#</th>
+                <th scope="col" style="text-align: center" class="col-auto">Предмет</th>
+                <th scope="col" style="text-align: center" class="col-auto">Середній бал</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (var subject = 0; subject < Model.subjects.Count; subject++)
+            {
+                <tr>
+                    <th scope="row" style="text-align:center">@(subject+1)</th>
+                    <th scope="row">@Model.subjects[subject].Name</th>
+                    
+                    <td style="text-align:center">
+                        @{
+                            var marks = @Model.gradebooks.Where(i => i.SubjectId == Model.subjects[subject].Id).ToList();
+                            marks.RemoveAll(s => s.Mark == "0");
+                            double avg = 0;
+                            bool empty = true;
+                            if (marks.Count() > 0) empty = false;
+                            if (!empty) avg = marks.Average(x => int.Parse(x.Mark));
+                        }
+                        @if (!empty)
+                        {@avg.ToString("F1");}
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.Gradebook.Id">Редагувати</a> |
-    <a asp-page="./Index">Назад</a>
+    <a asp-page="./Statistics">Назад</a>
 </div>

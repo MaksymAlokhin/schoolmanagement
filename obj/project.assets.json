@@ -7573,11 +7573,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "d:\\КПІ\\Projects\\sms\\sms.csproj",
+      "projectUniqueName": "D:\\КПІ\\Projects\\sms\\sms.csproj",
       "projectName": "sms",
-      "projectPath": "d:\\КПІ\\Projects\\sms\\sms.csproj",
+      "projectPath": "D:\\КПІ\\Projects\\sms\\sms.csproj",
       "packagesPath": "C:\\Users\\Maksym\\.nuget\\packages\\",
-      "outputPath": "d:\\КПІ\\Projects\\sms\\obj\\",
+      "outputPath": "D:\\КПІ\\Projects\\sms\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

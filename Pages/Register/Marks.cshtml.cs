@@ -113,8 +113,6 @@ namespace sms.Pages.Register
 
             gradebook = await _context.Gradebooks
                 .Include(g => g.Student)
-                .Include(g => g.Subject)
-                .Include(g => g.Teacher)
                 .Where(g => g.LessonDate.Month == month && g.LessonDate.Year == year 
                         && g.Student.GradeId == gradeId && g.StudentId == studentId)
                 .ToListAsync();

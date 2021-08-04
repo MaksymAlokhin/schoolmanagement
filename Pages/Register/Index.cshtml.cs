@@ -140,7 +140,7 @@ namespace sms.Pages.Register
             weekdays.Sort();
             #endregion
 
-            var pageSize = 11;
+            var pageSize = 15;
             pages = PaginatedList<int>.CreateFromList(weekdays, pageIndex ?? 1, pageSize);
 
 
@@ -163,8 +163,6 @@ namespace sms.Pages.Register
 
             gradebook = await _context.Gradebooks
                 .Include(g => g.Student)
-                .Include(g => g.Subject)
-                .Include(g => g.Teacher)
                 .Where(g => g.LessonDate.Month == month && g.LessonDate.Year == year && g.SubjectId == subjectId && g.Student.GradeId == gradeId)
                 .ToListAsync();
         }
