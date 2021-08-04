@@ -19,10 +19,6 @@ namespace sms.Models
         [Display(Name = "Оцінка")]
         public string Mark { get; set; }
 
-        //[Display(Name = "Клас")]
-        //public int GradeId { get; set; }
-        //[Display(Name = "Клас")]
-        //public Grade Grade { get; set; }
         [Display(Name = "Учень")]
         public int StudentId { get; set; }
         [Display(Name = "Учень")]

@@ -19,6 +19,10 @@ namespace sms.Pages.Register
             _context = context;
         }
         private readonly sms.Data.ApplicationDbContext _context;
+        public string NameSort { get; set; }
+        public string MarkSort { get; set; }
+        public string CurrentSort { get; set; }
+
         public List<SelectListItem> YearSL { get; } = new List<SelectListItem>
         {
             new SelectListItem { Value = $"{DateTime.Now.Year-2}", Text = $"{DateTime.Now.Year-2}" },
@@ -33,15 +37,14 @@ namespace sms.Pages.Register
             new SelectListItem { Value = "2", Text = "ІІ семестр" }
         };
         public SelectList YearList;
-        public List<Grade> grades;
+        public List<Stats> grades;
         public List<Gradebook> gradebooks;
         public List<Curriculum> curricula;
         public int selectedYear;
         public int selectedSemester;
-        public async Task OnGetAsync(int year = 0, int semester = 1)
+        public async Task OnGetAsync(string sortOrder, int year = 0, int semester = 1)
         {
             YearList = new SelectList(YearSL, "Value", "Text", $"{DateTime.Now.Year}");
-            grades = _context.Grades.OrderBy(g => g.Number).ThenBy(g => g.Letter).ToList();
             if (year == 0) selectedYear = DateTime.Now.Year;
             else selectedYear = year;
             selectedSemester = semester;
@@ -62,15 +65,59 @@ namespace sms.Pages.Register
                     endDate = endDate2;
                     break;
             }
-            gradebooks = _context.Gradebooks
-                .Include(g => g.Student)
-                .Where(g => g.LessonDate >= startDate && g.LessonDate <= endDate)
-                .ToList();
-            
-            curricula = _context.Curricula
-                .AsNoTracking()
-                .Include(g => g.Subject)
-                .ToList();
+
+            var gradesIQ = _context.Gradebooks
+                .Include(s => s.Student)
+                .Where(s => s.LessonDate >= startDate && s.LessonDate <= endDate && s.Mark != "0")
+                .Select(s => new
+                {
+                    Id = s.Student.GradeId,
+                    Mark = s.Mark,
+                    Name = s.Student.Grade.FullName,
+                    Number = s.Student.Grade.Number,
+                    Letter = s.Student.Grade.Letter
+                })
+                .ToList()
+                .GroupBy(s => new { s.Name, s.Id, s.Letter, s.Number })
+                .Select(g => new Stats
+                {
+                    Id = g.Key.Id,
+                    Name = g.Key.Name,
+                    Avg = g.Average(s => Convert.ToInt32(s.Mark)),
+                    Number = g.Key.Number,
+                    Letter = g.Key.Letter
+                });
+
+            var test = gradesIQ.ToList();
+
+            NameSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            MarkSort = sortOrder == "mark" ? "mark_desc" : "mark";
+
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    gradesIQ = gradesIQ.OrderByDescending(s => s.Number).ThenByDescending(s => s.Letter);
+                    break;
+                case "mark":
+                    gradesIQ = gradesIQ.OrderBy(s => s.Avg);
+                    break;
+                case "mark_desc":
+                    gradesIQ = gradesIQ.OrderByDescending(s => s.Avg);
+                    break;
+                default:
+                    gradesIQ = gradesIQ.OrderBy(s => s.Number).ThenBy(s => s.Number);
+                    break;
+            }
+
+            grades = gradesIQ.ToList();
         }
+    }
+    public class Stats
+    {
+        public int Id;
+        public int Number;
+        public string Letter;
+        public string Name;
+        public double Avg;
     }
 }

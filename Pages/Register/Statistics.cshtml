@@ -32,8 +32,16 @@
     <table class="table table-hover table-bordered table-striped table-sm" style="width:auto">
         <thead>
             <tr>
-                <th scope="col" style="text-align:center" class="col-auto">Клас</th>
-                <th scope="col" style="text-align: center" class="col-auto">Середній бал</th>
+                <th scope="col" style="text-align:center" class="col-auto">
+                    <a asp-page="./Statistics" asp-route-sortOrder="@Model.NameSort">
+                        Клас
+                    </a>
+                </th>
+                <th scope="col" style="text-align: center" class="col-auto">
+                    <a asp-page="./Statistics" asp-route-sortOrder="@Model.MarkSort">
+                        Середній бал
+                    </a>
+                </th>
                 <th scope="col" style="text-align: center" class="col-auto"></th>
             </tr>
         </thead>
@@ -41,19 +49,9 @@
             @foreach (var grade in Model.grades)
             {
                 <tr>
-                    <th scope="row" style="text-align:center">@grade.FullName</th>
+                    <th scope="row" style="text-align:center">@grade.Name</th>
                     <td style="text-align:center">
-                        @{
-                            var marks = @Model.gradebooks.Where(i => i.Student.GradeId == grade.Id).ToList();
-                            marks.RemoveAll(s => s.Mark == "0");
-                            double avg = 0;
-                            bool empty = true;
-                            if (marks.Count() > 0) empty = false;
-                            if (!empty) avg = marks.Average(x => int.Parse(x.Mark));
-                        }
-                        @if (!empty)
-                        {@avg.ToString("F1");
-                    }
+                        @grade.Avg.ToString("F1")
                     </td>
                     <td>
                         <a asp-page="./Details" asp-route-year="@Model.selectedYear"

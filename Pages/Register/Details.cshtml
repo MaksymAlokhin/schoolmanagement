@@ -6,35 +6,36 @@
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
-<h1>Статистичні дані по класу</h1>
+<h1>Статистичні дані по @Model.gradeName класу</h1>
 
 <div class="table-responsive col-container text-nowrap" id="schoolTable">
     <table class="table table-hover table-bordered table-striped table-sm" style="width:auto">
         <thead>
             <tr>
                 <th scope="col" style="text-align:center" class="col-auto">#</th>
-                <th scope="col" style="text-align: center" class="col-auto">Предмет</th>
-                <th scope="col" style="text-align: center" class="col-auto">Середній бал</th>
+                <th scope="col" style="text-align: center" class="col-auto">
+                    <a asp-page="./Details" asp-route-sortOrder="@Model.NameSort"
+                       asp-route-year="@Model.selectedYear"
+                       asp-route-semester="@Model.selectedSemester"
+                       asp-route-gradeId="@Model.selectedGrade">Предмет</a>
+                </th>
+                <th scope="col" style="text-align: center" class="col-auto">
+                    <a asp-page="./Details" asp-route-sortOrder="@Model.MarkSort"
+                       asp-route-year="@Model.selectedYear"
+                       asp-route-semester="@Model.selectedSemester"
+                       asp-route-gradeId="@Model.selectedGrade">Середній бал</a>
+                </th>
             </tr>
         </thead>
         <tbody>
-            @for (var subject = 0; subject < Model.subjects.Count; subject++)
+            @for (var subject = 0; subject < Model.subjects.Count(); subject++)
             {
                 <tr>
                     <th scope="row" style="text-align:center">@(subject+1)</th>
                     <th scope="row">@Model.subjects[subject].Name</th>
-                    
+
                     <td style="text-align:center">
-                        @{
-                            var marks = @Model.gradebooks.Where(i => i.SubjectId == Model.subjects[subject].Id).ToList();
-                            marks.RemoveAll(s => s.Mark == "0");
-                            double avg = 0;
-                            bool empty = true;
-                            if (marks.Count() > 0) empty = false;
-                            if (!empty) avg = marks.Average(x => int.Parse(x.Mark));
-                        }
-                        @if (!empty)
-                        {@avg.ToString("F1");}
+                        @Model.subjects[subject].Avg.ToString("F1")
                     </td>
                 </tr>
             }

@@ -19,14 +19,16 @@ namespace sms.Pages.Register
             _context = context;
         }
         private readonly sms.Data.ApplicationDbContext _context;
-        public IList<Gradebook> gradebook { get; set; }
         public List<SelectListItem> grades;
-        public List<Subject> subjects;
+        public List<Marks> subjects;
         public int selectedGrade;
         public int selectedMonth;
         public int selectedYear;
         public int selectedStudent;
         public string selectedMark;
+        public string NameSort { get; set; }
+        public string MarkSort { get; set; }
+        public string CurrentSort { get; set; }
         public List<SelectListItem> StudentsSL { get; set; }
         public List<Student> students;
         public List<int> days;
@@ -60,7 +62,7 @@ namespace sms.Pages.Register
             new SelectListItem { Value = "12", Text = "Грудень" }
         };
 
-        public async Task OnGetAsync(int gradeId = 0, int year = 0, int month = 9, int studentId = 0)
+        public async Task OnGetAsync(string sortOrder, int gradeId = 0, int year = 0, int month = 9, int studentId = 0)
         {
             selectedGrade = gradeId;
             selectedMonth = month;
@@ -94,16 +96,6 @@ namespace sms.Pages.Register
                     };
             }
 
-            if (gradeId != 0)
-            {
-                students = await _context.Students
-                    .Where(g => g.GradeId == gradeId)
-                    .OrderBy(g => g.LastName)
-                    .ThenBy(g => g.FirstName)
-                    .ToListAsync();
-            }
-            else { students = new List<Student>(); }
-
             grades = new List<SelectListItem>();
             var grad = _context.Grades.OrderBy(g => g.Number).ThenBy(g => g.Letter);
             foreach (Grade g in grad)
@@ -111,28 +103,56 @@ namespace sms.Pages.Register
                 grades.Add(new SelectListItem { Value = $"{g.Id}", Text = $"{g.FullName}" });
             }
 
-            gradebook = await _context.Gradebooks
-                .Include(g => g.Student)
-                .Where(g => g.LessonDate.Month == month && g.LessonDate.Year == year 
-                        && g.Student.GradeId == gradeId && g.StudentId == studentId)
-                .ToListAsync();
+            var SubjectsIQ = _context.Gradebooks
+                    .Include(s => s.Student)
+                    .Where(s => s.LessonDate.Month == month && s.LessonDate.Year == year
+                        && s.Student.GradeId == gradeId && s.StudentId == studentId && s.Mark != "0")
+                    .Select(s => new
+                    {
+                        Name = s.Subject.Name,
+                        Mark = Convert.ToInt32(s.Mark)
+                    })
+                    .AsEnumerable()
+                    .GroupBy(s => s.Name)
+                    .Select(g => new Marks
+                    {
+                        Name = g.Key,
+                        Avg = g.Average(s => s.Mark),
+                        Mark = g.Select(x => x.Mark).ToList()
+                    });
 
-            subjects = _context.Curricula
-                    .AsNoTracking()
-                    .Include(g => g.Subject)
-                    .Where(g => g.GradeId == gradeId)
-                    .OrderBy(g => g.Subject.Name)
-                    .Select(g => g.Subject)
-                    .ToList();
+            NameSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            MarkSort = sortOrder == "mark" ? "mark_desc" : "mark";
 
-            //days = gradebook.Select(g => g.LessonDate.Day).ToList();
-            //days.Sort();
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    SubjectsIQ = SubjectsIQ.OrderByDescending(s => s.Name);
+                    break;
+                case "mark":
+                    SubjectsIQ = SubjectsIQ.OrderBy(s => s.Avg);
+                    break;
+                case "mark_desc":
+                    SubjectsIQ = SubjectsIQ.OrderByDescending(s => s.Avg);
+                    break;
+                default:
+                    SubjectsIQ = SubjectsIQ.OrderBy(s => s.Name);
+                    break;
+            }
+
+            subjects = SubjectsIQ.ToList();
+
+            foreach (var subj in subjects)
+            {
+                string concat = String.Join(", ", subj.Mark);
+                subj.ConcatenatedMarks = concat;
+            }
         }
         public JsonResult OnGetStudents(string gradeId)
         {
             if (!string.IsNullOrWhiteSpace(gradeId))
             {
-                IEnumerable <SelectListItem> students = _context.Students
+                IEnumerable<SelectListItem> students = _context.Students
                     .AsNoTracking()
                     .Where(g => g.GradeId == int.Parse(gradeId))
                     .OrderBy(g => g.LastName)
@@ -150,5 +170,12 @@ namespace sms.Pages.Register
             }
             return null;
         }
+    }
+    public class Marks
+    {
+        public string Name;
+        public List<int> Mark;
+        public double Avg;
+        public string ConcatenatedMarks;
     }
 }
