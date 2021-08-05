@@ -131,6 +131,10 @@ namespace sms.Data
             {
                 context.AddRange(CurriculaSeedData.data);
             }
+            if (!context.Gradebooks.Any())
+            {
+                context.AddRange(GradebooksSeedData.data);
+            }
 
             context.SaveChanges();
         }

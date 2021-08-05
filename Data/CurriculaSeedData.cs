@@ -718,14 +718,14 @@ namespace sms.Data
                 Quantity = 3,
                 Grade = b5,
                 Subject = ukrlit,
-                Teacher = symonenko_u
+                Teacher = symonenko_op
             },
             new Curriculum
             {
                 Quantity = 3,
                 Grade = b5,
                 Subject = ukrainian,
-                Teacher = symonenko_u
+                Teacher = symonenko_op
             },
             new Curriculum
             {
@@ -928,14 +928,14 @@ namespace sms.Data
                 Quantity = 2,
                 Grade = b6,
                 Subject = ukrlit,
-                Teacher = verbova_u
+                Teacher = verbova_nv
             },
             new Curriculum
             {
                 Quantity = 3,
                 Grade = b6,
                 Subject = ukrainian,
-                Teacher = verbova_u
+                Teacher = verbova_nv
             },
             new Curriculum
             {
@@ -1061,7 +1061,7 @@ namespace sms.Data
                 Quantity = 1,
                 Grade = a7,
                 Subject = physics,
-                Teacher = verbova_p
+                Teacher = verbova_vo
             },
             new Curriculum
             {
@@ -1180,21 +1180,21 @@ namespace sms.Data
                 Quantity = 2,
                 Grade = b7,
                 Subject = ukrlit,
-                Teacher = symonenko_u
+                Teacher = symonenko_op
             },
             new Curriculum
             {
                 Quantity = 2,
                 Grade = b7,
                 Subject = ukrainian,
-                Teacher = symonenko_u
+                Teacher = symonenko_op
             },
             new Curriculum
             {
                 Quantity = 1,
                 Grade = b7,
                 Subject = physics,
-                Teacher = verbova_p
+                Teacher = verbova_vo
             },
             new Curriculum
             {
@@ -1320,7 +1320,7 @@ namespace sms.Data
                 Quantity = 2,
                 Grade = a8,
                 Subject = physics,
-                Teacher = verbova_p
+                Teacher = verbova_vo
             },
             new Curriculum
             {
@@ -1432,21 +1432,21 @@ namespace sms.Data
                 Quantity = 2,
                 Grade = b8,
                 Subject = ukrlit,
-                Teacher = verbova_u
+                Teacher = verbova_nv
             },
             new Curriculum
             {
                 Quantity = 2,
                 Grade = b8,
                 Subject = ukrainian,
-                Teacher = verbova_u
+                Teacher = verbova_nv
             },
             new Curriculum
             {
                 Quantity = 2,
                 Grade = b8,
                 Subject = physics,
-                Teacher = verbova_p
+                Teacher = verbova_vo
             },
             new Curriculum
             {
@@ -1579,7 +1579,7 @@ namespace sms.Data
                 Quantity = 3,
                 Grade = a9,
                 Subject = physics,
-                Teacher = verbova_p
+                Teacher = verbova_vo
             },
             new Curriculum
             {
@@ -1698,21 +1698,21 @@ namespace sms.Data
                 Quantity = 2,
                 Grade = b9,
                 Subject = ukrlit,
-                Teacher = symonenko_u
+                Teacher = symonenko_op
             },
             new Curriculum
             {
                 Quantity = 2,
                 Grade = b9,
                 Subject = ukrainian,
-                Teacher = symonenko_u
+                Teacher = symonenko_op
             },
             new Curriculum
             {
                 Quantity = 3,
                 Grade = b9,
                 Subject = physics,
-                Teacher = verbova_p
+                Teacher = verbova_vo
             },
             new Curriculum
             {
@@ -1831,7 +1831,7 @@ namespace sms.Data
                 Quantity = 3,
                 Grade = a10,
                 Subject = physics,
-                Teacher = verbova_p
+                Teacher = verbova_vo
             },
             new Curriculum
             {
@@ -1936,21 +1936,21 @@ namespace sms.Data
                 Quantity = 2,
                 Grade = b10,
                 Subject = ukrlit,
-                Teacher = verbova_u
+                Teacher = verbova_nv
             },
             new Curriculum
             {
                 Quantity = 2,
                 Grade = b10,
                 Subject = ukrainian,
-                Teacher = verbova_u
+                Teacher = verbova_nv
             },
             new Curriculum
             {
                 Quantity = 3,
                 Grade = b10,
                 Subject = physics,
-                Teacher = verbova_p
+                Teacher = verbova_vo
             },
             new Curriculum
             {
@@ -1992,7 +1992,7 @@ namespace sms.Data
                 Quantity = 1,
                 Grade = a11,
                 Subject = astronomy,
-                Teacher = verbova_p
+                Teacher = verbova_vo
             },
             new Curriculum
             {
@@ -2069,7 +2069,7 @@ namespace sms.Data
                 Quantity = 3,
                 Grade = a11,
                 Subject = physics,
-                Teacher = verbova_p
+                Teacher = verbova_vo
             },
             new Curriculum
             {
@@ -2111,7 +2111,7 @@ namespace sms.Data
                 Quantity = 1,
                 Grade = b11,
                 Subject = astronomy,
-                Teacher = verbova_p
+                Teacher = verbova_vo
             },
             new Curriculum
             {
@@ -2174,21 +2174,21 @@ namespace sms.Data
                 Quantity = 2,
                 Grade = b11,
                 Subject = ukrlit,
-                Teacher = symonenko_u
+                Teacher = symonenko_op
             },
             new Curriculum
             {
                 Quantity = 2,
                 Grade = b11,
                 Subject = ukrainian,
-                Teacher = symonenko_u
+                Teacher = symonenko_op
             },
             new Curriculum
             {
                 Quantity = 3,
                 Grade = b11,
                 Subject = physics,
-                Teacher = verbova_p
+                Teacher = verbova_vo
             },
             new Curriculum
             {

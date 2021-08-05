@@ -134,7 +134,7 @@ namespace sms.Data
                    music
                }
         };
-        public static Teacher verbova_p = new Teacher
+        public static Teacher verbova_vo = new Teacher
         {
             LastName = "Вербова",
             FirstName = "Валентина",
@@ -232,7 +232,7 @@ namespace sms.Data
                    ukrlit
                }
         };
-        public static Teacher symonenko_u = new Teacher
+        public static Teacher symonenko_op = new Teacher
         {
             LastName = "Симоненко",
             FirstName = "Ольга",
@@ -254,7 +254,7 @@ namespace sms.Data
                    ukrlit
                }
         };
-        public static Teacher verbova_u = new Teacher
+        public static Teacher verbova_nv = new Teacher
         {
             LastName = "Вербова",
             FirstName = "Наталя",
@@ -584,7 +584,7 @@ namespace sms.Data
                    reading
             }
         };
-        public static Teacher symonenko_p = new Teacher
+        public static Teacher symonenko_ov = new Teacher
         {
             LastName = "Симоненко",
             FirstName = "Ольга",
@@ -675,10 +675,10 @@ namespace sms.Data
             data.Add(shulga);
             data.Add(zviahelskyi);
             data.Add(havro);
-            data.Add(symonenko_u);
+            data.Add(symonenko_op);
             data.Add(kyrylusha);
-            data.Add(verbova_u);
-            data.Add(verbova_p);
+            data.Add(verbova_nv);
+            data.Add(verbova_vo);
             data.Add(melnychuk);
             data.Add(slavov);
             data.Add(tverdokhlibova);
@@ -697,7 +697,7 @@ namespace sms.Data
             data.Add(nanivska);
             data.Add(nimchenko);
             data.Add(plotnik);
-            data.Add(symonenko_p);
+            data.Add(symonenko_ov);
             data.Add(sovenko);
             data.Add(sulyma);
         }

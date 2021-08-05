@@ -113,7 +113,7 @@ namespace sms.Pages.TimeTable
             }
         }
 
-        public void RemoveGaps()
+        public bool RemoveGaps()
         {
             //!!!! remove below in production
             //lessons = _context.Lessons.ToList();
@@ -144,7 +144,7 @@ namespace sms.Pages.TimeTable
                                 {
                                     lonelyLesson.Slot--;
                                     _logger.LogInformation("Gap removed at day {1}, slot {2}, grade {3}", day, slot - 1, grade);
-                                    RemoveGaps();
+                                    if(RemoveGaps()) return true;
                                 }
                             }
                             else
@@ -207,36 +207,31 @@ namespace sms.Pages.TimeTable
                                             {
                                                 lonelyLesson.Day = conflictSpot.Day;
                                                 lonelyLesson.Slot = lesson.Slot;
-                                            }
-                                            _logger.LogInformation("Gap removed at day {1}, slot {2}, grade {3}", day, slot - 1, grade);
-                                            RemoveGaps();
-                                            break; //we use only first free slot, rest is discarded
-                                        }
-                                        else
-                                        {
-                                            //If cannot swap in any day, put the lesson at the end of the day as the last lesson
-                                            //(day is chosen as containing the least number of lessons)
-                                            foreach (var daySlotCombo in freeLastLessons)
-                                            {
-                                                if (daySlotCombo is null) continue;
-                                                else
-                                                {
-                                                    lonelyLesson.Day = ((Day)daySlotCombo.Item1).ToString();
-                                                    lonelyLesson.Slot = daySlotCombo.Item2;
-                                                    _logger.LogInformation("Gap removed at day {1}, slot {2}, grade {3}", day, slot - 1, grade);
-                                                    RemoveGaps();
-                                                    break; //we use only first free slot, rest is discarded
-                                                }
+                                                _logger.LogInformation("Gap removed at day {1}, slot {2}, grade {3}", day, slot - 1, grade);
+                                                if (RemoveGaps()) return true;
                                             }
                                         }
                                     }
-                                    break;
+                                }
+                                //If cannot swap in any day, put the lesson at the end of the day as the last lesson
+                                //(day is chosen as containing the least number of lessons)
+                                foreach (var daySlotCombo in freeLastLessons)
+                                {
+                                    if (daySlotCombo is null) continue;
+                                    else
+                                    {
+                                        lonelyLesson.Day = ((Day)daySlotCombo.Item1).ToString();
+                                        lonelyLesson.Slot = daySlotCombo.Item2;
+                                        _logger.LogInformation("Gap removed at day {1}, slot {2}, grade {3}", day, slot - 1, grade);
+                                        if (RemoveGaps()) return true;
+                                    }
                                 }
                             }
                         }
                     }
                 }
             }
+            return true;
         }
     }
     enum Day
