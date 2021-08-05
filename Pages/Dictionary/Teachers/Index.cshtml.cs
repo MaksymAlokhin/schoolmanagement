@@ -24,7 +24,6 @@ namespace sms.Pages.Teachers
             Configuration = configuration;
         }
         public string NameSort { get; set; }
-        public string SubjectSort { get; set; }
         public string CurrentFilter { get; set; }
         public string CurrentSort { get; set; }
         public PaginatedList<Teacher> Teacher { get; set; }
@@ -34,7 +33,6 @@ namespace sms.Pages.Teachers
         {
             CurrentSort = sortOrder; 
             NameSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
-            SubjectSort = sortOrder == "subj" ? "subj_desc" : "subj";
             if (searchString != null)
             {
                 pageIndex = 1;
@@ -46,8 +44,7 @@ namespace sms.Pages.Teachers
             
             CurrentFilter = searchString;
 
-            IQueryable<Teacher> teachersIQ = _context.Teachers
-                .Include(t => t.Subjects);
+            IQueryable<Teacher> teachersIQ = _context.Teachers;
 
             if (!String.IsNullOrEmpty(searchString))
             {
@@ -60,12 +57,6 @@ namespace sms.Pages.Teachers
             {
                 case "name_desc":
                     teachersIQ = teachersIQ.OrderByDescending(s => s.LastName);
-                    break;
-                case "subj":
-                    teachersIQ = teachersIQ.OrderBy(s => s.Subjects.First().Name);
-                    break;
-                case "subj_desc":
-                    teachersIQ = teachersIQ.OrderByDescending(s => s.Subjects.First().Name);
                     break;
                 default:
                     teachersIQ = teachersIQ.OrderBy(s => s.LastName);
