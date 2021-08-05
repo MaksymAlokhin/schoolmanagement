@@ -92,8 +92,11 @@ namespace sms.Data
                 throw new Exception("The testUserPw password was probably not strong enough!");
             }
 
-            IR = await userManager.AddToRoleAsync(user, role);
-
+            var roles = await userManager.GetRolesAsync(user);
+            if(roles.Count > 0)
+            {
+                IR = await userManager.AddToRoleAsync(user, role);
+            }
             return IR;
         }
         public static void SeedDB(ApplicationDbContext context, string adminID)
