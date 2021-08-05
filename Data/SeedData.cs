@@ -93,7 +93,7 @@ namespace sms.Data
             }
 
             var roles = await userManager.GetRolesAsync(user);
-            if(roles.Count > 0)
+            if(roles.Count == 0)
             {
                 IR = await userManager.AddToRoleAsync(user, role);
             }
