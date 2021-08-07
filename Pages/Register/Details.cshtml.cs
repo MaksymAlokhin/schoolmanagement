@@ -64,7 +64,7 @@ namespace sms.Pages.Register
                 .Select(g => new Details
                 {
                     Name = g.Key,
-                    Avg = g.Average(s => Convert.ToInt32(s.Mark))
+                    Avg = Math.Round(g.Average(s => Convert.ToInt32(s.Mark)),1)
                 });
 
             NameSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
@@ -90,10 +90,48 @@ namespace sms.Pages.Register
 
             return Page();
         }
+
+        public JsonResult OnPostData(int year, int semester, int gradeId)
+        {
+            DateTime startDate1 = new DateTime(year, 9, 1);
+            DateTime startDate2 = new DateTime(year, 1, 1);
+            DateTime endDate1 = new DateTime(year, 12, 31);
+            DateTime endDate2 = new DateTime(year, 5, 31);
+            DateTime startDate = DateTime.Now;
+            DateTime endDate = DateTime.Now;
+
+            switch (semester)
+            {
+                case 1:
+                    startDate = startDate1;
+                    endDate = endDate1;
+                    break;
+                case 2:
+                    startDate = startDate2;
+                    endDate = endDate2;
+                    break;
+            }
+
+            var subjects = _context.Gradebooks
+                            .Include(s => s.Student)
+                            .Include(s => s.Subject)
+                            .Where(s => s.LessonDate >= startDate && s.LessonDate <= endDate && s.Student.GradeId == gradeId && s.Mark != "0")
+                            .GroupBy(s => s.Subject.Name)
+                            .Select(g => new Details
+                            {
+                                Name = g.Key,
+                                Avg = Math.Round(g.Average(s => Convert.ToInt32(s.Mark)), 1)
+                            })
+                            .OrderBy(s => s.Name)
+                            .AsNoTracking();
+
+            return new JsonResult(subjects);
+        }
     }
+
     public class Details
     {
-        public string Name;
-        public double Avg;
+        public string Name { get; set; }
+        public double Avg { get; set; }
     }
 }

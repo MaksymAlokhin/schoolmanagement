@@ -5,6 +5,10 @@
     {
       "library": "font-awesome@5.15.3",
       "destination": "wwwroot/lib/font-awesome/"
+    },
+    {
+      "library": "Chart.js@3.5.0",
+      "destination": "wwwroot/Chart.js/"
     }
   ]
 }

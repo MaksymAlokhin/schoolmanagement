@@ -117,7 +117,7 @@ namespace sms.Pages.Register
                     .Select(g => new Marks
                     {
                         Name = g.Key,
-                        Avg = g.Average(s => s.Mark),
+                        Avg = Math.Round(g.Average(s => s.Mark), 1),
                         Mark = g.Select(x => x.Mark).ToList()
                     });
 
@@ -170,12 +170,35 @@ namespace sms.Pages.Register
             }
             return null;
         }
+        public JsonResult OnPostData(int year, int month, int gradeId, int studentId)
+        {
+            var subjects = _context.Gradebooks
+                                .Include(s => s.Student)
+                                .Where(s => s.LessonDate.Month == month && s.LessonDate.Year == year
+                                    && s.Student.GradeId == gradeId && s.StudentId == studentId && s.Mark != "0")
+                                .Select(s => new
+                                {
+                                    Name = s.Subject.Name,
+                                    Mark = Convert.ToInt32(s.Mark)
+                                })
+                                .AsEnumerable()
+                                .GroupBy(s => s.Name)
+                                .Select(g => new Marks
+                                {
+                                    Name = g.Key,
+                                    Avg = Math.Round(g.Average(s => s.Mark), 1),
+                                    Mark = g.Select(x => x.Mark).ToList()
+                                })
+                                .OrderBy(s => s.Name);
+
+            return new JsonResult(subjects);
+        }
     }
     public class Marks
     {
-        public string Name;
-        public List<int> Mark;
-        public double Avg;
-        public string ConcatenatedMarks;
+        public string Name { get; set; }
+        public List<int> Mark { get; set; }
+        public double Avg { get; set; }
+        public string ConcatenatedMarks { get; set; }
     }
 }

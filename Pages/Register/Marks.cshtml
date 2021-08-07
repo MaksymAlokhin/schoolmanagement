@@ -21,72 +21,74 @@
             <div class="col-sm-3">
                 <div class="form-group">
                     <label asp-for="selectedStudent" class="control-label"><i class="fas fa-user"></i></label>
-                    <select asp-for="selectedStudent" name="studentId" style="width:auto" asp-items="Model.StudentsSL"></select>
+                    <select asp-for="selectedStudent" name="studentId" style="width:auto" asp-items="Model.StudentsSL" onchange="this.form.submit();"></select>
                 </div>
             </div>
             <div class="col-sm-2">
                 <div class="form-group">
                     <label asp-for="selectedMonth" class="control-label"><i class="fas fa-calendar-alt"></i></label>
-                    <select asp-for="selectedMonth" name="month" style="width:auto" asp-items="Model.Months"></select>
+                    <select asp-for="selectedMonth" name="month" style="width:auto" asp-items="Model.Months" onchange="this.form.submit();"></select>
                 </div>
             </div>
             <div class="col-sm-2">
                 <div class="form-group">
                     <label asp-for="selectedYear" class="control-label"><i class="fas fa-calendar"></i></label>
-                    <select asp-for="selectedYear" name="year" style="width:auto" asp-items="Model.YearSL"></select>
+                    <select asp-for="selectedYear" name="year" style="width:auto" asp-items="Model.YearSL" onchange="this.form.submit();"></select>
                 </div>
             </div>
-            <div class="col-sm-2 form-actions no-color">
-                <input type="submit" value="Показати" class="btn btn-secondary btn-sm" />
-            </div>
-
         </div>
     </form>
 </div>
 
 
-<div class="table-responsive col-container text-nowrap" id="schoolTable">
-    <table class="table table-hover table-bordered table-striped" style="width:auto">
-        <thead>
-            <tr>
-                <th scope="col" style="text-align:center" class="col-auto">#</th>
-                <th scope="col" style="text-align: center" class="col-auto">
-                    <a asp-page="./Marks" asp-route-sortOrder="@Model.NameSort"
-                       asp-route-gradeId="@Model.selectedGrade"
-                       asp-route-studentId="@Model.selectedStudent"
-                       asp-route-year="@Model.selectedYear"
-                       asp-route-month="@Model.selectedMonth">
-                        Предмет
-                    </a>
-                </th>
-                <th scope="col" style="text-align: center" class="col-auto">Оцінки</th>
-                <th scope="col" style="text-align: center" class="col-auto">
-                    <a asp-page="./Marks" asp-route-sortOrder="@Model.MarkSort"
-                       asp-route-gradeId="@Model.selectedGrade"
-                       asp-route-studentId="@Model.selectedStudent"
-                       asp-route-year="@Model.selectedYear"
-                       asp-route-month="@Model.selectedMonth">
-                        Середній бал
-                    </a>
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            @for (var subject = 0; subject < Model.subjects.Count; subject++)
-            {
+<div class="container">
+    <div class="row">
+        <table class="table table-responsive table-hover table-striped table-sm text-nowrap col-container" id="schoolTable" style="width:auto; height:auto">
+            <thead>
+            <thead>
                 <tr>
-                    <th scope="row" style="text-align:center">@(subject + 1)</th>
-                    <th scope="row">@Model.subjects[subject].Name</th>
-                    <td>
-                        @Model.subjects[subject].ConcatenatedMarks
-                    </td>
-                    <td>
-                        @Model.subjects[subject].Avg.ToString("F1")
-                    </td>
+                    <th scope="col" style="text-align:center" class="col-auto">#</th>
+                    <th scope="col" style="text-align: center" class="col-auto">
+                        <a asp-page="./Marks" asp-route-sortOrder="@Model.NameSort"
+                           asp-route-gradeId="@Model.selectedGrade"
+                           asp-route-studentId="@Model.selectedStudent"
+                           asp-route-year="@Model.selectedYear"
+                           asp-route-month="@Model.selectedMonth">
+                            Предмет
+                        </a>
+                    </th>
+                    <th scope="col" style="text-align: center" class="col-auto">Оцінки</th>
+                    <th scope="col" style="text-align: center" class="col-auto">
+                        <a asp-page="./Marks" asp-route-sortOrder="@Model.MarkSort"
+                           asp-route-gradeId="@Model.selectedGrade"
+                           asp-route-studentId="@Model.selectedStudent"
+                           asp-route-year="@Model.selectedYear"
+                           asp-route-month="@Model.selectedMonth">
+                            Середній бал
+                        </a>
+                    </th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @for (var subject = 0; subject < Model.subjects.Count; subject++)
+                {
+                    <tr>
+                        <th scope="row" style="text-align:center">@(subject + 1)</th>
+                        <th scope="row">@Model.subjects[subject].Name</th>
+                        <td>
+                            @Model.subjects[subject].ConcatenatedMarks
+                        </td>
+                        <td>
+                            @Model.subjects[subject].Avg
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div class="col-sm-6 offset-sm-1">
+            <canvas id="barChart" width="800" height="700"></canvas>
+        </div>
+    </div>
 </div>
 
 
@@ -105,5 +107,66 @@
                 });
             });
         });
+        function query_string(variable) {
+            var query = window.location.search.substring(1);
+            var vars = query.split("&");
+            for (var i = 0; i < vars.length; i++) {
+                var pair = vars[i].split("=");
+                if (pair[0] == variable) { return pair[1]; }
+            }
+            return (false);
+        }
+
+        var ctx = document.getElementById('barChart').getContext('2d');
+
+        var year = query_string('year');
+        var month = query_string('month');
+        var gradeId = query_string('gradeId');
+        var studentId = query_string('studentId');
+
+        var randomColorGenerator = function () {
+            return '#' + (Math.random().toString(16) + '0000000').slice(2, 8);
+        };
+        $.ajax({
+            url: "?handler=Data",
+            type: "POST",
+            headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+            dataType: "json",
+            data: { 'year': year, 'month': month, 'gradeId': gradeId, 'studentId': studentId },
+            success: function (data) {
+                var labels = [];
+                var dataresults = [];
+                $.each(data, function (index, item) {
+                    labels.push(item.name);
+                    dataresults.push(item.avg);
+                });
+                console.log(labels)
+                console.log(dataresults)
+                if (studentId) {
+                    var myChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: labels,
+                            datasets: [{
+                                label: 'Успішність',
+                                data: dataresults,
+                                backgroundColor: randomColorGenerator,
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                y: {
+                                    suggestedMin: 1,
+                                    suggestedMax: 12,
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    });
+                }
+            }
+        });
     </script>
+
 }

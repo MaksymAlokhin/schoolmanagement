@@ -42,12 +42,14 @@ namespace sms.Pages.Register
         public List<Curriculum> curricula;
         public int selectedYear;
         public int selectedSemester;
+
         public async Task OnGetAsync(string sortOrder, int year = 0, int semester = 1)
         {
             YearList = new SelectList(YearSL, "Value", "Text", $"{DateTime.Now.Year}");
             if (year == 0) selectedYear = DateTime.Now.Year;
             else selectedYear = year;
             selectedSemester = semester;
+
             DateTime startDate1 = new DateTime(selectedYear, 9, 1);
             DateTime startDate2 = new DateTime(selectedYear, 1, 1);
             DateTime endDate1 = new DateTime(selectedYear, 12, 31);
@@ -83,7 +85,7 @@ namespace sms.Pages.Register
                 {
                     Id = g.Key.Id,
                     Name = g.Key.Name,
-                    Avg = g.Average(s => Convert.ToInt32(s.Mark)),
+                    Avg = Math.Round(g.Average(s => Convert.ToInt32(s.Mark)), 1),
                     Number = g.Key.Number,
                     Letter = g.Key.Letter
                 });
@@ -111,13 +113,60 @@ namespace sms.Pages.Register
 
             grades = gradesIQ.ToList();
         }
+        public JsonResult OnPostData(int year, int semester)
+        {
+            DateTime startDate1 = new DateTime(year, 9, 1);
+            DateTime startDate2 = new DateTime(year, 1, 1);
+            DateTime endDate1 = new DateTime(year, 12, 31);
+            DateTime endDate2 = new DateTime(year, 5, 31);
+            DateTime startDate = DateTime.Now;
+            DateTime endDate = DateTime.Now;
+
+            switch (semester)
+            {
+                case 1:
+                    startDate = startDate1;
+                    endDate = endDate1;
+                    break;
+                case 2:
+                    startDate = startDate2;
+                    endDate = endDate2;
+                    break;
+            }
+
+            var grades = _context.Gradebooks
+                .Include(s => s.Student)
+                .Where(s => s.LessonDate >= startDate && s.LessonDate <= endDate && s.Mark != "0")
+                .Select(s => new
+                {
+                    Id = s.Student.GradeId,
+                    Mark = s.Mark,
+                    Name = s.Student.Grade.FullName,
+                    Number = s.Student.Grade.Number,
+                    Letter = s.Student.Grade.Letter
+                })
+                .ToList()
+                .GroupBy(s => new { s.Name, s.Id, s.Letter, s.Number })
+                .Select(g => new Stats
+                {
+                    Id = g.Key.Id,
+                    Name = g.Key.Name,
+                    Avg = Math.Round(g.Average(s => Convert.ToInt32(s.Mark)), 1),
+                    Number = g.Key.Number,
+                    Letter = g.Key.Letter
+                })
+                .OrderBy(s => s.Number).ThenBy(s => s.Number)
+                .ToList();
+
+            return new JsonResult(grades);
+        }
     }
     public class Stats
     {
-        public int Id;
-        public int Number;
-        public string Letter;
-        public string Name;
-        public double Avg;
+        public int Id { get; set; }
+        public int Number { get; set; }
+        public string Letter { get; set; }
+        public string Name { get; set; }
+        public double Avg { get; set; }
     }
 }
