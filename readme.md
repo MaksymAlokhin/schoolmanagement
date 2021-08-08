@@ -10,22 +10,23 @@ Features:<br />
 - Manage remote assignments
 - Manage students' progress and attendance
 
-Written in ASP.NET Core with Entity Framework Core and SQL Server<br />
-To create database, type in package manager console in Visual Studio:
-`Update-Database`
+Written in ASP.NET Core with Entity Framework Core and SQL Server.<br />
+To create database, type in package manager console in Visual Studio<br />
+`Update-Database`<br />
 Users are:
 ```
-- 1@1.com
-- steward@sms.com
-- parent@sms.com
-- admin@sms.com
-- librarian@sms.com
-- teacher@sms.com
+1@1.com
+steward@sms.com
+parent@sms.com
+admin@sms.com
+librarian@sms.com
+teacher@sms.com
 ```
-Password is: `aA!111`
+Password is:<br />
+`aA!111`
 
 Admin can view all pages and change any data.
-````
+
 Система управління школою:<br />
 ---------------------------------
 - Управління учнями, вчителями
