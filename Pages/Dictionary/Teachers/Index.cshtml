@@ -29,6 +29,7 @@
 <table class="table table-responsive text-nowrap" style="width:auto">
     <thead>
         <tr>
+            <th></th>
             <th>
                 <a asp-page="./Index" asp-route-sortOrder="@Model.NameSort"
                    asp-route-currentFilter="@Model.CurrentFilter">
@@ -49,12 +50,14 @@
         {
             <tr>
                 <td>
-                    @if(!string.IsNullOrEmpty(item.ProfilePicture))
+                    @if (!string.IsNullOrEmpty(item.ProfilePicture))
                     {<img src="~/images/avatars/@item.ProfilePicture"
                           class="rounded-circle"
-                          height="40" width="40"
-                          asp-append-version="true" /> 
+                          height:auto width="40"
+                          asp-append-version="true" />
                     }
+                </td>
+                <td>
                     @Html.DisplayFor(modelItem => item.LastName)
                 </td>
                 <td>

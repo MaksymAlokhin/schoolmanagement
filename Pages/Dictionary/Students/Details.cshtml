@@ -9,7 +9,7 @@
 <h1>Деталі</h1>
 
 <div>
-    <h4>Учень</h4>
+    <h4>@Model.Student.FullName, учень</h4>
     <hr />
     @if (!string.IsNullOrEmpty(@Model.Student.ProfilePicture))
     {
@@ -51,6 +51,12 @@
     </dt>
     <dd class="col-sm-10">
         @Html.DisplayFor(model => model.Student.DateOfBirth)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Student.Age)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Student.Age)
     </dd>
     <dt class="col-sm-2">
         @Html.DisplayNameFor(model => model.Student.Address)

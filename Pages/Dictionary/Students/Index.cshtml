@@ -27,6 +27,7 @@
 <table class="table table-responsive text-nowrap">
     <thead>
         <tr>
+            <th></th>
             <th>
                 <a asp-page="./Index" asp-route-sortOrder="@Model.NameSort"
                    asp-route-currentFilter="@Model.CurrentFilter">
@@ -52,9 +53,6 @@
                 @Html.DisplayNameFor(model => model.Student[0].Age)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Student[0].Address)
-            </th>
-            <th>
                 <a asp-page="./Index" asp-route-sortOrder="@Model.GradeSort"
                    asp-route-currentFilter="@Model.CurrentFilter">
                     @Html.DisplayNameFor(model => model.Student[0].Grade.FullName)
@@ -71,9 +69,11 @@
                 @if (!string.IsNullOrEmpty(item.ProfilePicture))
                 {<img src="~/images/avatars/@item.ProfilePicture"
                       class="rounded-circle"
-                      height="40" width="40"
-                      asp-append-version="true" /> 
+                      height:auto width="40"
+                      asp-append-version="true" />
                 }
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.LastName)
             </td>
             <td>
@@ -90,9 +90,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Age)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Grade.FullName)
