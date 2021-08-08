@@ -10,6 +10,8 @@ Features:<br />
 - Manage remote assignments
 - Manage students' progress and attendance
 
+Installation:<br />
+---------------
 Written in ASP.NET Core with Entity Framework Core and SQL Server.<br />
 To create database, type in Package Manager Console (Visual Studio):<br />
 `Update-Database`<br /><br />
