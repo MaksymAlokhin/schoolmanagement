@@ -11,8 +11,8 @@ Features:<br />
 - Manage students' progress and attendance
 
 Written in ASP.NET Core with Entity Framework Core and SQL Server.<br />
-To create database, type in package manager console in Visual Studio<br />
-`Update-Database`<br />
+To create database, type in Package Manager Console (Visual Studio):<br />
+`Update-Database`<br /><br />
 Users are:
 ```
 1@1.com
