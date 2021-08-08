@@ -9,20 +9,20 @@ Features:<br />
 - Manage school utensils and inventory
 - Manage remote assignments
 - Manage students' progress and attendance
-````
+
 Written in ASP.NET Core with Entity Framework Core and SQL Server<br />
 To create database, type in package manager console in Visual Studio:
-Update-Database
+`Update-Database`
 Users are:
+```
 - 1@1.com
 - steward@sms.com
 - parent@sms.com
 - admin@sms.com
 - librarian@sms.com
 - teacher@sms.com
-
-Password is:
-aA!111
+```
+Password is: `aA!111`
 
 Admin can view all pages and change any data.
 ````
