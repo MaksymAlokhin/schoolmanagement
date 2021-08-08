@@ -1,6 +1,5 @@
 ﻿School Management System<br />
 ==============================
-Written in ASP.NET Core with Entity Framework Core and SQL Server<br />
 Features:<br />
 ---------------
 - Manage students, teachers
@@ -10,6 +9,8 @@ Features:<br />
 - Manage school utensils and inventory
 - Manage remote assignments
 - Manage students' progress and attendance
+
+Written in ASP.NET Core with Entity Framework Core and SQL Server<br />
 
 Система управління школою:<br />
 ---------------------------------
