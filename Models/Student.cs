@@ -51,6 +51,7 @@ namespace sms
                 return LastName + " " + FirstName + " " + Patronymic;
             }
         }
+        [Display(Name = "ПІБ учня")]
         public string ShortName
         {
             get
