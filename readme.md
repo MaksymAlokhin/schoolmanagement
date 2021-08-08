@@ -1,5 +1,7 @@
-﻿#School Management System
-##Features:
+﻿School Management System<br />
+==============================
+Features:<br />
+---------------
 - Manage students, teachers
 - Manage curriculum, subjects
 - Manage and generate timetable
@@ -8,7 +10,8 @@
 - Manage remote assignments
 - Manage students' progress and attendance
 
-##Система управління школою:
+Система управління школою:<br />
+---------------------------------
 - Управління учнями, вчителями
 - Управління навчальним планом, предметами
 - Складання, редагування та автоматична генерація розкладу
