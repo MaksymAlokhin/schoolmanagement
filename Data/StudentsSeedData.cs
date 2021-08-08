@@ -16,7 +16,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2015-09-01"),
             Address = "вул. Абрикосова, буд. 15, кв. 51",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_001.jpg"
         };
         public static Student s002 = new Student
         {
@@ -26,7 +26,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2015-10-13"),
             Address = "вул. Авіаційна, буд. 91, кв. 14",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_001.jpg"
         };
         public static Student s003 = new Student
         {
@@ -36,7 +36,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2015-01-09"),
             Address = "вул. Амосова, буд. 43, кв. 18",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_002.jpg"
         };
         public static Student s004 = new Student
         {
@@ -46,7 +46,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2015-10-09"),
             Address = "вул. Базова, буд. 55, кв. 41",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_002.jpg"
         };
         public static Student s005 = new Student
         {
@@ -56,7 +56,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2015-09-01"),
             Address = "вул. Бандери, буд. 14, кв. 54",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_003.jpg"
         };
         public static Student s006 = new Student
         {
@@ -66,7 +66,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2015-09-01"),
             Address = "вул. Батечка, буд. 26, кв. 67",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_003.jpg"
         };
         #endregion
         #region 1-Б
@@ -78,7 +78,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2015-03-15"),
             Address = "вул. Батуринська, буд. 3, кв. 41",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_004.jpg"
         };
         public static Student s008 = new Student
         {
@@ -88,7 +88,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2015-09-21"),
             Address = "вул. Березнева, буд. 1, кв. 81",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_005.jpg"
         };
         public static Student s009 = new Student
         {
@@ -98,7 +98,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2015-05-13"),
             Address = "вул. Березова, буд. 19, кв. 93",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_004.jpg"
         };
         public static Student s010 = new Student
         {
@@ -108,7 +108,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2015-02-25"),
             Address = "вул. Биківнянська, буд. 61, кв. 38",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_005.jpg"
         };
         public static Student s011 = new Student
         {
@@ -118,7 +118,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2015-03-04"),
             Address = "вул. Білана, буд. 30, кв. 39",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_006.jpg"
         };
         public static Student s012 = new Student
         {
@@ -128,7 +128,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2015-08-18"),
             Address = "вул. Білодібровна, буд. 26, кв. 95",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_006.jpg"
         };
         #endregion
         #region 2-А
@@ -140,7 +140,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2014-08-11"),
             Address = "вул. Білоконя, буд. 13, кв. 19",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_007.jpg"
         };
         public static Student s014 = new Student
         {
@@ -150,7 +150,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2014-07-07"),
             Address = "вул. Благодатна, буд. 74, кв. 26",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_008.jpg"
         };
         public static Student s015 = new Student
         {
@@ -160,7 +160,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2014-09-16"),
             Address = "вул. Блока, буд. 63, кв. 38",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_007.jpg"
         };
         public static Student s016 = new Student
         {
@@ -170,7 +170,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2014-03-27"),
             Address = "вул. Боголюбова, буд. 93, кв. 25",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_009.jpg"
         };
         public static Student s017 = new Student
         {
@@ -180,7 +180,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2014-04-12"),
             Address = "вул. Богомольця, буд. 57, кв. 57",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_008.jpg"
         };
         public static Student s018 = new Student
         {
@@ -190,7 +190,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2014-02-13"),
             Address = "вул. Богуна, буд. 64, кв. 18",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_009.jpg"
         };
         #endregion
         #region 2-Б
@@ -202,7 +202,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2014-05-30"),
             Address = "вул. Большеченка, буд. 18, кв. 18",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_010.jpg"
         };
         public static Student s020 = new Student
         {
@@ -212,7 +212,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2014-07-14"),
             Address = "вул. Бориспольця, буд. 31, кв. 72",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_011.jpg"
         };
         public static Student s021 = new Student
         {
@@ -222,7 +222,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2014-02-18"),
             Address = "вул. Броварська, буд. 21, кв. 83",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_010.jpg"
         };
         public static Student s022 = new Student
         {
@@ -232,7 +232,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2014-05-16"),
             Address = "вул. Будівельників, буд. 47, кв. 72",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_011.jpg"
         };
         public static Student s023 = new Student
         {
@@ -242,7 +242,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2014-12-30"),
             Address = "вул. Бузкова, буд. 29, кв. 26",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_012.jpg"
         };
         public static Student s024 = new Student
         {
@@ -252,7 +252,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2014-08-01"),
             Address = "вул. Вербицького, буд. 55, кв. 69",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_012.jpg"
         };
         #endregion
         #region 3-А
@@ -264,7 +264,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2013-01-12"),
             Address = "вул. Вербна, буд. 11, кв. 46",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_013.jpg"
         };
         public static Student s026 = new Student
         {
@@ -274,7 +274,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2013-12-05"),
             Address = "вул. Вереснева, буд. 5, кв. 27",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_013.jpg"
         };
         public static Student s027 = new Student
         {
@@ -284,7 +284,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2013-04-11"),
             Address = "вул. Весняна, буд. 11, кв. 38",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_014.jpg"
         };
         public static Student s028 = new Student
         {
@@ -294,7 +294,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2013-08-13"),
             Address = "вул. Виговського, буд. 16, кв. 72",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_015.jpg"
         };
         public static Student s029 = new Student
         {
@@ -304,7 +304,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2013-04-01"),
             Address = "вул. Винниченка, буд. 40, кв. 52",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_014.jpg"
         };
         public static Student s030 = new Student
         {
@@ -314,7 +314,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2013-01-05"),
             Address = "вул. Виноградна, буд. 59, кв. 65",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_015.jpg"
         };
         #endregion
         #region 3-Б
@@ -326,7 +326,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2013-02-13"),
             Address = "вул. Виробнича, буд. 44, кв. 37",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_016.jpg"
         };
         public static Student s032 = new Student
         {
@@ -336,7 +336,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2013-07-14"),
             Address = "вул. Вишнева, буд. 34, кв. 38",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_016.jpg"
         };
         public static Student s033 = new Student
         {
@@ -346,7 +346,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2013-01-18"),
             Address = "вул. Вокзальна, буд. 50, кв. 48",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_017.jpg"
         };
         public static Student s034 = new Student
         {
@@ -356,7 +356,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2013-02-16"),
             Address = "вул. Волошкова, буд. 14, кв. 41",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_018.jpg"
         };
         public static Student s035 = new Student
         {
@@ -366,7 +366,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2013-09-18"),
             Address = "вул. Воробйова, буд. 16, кв. 56",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_017.jpg"
         };
         public static Student s036 = new Student
         {
@@ -376,7 +376,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2013-03-30"),
             Address = "вул. Гагаріна, буд. 43, кв. 48",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_019.jpg"
         };
         #endregion
         #region 4-А
@@ -388,7 +388,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2012-04-10"),
             Address = "вул. Гайдамацька, буд. 13, кв. 52",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_018.jpg"
         };
         public static Student s038 = new Student
         {
@@ -398,7 +398,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2012-11-05"),
             Address = "вул. Галагана, буд. 5, кв. 48",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_019.jpg"
         };
         public static Student s039 = new Student
         {
@@ -408,7 +408,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2012-06-11"),
             Address = "вул. Гамалія, буд. 1, кв. 27",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_020.jpg"
         };
         public static Student s040 = new Student
         {
@@ -418,7 +418,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2012-05-14"),
             Address = "вул. Геологів, буд. 12, кв. 36",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_020.jpg"
         };
         public static Student s041 = new Student
         {
@@ -428,7 +428,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2012-03-11"),
             Address = "вул. Героїв Крут, буд. 71, кв. 82",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_021.jpg"
         };
         public static Student s042 = new Student
         {
@@ -438,7 +438,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2012-11-12"),
             Address = "вул. Герцена, буд. 52, кв. 27",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_022.jpg"
         };
         #endregion
         #region 4-Б
@@ -450,7 +450,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2012-05-05"),
             Address = "вул. Гетьманська, буд. 4, кв. 73",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_023.jpg"
         };
         public static Student s044 = new Student
         {
@@ -460,7 +460,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2012-10-13"),
             Address = "вул. Глинки, буд. 18, кв. 58",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_024.jpg"
         };
         public static Student s045 = new Student
         {
@@ -470,7 +470,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2012-01-14"),
             Address = "вул. Глібова, буд. 27, кв. 37",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_025.jpg"
         };
         public static Student s046 = new Student
         {
@@ -480,7 +480,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2012-02-21"),
             Address = "вул. Гоголя, буд. 29, кв. 27",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_026.jpg"
         };
         public static Student s047 = new Student
         {
@@ -490,7 +490,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2012-04-15"),
             Address = "вул. Гонти, буд. 30, кв. 62",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_027.jpg"
         };
         public static Student s048 = new Student
         {
@@ -500,7 +500,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2012-10-08"),
             Address = "вул. Гончара, буд. 26, кв. 69",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_028.jpg"
         };
         #endregion
         #region 5-А
@@ -512,7 +512,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2011-01-03"),
             Address = "вул. Гончаренка, буд. 7, кв. 47",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_021.jpg"
         };
         public static Student s050 = new Student
         {
@@ -522,7 +522,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2011-02-09"),
             Address = "вул. Гордієнка, буд. 13, кв. 27",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_022.jpg"
         };
         public static Student s051 = new Student
         {
@@ -532,7 +532,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2011-04-05"),
             Address = "вул. Грінченка, буд. 15, кв. 74",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_029.jpg"
         };
         public static Student s052 = new Student
         {
@@ -542,7 +542,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2011-12-05"),
             Address = "вул. Грушевського, буд. 27, кв. 33",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_023.jpg"
         };
         public static Student s053 = new Student
         {
@@ -552,7 +552,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2011-03-11"),
             Address = "вул. Декабристів, буд. 14, кв. 61",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_024.jpg"
         };
         public static Student s054 = new Student
         {
@@ -562,7 +562,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2011-02-07"),
             Address = "вул. Дніпровська, буд. 20, кв. 74",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_025.jpg"
         };
         #endregion
         #region 5-Б
@@ -574,7 +574,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2011-03-03"),
             Address = "вул. Довженка, буд. 4, кв. 18",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_030.jpg"
         };
         public static Student s056 = new Student
         {
@@ -584,7 +584,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2011-04-15"),
             Address = "вул. Дорошенка, буд. 10, кв. 54",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_031.jpg"
         };
         public static Student s057 = new Student
         {
@@ -594,7 +594,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2011-11-15"),
             Address = "вул. Драгоманова, буд. 18, кв. 13",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_032.jpg"
         };
         public static Student s058 = new Student
         {
@@ -604,7 +604,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2011-03-17"),
             Address = "вул. Дружби, буд. 42, кв. 53",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_026.jpg"
         };
         public static Student s059 = new Student
         {
@@ -614,7 +614,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2011-06-17"),
             Address = "вул. Електриків, буд. 15, кв. 98",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_027.jpg"
         };
         public static Student s060 = new Student
         {
@@ -624,7 +624,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2011-08-11"),
             Address = "вул. Єдності, буд. 14, кв. 84",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_028.jpg"
         };
         #endregion
         #region 6-А
@@ -636,7 +636,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2010-11-13"),
             Address = "вул. Єсеніна, буд. 21, кв. 30",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_033.jpg"
         };
         public static Student s062 = new Student
         {
@@ -646,7 +646,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2010-05-14"),
             Address = "вул. Заводська, буд. 14, кв. 15",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_034.jpg"
         };
         public static Student s063 = new Student
         {
@@ -656,7 +656,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2010-10-05"),
             Address = "вул. Залізнична, буд. 10, кв. 16",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_035.jpg"
         };
         public static Student s064 = new Student
         {
@@ -666,7 +666,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2010-05-18"),
             Address = "вул. Заньковецької, буд. 33, кв. 58",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_029.jpg"
         };
         public static Student s065 = new Student
         {
@@ -676,7 +676,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2010-11-10"),
             Address = "вул. Запорізька, буд. 51, кв. 10",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_036.jpg"
         };
         public static Student s066 = new Student
         {
@@ -686,7 +686,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2010-11-15"),
             Address = "вул. Затишна, буд. 13, кв. 21",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_037.jpg"
         };
         #endregion
         #region 6-Б
@@ -698,7 +698,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2010-05-17"),
             Address = "вул. Зелена, буд. 15, кв. 20",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_030.jpg"
         };
         public static Student s068 = new Student
         {
@@ -708,7 +708,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2010-04-21"),
             Address = "вул. Зіркова, буд. 17, кв. 33",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_031.jpg"
         };
         public static Student s069 = new Student
         {
@@ -718,7 +718,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2010-12-07"),
             Address = "вул. Злагоди, буд. 54, кв. 17",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_032.jpg"
         };
         public static Student s070 = new Student
         {
@@ -728,7 +728,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2010-11-15"),
             Address = "вул. Калинова, буд. 25, кв. 34",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_038.jpg"
         };
         public static Student s071 = new Student
         {
@@ -738,7 +738,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2010-05-11"),
             Address = "вул. Калнишевського, буд. 41, кв. 44",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_039.jpg"
         };
         public static Student s072 = new Student
         {
@@ -748,7 +748,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2010-05-12"),
             Address = "вул. Кармелюка, буд. 44, кв. 15",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_033.jpg"
         };
         #endregion
         #region 7-А
@@ -760,7 +760,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2009-10-30"),
             Address = "вул. Каштанова, буд. 27, кв. 13",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_034.jpg"
         };
         public static Student s074 = new Student
         {
@@ -770,7 +770,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2009-09-13"),
             Address = "вул. Квітнева, буд. 15, кв. 4",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_035.jpg"
         };
         public static Student s075 = new Student
         {
@@ -780,7 +780,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2009-05-10"),
             Address = "вул. Квятковського, буд. 17, кв. 15",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_040.jpg"
         };
         public static Student s076 = new Student
         {
@@ -790,7 +790,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2009-07-05"),
             Address = "вул. Київська, буд. 10, кв. 7",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_036.jpg"
         };
         public static Student s077 = new Student
         {
@@ -800,7 +800,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2009-11-14"),
             Address = "вул. Кириченка, буд. 33, кв. 80",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_037.jpg"
         };
         public static Student s078 = new Student
         {
@@ -810,7 +810,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2009-07-07"),
             Address = "вул. Княжа, буд. 14, кв. 18",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_041.jpg"
         };
         #endregion
         #region 7-Б
@@ -822,7 +822,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2009-12-13"),
             Address = "вул. Кобзарська, буд. 37, кв. 18",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_042.jpg"
         };
         public static Student s080 = new Student
         {
@@ -832,7 +832,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2009-07-04"),
             Address = "вул. Кобилянської, буд. 39, кв. 19",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_043.jpg"
         };
         public static Student s081 = new Student
         {
@@ -842,7 +842,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2009-05-18"),
             Address = "вул. Козацька, буд. 16, кв. 37",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_044.jpg"
         };
         public static Student s082 = new Student
         {
@@ -852,7 +852,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2009-10-07"),
             Address = "вул. Коновальця, буд. 89, кв. 15",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_045.jpg"
         };
         public static Student s083 = new Student
         {
@@ -862,7 +862,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2009-07-11"),
             Address = "вул. Конощенка, буд. 45, кв. 57",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_038.jpg"
         };
         public static Student s084 = new Student
         {
@@ -872,7 +872,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2009-04-03"),
             Address = "вул. Кооперативна, буд. 18, кв. 23",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_039.jpg"
         };
         #endregion
         #region 8-А
@@ -884,7 +884,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2008-01-04"),
             Address = "вул. Короленка, буд. 14, кв. 15",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_040.jpg"
         };
         public static Student s086 = new Student
         {
@@ -894,7 +894,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2008-05-08"),
             Address = "вул. Корсакова, буд. 10, кв. 14",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_046.jpg"
         };
         public static Student s087 = new Student
         {
@@ -904,7 +904,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2008-03-13"),
             Address = "вул. Космонавтів, буд. 5, кв. 1",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_041.jpg"
         };
         public static Student s088 = new Student
         {
@@ -914,7 +914,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2008-12-10"),
             Address = "вул. Костомарова, буд. 18, кв. 22",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_042.jpg"
         };
         public static Student s089 = new Student
         {
@@ -924,7 +924,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2008-11-14"),
             Address = "вул. Коцюбинського, буд. 33, кв. 14",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_043.jpg"
         };
         public static Student s090 = new Student
         {
@@ -934,7 +934,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2008-05-04"),
             Address = "вул. Красилівська, буд. 16, кв. 28",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_047.jpg"
         };
         #endregion
         #region 8-Б
@@ -946,7 +946,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2008-03-05"),
             Address = "вул. Крушельницької, буд. 21, кв. 17",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_044.jpg"
         };
         public static Student s092 = new Student
         {
@@ -956,7 +956,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2008-08-19"),
             Address = "вул. Куліша, буд. 24, кв. 10",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_048.jpg"
         };
         public static Student s093 = new Student
         {
@@ -966,7 +966,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2008-09-18"),
             Address = "вул. Лагунової, буд. 6, кв. 19",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_045.jpg"
         };
         public static Student s094 = new Student
         {
@@ -976,7 +976,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2008-08-13"),
             Address = "вул. Левадівська, буд. 27, кв. 54",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_049.jpg"
         };
         public static Student s095 = new Student
         {
@@ -986,7 +986,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2008-03-16"),
             Address = "вул. Леонтовича, буд. 18, кв. 9",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_050.jpg"
         };
         public static Student s096 = new Student
         {
@@ -996,7 +996,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2008-04-05"),
             Address = "вул. Лермонтова, буд. 4, кв. 16",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_051.jpg"
         };
         #endregion
         #region 9-А
@@ -1008,7 +1008,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2007-05-15"),
             Address = "вул. Лисенка, буд. 23, кв. 18",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_046.jpg"
         };
         public static Student s098 = new Student
         {
@@ -1018,7 +1018,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2007-06-07"),
             Address = "вул. Лісова, буд. 14, кв. 18",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_052.jpg"
         };
         public static Student s099 = new Student
         {
@@ -1028,7 +1028,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2007-08-07"),
             Address = "вул. Ломоносова, буд. 54, кв. 36",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_053.jpg"
         };
         public static Student s100 = new Student
         {
@@ -1038,7 +1038,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2007-03-05"),
             Address = "вул. Лугова, буд. 49, кв. 43",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_054.jpg"
         };
         public static Student s101 = new Student
         {
@@ -1048,7 +1048,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2007-04-19"),
             Address = "вул. Львівська, буд. 57, кв. 13",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_047.jpg"
         };
         public static Student s102 = new Student
         {
@@ -1058,7 +1058,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2007-08-23"),
             Address = "вул. Мазепи, буд. 49, кв. 17",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_055.jpg"
         };
         #endregion
         #region 9-Б
@@ -1070,7 +1070,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2007-05-07"),
             Address = "вул. Майбороди, буд. 13, кв. 33",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_048.jpg"
         };
         public static Student s104 = new Student
         {
@@ -1080,7 +1080,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2007-08-04"),
             Address = "вул. Максимовича, буд. 16, кв. 33",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_056.jpg"
         };
         public static Student s105 = new Student
         {
@@ -1090,7 +1090,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2007-07-13"),
             Address = "вул. Малокиївська, буд. 47, кв. 18",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_057.jpg"
         };
         public static Student s106 = new Student
         {
@@ -1100,7 +1100,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2007-11-14"),
             Address = "вул. Мальовнича, буд. 22, кв. 39",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_049.jpg"
         };
         public static Student s107 = new Student
         {
@@ -1110,7 +1110,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2007-06-13"),
             Address = "вул. Маяковського, буд. 19, кв. 18",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_058.jpg"
         };
         public static Student s108 = new Student
         {
@@ -1120,7 +1120,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2007-05-05"),
             Address = "вул. Мельника, буд. 46, кв. 71",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_059.jpg"
         };
         #endregion
         #region 10-А
@@ -1132,7 +1132,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2006-04-03"),
             Address = "вул. Металургів, буд. 43, кв. 51",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_060.jpg"
         };
         public static Student s110 = new Student
         {
@@ -1142,7 +1142,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2006-03-15"),
             Address = "вул. Миру, буд. 34, кв. 81",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_061.jpg"
         };
         public static Student s111 = new Student
         {
@@ -1152,7 +1152,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2006-05-09"),
             Address = "вул. Мічуріна, буд. 26, кв. 73",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_050.jpg"
         };
         public static Student s112 = new Student
         {
@@ -1162,7 +1162,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2006-08-13"),
             Address = "вул. Молодіжна, буд. 41, кв. 19",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_051.jpg"
         };
         public static Student s113 = new Student
         {
@@ -1172,7 +1172,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2006-01-05"),
             Address = "вул. Москаленка, буд. 16, кв. 5",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_052.jpg"
         };
         public static Student s114 = new Student
         {
@@ -1182,7 +1182,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2006-04-10"),
             Address = "вул. Некрасова, буд. 53, кв. 37",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_062.jpg"
         };
         #endregion
         #region 10-Б
@@ -1194,7 +1194,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2006-05-06"),
             Address = "вул. Оболонська, буд. 22, кв. 13",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_053.jpg"
         };
         public static Student s116 = new Student
         {
@@ -1204,7 +1204,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2006-01-18"),
             Address = "вул. Огієнка, буд. 37, кв. 41",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_063.jpg"
         };
         public static Student s117 = new Student
         {
@@ -1214,7 +1214,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2006-10-15"),
             Address = "вул. Оксамитова, буд. 18, кв. 16",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_054.jpg"
         };
         public static Student s118 = new Student
         {
@@ -1224,7 +1224,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2006-03-17"),
             Address = "вул. Олександровича, буд. 64, кв. 37",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_055.jpg"
         };
         public static Student s119 = new Student
         {
@@ -1234,7 +1234,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2006-11-14"),
             Address = "вул. Олійника, буд. 29, кв. 16",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_056.jpg"
         };
         public static Student s120 = new Student
         {
@@ -1244,7 +1244,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2006-05-09"),
             Address = "вул. Олімпійська, буд. 15, кв. 1",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_064.jpg"
         };
         #endregion
         #region 11-А
@@ -1256,7 +1256,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2005-03-13"),
             Address = "вул. Ольжича, буд. 14, кв. 21",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_057.jpg"
         };
         public static Student s122 = new Student
         {
@@ -1266,7 +1266,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2005-04-22"),
             Address = "вул. Онікієнка, буд. 31, кв. 16",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_058.jpg"
         };
         public static Student s123 = new Student
         {
@@ -1276,7 +1276,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2005-12-14"),
             Address = "вул. Орлика, буд. 61, кв. 19",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_059.jpg"
         };
         public static Student s124 = new Student
         {
@@ -1286,7 +1286,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2005-06-03"),
             Address = "вул. Освіти, буд. 20, кв. 41",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_060.jpg"
         };
         public static Student s125 = new Student
         {
@@ -1296,7 +1296,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2005-08-26"),
             Address = "вул. Осьмака, буд. 13, кв. 17",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_061.jpg"
         };
         public static Student s126 = new Student
         {
@@ -1306,7 +1306,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2005-09-22"),
             Address = "вул. Павлова, буд. 17, кв. 40",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_062.jpg"
         };
         #endregion
         #region 11-Б
@@ -1318,7 +1318,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2005-05-16"),
             Address = "вул. Перонна, буд. 10, кв. 16",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_063.jpg"
         };
         public static Student s128 = new Student
         {
@@ -1328,7 +1328,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2005-10-13"),
             Address = "вул. Петлюри, буд. 41, кв. 20",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_065.jpg"
         };
         public static Student s129 = new Student
         {
@@ -1338,7 +1338,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2005-05-18"),
             Address = "вул. Петропавлівська, буд. 14, кв. 17",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_064.jpg"
         };
         public static Student s130 = new Student
         {
@@ -1348,7 +1348,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2005-08-10"),
             Address = "вул. Підлісна, буд. 31, кв. 10",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_066.jpg"
         };
         public static Student s131 = new Student
         {
@@ -1358,7 +1358,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2005-04-30"),
             Address = "вул. Підприємницька, буд. 1, кв. 6",
             Gender = "Жіноча",
-            ProfilePicture = ""
+            ProfilePicture = "girl_065.jpg"
         };
         public static Student s132 = new Student
         {
@@ -1368,7 +1368,7 @@ namespace sms.Data
             DateOfBirth = DateTime.Parse("2005-08-27"),
             Address = "вул. Пластунська, буд. 14, кв. 44",
             Gender = "Чоловіча",
-            ProfilePicture = ""
+            ProfilePicture = "boy_067.jpg"
         };
         #endregion
         #endregion

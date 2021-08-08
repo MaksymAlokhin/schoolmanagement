@@ -14,7 +14,7 @@ namespace sms.Data
         {
             LastName = "Лісічкіна",
             FirstName = "Світлана",
-            Patronymic = "Миколаївна",
+            Patronymic = "Миколаївна",            ProfilePicture = "female_001.jpg",
             Subjects = new List<Subject>
                {
                 english
@@ -25,7 +25,7 @@ namespace sms.Data
         {
             LastName = "Боярська",
             FirstName = "Олена",
-            Patronymic = "Романівна",
+            Patronymic = "Романівна",            ProfilePicture = "female_002.jpg",
             Subjects = new List<Subject>
                {
                 biology,
@@ -37,7 +37,7 @@ namespace sms.Data
         {
             LastName = "Дибка",
             FirstName = "Оксана",
-            Patronymic = "Євгеніїна",
+            Patronymic = "Євгеніїна",            ProfilePicture = "female_003.jpg",
             Subjects = new List<Subject>
             {
                 biology,
@@ -49,7 +49,7 @@ namespace sms.Data
         {
             LastName = "Пономаренко",
             FirstName = "Ольга",
-            Patronymic = "Миколаївна",
+            Patronymic = "Миколаївна",            ProfilePicture = "female_004.jpg",
             Subjects = new List<Subject>
                {
                    geography
@@ -59,7 +59,7 @@ namespace sms.Data
         {
             LastName = "Шевченко",
             FirstName = "Раїса",
-            Patronymic = "Романівна",
+            Patronymic = "Романівна",            ProfilePicture = "female_005.jpg",
             Subjects = new List<Subject>
                {
                    chemistry
@@ -69,7 +69,7 @@ namespace sms.Data
         {
             LastName = "Гончарук",
             FirstName = "Андрій",
-            Patronymic = "Михайлович",
+            Patronymic = "Михайлович",            ProfilePicture = "male_001.jpg",
             Subjects = new List<Subject>
                {
                    crafts
@@ -79,7 +79,7 @@ namespace sms.Data
         {
             LastName = "Москаленко",
             FirstName = "Наталія",
-            Patronymic = "Олександрівна",
+            Patronymic = "Олександрівна",            ProfilePicture = "female_006.jpg",
             Subjects = new List<Subject>
                {
                    health
@@ -89,7 +89,7 @@ namespace sms.Data
         {
             LastName = "Булачок",
             FirstName = "Віта",
-            Patronymic = "Олександрівна",
+            Patronymic = "Олександрівна",            ProfilePicture = "female_007.jpg",
             Subjects = new List<Subject>
                {
                    history,
@@ -103,7 +103,7 @@ namespace sms.Data
         {
             LastName = "Смичнікова",
             FirstName = "Наталія",
-            Patronymic = "Миколаївна",
+            Patronymic = "Миколаївна",            ProfilePicture = "female_008.jpg",
             Subjects = new List<Subject>
                {
                    maths,
@@ -116,7 +116,7 @@ namespace sms.Data
         {
             LastName = "Холодюк",
             FirstName = "Тамара",
-            Patronymic = "Вікторівна",
+            Patronymic = "Вікторівна",            ProfilePicture = "female_009.jpg",
             Subjects = new List<Subject>
                {
                    it,
@@ -128,7 +128,7 @@ namespace sms.Data
         {
             LastName = "Звягельський",
             FirstName = "Олег",
-            Patronymic = "Володимирович",
+            Patronymic = "Володимирович",            ProfilePicture = "male_002.jpg",
             Subjects = new List<Subject>
                {
                    music
@@ -138,7 +138,7 @@ namespace sms.Data
         {
             LastName = "Вербова",
             FirstName = "Валентина",
-            Patronymic = "Олександрівна",
+            Patronymic = "Олександрівна",            ProfilePicture = "female_010.jpg",
             Subjects = new List<Subject>
                {
                    physics,
@@ -149,7 +149,7 @@ namespace sms.Data
         {
             LastName = "Кир'янов",
             FirstName = "Дмитро",
-            Patronymic = "Михайлович",
+            Patronymic = "Михайлович",            ProfilePicture = "male_003.jpg",
             Subjects = new List<Subject>
                {
                    it
@@ -159,7 +159,7 @@ namespace sms.Data
         {
             LastName = "Манько",
             FirstName = "Наталія",
-            Patronymic = "Павлівна",
+            Patronymic = "Павлівна",            ProfilePicture = "female_011.jpg",
             Subjects = new List<Subject>
                {
                 maths,
@@ -171,7 +171,7 @@ namespace sms.Data
         {
             LastName = "Шульга",
             FirstName = "Ірина",
-            Patronymic = "Петрівна",
+            Patronymic = "Петрівна",            ProfilePicture = "female_012.jpg",
             Subjects = new List<Subject>
                {
                 maths,
@@ -183,7 +183,7 @@ namespace sms.Data
         {
             LastName = "Шафран",
             FirstName = "Світлана",
-            Patronymic = "Миколаївна",
+            Patronymic = "Миколаївна",            ProfilePicture = "female_013.jpg",
             Subjects = new List<Subject>
                {
                    it
@@ -193,7 +193,7 @@ namespace sms.Data
         {
             LastName = "Васильєва",
             FirstName = "Лідія",
-            Patronymic = "Семенівна",
+            Patronymic = "Семенівна",            ProfilePicture = "female_014.jpg",
             Subjects = new List<Subject>
                {
                    english
@@ -203,7 +203,7 @@ namespace sms.Data
         {
             LastName = "Курач",
             FirstName = "Ольга",
-            Patronymic = "Олександрівна",
+            Patronymic = "Олександрівна",            ProfilePicture = "female_015.jpg",
             Subjects = new List<Subject>
                {
                    english,
@@ -214,7 +214,7 @@ namespace sms.Data
         {
             LastName = "Мартиненко",
             FirstName = "Галина",
-            Patronymic = "Михайлівна",
+            Patronymic = "Михайлівна",            ProfilePicture = "female_016.jpg",
             Subjects = new List<Subject>
                {
                    english,
@@ -225,7 +225,7 @@ namespace sms.Data
         {
             LastName = "Гавро",
             FirstName = "Галина",
-            Patronymic = "Василівна",
+            Patronymic = "Василівна",            ProfilePicture = "female_017.jpg",
             Subjects = new List<Subject>
                {
                    ukrainian,
@@ -236,7 +236,7 @@ namespace sms.Data
         {
             LastName = "Симоненко",
             FirstName = "Ольга",
-            Patronymic = "Павлівна",
+            Patronymic = "Павлівна",            ProfilePicture = "female_018.jpg",
             Subjects = new List<Subject>
                {
                    ukrainian,
@@ -247,7 +247,7 @@ namespace sms.Data
         {
             LastName = "Кирилуша",
             FirstName = "Світлана",
-            Patronymic = "Валеріївна",
+            Patronymic = "Валеріївна",            ProfilePicture = "female_019.jpg",
             Subjects = new List<Subject>
                {
                    ukrainian,
@@ -258,7 +258,7 @@ namespace sms.Data
         {
             LastName = "Вербова",
             FirstName = "Наталя",
-            Patronymic = "Василівна",
+            Patronymic = "Василівна",            ProfilePicture = "female_020.jpg",
             Subjects = new List<Subject>
                {
                    ukrainian,
@@ -269,7 +269,7 @@ namespace sms.Data
         {
             LastName = "Синько",
             FirstName = "Олена",
-            Patronymic = "Миколаївна",
+            Patronymic = "Миколаївна",            ProfilePicture = "female_021.jpg",
             Subjects = new List<Subject>
                 {
                     wliterature
@@ -279,7 +279,7 @@ namespace sms.Data
         {
             LastName = "Мельничук",
             FirstName = "Євген",
-            Patronymic = "Ігорович",
+            Patronymic = "Ігорович",            ProfilePicture = "male_004.jpg",
             Subjects = new List<Subject>
                {
                    pt,
@@ -290,7 +290,7 @@ namespace sms.Data
         {
             LastName = "Славов",
             FirstName = "Володимир",
-            Patronymic = "Георгійович",
+            Patronymic = "Георгійович",            ProfilePicture = "male_005.jpg",
             Subjects = new List<Subject>
                {
                    pt,
@@ -301,7 +301,7 @@ namespace sms.Data
         {
             LastName = "Твердохлібова",
             FirstName = "Тетяна",
-            Patronymic = "Борисівна",
+            Patronymic = "Борисівна",            ProfilePicture = "female_022.jpg",
             Subjects = new List<Subject>
                {
                    pt,
@@ -312,7 +312,7 @@ namespace sms.Data
         {
             LastName = "Бондаренко",
             FirstName = "Тетяна",
-            Patronymic = "Володимирівна",
+            Patronymic = "Володимирівна",            ProfilePicture = "female_023.jpg",
             Subjects = new List<Subject>
                {
                    design,
@@ -335,7 +335,7 @@ namespace sms.Data
         {
             LastName = "Власюк",
             FirstName = "Таліна",
-            Patronymic = "Сергіївна",
+            Patronymic = "Сергіївна",            ProfilePicture = "female_024.jpg",
             Subjects = new List<Subject>
                {
                    design,
@@ -358,7 +358,7 @@ namespace sms.Data
         {
             LastName = "Горлова",
             FirstName = "Ірина",
-            Patronymic = "Кузьмівна",
+            Patronymic = "Кузьмівна",            ProfilePicture = "female_025.jpg",
             Subjects = new List<Subject>
                {
                    design,
@@ -381,7 +381,7 @@ namespace sms.Data
         {
             LastName = "Єрошкіна",
             FirstName = "Любов",
-            Patronymic = "Вікторівна",
+            Patronymic = "Вікторівна",            ProfilePicture = "female_026.jpg",
             Subjects = new List<Subject>
                {
                    design,
@@ -404,7 +404,7 @@ namespace sms.Data
         {
             LastName = "Задорожня",
             FirstName = "Наталія",
-            Patronymic = "Іванівна",
+            Patronymic = "Іванівна",            ProfilePicture = "female_027.jpg",
             Subjects = new List<Subject>
                {
                    design,
@@ -427,7 +427,7 @@ namespace sms.Data
         {
             LastName = "Гноць",
             FirstName = "Марія",
-            Patronymic = "Петрівна",
+            Patronymic = "Петрівна",            ProfilePicture = "female_028.jpg",
             Subjects = new List<Subject>
                {
                    design,
@@ -450,7 +450,7 @@ namespace sms.Data
         {
             LastName = "Лавриченко",
             FirstName = "Олена",
-            Patronymic = "Василівна",
+            Patronymic = "Василівна",            ProfilePicture = "female_029.jpg",
             Subjects = new List<Subject>
                {
                    design,
@@ -473,7 +473,7 @@ namespace sms.Data
         {
             LastName = "Лонська",
             FirstName = "Раїса",
-            Patronymic = "Михайлівна",
+            Patronymic = "Михайлівна",            ProfilePicture = "female_030.jpg",
             Subjects = new List<Subject>
                {
                    design,
@@ -496,7 +496,7 @@ namespace sms.Data
         {
             LastName = "Мандро",
             FirstName = "Ольга",
-            Patronymic = "Олександрівна",
+            Patronymic = "Олександрівна",            ProfilePicture = "female_031.jpg",
             Subjects = new List<Subject>
                {
                    design,
@@ -519,7 +519,7 @@ namespace sms.Data
         {
             LastName = "Нанівська",
             FirstName = "Зеновія",
-            Patronymic = "Михайлівна",
+            Patronymic = "Михайлівна",            ProfilePicture = "female_032.jpg",
             Subjects = new List<Subject>
                {
                    design,
@@ -542,7 +542,7 @@ namespace sms.Data
         {
             LastName = "Німченко",
             FirstName = "Наталія",
-            Patronymic = "Миколаївна",
+            Patronymic = "Миколаївна",            ProfilePicture = "female_033.jpg",
             Subjects = new List<Subject>
                {
                    design,
@@ -565,7 +565,7 @@ namespace sms.Data
         {
             LastName = "Плотнік",
             FirstName = "Руслана",
-            Patronymic = "Вікторівна",
+            Patronymic = "Вікторівна",            ProfilePicture = "female_034.jpg",
             Subjects = new List<Subject>
                {
                    design,
@@ -588,7 +588,7 @@ namespace sms.Data
         {
             LastName = "Симоненко",
             FirstName = "Ольга",
-            Patronymic = "Василівна",
+            Patronymic = "Василівна",            ProfilePicture = "female_035.jpg",
             Subjects = new List<Subject>
                {
                    design,
@@ -611,7 +611,7 @@ namespace sms.Data
         {
             LastName = "Совенко",
             FirstName = "Наталія",
-            Patronymic = "Іванівна",
+            Patronymic = "Іванівна",            ProfilePicture = "female_036.jpg",
             Subjects = new List<Subject>
                {
                    design,
@@ -634,7 +634,7 @@ namespace sms.Data
         {
             LastName = "Сулима",
             FirstName = "Ганна",
-            Patronymic = "Іванівна",
+            Patronymic = "Іванівна",            ProfilePicture = "female_037.jpg",
             Subjects = new List<Subject>
                {
                    design,
