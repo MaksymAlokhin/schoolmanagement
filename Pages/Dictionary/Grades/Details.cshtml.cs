@@ -22,6 +22,7 @@ namespace sms.Pages.Grades
         }
 
         public Grade Grade { get; set; }
+        public List<Student> Student { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -31,6 +32,12 @@ namespace sms.Pages.Grades
             }
 
             Grade = await _context.Grades.FirstOrDefaultAsync(m => m.Id == id);
+            Student = await _context.Students
+                .Where(s => s.GradeId == id)
+                .OrderBy(s => s.LastName)
+                .ThenBy(s => s.FirstName)
+                .ThenBy(s => s.Patronymic)
+                .ToListAsync();
 
             if (Grade == null)
             {
@@ -38,5 +45,46 @@ namespace sms.Pages.Grades
             }
             return Page();
         }
+        public JsonResult OnPostGender(int id)
+        {
+            var gender = _context.Students
+                .Where(s => s.GradeId == id && s.Gender != null)
+                .GroupBy(s => s.Gender)
+                .Select(g => new Gender
+                {
+                    Name = g.Key,
+                    Count = g.Count()
+                })
+                .OrderBy(s => s.Name)
+                .AsNoTracking();
+
+            return new JsonResult(gender);
+        }
+        public JsonResult OnPostAge(int id)
+        {
+            var age = _context.Students
+                .Where(s => s.GradeId == id)
+                .AsEnumerable()
+                .GroupBy(s => s.Age)
+                .Select(g => new Age
+                {
+                    Years = g.Key,
+                    Count = g.Count()
+                })
+                .OrderBy(s => s.Years);
+
+            return new JsonResult(age);
+        }
+
+    }
+    public class Gender
+    {
+        public string Name { get; set; }
+        public int Count { get; set; }
+    }
+    public class Age
+    {
+        public int Years { get; set; }
+        public int Count { get; set; }
     }
 }

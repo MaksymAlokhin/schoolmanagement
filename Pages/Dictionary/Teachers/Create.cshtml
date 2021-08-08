@@ -12,7 +12,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form method="post">
+        <form enctype="multipart/form-data" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Teacher.LastName" class="control-label"></label>
@@ -35,6 +35,14 @@
                 </select>
             </div>
             <div class="form-group">
+                <label asp-for="Teacher.ProfilePicture" class="control-label"></label>
+                <div class="custom-file">
+                    <input asp-for="FormFile" class="custom-file-input" id="customFile">
+                    <label class="custom-file-label" for="customFile">Оберіть файл</label>
+                </div>
+                <span asp-validation-for="FormFile" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Створити" class="btn btn-primary" />
             </div>
         </form>
@@ -47,4 +55,10 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script type="text/javascript">
+        $(".custom-file-input").on("change", function () {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+    </script>
 }

@@ -7,10 +7,10 @@
 }
 
 <h1>Деталі</h1>
+<h4>@Model.Grade.FullName клас</h4>
+<hr />
 
-<div>
-    <h4>Клас</h4>
-    <hr />
+<div class="container">
     <dl class="row">
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Grade.Number)
@@ -24,9 +24,141 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Grade.Letter)
         </dd>
+        <dt class="col-sm-2">
+            Учні
+        </dt>
+        <dd class="col-sm-10">
+            <div class="row">
+                <table class="table table-responsive text-nowrap" style="width:auto">
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.Student[0].ShortName)</th>
+                        <th>@Html.DisplayNameFor(model => model.Student[0].Age)</th>
+                        <th></th>
+                    </tr>
+                    @foreach (var item in Model.Student)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ShortName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Age)
+                            </td>
+                            <td>
+                                <a asp-page="../Students/Edit" asp-route-id="@item.Id"><i class="fas fa-pencil-alt fa-lg"></i></a> |
+                                <a asp-page="../Students/Details" asp-route-id="@item.Id"><i class="fas fa-eye fa-lg"></i></a> |
+                                <a asp-page="../Students/Delete" asp-route-id="@item.Id"><i class="fas fa-trash fa-lg"></i></a>
+                            </td>
+                        </tr>
+                    }
+                </table>
+                <div class="col-sm-3">
+                    <h4 style="text-align: center">Стать</h4>
+                    <canvas id="doughnutChart" width="700" height="700"></canvas>
+                </div>
+                <div class="col-sm-3">
+                    <h4 style="text-align: center">Вік</h4>
+                    <canvas id="barChart" width="700" height="700"></canvas>
+                </div>
+            </div>
+        </dd>
     </dl>
 </div>
 <div>
     <a asp-page="./Edit" asp-route-id="@Model.Grade.Id">Редагувати</a> |
     <a asp-page="./Index">Назад</a>
 </div>
+
+@section scripts{
+    <script>
+        function query_string(variable) {
+            var query = window.location.search.substring(1);
+            var vars = query.split("&");
+            for (var i = 0; i < vars.length; i++) {
+                var pair = vars[i].split("=");
+                if (pair[0] == variable) { return pair[1]; }
+            }
+            return (false);
+        }
+
+        var ctx = document.getElementById('doughnutChart').getContext('2d');
+
+        var id = query_string('id');
+
+        var randomColorGenerator = function () {
+            return '#' + (Math.random().toString(16) + '0000000').slice(2, 8);
+        };
+        $.ajax({
+            url: "?handler=Gender",
+            type: "POST",
+            headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+            dataType: "json",
+            data: { 'id': id },
+            success: function (data) {
+                var labels = [];
+                var dataresults = [];
+                $.each(data, function (index, item) {
+                    labels.push(item.name);
+                    dataresults.push(item.count);
+                });
+                console.log(labels)
+                console.log(dataresults)
+                var myChart = new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Стать',
+                            data: dataresults,
+                            backgroundColor: [
+                                'rgb(255, 99, 132)',
+                                'rgb(54, 162, 235)'
+                            ],
+                            borderWidth: 1,
+                            hoverOffset: 4
+                        }]
+                    }
+                });
+            }
+        });
+
+        var ctx2 = document.getElementById('barChart').getContext('2d');
+        $.ajax({
+            url: "?handler=Age",
+            type: "POST",
+            headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+            dataType: "json",
+            data: { 'id': id },
+            success: function (data) {
+                var labels = [];
+                var dataresults = [];
+                $.each(data, function (index, item) {
+                    labels.push(item.years);
+                    dataresults.push(item.count);
+                });
+                console.log(labels)
+                console.log(dataresults)
+                var myChart = new Chart(ctx2, {
+                    type: 'bar',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Вік',
+                            data: dataresults,
+                            backgroundColor: randomColorGenerator,
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            }
+        });
+
+    </script>
+}

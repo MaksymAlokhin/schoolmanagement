@@ -26,7 +26,7 @@
 
 
 
-<table class="table">
+<table class="table table-responsive text-nowrap" style="width:auto">
     <thead>
         <tr>
             <th>
@@ -49,6 +49,12 @@
         {
             <tr>
                 <td>
+                    @if(!string.IsNullOrEmpty(item.ProfilePicture))
+                    {<img src="~/images/avatars/@item.ProfilePicture"
+                          class="rounded-circle"
+                          height="40" width="40"
+                          asp-append-version="true" /> 
+                    }
                     @Html.DisplayFor(modelItem => item.LastName)
                 </td>
                 <td>

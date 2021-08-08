@@ -25,6 +25,11 @@ namespace sms.Models
         [Display(Name = "По батькові")]
         public string Patronymic { get; set; }
 
+        [StringLength(70, ErrorMessage = "Ім'я файлу занадто довге.")]
+        [Display(Name = "Фото")]
+        public string ProfilePicture { get; set; }
+
+
         [Display(Name = "ПІБ вчителя")]
         public string FullName
         {

@@ -10,49 +10,63 @@
 
 <h4>Учень</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Student.LastName" class="control-label"></label>
-                <input asp-for="Student.LastName" class="form-control" />
-                <span asp-validation-for="Student.LastName" class="text-danger"></span>
+<div class="col-md-4">
+    <form enctype="multipart/form-data" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="Student.LastName" class="control-label"></label>
+            <input asp-for="Student.LastName" class="form-control" />
+            <span asp-validation-for="Student.LastName" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Student.FirstName" class="control-label"></label>
+            <input asp-for="Student.FirstName" class="form-control" />
+            <span asp-validation-for="Student.FirstName" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Student.Patronymic" class="control-label"></label>
+            <input asp-for="Student.Patronymic" class="form-control" />
+            <span asp-validation-for="Student.Patronymic" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Student.Gender" class="control-label"></label><br />
+            @foreach (var gender in Model.Genders)
+            {
+                <input type="radio" asp-for="Gender" value="@gender" />@gender<br />
+            }
+        </div>
+        <div class="form-group">
+            <label asp-for="Student.DateOfBirth" class="control-label"></label>
+            <input asp-for="Student.DateOfBirth" class="form-control" />
+            <span asp-validation-for="Student.DateOfBirth" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Student.Address" class="control-label"></label>
+            <input asp-for="Student.Address" class="form-control" />
+            <span asp-validation-for="Student.Address" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="GradeNumber" class="control-label">Клас</label>
+            <select asp-for="GradeNumber" class="form-control" asp-items="@Model.GradeNumbersSL"></select>
+        </div>
+        <div class="form-group">
+            <label asp-for="GradeLetter" class="control-label">Буква</label>
+            <select asp-for="GradeLetter" class="form-control" asp-items="@Model.GradeLettersSL"></select>
+        </div>
+        <div class="form-group">
+            <label asp-for="Student.ProfilePicture" class="control-label"></label>
+            <div class="custom-file">
+                <input asp-for="FormFile" class="custom-file-input" id="customFile">
+                <label class="custom-file-label" for="customFile">Оберіть файл</label>
             </div>
-            <div class="form-group">
-                <label asp-for="Student.FirstName" class="control-label"></label>
-                <input asp-for="Student.FirstName" class="form-control" />
-                <span asp-validation-for="Student.FirstName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Student.Patronymic" class="control-label"></label>
-                <input asp-for="Student.Patronymic" class="form-control" />
-                <span asp-validation-for="Student.Patronymic" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Student.DateOfBirth" class="control-label"></label>
-                <input asp-for="Student.DateOfBirth" class="form-control" />
-                <span asp-validation-for="Student.DateOfBirth" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Student.Address" class="control-label"></label>
-                <input asp-for="Student.Address" class="form-control" />
-                <span asp-validation-for="Student.Address" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="GradeNumber" class="control-label">Клас</label>
-                <select asp-for="GradeNumber" class="form-control" asp-items="@Model.GradeNumbersSL"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="GradeLetter" class="control-label">Буква</label>
-                <select asp-for="GradeLetter" class="form-control" asp-items="@Model.GradeLettersSL"></select>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Створити" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
+            <span asp-validation-for="FormFile" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Створити" class="btn btn-primary" />
+        </div>
+    </form>
 </div>
+
 
 <div>
     <a asp-page="Index">Назад</a>
@@ -60,4 +74,10 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script type="text/javascript">
+        $(".custom-file-input").on("change", function () {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+    </script>
 }

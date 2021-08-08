@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -16,16 +20,20 @@ namespace sms.Pages.Teachers
     public class EditModel : PageModel
     {
         private readonly sms.Data.ApplicationDbContext _context;
+        private readonly IWebHostEnvironment webHostEnvironment;
 
-        public EditModel(sms.Data.ApplicationDbContext context)
+        public EditModel(sms.Data.ApplicationDbContext context, IWebHostEnvironment hostEnvironment)
         {
             _context = context;
+            webHostEnvironment = hostEnvironment;
         }
 
         [BindProperty]
         public Teacher Teacher { get; set; }
         public List<int> selectedSubjects { get; set; }
         public SelectList SubjectNameSL { get; set; }
+        public IFormFile FormFile { get; set; }
+        private readonly string[] permittedExtensions = { ".jpg", ".jpeg", ".png", ".gif", ".bmp", ".tif", ".tiff" };
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
@@ -73,6 +81,38 @@ namespace sms.Pages.Teachers
                             i => i.LastName, i => i.FirstName, i => i.Patronymic))
             {
                 UpdateTeacherSubjects(selectedSubjects, teacherToUpdate);
+            }
+
+            if (FormFile != null)
+            {
+                var ext = Path.GetExtension(FormFile.FileName).ToLowerInvariant();
+                if (!string.IsNullOrEmpty(ext) || permittedExtensions.Contains(ext))
+                {
+                    string uploadsFolder = Path.Combine(webHostEnvironment.WebRootPath, @"images\avatars"); //webHost adds 'wwwroot'
+                    var trustedFileNameForFileStorage = Path.GetRandomFileName();
+                    trustedFileNameForFileStorage = trustedFileNameForFileStorage.Substring(0, 8)
+                        + trustedFileNameForFileStorage.Substring(9) + ext;
+                    var filePath = Path.Combine(uploadsFolder, trustedFileNameForFileStorage);
+
+                    using (var fileStream = System.IO.File.Create(filePath))
+                    {
+                        await FormFile.CopyToAsync(fileStream);
+                    }
+
+                    var oldFile = teacherToUpdate.ProfilePicture;
+                    var fileToDelete = string.Empty;
+                    if (!string.IsNullOrEmpty(oldFile))
+                    {
+                        fileToDelete = Path.Combine(uploadsFolder, oldFile);
+                    }
+
+                    if (System.IO.File.Exists(fileToDelete))
+                    {
+                        System.IO.File.Delete(fileToDelete);
+                    }
+
+                    teacherToUpdate.ProfilePicture = trustedFileNameForFileStorage;
+                }
             }
 
             try

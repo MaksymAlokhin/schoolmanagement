@@ -37,6 +37,9 @@ namespace sms.Pages.Students
             {
                 return NotFound();
             }
+
+            if (string.IsNullOrEmpty(Student.Gender)) Student.Gender = "Не вказано";
+
             return Page();
         }
     }

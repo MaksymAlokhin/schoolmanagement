@@ -24,16 +24,16 @@
     </div>
 </form>
 
-<table class="table">
+<table class="table col-sm-6">
     <thead>
         <tr>
-            <th>
+            <th class="col-sm-4">
                 <a asp-page="./Index" asp-route-sortOrder="@Model.NameSort"
                    asp-route-currentFilter="@Model.CurrentFilter">
                     @Html.DisplayNameFor(model => model.Subject[0].Name)
                 </a>
             </th>
-            <th></th>
+            <th class="col-sm-2"></th>
         </tr>
     </thead>
     <tbody>
