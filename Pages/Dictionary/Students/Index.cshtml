@@ -8,14 +8,11 @@
 
 <h1>Список учнів</h1>
 
-<p>
-    <a asp-page="Create"><i class="fas fa-user-plus fa-lg"></i></a>
-</p>
-
 <form asp-page="./Index" method="get">
     <div class="form-actions no-color">
         <p>
-            <input type="text" name="SearchString" value="@Model.CurrentFilter" placeholder="Пошук по ПІБ"/>
+            <a asp-page="Create"><i class="fas fa-user-plus fa-lg"></i></a>
+            <input type="text" name="SearchString" value="@Model.CurrentFilter" placeholder="Пошук по ПІБ" />
             <button type="submit" class="btn btn-default">
                 <i class="fa fa-search"></i>
             </button> |

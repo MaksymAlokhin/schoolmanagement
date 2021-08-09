@@ -26,5 +26,6 @@ namespace sms.Data
         public DbSet<Teacher> Teachers { get; set; }
         public DbSet<Curriculum> Curricula { get; set; }
         public DbSet<Gradebook> Gradebooks { get; set; }
+        public DbSet<Assignment> Assignments { get; set; }
     }
 }

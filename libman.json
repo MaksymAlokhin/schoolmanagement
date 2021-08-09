@@ -7,8 +7,12 @@
       "destination": "wwwroot/lib/font-awesome/"
     },
     {
+      "library": "tinymce@5.8.2",
+      "destination": "wwwroot/lib/tinymce/"
+    },
+    {
       "library": "Chart.js@3.5.0",
-      "destination": "wwwroot/Chart.js/"
+      "destination": "wwwroot/lib/Chart.js/"
     }
   ]
 }

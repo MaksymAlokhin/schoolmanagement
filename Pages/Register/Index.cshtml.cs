@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using sms.Data;
 using sms.Models;
+using Microsoft.Extensions.Configuration;
 
 namespace sms.Pages.Register
 {
@@ -16,6 +17,7 @@ namespace sms.Pages.Register
     public class IndexModel : PageModel
     {
         private readonly sms.Data.ApplicationDbContext _context;
+        private readonly IConfiguration Configuration;
         public IList<Gradebook> gradebook { get; set; }
         public List<SelectListItem> grades;
         public int selectedGrade;
@@ -76,9 +78,10 @@ namespace sms.Pages.Register
             new SelectListItem { Value = "12", Text = "12" }
         };
 
-        public IndexModel(sms.Data.ApplicationDbContext context)
+        public IndexModel(sms.Data.ApplicationDbContext context, IConfiguration configuration)
         {
             _context = context;
+            Configuration = configuration;
         }
 
         public async Task OnGetAsync(int? pageIndex, int gradeId = 0, int subjectId = 0, int year = 0, int month = 9)
@@ -140,6 +143,7 @@ namespace sms.Pages.Register
             weekdays.Sort();
             #endregion
 
+            //var pageSize = Configuration.GetValue("PageSize", 10);
             var pageSize = 15;
             pages = PaginatedList<int>.CreateFromList(weekdays, pageIndex ?? 1, pageSize);
 
