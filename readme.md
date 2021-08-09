@@ -49,5 +49,5 @@ Admin can view all pages and change any data.
 ![teacheredit](screenshots/teacheredit.png)<br /><br />
 ![timetable](screenshots/timetable.png)<br /><br />
 ![timetable2](screenshots/timetable2.png)<br /><br />
-![remote](screenshots/remote.png<br /><br />
-![remote2](screenshots/remote2.png
+![remote](screenshots/remote.png)<br /><br />
+![remote2](screenshots/remote2.png)
