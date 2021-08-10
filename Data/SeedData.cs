@@ -129,7 +129,11 @@ namespace sms.Data
             {
                 context.AddRange(GradebooksSeedData.data);
             }
-
+            if (!context.Assignments.Any())
+            {
+                context.AddRange(AssignmentsSeedData.data);
+            }
+            
             context.SaveChanges();
         }
 

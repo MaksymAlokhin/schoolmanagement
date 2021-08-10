@@ -80,5 +80,6 @@ namespace sms
         }
         public int GradeId { get; set; }
         public Grade Grade { get; set; }
+        public ICollection<Book> Books { get; set; }
     }
 }

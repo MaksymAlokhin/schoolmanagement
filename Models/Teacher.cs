@@ -39,5 +39,6 @@ namespace sms.Models
             }
         }
         public ICollection<Subject> Subjects { get; set; }
+        public ICollection<Book> Books { get; set; }
     }
 }
