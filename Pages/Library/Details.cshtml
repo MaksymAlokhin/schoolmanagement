@@ -2,55 +2,133 @@
 @model sms.Pages.Library.DetailsModel
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Видача і повернення книг";
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
-<h1>Details</h1>
+<h1>Видача і повернення книг</h1>
 
 <div>
-    <h4>Book</h4>
+    <h4>Книга</h4>
     <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Book.Author)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Book.Author)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Book.Name)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Book.Name)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Book.PublishingHouse)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Book.PublishingHouse)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Book.Year)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Book.Year)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Book.Grade)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Book.Grade)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Book.Qty)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Book.Qty)
-        </dd>
-    </dl>
+    <div class="row">
+        <div class="col-sm-4">
+            <dl class="row">
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.Book.Grade)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.Book.Grade)
+                </dd>
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.Book.Name)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.Book.Name)
+                </dd>
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.Book.Author)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.Book.Author)
+                </dd>
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.Book.PublishingHouse)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.Book.PublishingHouse)
+                </dd>
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.Book.Year)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.Book.Year)
+                </dd>
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.Book.Qty)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.Book.Qty)
+                </dd>
+            </dl>
+        </div>
+        <div class="col-sm-8">
+            <div class="card">
+                <h5 class="card-header">Видача книг учням</h5>
+                <div class="card-body">
+                    <form method="post">
+                        <input type="hidden" name="id" asp-for="@Model.Book.Id" />
+                        <div class="row justify-content-start">
+                            <div class="col-sm-auto">
+                                <div class="form-group">
+                                    <label asp-for="selectedGrade" class="control-label"><i class="fas fa-users"></i></label>
+                                    <select asp-for="selectedGrade" name="gradeId" style="width:auto" asp-items="Model.grades">
+                                        <option value="0">Оберіть клас</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-auto">
+                                <div class="form-group">
+                                    <label asp-for="selectedStudent" class="control-label"><i class="fas fa-user"></i></label>
+                                    <select asp-for="selectedStudent" name="studentId" style="width:auto" asp-items="Model.StudentsSL"></select>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <input type="submit" value="Видати" class="btn btn-primary" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="card">
+                <h5 class="card-header">Видача книг персоналу</h5>
+                <div class="card-body">
+                    <form method="post">
+                        <input type="hidden" name="id" asp-for="@Model.Book.Id" />
+                        <div class="form-group">
+                            <label asp-for="selectedTeacher" class="control-label"><i class="fas fa-chalkboard-teacher"></i></label>
+                            <select asp-for="selectedTeacher" name="teacherId" style="width:auto" asp-items="Model.TeachersSL">
+                                <option value="0">Оберіть вчителя</option>
+                            </select>
+                        </div>
+                        <div>
+                            <input type="submit" value="Видати" class="btn btn-primary" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.Book.Id">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="./Edit" asp-route-id="@Model.Book.Id">Редагувати</a> |
+    <a asp-page="./Index">Назад</a>
 </div>
+
+@section scripts{
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $(function () {
+            $("#selectedGrade").on("change", function () {
+                var gradeId = $(this).val();
+                $("#selectedStudent").empty();
+                $("#selectedStudent").append("<option value=''>Оберіть учня</option>");
+                $.getJSON(`?handler=Students&gradeId=${gradeId}`, (data) => {
+                    $.each(data, function (i, item) {
+                        $("#selectedStudent").append(`<option value="${item.value}">${item.text}</option>`);
+                    });
+                });
+            });
+        });
+        function query_string(variable) {
+            var query = window.location.search.substring(1);
+            var vars = query.split("&");
+            for (var i = 0; i < vars.length; i++) {
+                var pair = vars[i].split("=");
+                if (pair[0] == variable) { return pair[1]; }
+            }
+            return (false);
+        }
+    </script>
+}
+
