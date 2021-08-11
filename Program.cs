@@ -31,6 +31,7 @@ namespace sms
                     var config = host.Services.GetRequiredService<IConfiguration>();
                     // Set password with the Secret Manager tool.
                     // dotnet user-secrets set SeedUserPW <pw> //aA!111
+                    // better use local password in appsettings.js : "SeedUserPW": "aA!111",
 
                     var testUserPw = config["SeedUserPW"];
 

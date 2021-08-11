@@ -109,7 +109,7 @@ namespace sms.Pages.Dictionary.Curricula
             //    .Where(с => с.GradeId == gradeId)
             //    .ToListAsync();
 
-            var pageSize = Configuration.GetValue("PageSize", 5);
+            var pageSize = Configuration.GetValue("PageSize", 10);
             Curriculum = await PaginatedList<Curriculum>.CreateAsync(
                 curriculaIQ.Where(с => с.GradeId == gradeId).AsNoTracking(), pageIndex ?? 1, pageSize);
         }

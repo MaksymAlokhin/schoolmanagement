@@ -64,7 +64,7 @@ namespace sms.Pages.Grades
                     break;
             }
 
-            var pageSize = Configuration.GetValue("PageSize", 5);
+            var pageSize = Configuration.GetValue("PageSize", 10);
             Grade = await PaginatedList<Grade>.CreateAsync(
                 gradesIQ.AsNoTracking(), pageIndex ?? 1, pageSize);
         }

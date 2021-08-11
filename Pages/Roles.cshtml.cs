@@ -73,7 +73,7 @@ namespace sms.Pages
                         "Name", "Name");
             
             //Pagination
-            var pageSize = Configuration.GetValue("PageSize", 5);
+            var pageSize = Configuration.GetValue("PageSize", 10);
             userRolesPaginated = PaginatedList<UserRoles>.CreateFromList(
                 userRoles, pageIndex ?? 1, pageSize);
         }

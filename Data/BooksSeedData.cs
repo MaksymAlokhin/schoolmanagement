@@ -1146,15 +1146,6 @@ namespace sms.Data
             },
             new Book
             {
-                Author = "",
-                Name = "",
-                PublishingHouse = "",
-                Year = 20,
-                Grade = 9,
-                Qty = 60
-            },
-            new Book
-            {
                 Author = "Мачача Т.С.",
                 Name = "Трудове навчання",
                 PublishingHouse = "Сиция",

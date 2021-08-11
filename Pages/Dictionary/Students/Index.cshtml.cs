@@ -80,7 +80,7 @@ namespace sms.Pages.Students
                     break;
             }
 
-            var pageSize = Configuration.GetValue("PageSize", 5);
+            var pageSize = Configuration.GetValue("PageSize", 10);
             Student = await PaginatedList<Student>.CreateAsync(
                 studentsIQ.AsNoTracking(), pageIndex ?? 1, pageSize);
         }

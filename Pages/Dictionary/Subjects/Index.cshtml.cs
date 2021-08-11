@@ -60,7 +60,7 @@ namespace sms.Pages.Subjects
                     break;
             }
 
-            var pageSize = Configuration.GetValue("PageSize", 5);
+            var pageSize = Configuration.GetValue("PageSize", 10);
             Subject = await PaginatedList<Subject>.CreateAsync(
                 subjectsIQ.AsNoTracking(), pageIndex ?? 1, pageSize);
         }

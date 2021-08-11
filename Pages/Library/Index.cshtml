@@ -1,0 +1,128 @@
+﻿@page
+@model sms.Pages.Library.IndexModel
+
+@{
+    ViewData["Title"] = "Бібліотека";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Бібліотека</h1>
+
+<div class="container no-color">
+    <div class="row">
+        <div class="col-sm-auto">
+            <form asp-page="./Index" method="get">
+                <input type="hidden" name="grade" asp-for="@Model.selectedGrade" />
+                <input type="hidden" name="sortOrder" asp-for="@Model.CurrentSort" />
+                <a asp-page="Create"><i class="fas fa-plus-circle fa-lg"></i></a>
+                <input type="text" name="SearchString" value="@Model.CurrentFilter" placeholder="Пошук книги" />
+                <button type="submit" class="btn btn-default">
+                    <i class="fa fa-search"></i>
+                </button> |
+                <a asp-page="./Index" class="btn btn-default"><i class="fas fa-times"></i></a>
+            </form>
+        </div>
+        <div class="col-sm-auto">
+            <form method="get">
+                <input type="hidden" name="sortOrder" asp-for="@Model.CurrentSort" />
+                <input type="hidden" name="currentFilter" asp-for="@Model.CurrentFilter" />
+                <label asp-for="selectedGrade" class="control-label"><i class="fas fa-users"></i></label>
+                <select asp-for="selectedGrade" name="grade" style="width:auto" asp-items="Model.Grades" onchange="this.form.submit();"></select>
+            </form>
+        </div>
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.GradeSort"
+                   asp-route-currentFilter="@Model.CurrentFilter"
+                   asp-route-grade="@Model.selectedGrade">
+                    @Html.DisplayNameFor(model => model.Book[0].Grade)
+                </a>
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.NameSort"
+                   asp-route-currentFilter="@Model.CurrentFilter"
+                   asp-route-grade="@Model.selectedGrade">
+                    @Html.DisplayNameFor(model => model.Book[0].Name)
+                </a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Book[0].Author)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Book[0].PublishingHouse)
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.YearSort"
+                   asp-route-currentFilter="@Model.CurrentFilter"
+                   asp-route-grade="@Model.selectedGrade">
+                    @Html.DisplayNameFor(model => model.Book[0].Year)
+                </a>
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.QtySort"
+                   asp-route-currentFilter="@Model.CurrentFilter"
+                   asp-route-grade="@Model.selectedGrade">
+                    @Html.DisplayNameFor(model => model.Book[0].Qty)
+                </a>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Book)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Grade)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Author)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PublishingHouse)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Year)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Qty)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id"><i class="fas fa-pencil-alt fa-lg"></i></a> |
+                    <a asp-page="./Details" asp-route-id="@item.Id"><i class="fas fa-book-open"></i></a> |
+                    <a asp-page="./Delete" asp-route-id="@item.Id"><i class="fas fa-trash fa-lg"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@{
+    var prevDisabled = !Model.Book.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.Book.HasNextPage ? "disabled" : "";
+}
+
+<a asp-page="./Index"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-grade="@Model.selectedGrade"
+   asp-route-pageIndex="@(Model.Book.PageIndex - 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   class="btn btn-primary @prevDisabled">
+    <i class="fas fa-arrow-alt-circle-left fa-lg"></i>
+</a>
+<a asp-page="./Index"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-grade="@Model.selectedGrade"
+   asp-route-pageIndex="@(Model.Book.PageIndex + 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   class="btn btn-primary @nextDisabled">
+    <i class="fas fa-arrow-alt-circle-right fa-lg"></i>
+</a>

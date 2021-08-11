@@ -63,7 +63,7 @@ namespace sms.Pages.Teachers
                     break;
             }
 
-            var pageSize = Configuration.GetValue("PageSize", 5);
+            var pageSize = Configuration.GetValue("PageSize", 10);
             Teacher = await PaginatedList<Teacher>.CreateAsync(
                 teachersIQ.AsNoTracking(), pageIndex ?? 1, pageSize);
         }
