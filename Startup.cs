@@ -44,16 +44,6 @@ namespace sms
             services.AddRazorPages();
             services.AddAuthorization(options =>
             {
-                //options.AddPolicy("RequireAdministratorsRole",
-                //    policy => policy.RequireRole(Operations.Constants.AdministratorsRole));
-                //options.AddPolicy("RequireStewardsRole",
-                //    policy => policy.RequireRole(Operations.Constants.StewardsRole));
-                //options.AddPolicy("RequireTeachersRole",
-                //    policy => policy.RequireRole(Operations.Constants.TeachersRole));
-                //options.AddPolicy("RequireLibrariansRole",
-                //    policy => policy.RequireRole(Operations.Constants.LibrariansRole));
-                //options.AddPolicy("RequireParentsRole",
-                //    policy => policy.RequireRole(Operations.Constants.ParentsRole));
                 options.FallbackPolicy = new AuthorizationPolicyBuilder()
                     .RequireAuthenticatedUser()
                     .Build();
