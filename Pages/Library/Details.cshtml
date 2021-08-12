@@ -2,228 +2,58 @@
 @model sms.Pages.Library.DetailsModel
 
 @{
-    ViewData["Title"] = "Видача і повернення книг";
+    ViewData["Title"] = "Читачі з книгою";
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
-<h1>Видача і повернення книг</h1>
+<h1>Читачі з книгою</h1>
 
 <div>
-    <h4>Книга</h4>
+    <h4>Книга: @Model.Book.Author @Model.Book.Name для @Model.Book.Grade кл. (@Model.Book.PublishingHouse, @Model.Book.Year) - @Model.Book.Qty/@Model.Book.TotalQty примірників</h4>
     <hr />
-    <div class="row">
-        <div class="col-sm-4">
-            <dl class="row">
-                <dt class="col-sm-6">
-                    @Html.DisplayNameFor(model => model.Book.Grade)
-                </dt>
-                <dd class="col-sm-6">
-                    @Html.DisplayFor(model => model.Book.Grade)
-                </dd>
-                <dt class="col-sm-6">
-                    @Html.DisplayNameFor(model => model.Book.Name)
-                </dt>
-                <dd class="col-sm-6">
-                    @Html.DisplayFor(model => model.Book.Name)
-                </dd>
-                <dt class="col-sm-6">
-                    @Html.DisplayNameFor(model => model.Book.Author)
-                </dt>
-                <dd class="col-sm-6">
-                    @Html.DisplayFor(model => model.Book.Author)
-                </dd>
-                <dt class="col-sm-6">
-                    @Html.DisplayNameFor(model => model.Book.PublishingHouse)
-                </dt>
-                <dd class="col-sm-6">
-                    @Html.DisplayFor(model => model.Book.PublishingHouse)
-                </dd>
-                <dt class="col-sm-6">
-                    @Html.DisplayNameFor(model => model.Book.Year)
-                </dt>
-                <dd class="col-sm-6">
-                    @Html.DisplayFor(model => model.Book.Year)
-                </dd>
-                <dt class="col-sm-6">
-                    @Html.DisplayNameFor(model => model.Book.Qty)
-                </dt>
-                <dd class="col-sm-6">
-                    @Html.DisplayFor(model => model.Book.Qty)
-                </dd>
-            </dl>
-        </div>
-        <div class="col-sm-8">
-            <div class="card">
-                <h5 class="card-header">Видача книг</h5>
-                <div class="card-body">
-                    <ul class="nav nav-tabs" id="myBorrowTab" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#borrowstudent" role="tab" aria-controls="borrowstudent" aria-selected="true">Учні</a>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#borrowteacher" role="tab" aria-controls="borrowteacher" aria-selected="false">Персонал</a>
-                        </li>
-                    </ul>
-                    <div class="tab-content" id="myBorrowTabContent">
-                        <div class="tab-pane fade show active" id="borrowstudent" role="tabpanel" aria-labelledby="borrowstudent-tab">
-                            <form method="post" asp-page-handler="BorrowStudent" class="mt-3">
-                                <input type="hidden" name="id" asp-for="@Model.Book.Id" />
-                                <div class="row justify-content-start">
-                                    <div class="col-sm-auto">
-                                        <div class="form-group">
-                                            <label asp-for="selectedGrade" class="control-label"><i class="fas fa-users"></i></label>
-                                            <select asp-for="selectedGrade" name="gradeId" style="width:auto" asp-items="Model.grades">
-                                                <option value="0">Оберіть клас</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-auto">
-                                        <div class="form-group">
-                                            <label asp-for="selectedStudent" class="control-label"><i class="fas fa-user"></i></label>
-                                            <select asp-for="selectedStudent" name="studentId" style="width:auto" asp-items="Model.StudentsSL"></select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <input type="submit" value="Видати" class="btn btn-primary" />
-                                </div>
-                            </form>
-                        </div>
-                        <div class="tab-pane fade" id="borrowteacher" role="tabpanel" aria-labelledby="borrowteacher-tab">
-                            <form method="post" asp-page-handler="BorrowTeacher" class="mt-3">
-                                <input type="hidden" name="id" asp-for="@Model.Book.Id" />
-                                <div class="form-group">
-                                    <label asp-for="selectedTeacher" class="control-label"><i class="fas fa-chalkboard-teacher"></i></label>
-                                    <select asp-for="selectedTeacher" name="teacherId" style="width:auto" asp-items="Model.TeachersSL">
-                                        <option value="0">Оберіть вчителя</option>
-                                    </select>
-                                </div>
-                                <div>
-                                    <input type="submit" value="Видати" class="btn btn-primary" />
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
+<table class="table table-responsive">
+    <thead style="text-align: center">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">ПІБ читача</th>
+            <th scope="col">Посада</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{int i = 0; }
+        @for (var reader = 0; reader < Model.readers.Count; reader++)
+        {
+            <tr>
+                @{i++;}
+                <th scope="row">@i</th>
+                <td>
+                    @Model.readers[reader].Name
+                </td>
+                <td>
+                    @Model.readers[reader].Type
+                </td>
+                <td style="text-align:center">
+                    <form method="post">
+                        <input type="hidden" name="id" asp-for="@Model.Book.Id" />
+                        @if (Model.readers[reader].Type == Type.Вчитель)
+                        {
+                            <input type="hidden" name="teacherId" asp-for="@Model.readers[reader].Id" />
+                        }
+                        else
+                        {
+                            <input type="hidden" name="studentId" asp-for="@Model.readers[reader].Id" />
+                        }
+                        <input type="submit" value="Повернути" class="btn btn-primary btn-sm" />
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
 
-<div class="row">
-    <div class="card">
-        <h5 class="card-header">Повернення книг</h5>
-        <div class="card-body">
-            <ul class="nav nav-tabs" id="myReturnTab" role="tablist">
-                <li class="nav-item" role="presentation">
-                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#returnstudent" role="tab" aria-controls="returnstudent" aria-selected="true">Учні</a>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#returnteacher" role="tab" aria-controls="returnteacher" aria-selected="false">Персонал</a>
-                </li>
-            </ul>
-            <div class="tab-content" id="myReturnTabContent">
-                <div class="tab-pane fade show active" id="returnstudent" role="tabpanel" aria-labelledby="returnstudent-tab">
-                    <form method="post" asp-page-handler="ReturnStudent" class="mt-3">
-                        <input type="hidden" name="id" asp-for="@Model.Book.Id" />
-                        <table class="table table-responsive">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Учень</th>
-                                    <th scope="col">Книга</th>
-                                    <th scope="col">Повернути</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @{int i = 0; }
-                                @for (var student = 0; student < Model.students.Count; student++)
-                                {
-                                    <tr>
-                                        @(i++)
-                                        <th scope="row">@i</th>
-                                        <td>@Model.students[student].FullName</td>
-                                        <td>
-                                            @Model.Book.Name
-                                        </td>
-                                        <td style="text-align:center">
-                                            <button type="submit" class="btn btn-default">
-                                                <i class="fa fa-book"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                }
-                            </tbody>
-                        </table>
-                    </form>
-                </div>
-                <div class="tab-pane fade" id="returnteacher" role="tabpanel" aria-labelledby="returnteacher-tab">
-                    <form method="post" asp-page-handler="ReturnTeacher" class="mt-3">
-                        <input type="hidden" name="id" asp-for="@Model.Book.Id" />
-                        <table class="table table-responsive">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Вчитель</th>
-                                    <th scope="col">Книга</th>
-                                    <th scope="col">Повернути</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @{ int j = 0; }
-                                @for (var teacher = 0; teacher < Model.teachers.Count; teacher++)
-                                {
-                                    <tr>
-                                        @(j++)
-                                        <th scope="row">@j</th>
-                                        <td>@Model.teachers[teacher].FullName</td>
-                                        <td>
-                                            @Model.Book.Name
-                                        </td>
-                                        <td style="text-align:center">
-                                            <button type="submit" class="btn btn-default">
-                                                <i class="fa fa-book"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                }
-                            </tbody>
-                        </table>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 <div>
     <a asp-page="./Edit" asp-route-id="@Model.Book.Id">Редагувати</a> |
     <a asp-page="./Index">Назад</a>
 </div>
-
-@section scripts{
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    <script>
-        $(function () {
-            $("#selectedGrade").on("change", function () {
-                var gradeId = $(this).val();
-                $("#selectedStudent").empty();
-                $("#selectedStudent").append("<option value=''>Оберіть учня</option>");
-                $.getJSON(`?handler=Students&gradeId=${gradeId}`, (data) => {
-                    $.each(data, function (i, item) {
-                        $("#selectedStudent").append(`<option value="${item.value}">${item.text}</option>`);
-                    });
-                });
-            });
-        });
-        function query_string(variable) {
-            var query = window.location.search.substring(1);
-            var vars = query.split("&");
-            for (var i = 0; i < vars.length; i++) {
-                var pair = vars[i].split("=");
-                if (pair[0] == variable) { return pair[1]; }
-            }
-            return (false);
-        }
-    </script>
-}
-

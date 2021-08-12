@@ -12,7 +12,7 @@ namespace sms.Data
         {
             new Book
             {
-                Author = "Карпюк О.Д.",
+                Author = "Карп'юк О.Д.",
                 Name = "Англійська мова",
                 PublishingHouse = "Астон",
                 Year = 2018,
@@ -102,7 +102,7 @@ namespace sms.Data
             },
             new Book
             {
-                Author = "Карпюк О.Д.",
+                Author = "Карп'юк О.Д.",
                 Name = "Англійська мова",
                 PublishingHouse = "Астон",
                 Year = 2019,
@@ -219,7 +219,7 @@ namespace sms.Data
             },
             new Book
             {
-                Author = "Карпюк О.Д.",
+                Author = "Карп'юк О.Д.",
                 Name = "Англійська мова",
                 PublishingHouse = "Астон",
                 Year = 2013,
@@ -327,7 +327,7 @@ namespace sms.Data
             },
             new Book
             {
-                Author = "Карпюк О.Д.",
+                Author = "Карп'юк О.Д.",
                 Name = "Англійська мова",
                 PublishingHouse = "Лібра Терра",
                 Year = 2015,
@@ -435,7 +435,7 @@ namespace sms.Data
             },
             new Book
             {
-                Author = "Карпюк О.Д.",
+                Author = "Карп'юк О.Д.",
                 Name = "Англійська мова",
                 PublishingHouse = "Астон",
                 Year = 2018,
@@ -714,7 +714,7 @@ namespace sms.Data
             },
             new Book
             {
-                Author = "Карпюк О.Д.",
+                Author = "Карп'юк О.Д.",
                 Name = "Англійська мова",
                 PublishingHouse = "Лібра Терра",
                 Year = 2015,
@@ -1047,7 +1047,7 @@ namespace sms.Data
             },
             new Book
             {
-                Author = "Карпюк О.Д.",
+                Author = "Карп'юк О.Д.",
                 Name = "Англійська мова",
                 PublishingHouse = "Лібра Терра",
                 Year = 2017,
@@ -1218,7 +1218,7 @@ namespace sms.Data
             },
             new Book
             {
-                Author = "Карпюк О.Д.",
+                Author = "Карп'юк О.Д.",
                 Name = "Англійська мова",
                 PublishingHouse = "Астон",
                 Year = 2018,

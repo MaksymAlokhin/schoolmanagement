@@ -1,0 +1,57 @@
+﻿@page
+@model sms.Pages.Library.LendTeacherModel
+
+@{
+    ViewData["Title"] = "Видача і повернення книг";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Видача і повернення книг</h1>
+
+<div>
+    <h4><a asp-page="./Details" asp-route-id="@Model.Book.Id"><i class="fas fa-book-reader fa-lg mr-1"></i></a>Книга: @Model.Book.Author @Model.Book.Name для @Model.Book.Grade кл. (@Model.Book.PublishingHouse, @Model.Book.Year) - @Model.Book.Qty/@Model.Book.TotalQty примірників</h4>
+    <hr />
+    <table class="table table-responsive text-nowrap">
+        <thead style="text-align: center">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.teachers[0].FullName)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.teachers)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FullName)
+                    </td>
+                    <td>
+                        <form method="post">
+                            <input type="hidden" name="id" asp-for="@Model.Book.Id" />
+                            <input type="hidden" name="teacherId" asp-for="@item.Id" />
+                            @if (@item.Books.Contains(Model.Book))
+                            {
+                                <div class="form-group">
+                                    <input type="submit" value="Прийняти" class="btn btn-primary btn-sm" />
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="form-group">
+                                    <input type="submit" value="Видати" class="btn btn-primary btn-sm" />
+                                </div>
+                            }
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Book.Id">Редагувати</a> |
+    <a asp-page="./Index">Назад</a>
+</div>

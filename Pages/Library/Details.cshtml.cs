@@ -16,24 +16,19 @@ namespace sms.Pages.Library
     public class DetailsModel : PageModel
     {
         private readonly sms.Data.ApplicationDbContext _context;
-        public List<SelectListItem> grades;
-        public int selectedGrade;
-        public int selectedStudent;
-        public int selectedTeacher;
-        public List<SelectListItem> StudentsSL { get; set; }
-        public List<SelectListItem> TeachersSL { get; set; }
-        public List<Student> students;
-        public List<Teacher> teachers;
+        public List<Student> students { get; set; }
+        public List<Teacher> teachers { get; set; }
+        public List<Reader> readers { get; set; } = new List<Reader>();
 
         public DetailsModel(sms.Data.ApplicationDbContext context)
         {
             _context = context;
         }
-        
+
         [BindProperty]
         public Book Book { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? id, int gradeId = 0)
+        public async Task<IActionResult> OnGetAsync(int id)
         {
             Book = await _context.Books
                 .Include(m => m.Students)
@@ -43,137 +38,54 @@ namespace sms.Pages.Library
             students = Book.Students.ToList();
             teachers = Book.Teachers.ToList();
 
-            if (Book == null)
+            foreach (var student in students)
             {
-                return NotFound();
+                readers.Add(new Reader { Id = student.Id, Name = student.FullName, Type = Type.Учень });
             }
-
-            selectedGrade = gradeId;
-
-            if (id == null)
+            foreach (var teacher in teachers)
             {
-                return NotFound();
+                readers.Add(new Reader { Id = teacher.Id, Name = teacher.FullName, Type = Type.Вчитель });
             }
-
-            if (gradeId != 0)
-            {
-                StudentsSL = _context.Students
-                    .AsNoTracking()
-                    .Where(g => g.GradeId == gradeId)
-                    .OrderBy(g => g.LastName)
-                    .ThenBy(g => g.FirstName)
-                    .Select(g =>
-                    new SelectListItem
-                    {
-                        Value = g.Id.ToString(),
-                        Text = g.ShortName
-                    }).ToList();
-            }
-            else
-            {
-                StudentsSL = new List<SelectListItem>()
-                {
-                    new SelectListItem
-                    {
-                        Value = null,
-                        Text = " "
-                    }
-                };
-            }
-
-            TeachersSL = _context.Teachers
-                .AsNoTracking()
-                .Select(g =>
-                new SelectListItem
-                {
-                    Value = g.Id.ToString(),
-                    Text = g.FullName
-                }).ToList();
-
-            grades = new List<SelectListItem>();
-            var grad = _context.Grades.OrderBy(g => g.Number).ThenBy(g => g.Letter);
-            foreach (Grade g in grad)
-            {
-                grades.Add(new SelectListItem { Value = $"{g.Id}", Text = $"{g.FullName}" });
-            }
-
             return Page();
         }
-        public async Task<IActionResult> OnPostAsync(int? id)
+        public async Task<IActionResult> OnPostAsync(int id, int? studentId, int? teacherId)
         {
-            if (id == null)
+            Book = await _context.Books.Include(m => m.Teachers).Include(m => m.Students).FirstOrDefaultAsync(m => m.Id == id);
+
+            if (studentId.HasValue)
             {
-                return NotFound();
+                var student = await _context.Students.Include(m => m.Books).FirstOrDefaultAsync(m => m.Id == studentId);
+                Book = await _context.Books.Include(m => m.Students).FirstOrDefaultAsync(m => m.Id == id);
+                if (student.Books.Contains(Book))
+                {
+                    student.Books.Remove(Book);
+                    Book.Qty++;
+                    _context.SaveChanges();
+                }
             }
-
-            Book = await _context.Books.FirstOrDefaultAsync(m => m.Id == id);
-
-            if (Book == null)
+            if (teacherId.HasValue)
             {
-                return NotFound();
+                var teacher = await _context.Teachers.Include(m => m.Books).FirstOrDefaultAsync(m => m.Id == teacherId);
+                Book = await _context.Books.Include(m => m.Students).FirstOrDefaultAsync(m => m.Id == id);
+                if (teacher.Books.Contains(Book))
+                {
+                    teacher.Books.Remove(Book);
+                    Book.Qty++;
+                    _context.SaveChanges();
+                }
             }
-
             return RedirectToPage("./Details", new { id = id });
         }
-
-        public async Task<IActionResult> OnPostBorrowStudent(int id, int studentId)
-        {
-            var student = await _context.Students.Include(m => m.Books).FirstOrDefaultAsync(m => m.Id == studentId);
-            Book = await _context.Books.Include(m => m.Students).FirstOrDefaultAsync(m => m.Id == id);
-            student.Books.Add(Book);
-            Book.Qty--;
-            _context.SaveChanges();
-            return RedirectToPage("./Details", new { id = $"{Book.Id}" });
-        }
-        public async Task<IActionResult> OnPostBorrowTeacher(int id, int teacherId)
-        {
-            var teacher = await _context.Teachers.Include(m => m.Books).FirstOrDefaultAsync(m => m.Id == teacherId);
-            Book = await _context.Books.Include(m => m.Teachers).FirstOrDefaultAsync(m => m.Id == id);
-            teacher.Books.Add(Book);
-            Book.Qty--;
-            _context.SaveChanges();
-            return RedirectToPage("./Details", new { id = $"{Book.Id}" });
-        }
-        public async Task<IActionResult> OnPostReturnStudent(int id, int studentId)
-        {
-            var student = await _context.Students.Include(m => m.Books).FirstOrDefaultAsync(m => m.Id == studentId);
-            Book = await _context.Books.Include(m => m.Students).FirstOrDefaultAsync(m => m.Id == id);
-            student.Books.Remove(Book);
-            Book.Qty++;
-            _context.SaveChanges();
-            return RedirectToPage("./Details", new { id = $"{Book.Id}" });
-        }
-        public async Task<IActionResult> OnPostReturnTeacher(int id, int teacherId)
-        {
-            var teacher = await _context.Teachers.Include(m => m.Books).FirstOrDefaultAsync(m => m.Id == teacherId);
-            Book = await _context.Books.Include(m => m.Teachers).FirstOrDefaultAsync(m => m.Id == id);
-            teacher.Books.Remove(Book);
-            Book.Qty++;
-            _context.SaveChanges();
-            return RedirectToPage("./Details", new { id = $"{Book.Id}" });
-        }
-
-        public JsonResult OnGetStudents(string gradeId)
-        {
-            if (!string.IsNullOrWhiteSpace(gradeId))
-            {
-                IEnumerable<SelectListItem> students = _context.Students
-                    .AsNoTracking()
-                    .Where(g => g.GradeId == int.Parse(gradeId))
-                    .OrderBy(g => g.LastName)
-                    .ThenBy(g => g.FirstName)
-                    .Select(g =>
-                    new SelectListItem
-                    {
-                        Value = g.Id.ToString(),
-                        Text = g.ShortName
-                    }).ToList();
-
-                //return new JsonResult(new[] { subjects, students });
-
-                return new JsonResult(students);
-            }
-            return null;
-        }
+    }
+    public class Reader
+    {
+        public string Name { get; set; }
+        public Type Type { get; set; }
+        public int Id { get; set; }
+    }
+    public enum Type
+    {
+        Учень,
+        Вчитель
     }
 }

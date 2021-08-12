@@ -34,6 +34,7 @@ namespace sms.Pages.Library
         public string CurrentSort { get; set; }
         public PaginatedList<Book> Book { get; set; }
         public string selectedGrade;
+        public List<Grade> gradeList { get; set; }
 
         public List<SelectListItem> Grades { get; } = new List<SelectListItem>
         {
@@ -53,6 +54,8 @@ namespace sms.Pages.Library
         public async Task OnGetAsync(string grade, string sortOrder,
             string currentFilter, string searchString, int? pageIndex)
         {
+            gradeList = await _context.Grades.ToListAsync();
+
             selectedGrade = String.IsNullOrEmpty(grade) ? "0" : grade;
             selectedGrade = grade;
             

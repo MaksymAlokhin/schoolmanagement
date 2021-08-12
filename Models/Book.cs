@@ -27,12 +27,15 @@ namespace sms.Models
         public int Qty { get; set; }
         public ICollection<Student> Students { get; set; }
         public ICollection<Teacher> Teachers { get; set; }
-        //public int TotalQty
-        //{
-        //    get
-        //    {
-        //        return Qty + Students.Count + Teachers.Count;
-        //    }
-        //}
+        public int TotalQty
+        {
+            get
+            {
+                int total = 0;
+                if (Students != null) total += Students.Count;
+                if (Teachers != null) total += Teachers.Count;
+                return Qty + total;
+            }
+        }
     }
 }
