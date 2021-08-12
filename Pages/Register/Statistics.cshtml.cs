@@ -43,7 +43,7 @@ namespace sms.Pages.Register
         public int selectedYear;
         public int selectedSemester;
 
-        public async Task OnGetAsync(string sortOrder, int year = 0, int semester = 1)
+        public void OnGetAsync(string sortOrder, int year = 0, int semester = 1)
         {
             YearList = new SelectList(YearSL, "Value", "Text", $"{DateTime.Now.Year}");
             if (year == 0) selectedYear = DateTime.Now.Year;

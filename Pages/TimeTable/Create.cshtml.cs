@@ -26,7 +26,7 @@ namespace sms.Pages.TimeTable
         public List<SelectListItem> GradesList { get; set; }
         public SelectList SubjectNameSL { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(string day, int slot, int teacher)
+        public IActionResult OnGetAsync(string day, int slot, int teacher)
         {
             Lesson = new Lesson();
             Lesson.Day = day;

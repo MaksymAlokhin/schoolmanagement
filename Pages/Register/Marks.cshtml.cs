@@ -62,7 +62,7 @@ namespace sms.Pages.Register
             new SelectListItem { Value = "12", Text = "Грудень" }
         };
 
-        public async Task OnGetAsync(string sortOrder, int gradeId = 0, int year = 0, int month = 9, int studentId = 0)
+        public void OnGetAsync(string sortOrder, int gradeId = 0, int year = 0, int month = 9, int studentId = 0)
         {
             selectedGrade = gradeId;
             selectedMonth = month;

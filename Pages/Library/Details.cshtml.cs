@@ -22,16 +22,32 @@ namespace sms.Pages.Library
         public int selectedTeacher;
         public List<SelectListItem> StudentsSL { get; set; }
         public List<SelectListItem> TeachersSL { get; set; }
+        public List<Student> students;
+        public List<Teacher> teachers;
 
         public DetailsModel(sms.Data.ApplicationDbContext context)
         {
             _context = context;
         }
-
+        
+        [BindProperty]
         public Book Book { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id, int gradeId = 0)
         {
+            Book = await _context.Books
+                .Include(m => m.Students)
+                .Include(m => m.Teachers)
+                .FirstOrDefaultAsync(m => m.Id == id);
+
+            students = Book.Students.ToList();
+            teachers = Book.Teachers.ToList();
+
+            if (Book == null)
+            {
+                return NotFound();
+            }
+
             selectedGrade = gradeId;
 
             if (id == null)
@@ -81,12 +97,6 @@ namespace sms.Pages.Library
                 grades.Add(new SelectListItem { Value = $"{g.Id}", Text = $"{g.FullName}" });
             }
 
-            Book = await _context.Books.FirstOrDefaultAsync(m => m.Id == id);
-
-            if (Book == null)
-            {
-                return NotFound();
-            }
             return Page();
         }
         public async Task<IActionResult> OnPostAsync(int? id)
@@ -104,6 +114,43 @@ namespace sms.Pages.Library
             }
 
             return RedirectToPage("./Details", new { id = id });
+        }
+
+        public async Task<IActionResult> OnPostBorrowStudent(int id, int studentId)
+        {
+            var student = await _context.Students.Include(m => m.Books).FirstOrDefaultAsync(m => m.Id == studentId);
+            Book = await _context.Books.Include(m => m.Students).FirstOrDefaultAsync(m => m.Id == id);
+            student.Books.Add(Book);
+            Book.Qty--;
+            _context.SaveChanges();
+            return RedirectToPage("./Details", new { id = $"{Book.Id}" });
+        }
+        public async Task<IActionResult> OnPostBorrowTeacher(int id, int teacherId)
+        {
+            var teacher = await _context.Teachers.Include(m => m.Books).FirstOrDefaultAsync(m => m.Id == teacherId);
+            Book = await _context.Books.Include(m => m.Teachers).FirstOrDefaultAsync(m => m.Id == id);
+            teacher.Books.Add(Book);
+            Book.Qty--;
+            _context.SaveChanges();
+            return RedirectToPage("./Details", new { id = $"{Book.Id}" });
+        }
+        public async Task<IActionResult> OnPostReturnStudent(int id, int studentId)
+        {
+            var student = await _context.Students.Include(m => m.Books).FirstOrDefaultAsync(m => m.Id == studentId);
+            Book = await _context.Books.Include(m => m.Students).FirstOrDefaultAsync(m => m.Id == id);
+            student.Books.Remove(Book);
+            Book.Qty++;
+            _context.SaveChanges();
+            return RedirectToPage("./Details", new { id = $"{Book.Id}" });
+        }
+        public async Task<IActionResult> OnPostReturnTeacher(int id, int teacherId)
+        {
+            var teacher = await _context.Teachers.Include(m => m.Books).FirstOrDefaultAsync(m => m.Id == teacherId);
+            Book = await _context.Books.Include(m => m.Teachers).FirstOrDefaultAsync(m => m.Id == id);
+            teacher.Books.Remove(Book);
+            Book.Qty++;
+            _context.SaveChanges();
+            return RedirectToPage("./Details", new { id = $"{Book.Id}" });
         }
 
         public JsonResult OnGetStudents(string gradeId)
