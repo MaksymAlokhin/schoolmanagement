@@ -126,6 +126,15 @@
 
 <a asp-page="./LendStudent"
    asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="1"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   asp-route-id="@Model.Book.Id"
+   asp-route-gradeId="@Model.selectedGrade"
+   class="btn btn-primary @prevDisabled">
+    <i class="fas fa-fast-backward"></i>
+</a>
+<a asp-page="./LendStudent"
+   asp-route-sortOrder="@Model.CurrentSort"
    asp-route-pageIndex="@(Model.students.PageIndex - 1)"
    asp-route-currentFilter="@Model.CurrentFilter"
    asp-route-id="@Model.Book.Id"
@@ -141,6 +150,15 @@
    asp-route-gradeId="@Model.selectedGrade"
    class="btn btn-primary @nextDisabled">
     <i class="fas fa-arrow-alt-circle-right fa-lg"></i>
+</a>
+<a asp-page="./LendStudent"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.students.TotalPages)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   asp-route-id="@Model.Book.Id"
+   asp-route-gradeId="@Model.selectedGrade"
+   class="btn btn-primary @nextDisabled">
+    <i class="fas fa-fast-forward"></i>
 </a>
 
 <div class="mt-2">

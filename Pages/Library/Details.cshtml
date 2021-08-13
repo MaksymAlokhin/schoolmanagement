@@ -96,6 +96,14 @@
 
 <a asp-page="./Details"
    asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="1"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   asp-route-id="@Model.Book.Id"
+   class="btn btn-primary @prevDisabled">
+    <i class="fas fa-fast-backward"></i>
+</a>
+<a asp-page="./Details"
+   asp-route-sortOrder="@Model.CurrentSort"
    asp-route-pageIndex="@(Model.readers.PageIndex - 1)"
    asp-route-currentFilter="@Model.CurrentFilter"
    asp-route-id="@Model.Book.Id"
@@ -109,6 +117,14 @@
    asp-route-id="@Model.Book.Id"
    class="btn btn-primary @nextDisabled">
     <i class="fas fa-arrow-alt-circle-right fa-lg"></i>
+</a>
+<a asp-page="./Details"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.readers.TotalPages)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   asp-route-id="@Model.Book.Id"
+   class="btn btn-primary @nextDisabled">
+    <i class="fas fa-fast-forward"></i>
 </a>
 
 <div class="mt-2">
