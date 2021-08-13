@@ -9,13 +9,28 @@
 <h1>Видача і повернення книг</h1>
 
 <div>
-    <h4><a asp-page="./Details" asp-route-id="@Model.Book.Id"><i class="fas fa-book-reader fa-lg mr-1"></i></a>Книга: @Model.Book.Author @Model.Book.Name для @Model.Book.Grade кл. (@Model.Book.PublishingHouse, @Model.Book.Year) - @Model.Book.Qty/@Model.Book.TotalQty примірників</h4>
+    <h4><a asp-page="./Details" asp-route-id="@Model.Book.Id"><i class="fas fa-book-reader fa-lg mr-1"></i></a>Книга: @Model.Book.Author "@Model.Book.Name. @Model.Book.Grade кл." (@Model.Book.PublishingHouse, @Model.Book.Year) - @Model.Book.Qty/@Model.Book.TotalQty примірників</h4>
     <hr />
+    <form asp-page="./LendTeacher" method="get">
+        <div class="form-actions no-color">
+            <p>
+                <input type="text" name="SearchString" value="@Model.CurrentFilter" placeholder="Пошук" />
+                <button type="submit" class="btn btn-default">
+                    <i class="fa fa-search"></i>
+                </button> |
+                <a asp-page="./LendTeacher" asp-route-id="@Model.Book.Id" class="btn btn-default"><i class="fas fa-times"></i></a>
+            </p>
+        </div>
+    </form>
     <table class="table table-responsive text-nowrap">
         <thead style="text-align: center">
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.teachers[0].FullName)
+                    <a asp-page="./LendTeacher"
+                       asp-route-sortOrder="@Model.NameSort"
+                       asp-route-id="@Model.Book.Id">
+                        @Html.DisplayNameFor(model => model.teachers[0].FullName)
+                    </a>
                 </th>
                 <th></th>
             </tr>

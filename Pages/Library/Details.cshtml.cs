@@ -16,9 +16,11 @@ namespace sms.Pages.Library
     public class DetailsModel : PageModel
     {
         private readonly sms.Data.ApplicationDbContext _context;
-        public List<Student> students { get; set; }
-        public List<Teacher> teachers { get; set; }
         public List<Reader> readers { get; set; } = new List<Reader>();
+        public string NameSort { get; set; }
+        public string PositionSort { get; set; }
+        public string CurrentFilter { get; set; }
+        public string CurrentSort { get; set; }
 
         public DetailsModel(sms.Data.ApplicationDbContext context)
         {
@@ -28,15 +30,31 @@ namespace sms.Pages.Library
         [BindProperty]
         public Book Book { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int id)
+        public async Task<IActionResult> OnGetAsync(string sortOrder, string searchString, int id)
         {
+            NameSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            PositionSort = sortOrder == "position" ? "position_desc" : "position";
+            CurrentFilter = searchString;
+
             Book = await _context.Books
                 .Include(m => m.Students)
                 .Include(m => m.Teachers)
                 .FirstOrDefaultAsync(m => m.Id == id);
 
-            students = Book.Students.ToList();
-            teachers = Book.Teachers.ToList();
+            var students = Book.Students.ToList();
+            var teachers = Book.Teachers.ToList();
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                students = students.Where(s => s.LastName.Contains(searchString)
+                                       || s.FirstName.Contains(searchString)
+                                       || s.Patronymic.Contains(searchString))
+                                    .ToList();
+                teachers = teachers.Where(s => s.LastName.Contains(searchString)
+                                       || s.FirstName.Contains(searchString)
+                                       || s.Patronymic.Contains(searchString))
+                                    .ToList();
+            }
 
             foreach (var student in students)
             {
@@ -46,10 +64,35 @@ namespace sms.Pages.Library
             {
                 readers.Add(new Reader { Id = teacher.Id, Name = teacher.FullName, Type = Type.Вчитель });
             }
+
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    readers = readers
+                        .OrderByDescending(s => s.Name)
+                        .ToList();
+                    break;
+                case "position":
+                    readers = readers
+                        .OrderBy(s => s.Type)
+                        .ToList();
+                    break;
+                case "position_desc":
+                    readers = readers
+                        .OrderByDescending(s => s.Type)
+                        .ToList();
+                    break;
+                default:
+                    readers = readers
+                        .OrderByDescending(s => s.Name)
+                        .ToList();
+                    break;
+            }
+
             return Page();
         }
         public async Task<IActionResult> OnPostAsync(int id, int? studentId, int? teacherId)
-        {
+        {            
             Book = await _context.Books.Include(m => m.Teachers).Include(m => m.Students).FirstOrDefaultAsync(m => m.Id == id);
 
             if (studentId.HasValue)

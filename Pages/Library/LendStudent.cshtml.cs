@@ -19,7 +19,10 @@ namespace sms.Pages.Library
         public List<SelectListItem> GradesSL;
         public int selectedGrade { get; set; }
         public List<SelectListItem> StudentsSL { get; set; }
-        public List<Student> students;
+        public IList<Student> students;
+        public string NameSort { get; set; }
+        public string CurrentFilter { get; set; }
+        public string CurrentSort { get; set; }
 
         public LendStudentModel(sms.Data.ApplicationDbContext context)
         {
@@ -29,8 +32,11 @@ namespace sms.Pages.Library
         [BindProperty]
         public Book Book { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int id, int gradeId)
+        public async Task<IActionResult> OnGetAsync(string sortOrder, string searchString, int id, int gradeId)
         {
+            NameSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            CurrentFilter = searchString;
+
             selectedGrade = gradeId;
 
             Book = await _context.Books
@@ -38,10 +44,34 @@ namespace sms.Pages.Library
                 .Include(m => m.Teachers)
                 .FirstOrDefaultAsync(m => m.Id == id);
 
-            students = await _context.Students
+            IQueryable<Student>studentsIQ = _context.Students
                 .Include(m => m.Books)
-                .Where(m => m.GradeId == gradeId)
-                .ToListAsync();
+                .Where(m => m.GradeId == gradeId);
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                studentsIQ = studentsIQ.Where(s => s.LastName.Contains(searchString)
+                                       || s.FirstName.Contains(searchString)
+                                       || s.Patronymic.Contains(searchString));
+            }
+
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    studentsIQ = studentsIQ
+                        .OrderByDescending(s => s.LastName)
+                        .ThenByDescending(s => s.FirstName)
+                        .ThenByDescending(s => s.Patronymic);
+                    break;
+                default:
+                    studentsIQ = studentsIQ
+                        .OrderBy(s => s.LastName)
+                        .ThenBy(s => s.FirstName)
+                        .ThenBy(s => s.Patronymic);
+                    break;
+            }
+
+            students = await studentsIQ.ToListAsync();
 
             GradesSL = new List<SelectListItem>();
             var grad = _context.Grades.OrderBy(g => g.Number).ThenBy(g => g.Letter);

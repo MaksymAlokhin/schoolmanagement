@@ -17,6 +17,9 @@ namespace sms.Pages.Library
     {
         private readonly sms.Data.ApplicationDbContext _context;
         public List<Teacher> teachers;
+        public string NameSort { get; set; }
+        public string CurrentFilter { get; set; }
+        public string CurrentSort { get; set; }
 
         public LendTeacherModel(sms.Data.ApplicationDbContext context)
         {
@@ -26,16 +29,42 @@ namespace sms.Pages.Library
         [BindProperty]
         public Book Book { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int id)
+        public async Task<IActionResult> OnGetAsync(string sortOrder, string searchString, int id)
         {
+            NameSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            CurrentFilter = searchString;
+
             Book = await _context.Books
                 .Include(m => m.Teachers)
                 .Include(m => m.Students)
                 .FirstOrDefaultAsync(m => m.Id == id);
 
-            teachers = await _context.Teachers
-                .Include(m => m.Books)
-                .ToListAsync();
+            IQueryable<Teacher> teachersIQ = _context.Teachers.Include(m => m.Books);
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                teachersIQ = teachersIQ.Where(s => s.LastName.Contains(searchString)
+                                       || s.FirstName.Contains(searchString)
+                                       || s.Patronymic.Contains(searchString));
+            }
+
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    teachersIQ = teachersIQ
+                        .OrderByDescending(s => s.LastName)
+                        .ThenByDescending(s => s.FirstName)
+                        .ThenByDescending(s => s.Patronymic);
+                    break;
+                default:
+                    teachersIQ = teachersIQ
+                        .OrderBy(s => s.LastName)
+                        .ThenBy(s => s.FirstName)
+                        .ThenBy(s => s.Patronymic);
+                    break;
+            }
+
+            teachers = await teachersIQ.ToListAsync();
 
             return Page();
         }
