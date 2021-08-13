@@ -6,46 +6,75 @@
 
 <h2>Змініть повноваження</h2>
 
-<form method="get">
-    <div class="form-action col-md-4">
-        <label>Без повноважень</label>
-        <input asp-for="NoRolesCheckbox" type="checkbox" value="True" data-val="true" onchange="this.form.submit();" data-val-required="The NoRolesCheckbox field is required." id="noRoles" name="noRoles" />
-        @*<input type="checkbox" value="True" data-val="true" onchange="this.form.submit();" data-val-required="The NoRolesCheckbox field is required." id="noRoles" name="noRoles" @(Html.Raw(Model.NoRolesCheckbox ? "checked=\"checked\"" : "")) />*@
-    </div>
-</form>
+<div class="container">
+    <form asp-page="./Roles" method="get">
+        <input type="hidden" name="sortOrder" asp-for="@Model.CurrentSort" />
+        <div class="row">
+            <div class="col-auto">
+                <div class="form-actions no-color">
+                    <p>
+                        <input type="text" name="SearchString" value="@Model.CurrentFilter" placeholder="Пошук" />
+                        <button type="submit" class="btn btn-default">
+                            <i class="fa fa-search"></i>
+                        </button> |
+                        <a asp-page="./Roles" class="btn btn-default"><i class="fas fa-times"></i></a>
+                    </p>
+                </div>
+            </div>
+            <div class="col-auto">
+                <label>Без повноважень</label>
+                <input asp-for="NoRolesCheckbox" type="checkbox" value="True" data-val="true" onchange="this.form.submit();" data-val-required="The NoRolesCheckbox field is required." id="noRoles" name="noRoles" />
+            </div>
+        </div>
+    </form>
+</div>
 
-<table class="table">
-    <thead>
+<table class="table table-responsive">
+    <thead style="text-align: center">
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.userRolesPaginated[0].UserName)
+            <th scope="col">#</th>
+            <th scope="col">
+                <a asp-page="./Roles" asp-route-sortOrder="@Model.NameSort"
+                   asp-route-currentFilter="@Model.CurrentFilter">
+                    @Html.DisplayNameFor(model => model.userRolesPaginated[0].UserName)
+                </a>
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.userRolesPaginated[0].RoleName)
+            <th scope="col">
+                <a asp-page="./Roles" asp-route-sortOrder="@Model.RoleSort"
+                   asp-route-currentFilter="@Model.CurrentFilter">
+                    @Html.DisplayNameFor(model => model.userRolesPaginated[0].RoleName)
+                </a>
             </th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.userRolesPaginated)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.UserName)
-                </td>
-                <td>
-                    <form method="post">
-                        <span class="form-group col-md-4">
-                            <input type="hidden" name="mainid" value="@item.UserId" />
-                            <select class="userselect" asp-for="@item.RoleName" asp-items="@Model.RoleNameSL" name="rolename" onchange="this.form.submit();">
-                                @*<option selected>@item.RoleName</option>*@
-                                <option>Без повноважень</option>
-                            </select>
-                            <input type="hidden" name="@Model.NoRolesCheckbox" />
-                            <input type="hidden" name="@Model.userRolesPaginated.PageIndex" />
-                        </span>
-                    </form>
-                </td>
-            </tr>
+        @{
+            int i = 0;
+            foreach (var item in Model.userRolesPaginated)
+            {
+                <tr>
+                    <th scope="row">
+                        @Model.userRolesPaginated.SeqNum[i]
+                    </th>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UserName)
+                    </td>
+                    <td>
+                        <form method="post">
+                            <span class="form-group col-md-4">
+                                <input type="hidden" name="mainid" value="@item.UserId" />
+                                <select class="userselect" asp-for="@item.RoleName" asp-items="@Model.RoleNameSL" name="rolename" onchange="this.form.submit();">
+                                    @*<option selected>@item.RoleName</option>*@
+                                    <option>Без повноважень</option>
+                                </select>
+                                <input type="hidden" name="@Model.NoRolesCheckbox" />
+                                <input type="hidden" name="@Model.userRolesPaginated.PageIndex" />
+                            </span>
+                        </form>
+                    </td>
+                </tr>
+                i++;
+            }
         }
     </tbody>
 </table>
@@ -56,16 +85,36 @@
 }
 
 <a asp-page="/Roles"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-noRoles="@Model.NoRolesCheckbox"
+   asp-route-pageIndex="1"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   class="btn btn-primary @prevDisabled">
+    <i class="fas fa-fast-backward"></i>
+</a>
+<a asp-page="/Roles"
+   asp-route-sortOrder="@Model.CurrentSort"
    asp-route-noRoles="@Model.NoRolesCheckbox"
    asp-route-pageIndex="@(Model.userRolesPaginated.PageIndex - 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
    class="btn btn-primary @prevDisabled">
     <i class="fas fa-arrow-alt-circle-left fa-lg"></i>
 </a>
 <a asp-page="/Roles"
+   asp-route-sortOrder="@Model.CurrentSort"
    asp-route-noRoles="@Model.NoRolesCheckbox"
    asp-route-pageIndex="@(Model.userRolesPaginated.PageIndex + 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
    class="btn btn-primary @nextDisabled">
     <i class="fas fa-arrow-alt-circle-right fa-lg"></i>
+</a>
+<a asp-page="/Roles"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-noRoles="@Model.NoRolesCheckbox"
+   asp-route-pageIndex="@(Model.userRolesPaginated.TotalPages)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   class="btn btn-primary @nextDisabled">
+    <i class="fas fa-fast-forward"></i>
 </a>
 
 

@@ -20,6 +20,10 @@ namespace sms.Pages
         public SelectList RoleNameSL { get; set; }
         private readonly Data.ApplicationDbContext _context;
         private readonly UserManager<IdentityUser> _usermanager;
+        public string NameSort { get; set; }
+        public string RoleSort { get; set; }
+        public string CurrentFilter { get; set; }
+        public string CurrentSort { get; set; }
         //private readonly RoleManager<IdentityUser> _rolemanager;
         private readonly IConfiguration Configuration;
         public PaginatedList<UserRoles> userRolesPaginated { get; set; }
@@ -37,8 +41,28 @@ namespace sms.Pages
         public IList<UserRoles> userRoles { get; set; }
 
         public IList<IdentityUser> users { get; set; }
-        public async Task OnGetAsync(bool noRoles, int? pageIndex)
+        public async Task OnGetAsync(string sortOrder, string currentFilter, string searchString, bool noRoles, int? pageIndex)
         {
+            //Dropdown for roles
+            var rolesQuery = _context.Roles.OrderBy(r => r.Name);
+            RoleNameSL = new SelectList(rolesQuery.AsNoTracking(),
+                        "Name", "Name");
+
+            CurrentSort = sortOrder; 
+            NameSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            RoleSort = sortOrder == "role" ? "role_desc" : "role";
+
+            if (searchString != null)
+            {
+                pageIndex = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            CurrentFilter = searchString;
+
             NoRolesCheckbox = noRoles;
             userRoles = new List<UserRoles>();
             users = await _context.Users
@@ -67,11 +91,27 @@ namespace sms.Pages
                 }
             }
 
-            //Dropdown for roles
-            var rolesQuery = _context.Roles.OrderBy(r => r.Name);
-            RoleNameSL = new SelectList(rolesQuery.AsNoTracking(),
-                        "Name", "Name");
-            
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                userRoles = userRoles.Where(s => s.UserName.Contains(searchString)).ToList();
+            }
+
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    userRoles = userRoles.OrderByDescending(s => s.UserName).ToList();
+                    break;
+                case "role":
+                    userRoles = userRoles.OrderBy(s => s.RoleName).ToList();
+                    break;
+                case "role_desc":
+                    userRoles = userRoles.OrderByDescending(s => s.RoleName).ToList();
+                    break;
+                default:
+                    userRoles = userRoles.OrderBy(s => s.UserName).ToList();
+                    break;
+            }
+
             //Pagination
             var pageSize = Configuration.GetValue("PageSize", 10);
             userRolesPaginated = PaginatedList<UserRoles>.CreateFromList(
