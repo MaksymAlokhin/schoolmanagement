@@ -42,7 +42,6 @@ Admin can view all pages and change any data.
 ![grade](screenshots/grade.png)<br /><br />
 ![gradebook](screenshots/gradebook.png)<br /><br />
 ![marks](screenshots/marks.png)<br /><br />
-![pupils](screenshots/students.png)<br /><br />
 ![roles](screenshots/roles.png)<br /><br />
 ![stats](screenshots/stats.png)<br /><br />
 ![students](screenshots/students.png)<br /><br />
