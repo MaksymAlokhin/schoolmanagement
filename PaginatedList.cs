@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,12 +11,13 @@ namespace sms
     {
         public int PageIndex { get; private set; }
         public int TotalPages { get; private set; }
+        public IList<int> SeqNum { get; private set; }
 
-        public PaginatedList(List<T> items, int count, int pageIndex, int pageSize)
+        public PaginatedList(List<T> items, int count, int pageIndex, int pageSize, List<int> seqNum)
         {
             PageIndex = pageIndex;
             TotalPages = (int)Math.Ceiling(count / (double)pageSize);
-
+            SeqNum = seqNum;
             this.AddRange(items);
         }
 
@@ -42,7 +44,12 @@ namespace sms
             var items = await source.Skip(
                 (pageIndex - 1) * pageSize)
                 .Take(pageSize).ToListAsync();
-            return new PaginatedList<T>(items, count, pageIndex, pageSize);
+
+            var seqNum = Enumerable.Range(1, count).Skip(
+                (pageIndex - 1) * pageSize)
+                .Take(pageSize).ToList();
+
+            return new PaginatedList<T>(items, count, pageIndex, pageSize, seqNum);
         }
 
         public static PaginatedList<T> CreateFromList(
@@ -52,7 +59,12 @@ namespace sms
             var items = source.Skip(
                 (pageIndex - 1) * pageSize)
                 .Take(pageSize).ToList();
-            return new PaginatedList<T>(items, count, pageIndex, pageSize);
+
+            var seqNum = Enumerable.Range(1, count).Skip(
+                (pageIndex - 1) * pageSize)
+                .Take(pageSize).ToList();
+
+            return new PaginatedList<T>(items, count, pageIndex, pageSize, seqNum);
         }
     }
 }

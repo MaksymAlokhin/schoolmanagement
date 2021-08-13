@@ -57,7 +57,7 @@ namespace sms.Pages.Grades
             switch (sortOrder)
             {
                 case "name_desc":
-                    gradesIQ = gradesIQ.OrderByDescending(s => s.Number).ThenBy(s => s.Letter);
+                    gradesIQ = gradesIQ.OrderByDescending(s => s.Number).ThenByDescending(s => s.Letter);
                     break;
                 default:
                     gradesIQ = gradesIQ.OrderBy(s => s.Number).ThenBy(s => s.Letter);

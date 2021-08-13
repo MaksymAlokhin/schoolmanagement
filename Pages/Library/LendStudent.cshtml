@@ -9,82 +9,141 @@
 <h1>Видача і повернення книг</h1>
 
 <div>
-    <h4><a asp-page="./Details" asp-route-id="@Model.Book.Id"><i class="fas fa-book-reader fa-lg mr-1"></i></a>Книга: @Model.Book.Author "@Model.Book.Name. @Model.Book.Grade кл." (@Model.Book.PublishingHouse, @Model.Book.Year) - @Model.Book.Qty/@Model.Book.TotalQty примірників</h4>
+    <h4>Книга: @Model.Book.Author "@Model.Book.Name. @Model.Book.Grade кл." (@Model.Book.PublishingHouse, @Model.Book.Year)<br />Кількість: @Model.Book.Qty/@Model.Book.TotalQty</h4>
     <hr />
-    <form method="get">
-        <div class="form-group">
-            <label asp-for="selectedGrade" class="control-label"><i class="fas fa-users"></i></label>
-            <select asp-for="selectedGrade" name="gradeId" style="width:auto" asp-items="Model.GradesSL" onchange="this.form.submit();"></select>
-            <input type="hidden" name="id" asp-for="@Model.Book.Id" />
-            <a asp-page="./LendTeacher" asp-route-id="@Model.selectedGrade" class="ml-1">Видача книг персоналу</a>
+    <div class="row mb-1">
+        <div class="col-sm-auto">
+            <a class="btn btn-primary" asp-page="./Details" asp-route-id="@Model.Book.Id"><i class="fas fa-book-reader fa-lg mr-1"></i>Читачі з книгою</a>
+            <a asp-page="./LendTeacher" asp-route-id="@Model.Book.Id" class="btn btn-primary ml-1">Персонал</a>
         </div>
-    </form>
-    <form asp-page="./LendStudent" method="get">
-        <div class="form-actions no-color">
-            <p>
-                <input type="text" name="SearchString" value="@Model.CurrentFilter" placeholder="Пошук" />
-                <button type="submit" class="btn btn-default">
-                    <i class="fa fa-search"></i>
-                </button> |
-                <a asp-page="./LendStudent" 
-                   asp-route-id="@Model.Book.Id" 
-                   asp-route-gradeId="@Model.Book.Id" class="btn btn-default"><i class="fas fa-times"></i></a>
-            </p>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-sm-auto">
+            <form method="get">
+                <div class="form-group">
+                    <label asp-for="selectedGrade" class="control-label"><i class="fas fa-users"></i></label>
+                    <select asp-for="selectedGrade" name="gradeId" style="width:auto" asp-items="Model.GradesSL" onchange="this.form.submit();"></select>
+                    <input type="hidden" name="id" asp-for="@Model.Book.Id" />
+                </div>
+            </form>
         </div>
-    </form>
+        <div class="col-sm-auto">
+            <form asp-page="./LendStudent" method="get">
+                <input type="hidden" name="id" asp-for="@Model.Book.Id" />
+                <input type="hidden" name="gradeId" asp-for="@Model.selectedGrade" />
+                <div class="form-actions no-color">
+                    <p>
+                        <input type="text" name="SearchString" value="@Model.CurrentFilter" placeholder="Пошук" />
+                        <button type="submit" class="btn btn-default">
+                            <i class="fa fa-search"></i>
+                        </button> |
+                        <a asp-page="./LendStudent"
+                           asp-route-id="@Model.Book.Id"
+                           asp-route-gradeId="@Model.selectedGrade" class="btn btn-default"><i class="fas fa-times"></i></a>
+                    </p>
+                </div>
+            </form>
+        </div>
+
+    </div>
 
     <table class="table table-responsive text-nowrap">
         <thead style="text-align: center">
             <tr>
-                <th>
+                <th scope="col">#</th>
+                <th scope="col">
                     <a asp-page="./LendStudent"
                        asp-route-sortOrder="@Model.NameSort"
-                       asp-route-id="@Model.Book.Id">
+                       asp-route-id="@Model.Book.Id"
+                       asp-route-currentFilter="@Model.CurrentFilter"
+                       asp-route-gradeId="@Model.selectedGrade">
                         @Html.DisplayNameFor(model => model.students[0].FullName)
                     </a>
                 </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.students[0].Grade.FullName)
+                <th scope="col">
+                    <a asp-page="./LendStudent"
+                       asp-route-sortOrder="@Model.GradeSort"
+                       asp-route-id="@Model.Book.Id"
+                       asp-route-currentFilter="@Model.CurrentFilter"
+                       asp-route-gradeId="@Model.selectedGrade">
+                        @Html.DisplayNameFor(model => model.students[0].Grade.FullName)
+                    </a>
                 </th>
-
                 <th></th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model.students)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.FullName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Grade.FullName)
-                    </td>
-                    <td>
-                        <form method="post">
-                            <input type="hidden" name="id" asp-for="@Model.Book.Id" />
-                            <input type="hidden" name="studentId" asp-for="@item.Id" />
-                            @if (@item.Books.Contains(Model.Book))
-                            {
-                                <div class="form-group">
-                                    <input type="submit" value="Прийняти" class="btn btn-primary btn-sm" />
-                                </div>
-                            }
-                            else
-                            {
-                                <div class="form-group">
-                                    <input type="submit" value="Видати" class="btn btn-primary btn-sm" />
-                                </div>
-                            }
-                        </form>
-                    </td>
-                </tr>
+            @{int i = 0;
+
+                foreach (var item in Model.students)
+                {
+                    <tr>
+                        <th scope="row">
+                            @Model.students.SeqNum[i]
+                        </th>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FullName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Grade.FullName)
+                        </td>
+                        <td>
+                            <form method="post">
+                                <input type="hidden" name="id" asp-for="@Model.Book.Id" />
+                                <input type="hidden" name="studentId" asp-for="@item.Id" />
+                                <input type="hidden" name="gradeId" asp-for="@Model.selectedGrade" />
+                                <input type="hidden" name="pageIndex" asp-for="@Model.students.PageIndex" />
+                                <input type="hidden" name="sortOrder" asp-for="@Model.CurrentSort" />
+                                <input type="hidden" name="currentFilter" asp-for="@Model.CurrentFilter" />
+                                @if (@item.Books.Contains(Model.Book))
+                                {
+                                    <div class="form-group">
+                                        <input type="submit" value="Повернути" class="btn btn-success btn-sm" />
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="form-group">
+                                        <input type="submit" value="Видати" class="btn btn-primary btn-sm" />
+                                    </div>
+                                }
+                            </form>
+                        </td>
+                    </tr>
+                    i++;
+                }
             }
         </tbody>
     </table>
 
 </div>
-<div>
+
+@{
+    var prevDisabled = !Model.students.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.students.HasNextPage ? "disabled" : "";
+}
+
+<a asp-page="./LendStudent"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.students.PageIndex - 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   asp-route-id="@Model.Book.Id"
+   asp-route-gradeId="@Model.selectedGrade"
+   class="btn btn-primary @prevDisabled">
+    <i class="fas fa-arrow-alt-circle-left fa-lg"></i>
+</a>
+<a asp-page="./LendStudent"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.students.PageIndex + 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   asp-route-id="@Model.Book.Id"
+   asp-route-gradeId="@Model.selectedGrade"
+   class="btn btn-primary @nextDisabled">
+    <i class="fas fa-arrow-alt-circle-right fa-lg"></i>
+</a>
+
+<div class="mt-2">
     <a asp-page="./Edit" asp-route-id="@Model.Book.Id">Редагувати</a> |
     <a asp-page="./Index">Назад</a>
 </div>

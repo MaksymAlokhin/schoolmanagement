@@ -9,9 +9,10 @@
 <h1>Читачі з книгою</h1>
 
 <div>
-    <h4>Книга: @Model.Book.Author "@Model.Book.Name. @Model.Book.Grade кл." (@Model.Book.PublishingHouse, @Model.Book.Year) - @Model.Book.Qty/@Model.Book.TotalQty примірників</h4>
+    <h4>Книга: @Model.Book.Author "@Model.Book.Name. @Model.Book.Grade кл." (@Model.Book.PublishingHouse, @Model.Book.Year)<br />Кількість: @Model.Book.Qty/@Model.Book.TotalQty</h4>
     <hr />
     <form asp-page="./Details" method="get">
+        <input type="hidden" name="id" asp-for="@Model.Book.Id" />
         <div class="form-actions no-color">
             <p>
                 <input type="text" name="SearchString" value="@Model.CurrentFilter" placeholder="Пошук" />
@@ -26,53 +27,91 @@
         <thead style="text-align: center">
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">ПІБ читача</th>
-                <th scope="col">Посада</th>
+                <th scope="col">
+                    <a asp-page="./Details"
+                       asp-route-sortOrder="@Model.NameSort"
+                       asp-route-id="@Model.Book.Id"
+                       asp-route-currentFilter="@Model.CurrentFilter">
+                        ПІБ читача
+                    </a>
+                </th>
+                <th scope="col">
+                    <a asp-page="./Details"
+                       asp-route-sortOrder="@Model.PositionSort"
+                       asp-route-id="@Model.Book.Id">
+                        Посада
+                    </a>
+                </th>
                 <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
-            @{int i = 0; }
-            @for (var reader = 0; reader < Model.readers.Count; reader++)
-            {
-                <tr>
-                    @{i++;}
-                    <th scope="row">@i</th>
-                    <td>
-                        <a asp-page="./Details"
-                           asp-route-sortOrder="@Model.NameSort"
-                           asp-route-id="@Model.Book.Id">
+            @{int i = 0;
+                for (var reader = 0; reader < Model.readers.Count; reader++)
+                {
+                    <tr>
+                        <th scope="row">
+                            @Model.readers.SeqNum[i]
+                        </th>
+                        <td>
                             @Model.readers[reader].Name
-                        </a>
-                    </td>
-                    <td>
-                        <a asp-page="./Details"
-                           asp-route-sortOrder="@Model.PositionSort"
-                           asp-route-id="@Model.Book.Id">
+                        </td>
+                        <td>
                             @Model.readers[reader].Type
-                        </a>
-                    </td>
-                    <td style="text-align:center">
-                        <form method="post">
-                            <input type="hidden" name="id" asp-for="@Model.Book.Id" />
-                            @if (Model.readers[reader].Type == Type.Вчитель)
+                            @if (!string.IsNullOrEmpty(@Model.readers[reader].Grade))
                             {
+                                @:, @Model.readers[reader].Grade
+                            }
+                        </td>
+                        <td style="text-align:center">
+                            <form method="post">
+                                <input type="hidden" name="id" asp-for="@Model.Book.Id" />
+                                <input type="hidden" name="pageIndex" asp-for="@Model.readers.PageIndex" />
                                 <input type="hidden" name="teacherId" asp-for="@Model.readers[reader].Id" />
-                            }
-                            else
-                            {
-                                <input type="hidden" name="studentId" asp-for="@Model.readers[reader].Id" />
-                            }
-                            <input type="submit" value="Повернути" class="btn btn-primary btn-sm" />
-                        </form>
-                    </td>
-                </tr>
+                                <input type="hidden" name="sortOrder" asp-for="@Model.CurrentSort" />
+                                <input type="hidden" name="currentFilter" asp-for="@Model.CurrentFilter" />
+                                @if (Model.readers[reader].Type == Type.Вчитель)
+                                {
+                                    <input type="hidden" name="teacherId" asp-for="@Model.readers[reader].Id" />
+                                }
+                                else
+                                {
+                                    <input type="hidden" name="studentId" asp-for="@Model.readers[reader].Id" />
+                                }
+                                <input type="submit" value="Повернути" class="btn btn-success btn-sm" />
+                            </form>
+                        </td>
+                    </tr>
+                    i++;
+                }
             }
         </tbody>
     </table>
 </div>
 
-<div>
+@{
+    var prevDisabled = !Model.readers.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.readers.HasNextPage ? "disabled" : "";
+}
+
+<a asp-page="./Details"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.readers.PageIndex - 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   asp-route-id="@Model.Book.Id"
+   class="btn btn-primary @prevDisabled">
+    <i class="fas fa-arrow-alt-circle-left fa-lg"></i>
+</a>
+<a asp-page="./Details"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.readers.PageIndex + 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   asp-route-id="@Model.Book.Id"
+   class="btn btn-primary @nextDisabled">
+    <i class="fas fa-arrow-alt-circle-right fa-lg"></i>
+</a>
+
+<div class="mt-2">
     <a asp-page="./Edit" asp-route-id="@Model.Book.Id">Редагувати</a> |
     <a asp-page="./Index">Назад</a>
 </div>

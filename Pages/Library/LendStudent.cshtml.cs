@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using sms.Data;
 using sms.Models;
 
@@ -16,37 +17,77 @@ namespace sms.Pages.Library
     public class LendStudentModel : PageModel
     {
         private readonly sms.Data.ApplicationDbContext _context;
+        private readonly IConfiguration Configuration;
         public List<SelectListItem> GradesSL;
         public int selectedGrade { get; set; }
         public List<SelectListItem> StudentsSL { get; set; }
-        public IList<Student> students;
+        //public IList<Student> students;
+        public PaginatedList<Student> students { get; set; }
         public string NameSort { get; set; }
+        public string GradeSort { get; set; }
         public string CurrentFilter { get; set; }
         public string CurrentSort { get; set; }
 
-        public LendStudentModel(sms.Data.ApplicationDbContext context)
+        public LendStudentModel(sms.Data.ApplicationDbContext context, IConfiguration configuration)
         {
             _context = context;
+            Configuration = configuration;
         }
 
         [BindProperty]
         public Book Book { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(string sortOrder, string searchString, int id, int gradeId)
+        public async Task<IActionResult> OnGetAsync(string sortOrder, string currentFilter, 
+            string searchString, int id, int? gradeId, int? pageIndex)
         {
+            CurrentSort = sortOrder; 
             NameSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            GradeSort = sortOrder == "grade" ? "grade_desc" : "grade";
+
+            if (searchString != null)
+            {
+                pageIndex = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
             CurrentFilter = searchString;
 
-            selectedGrade = gradeId;
+            if (gradeId != null)
+                selectedGrade = (int)gradeId;
+            else selectedGrade = 0;
+            //else selectedGrade = _context.Grades.First().Id;
 
             Book = await _context.Books
                 .Include(m => m.Students)
                 .Include(m => m.Teachers)
                 .FirstOrDefaultAsync(m => m.Id == id);
 
-            IQueryable<Student>studentsIQ = _context.Students
-                .Include(m => m.Books)
-                .Where(m => m.GradeId == gradeId);
+            GradesSL = new List<SelectListItem>();
+            var grad = _context.Grades.OrderBy(g => g.Number).ThenBy(g => g.Letter);
+            GradesSL.Add(new SelectListItem("Всі класи", "0"));
+            foreach (Grade g in grad)
+            {
+                GradesSL.Add(new SelectListItem { Value = $"{g.Id}", Text = $"{g.FullName}" });
+            }
+            
+            IQueryable<Student> studentsIQ;
+            
+            if (selectedGrade > 0)
+            {
+                studentsIQ = _context.Students
+                    .Include(m => m.Books)
+                    .Include(m => m.Grade)
+                    .Where(m => m.GradeId == selectedGrade);
+            }
+            else
+            {
+                studentsIQ = _context.Students
+                    .Include(m => m.Books)
+                    .Include(m => m.Grade);
+            }
 
             if (!String.IsNullOrEmpty(searchString))
             {
@@ -63,6 +104,16 @@ namespace sms.Pages.Library
                         .ThenByDescending(s => s.FirstName)
                         .ThenByDescending(s => s.Patronymic);
                     break;
+                case "grade":
+                    studentsIQ = studentsIQ
+                        .OrderBy(s => s.Grade.Number)
+                        .ThenBy(s => s.Grade.Letter);
+                    break;
+                case "grade_desc":
+                    studentsIQ = studentsIQ
+                        .OrderByDescending(s => s.Grade.Number)
+                        .ThenByDescending(s => s.Grade.Letter);
+                    break;
                 default:
                     studentsIQ = studentsIQ
                         .OrderBy(s => s.LastName)
@@ -70,18 +121,15 @@ namespace sms.Pages.Library
                         .ThenBy(s => s.Patronymic);
                     break;
             }
+            
+            var pageSize = Configuration.GetValue("PageSize", 10);
+            students = await PaginatedList<Student>.CreateAsync(
+                studentsIQ, pageIndex ?? 1, pageSize);
 
-            students = await studentsIQ.ToListAsync();
-
-            GradesSL = new List<SelectListItem>();
-            var grad = _context.Grades.OrderBy(g => g.Number).ThenBy(g => g.Letter);
-            foreach (Grade g in grad)
-            {
-                GradesSL.Add(new SelectListItem { Value = $"{g.Id}", Text = $"{g.FullName}" });
-            }
             return Page();
         }
-        public async Task<IActionResult> OnPostAsync(int id, int studentId)
+        public async Task<IActionResult> OnPostAsync(int studentId, 
+            string sortOrder, string currentFilter, int id, int gradeId, int? pageIndex)
         {
             var student = await _context.Students.Include(m => m.Books).FirstOrDefaultAsync(m => m.Id == studentId);
             Book = await _context.Books.Include(m => m.Students).FirstOrDefaultAsync(m => m.Id == id);
@@ -97,7 +145,14 @@ namespace sms.Pages.Library
                 Book.Qty++;
                 _context.SaveChanges();
             }
-            return RedirectToPage("./LendStudent", new { id = $"{Book.Id}", gradeId = $"{student.GradeId}" });
+            return RedirectToPage("./LendStudent", new
+            {
+                id = $"{id}",
+                gradeId = $"{gradeId}",
+                sortOrder = $"{sortOrder}",
+                currentFilter = $"{currentFilter}",
+                pageIndex = $"{pageIndex}"
+            });
         }
     }
 }

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using sms.Data;
 using sms.Models;
 
@@ -16,24 +17,40 @@ namespace sms.Pages.Library
     public class DetailsModel : PageModel
     {
         private readonly sms.Data.ApplicationDbContext _context;
-        public List<Reader> readers { get; set; } = new List<Reader>();
+        private readonly IConfiguration Configuration;
+        //public List<Reader> readers { get; set; } = new List<Reader>();
+        public PaginatedList<Reader> readers { get; set; }
+        public IList<Reader> readersList { get; set; } = new List<Reader>();
         public string NameSort { get; set; }
         public string PositionSort { get; set; }
         public string CurrentFilter { get; set; }
         public string CurrentSort { get; set; }
 
-        public DetailsModel(sms.Data.ApplicationDbContext context)
+        public DetailsModel(sms.Data.ApplicationDbContext context, IConfiguration configuration)
         {
             _context = context;
+            Configuration = configuration;
         }
 
         [BindProperty]
         public Book Book { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(string sortOrder, string searchString, int id)
+        public async Task<IActionResult> OnGetAsync(string sortOrder, 
+            string currentFilter, string searchString, int id, int? pageIndex)
         {
+            CurrentSort = sortOrder; 
             NameSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             PositionSort = sortOrder == "position" ? "position_desc" : "position";
+            
+            if (searchString != null)
+            {
+                pageIndex = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
             CurrentFilter = searchString;
 
             Book = await _context.Books
@@ -41,8 +58,8 @@ namespace sms.Pages.Library
                 .Include(m => m.Teachers)
                 .FirstOrDefaultAsync(m => m.Id == id);
 
-            var students = Book.Students.ToList();
-            var teachers = Book.Teachers.ToList();
+            var students = await _context.Students.Include(s => s.Books).Include(s => s.Grade).Where(s => s.Books.Any(b => b.Id == id)).ToListAsync();
+            var teachers = await _context.Teachers.Include(s => s.Books).Where(s => s.Books.Any(b => b.Id == id)).ToListAsync();
 
             if (!String.IsNullOrEmpty(searchString))
             {
@@ -58,40 +75,46 @@ namespace sms.Pages.Library
 
             foreach (var student in students)
             {
-                readers.Add(new Reader { Id = student.Id, Name = student.FullName, Type = Type.Учень });
+                readersList.Add(new Reader { Id = student.Id, Name = student.FullName, Type = Type.Учень, Grade = student.Grade.FullName });
             }
             foreach (var teacher in teachers)
             {
-                readers.Add(new Reader { Id = teacher.Id, Name = teacher.FullName, Type = Type.Вчитель });
+                readersList.Add(new Reader { Id = teacher.Id, Name = teacher.FullName, Type = Type.Вчитель });
             }
 
             switch (sortOrder)
             {
                 case "name_desc":
-                    readers = readers
+                    readersList = readersList
                         .OrderByDescending(s => s.Name)
                         .ToList();
                     break;
                 case "position":
-                    readers = readers
+                    readersList = readersList
                         .OrderBy(s => s.Type)
+                        .ThenBy(s => s.Grade)
                         .ToList();
                     break;
                 case "position_desc":
-                    readers = readers
+                    readersList = readersList
                         .OrderByDescending(s => s.Type)
+                        .ThenByDescending(s => s.Grade)
                         .ToList();
                     break;
                 default:
-                    readers = readers
-                        .OrderByDescending(s => s.Name)
+                    readersList = readersList
+                        .OrderBy(s => s.Name)
                         .ToList();
                     break;
             }
 
+            var pageSize = Configuration.GetValue("PageSize", 10);
+            readers = PaginatedList<Reader>.CreateFromList(
+                readersList, pageIndex ?? 1, pageSize);
+
             return Page();
         }
-        public async Task<IActionResult> OnPostAsync(int id, int? studentId, int? teacherId)
+        public async Task<IActionResult> OnPostAsync(int id, string sortOrder, string currentFilter, int? studentId, int? teacherId, int? pageIndex)
         {            
             Book = await _context.Books.Include(m => m.Teachers).Include(m => m.Students).FirstOrDefaultAsync(m => m.Id == id);
 
@@ -117,7 +140,13 @@ namespace sms.Pages.Library
                     _context.SaveChanges();
                 }
             }
-            return RedirectToPage("./Details", new { id = id });
+            return RedirectToPage("./Details", new
+            {
+                id = $"{id}",
+                sortOrder = $"{sortOrder}",
+                currentFilter = $"{currentFilter}",
+                pageIndex = $"{pageIndex}"
+            });
         }
     }
     public class Reader
@@ -125,6 +154,7 @@ namespace sms.Pages.Library
         public string Name { get; set; }
         public Type Type { get; set; }
         public int Id { get; set; }
+        public string Grade { get; set; }
     }
     public enum Type
     {

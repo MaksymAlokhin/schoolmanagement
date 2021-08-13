@@ -45,9 +45,14 @@ Admin can view all pages and change any data.
 ![pupils](screenshots/students.png)<br /><br />
 ![roles](screenshots/roles.png)<br /><br />
 ![stats](screenshots/stats.png)<br /><br />
+![students](screenshots/students.png)<br /><br />
 ![studentedit](screenshots/studentedit.png)<br /><br />
+![teachers](screenshots/teachers.png)<br /><br />
 ![teacheredit](screenshots/teacheredit.png)<br /><br />
 ![timetable](screenshots/timetable.png)<br /><br />
 ![timetable2](screenshots/timetable2.png)<br /><br />
 ![remote](screenshots/remote.png)<br /><br />
-![remote2](screenshots/remote2.png)
+![remote2](screenshots/remote2.png)<br /><br />
+![library](screenshots/remote.png)<br /><br />
+![library2](screenshots/library2.png)<br /><br />
+![library3](screenshots/library3.png)<br /><br />

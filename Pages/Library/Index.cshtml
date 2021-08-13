@@ -36,34 +36,35 @@
 <table class="table table-responsive">
     <thead>
         <tr>
-            <th>
-                <a asp-page="./Index" asp-route-sortOrder="@Model.GradeSort"
-                   asp-route-currentFilter="@Model.CurrentFilter"
-                   asp-route-grade="@Model.selectedGrade">
-                    @Html.DisplayNameFor(model => model.Book[0].Grade)
-                </a>
-            </th>
-            <th>
+            <th scope="col">#</th>
+            <th scope="col">
                 <a asp-page="./Index" asp-route-sortOrder="@Model.NameSort"
                    asp-route-currentFilter="@Model.CurrentFilter"
                    asp-route-grade="@Model.selectedGrade">
                     @Html.DisplayNameFor(model => model.Book[0].Name)
                 </a>
             </th>
-            <th>
+            <th scope="col">
+                <a asp-page="./Index" asp-route-sortOrder="@Model.GradeSort"
+                   asp-route-currentFilter="@Model.CurrentFilter"
+                   asp-route-grade="@Model.selectedGrade">
+                    @Html.DisplayNameFor(model => model.Book[0].Grade)
+                </a>
+            </th>
+            <th scope="col">
                 @Html.DisplayNameFor(model => model.Book[0].Author)
             </th>
-            <th>
+            <th scope="col">
                 @Html.DisplayNameFor(model => model.Book[0].PublishingHouse)
             </th>
-            <th>
+            <th scope="col">
                 <a asp-page="./Index" asp-route-sortOrder="@Model.YearSort"
                    asp-route-currentFilter="@Model.CurrentFilter"
                    asp-route-grade="@Model.selectedGrade">
                     @Html.DisplayNameFor(model => model.Book[0].Year)
                 </a>
             </th>
-            <th>
+            <th scope="col">
                 <a asp-page="./Index" asp-route-sortOrder="@Model.QtySort"
                    asp-route-currentFilter="@Model.CurrentFilter"
                    asp-route-grade="@Model.selectedGrade">
@@ -74,36 +75,43 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.Book)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Grade)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Author)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PublishingHouse)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Year)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Qty)
-                </td>
-                <td>
-                    @{ 
-                        var gradeId = Model.gradeList.Where(g => g.Number == item.Grade).Select(g => g.Id).First();
-                    }
-                    <a asp-page="./Edit" asp-route-id="@item.Id"><i class="fas fa-pencil-alt fa-lg"></i></a> |
-                    <a asp-page="./LendStudent" asp-route-id="@item.Id" asp-route-gradeId="@gradeId"><i class="fas fa-book fa-lg text-primary"></i></a> |
-                    <a asp-page="./Delete" asp-route-id="@item.Id"><i class="fas fa-trash fa-lg text-danger"></i></a>
-                </td>
-            </tr>
+        @{
+            int i = 0;
+            foreach (var item in Model.Book)
+            {
+                <tr>
+                    <th scope="row">
+                        @Model.Book.SeqNum[i]
+                    </th>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Grade)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Author)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PublishingHouse)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Year)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Qty)
+                    </td>
+                    <td>
+                        @{
+                            var gradeId = Model.gradeList.Where(g => g.Number == item.Grade).Select(g => g.Id).First();
+                        }
+                        <a asp-page="./Edit" asp-route-id="@item.Id"><i class="fas fa-pencil-alt fa-lg"></i></a> |
+                        <a asp-page="./LendStudent" asp-route-id="@item.Id" asp-route-gradeId="@gradeId"><i class="fas fa-book fa-lg"></i></a> |
+                        <a asp-page="./Delete" asp-route-id="@item.Id"><i class="fas fa-trash fa-lg text-danger"></i></a>
+                    </td>
+                </tr>
+                i++;
+            }
         }
     </tbody>
 </table>
