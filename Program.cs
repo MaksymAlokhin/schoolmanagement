@@ -42,8 +42,8 @@ namespace sms
                     //saveLessons.Save();
 
                     //Generate Inventory file
-                    var saveLessons = new sms.Data.GenerateData(context);
-                    saveLessons.GenerateInventory();
+                    //var saveLessons = new sms.Data.GenerateData(context);
+                    //saveLessons.GenerateInventory();
                 }
                 catch (Exception ex)
                 {
