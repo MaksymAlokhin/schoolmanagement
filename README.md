@@ -37,6 +37,7 @@ Admin can view all pages and change any data.
 - Видача та облік книг бібліотеки
 - Завдання для дистанційного навчання
 - Моніторинг навчальних досягнень учнів і класів
+- Облік, оприбуткування та списання шкільного майна
 
 ![curriculum](screenshots/curriculum.png)<br /><br />
 ![timetable](screenshots/timetable.png)<br /><br />
