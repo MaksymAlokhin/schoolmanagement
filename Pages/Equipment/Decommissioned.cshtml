@@ -11,7 +11,7 @@
 <form asp-page="./Index" method="get">
     <div class="form-actions no-color">
         <p>
-            <a asp-page="Create"><i class="fas fa-plus-circle fa-lg"></i></a>
+            <a asp-page="Create"><i class="fas fa-plus-circle fa-lg mr-1"></i></a>
             <input type="text" name="SearchString" value="@Model.CurrentFilter" placeholder="Пошук" />
             <button type="submit" class="btn btn-default">
                 <i class="fa fa-search"></i>
@@ -22,7 +22,7 @@
     </div>
 </form>
 
-<table class="table table-responsive text-nowrap table-sm">
+<table class="table table-responsive text-nowrap">
     <thead style="text-align: center">
         <tr>
             <th scope="col">#</th>
@@ -69,8 +69,8 @@
                         @Model.Inventory.SeqNum[i]
                     </th>
                     <td>
-                        @item.Name.Substring(0, Math.Min(item.Name.Length, 70))
-                        @if (item.Name.Length > 70)
+                        @item.Name.Substring(0, Math.Min(item.Name.Length, 65))
+                        @if (item.Name.Length > 65)
                         {<text>...</text>}
                     </td>
                     <td>
