@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,7 +11,7 @@ using sms.Models;
 
 namespace sms.Pages.Equipment
 {
-    public class IndexModel : PageModel
+    public class DecommissionedModel : PageModel
     {
         private readonly sms.Data.ApplicationDbContext _context;
         private readonly IConfiguration Configuration;
@@ -24,7 +24,7 @@ namespace sms.Pages.Equipment
         public string CurrentSort { get; set; }
         public PaginatedList<Inventory> Inventory { get; set; }
 
-        public IndexModel(sms.Data.ApplicationDbContext context, IConfiguration configuration)
+        public DecommissionedModel(sms.Data.ApplicationDbContext context, IConfiguration configuration)
         {
             _context = context;
             Configuration = configuration;
@@ -35,8 +35,8 @@ namespace sms.Pages.Equipment
         public async Task OnGetAsync(string sortOrder,
             string currentFilter, string searchString, int? pageIndex)
         {
-            CurrentSort = sortOrder; 
-            
+            CurrentSort = sortOrder;
+
             NameSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             DateSort = sortOrder == "date" ? "date_desc" : "date";
             NumberSort = sortOrder == "number" ? "number_desc" : "number";
@@ -54,7 +54,7 @@ namespace sms.Pages.Equipment
 
             CurrentFilter = searchString;
 
-            IQueryable<Inventory> inventoryIQ = _context.Inventories.Where(i => !i.DecommissionDate.HasValue);
+            IQueryable<Inventory> inventoryIQ = _context.Inventories.Where(i => i.DecommissionDate.HasValue);
 
             if (!String.IsNullOrEmpty(searchString))
             {

@@ -13,6 +13,7 @@ namespace sms.Pages.Equipment
     public class DetailsModel : PageModel
     {
         private readonly sms.Data.ApplicationDbContext _context;
+        public string PageIndex { get; set; }
 
         public DetailsModel(sms.Data.ApplicationDbContext context)
         {
@@ -21,8 +22,10 @@ namespace sms.Pages.Equipment
 
         public Inventory Inventory { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task<IActionResult> OnGetAsync(string pageIndex, int? id)
         {
+            PageIndex = pageIndex;
+
             if (id == null)
             {
                 return NotFound();
@@ -35,6 +38,32 @@ namespace sms.Pages.Equipment
                 return NotFound();
             }
             return Page();
+        }
+        public async Task<IActionResult> OnPostAsync(string pageIndex, int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            Inventory = await _context.Inventories.FindAsync(id);
+
+            if (Inventory != null)
+            {
+                if(Inventory.DecommissionDate.HasValue)
+                {
+                    Inventory.DecommissionDate = null;
+                    await _context.SaveChangesAsync();
+                    return RedirectToPage("./Decommissioned", new { pageIndex = $"{pageIndex}" });
+                }
+                else
+                {
+                    Inventory.DecommissionDate = DateTime.Now; 
+                    await _context.SaveChangesAsync();
+                    return RedirectToPage("./Index", new { pageIndex = $"{pageIndex}" });
+                }
+            }
+            return RedirectToPage("./Index", new { pageIndex = $"{pageIndex}" });
         }
     }
 }

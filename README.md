@@ -55,4 +55,7 @@ Admin can view all pages and change any data.
 ![library2](screenshots/library2.png)<br /><br />
 ![library3](screenshots/library3.png)<br /><br />
 ![inventory](screenshots/inventory.png)<br /><br />
+![inventory2](screenshots/inventory2.png)<br /><br />
+![inventory3](screenshots/inventory3.png)<br /><br />
+![inventory4](screenshots/inventory4.png)<br /><br />
 ![roles](screenshots/roles.png)<br /><br />

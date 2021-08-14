@@ -1,0 +1,3040 @@
+            new Inventory
+            {
+                Name = "Аксесуари та витратні матеріали до дошок: губка для витирання",
+                InventoryNumber = 89708058,
+                Quantity = 35,
+                Price = 2334.70m,
+                InventoryDate = new DateTime(2021, 6, 2)
+            },
+            new Inventory
+            {
+                Name = "Аксесуари та витратні матеріали до дошок: засіб для чищення дошки",
+                InventoryNumber = 60456732,
+                Quantity = 18,
+                Price = 2116.01m,
+                InventoryDate = new DateTime(2015, 9, 20)
+            },
+            new Inventory
+            {
+                Name = "Аксесуари та витратні матеріали до дошок: набір кольорової крейди",
+                InventoryNumber = 95833887,
+                Quantity = 50,
+                Price = 2876.43m,
+                InventoryDate = new DateTime(2015, 9, 2)
+            },
+            new Inventory
+            {
+                Name = "Аксесуари та витратні матеріали до дошок: набір магнітів",
+                InventoryNumber = 14344339,
+                Quantity = 47,
+                Price = 658.54m,
+                InventoryDate = new DateTime(2017, 1, 18)
+            },
+            new Inventory
+            {
+                Name = "Аксесуари та витратні матеріали до дошок: набір маркерів з тримачем",
+                InventoryNumber = 67417093,
+                Quantity = 36,
+                Price = 1918.43m,
+                InventoryDate = new DateTime(2019, 7, 4)
+            },
+            new Inventory
+            {
+                Name = "Акустична система",
+                InventoryNumber = 30969330,
+                Quantity = 29,
+                Price = 657.57m,
+                InventoryDate = new DateTime(2013, 8, 4)
+            },
+            new Inventory
+            {
+                Name = "Аптечка медична",
+                InventoryNumber = 71098365,
+                Quantity = 15,
+                Price = 2348.12m,
+                InventoryDate = new DateTime(2021, 2, 20)
+            },
+            new Inventory
+            {
+                Name = "Атласи",
+                InventoryNumber = 56329669,
+                Quantity = 48,
+                Price = 2716.48m,
+                InventoryDate = new DateTime(2019, 7, 27)
+            },
+            new Inventory
+            {
+                Name = "Багатофункціональний пристрій (БФП) у складі принтера, сканера, копіра",
+                InventoryNumber = 55453098,
+                Quantity = 7,
+                Price = 2114.86m,
+                InventoryDate = new DateTime(2018, 9, 5)
+            },
+            new Inventory
+            {
+                Name = "Банка з кришкою-лупою",
+                InventoryNumber = 82379328,
+                Quantity = 16,
+                Price = 1970.41m,
+                InventoryDate = new DateTime(2012, 5, 22)
+            },
+            new Inventory
+            {
+                Name = "Бар’єр легкоатлетичний",
+                InventoryNumber = 49388217,
+                Quantity = 41,
+                Price = 2407.92m,
+                InventoryDate = new DateTime(2017, 3, 4)
+            },
+            new Inventory
+            {
+                Name = "Бібліотечка дитячої літератури (дитяча художня література, дитячі енциклопедії, довідники, журнали, газети тощо)",
+                InventoryNumber = 54838995,
+                Quantity = 39,
+                Price = 1070.25m,
+                InventoryDate = new DateTime(2020, 9, 12)
+            },
+            new Inventory
+            {
+                Name = "Бруси гімнастичні паралельні",
+                InventoryNumber = 34723258,
+                Quantity = 3,
+                Price = 2548.13m,
+                InventoryDate = new DateTime(2016, 1, 3)
+            },
+            new Inventory
+            {
+                Name = "Бруси гімнастичні різновисокі",
+                InventoryNumber = 75763090,
+                Quantity = 43,
+                Price = 491.54m,
+                InventoryDate = new DateTime(2018, 4, 12)
+            },
+            new Inventory
+            {
+                Name = "Ваги для зважування (механічні, електронні)",
+                InventoryNumber = 47992889,
+                Quantity = 28,
+                Price = 2677.04m,
+                InventoryDate = new DateTime(2011, 5, 10)
+            },
+            new Inventory
+            {
+                Name = "Витратні матеріали для БФП: набір чорнила (кольорове)",
+                InventoryNumber = 53133448,
+                Quantity = 27,
+                Price = 2853.60m,
+                InventoryDate = new DateTime(2021, 7, 9)
+            },
+            new Inventory
+            {
+                Name = "Витратні матеріали для БФП: набір чорнила (чорне)",
+                InventoryNumber = 90653258,
+                Quantity = 47,
+                Price = 2332.14m,
+                InventoryDate = new DateTime(2019, 4, 23)
+            },
+            new Inventory
+            {
+                Name = "Витратні матеріали для різних видів творчості (наприклад, глина, фарби, альбоми для малювання, кінетичний пісок тощо)",
+                InventoryNumber = 64157135,
+                Quantity = 33,
+                Price = 1293.23m,
+                InventoryDate = new DateTime(2014, 5, 19)
+            },
+            new Inventory
+            {
+                Name = "Відкриті шафи для зберігання засобів навчання",
+                InventoryNumber = 39594663,
+                Quantity = 15,
+                Price = 810.24m,
+                InventoryDate = new DateTime(2017, 5, 14)
+            },
+            new Inventory
+            {
+                Name = "Віяло з зображеннями дорожніх знаків",
+                InventoryNumber = 68175567,
+                Quantity = 37,
+                Price = 1678.88m,
+                InventoryDate = new DateTime(2015, 3, 18)
+            },
+            new Inventory
+            {
+                Name = "Волан для бадмінтону",
+                InventoryNumber = 32085244,
+                Quantity = 24,
+                Price = 1195.48m,
+                InventoryDate = new DateTime(2021, 5, 6)
+            },
+            new Inventory
+            {
+                Name = "Ворота для футболу",
+                InventoryNumber = 51889989,
+                Quantity = 14,
+                Price = 1500.88m,
+                InventoryDate = new DateTime(2017, 8, 4)
+            },
+            new Inventory
+            {
+                Name = "Гантелі поролонові",
+                InventoryNumber = 39157277,
+                Quantity = 48,
+                Price = 1771.80m,
+                InventoryDate = new DateTime(2014, 2, 17)
+            },
+            new Inventory
+            {
+                Name = "Гантелі розбірні від 1 до 24 кг",
+                InventoryNumber = 99933612,
+                Quantity = 7,
+                Price = 484.77m,
+                InventoryDate = new DateTime(2013, 9, 3)
+            },
+            new Inventory
+            {
+                Name = "Гербарії: бур’яни",
+                InventoryNumber = 20120509,
+                Quantity = 46,
+                Price = 448.46m,
+                InventoryDate = new DateTime(2016, 5, 24)
+            },
+            new Inventory
+            {
+                Name = "Гербарії: дикорослі, культурні рослини",
+                InventoryNumber = 77482111,
+                Quantity = 26,
+                Price = 2282.78m,
+                InventoryDate = new DateTime(2012, 7, 23)
+            },
+            new Inventory
+            {
+                Name = "Гербарії: лікарські, отруйні рослини",
+                InventoryNumber = 49941916,
+                Quantity = 31,
+                Price = 947.55m,
+                InventoryDate = new DateTime(2013, 10, 5)
+            },
+            new Inventory
+            {
+                Name = "Гербарії: рослини природних зон України",
+                InventoryNumber = 25338200,
+                Quantity = 39,
+                Price = 2109.08m,
+                InventoryDate = new DateTime(2012, 3, 13)
+            },
+            new Inventory
+            {
+                Name = "Гирі від 8 до 32 кг",
+                InventoryNumber = 92221409,
+                Quantity = 17,
+                Price = 1944.30m,
+                InventoryDate = new DateTime(2021, 5, 2)
+            },
+            new Inventory
+            {
+                Name = "Глобуси: будова Землі",
+                InventoryNumber = 56018961,
+                Quantity = 50,
+                Price = 2295.57m,
+                InventoryDate = new DateTime(2014, 11, 13)
+            },
+            new Inventory
+            {
+                Name = "Глобуси: політичний",
+                InventoryNumber = 17566082,
+                Quantity = 50,
+                Price = 2742.38m,
+                InventoryDate = new DateTime(2018, 10, 3)
+            },
+            new Inventory
+            {
+                Name = "Глобуси: фізичний",
+                InventoryNumber = 45722801,
+                Quantity = 10,
+                Price = 1283.23m,
+                InventoryDate = new DateTime(2019, 11, 14)
+            },
+            new Inventory
+            {
+                Name = "Годинник шаховий",
+                InventoryNumber = 38176570,
+                Quantity = 40,
+                Price = 971.97m,
+                InventoryDate = new DateTime(2021, 2, 27)
+            },
+            new Inventory
+            {
+                Name = "Голка для накачування м’ячів",
+                InventoryNumber = 46148431,
+                Quantity = 50,
+                Price = 2039.47m,
+                InventoryDate = new DateTime(2018, 7, 1)
+            },
+            new Inventory
+            {
+                Name = "Гриф для штанги різної ваги",
+                InventoryNumber = 28042146,
+                Quantity = 40,
+                Price = 459.18m,
+                InventoryDate = new DateTime(2018, 8, 16)
+            },
+            new Inventory
+            {
+                Name = "Дидактичний матеріал для моделювання алгоритмів",
+                InventoryNumber = 16543955,
+                Quantity = 8,
+                Price = 2192.40m,
+                InventoryDate = new DateTime(2020, 2, 24)
+            },
+            new Inventory
+            {
+                Name = "Диск «Здоров’я»",
+                InventoryNumber = 31907927,
+                Quantity = 26,
+                Price = 2886.84m,
+                InventoryDate = new DateTime(2017, 9, 2)
+            },
+            new Inventory
+            {
+                Name = "Диски для штанги різної ваги",
+                InventoryNumber = 16086880,
+                Quantity = 8,
+                Price = 1370.16m,
+                InventoryDate = new DateTime(2012, 8, 17)
+            },
+            new Inventory
+            {
+                Name = "Дитяча художня література іноземною мовою, що вивчається",
+                InventoryNumber = 77018077,
+                Quantity = 26,
+                Price = 2724.44m,
+                InventoryDate = new DateTime(2019, 11, 25)
+            },
+            new Inventory
+            {
+                Name = "Дитячі музичні інструменти: акордеон",
+                InventoryNumber = 80900495,
+                Quantity = 21,
+                Price = 1405.48m,
+                InventoryDate = new DateTime(2020, 6, 1)
+            },
+            new Inventory
+            {
+                Name = "Дитячі музичні інструменти: барабанчик",
+                InventoryNumber = 97643284,
+                Quantity = 34,
+                Price = 1715.62m,
+                InventoryDate = new DateTime(2020, 9, 21)
+            },
+            new Inventory
+            {
+                Name = "Дитячі музичні інструменти: баян",
+                InventoryNumber = 79462946,
+                Quantity = 24,
+                Price = 1940.07m,
+                InventoryDate = new DateTime(2016, 10, 17)
+            },
+            new Inventory
+            {
+                Name = "Дитячі музичні інструменти: бубен",
+                InventoryNumber = 98119993,
+                Quantity = 40,
+                Price = 926.62m,
+                InventoryDate = new DateTime(2017, 8, 12)
+            },
+            new Inventory
+            {
+                Name = "Дитячі музичні інструменти: дерев’яні ложки",
+                InventoryNumber = 64151457,
+                Quantity = 3,
+                Price = 551.73m,
+                InventoryDate = new DateTime(2016, 12, 4)
+            },
+            new Inventory
+            {
+                Name = "Дитячі музичні інструменти: дзвіночки",
+                InventoryNumber = 68556718,
+                Quantity = 13,
+                Price = 823.33m,
+                InventoryDate = new DateTime(2020, 1, 21)
+            },
+            new Inventory
+            {
+                Name = "Дитячі музичні інструменти: дитячий клавішний синтезатор",
+                InventoryNumber = 44831701,
+                Quantity = 18,
+                Price = 208.13m,
+                InventoryDate = new DateTime(2021, 8, 1)
+            },
+            new Inventory
+            {
+                Name = "Дитячі музичні інструменти: дитячі музичні пластикові трубки",
+                InventoryNumber = 55858437,
+                Quantity = 10,
+                Price = 1425.52m,
+                InventoryDate = new DateTime(2018, 5, 5)
+            },
+            new Inventory
+            {
+                Name = "Дитячі музичні інструменти: діатонічні дзвіночки",
+                InventoryNumber = 97403729,
+                Quantity = 14,
+                Price = 2315.83m,
+                InventoryDate = new DateTime(2014, 11, 3)
+            },
+            new Inventory
+            {
+                Name = "Дитячі музичні інструменти: ксилофон",
+                InventoryNumber = 64746316,
+                Quantity = 9,
+                Price = 2467.15m,
+                InventoryDate = new DateTime(2011, 4, 12)
+            },
+            new Inventory
+            {
+                Name = "Дитячі музичні інструменти: маракаси",
+                InventoryNumber = 86813125,
+                Quantity = 23,
+                Price = 2158.25m,
+                InventoryDate = new DateTime(2015, 3, 13)
+            },
+            new Inventory
+            {
+                Name = "Дитячі музичні інструменти: металофон",
+                InventoryNumber = 54497570,
+                Quantity = 47,
+                Price = 1297.47m,
+                InventoryDate = new DateTime(2020, 2, 12)
+            },
+            new Inventory
+            {
+                Name = "Дитячі музичні інструменти: свистульки",
+                InventoryNumber = 59532923,
+                Quantity = 2,
+                Price = 612.63m,
+                InventoryDate = new DateTime(2013, 2, 12)
+            },
+            new Inventory
+            {
+                Name = "Дитячі музичні інструменти: сопілка",
+                InventoryNumber = 94378305,
+                Quantity = 45,
+                Price = 2038.52m,
+                InventoryDate = new DateTime(2021, 7, 20)
+            },
+            new Inventory
+            {
+                Name = "Дитячі музичні інструменти: трикутник",
+                InventoryNumber = 41764988,
+                Quantity = 17,
+                Price = 1275.77m,
+                InventoryDate = new DateTime(2012, 3, 25)
+            },
+            new Inventory
+            {
+                Name = "Дитячі музичні інструменти: трищітки",
+                InventoryNumber = 92298195,
+                Quantity = 17,
+                Price = 325.38m,
+                InventoryDate = new DateTime(2017, 2, 5)
+            },
+            new Inventory
+            {
+                Name = "Дитячі музичні інструменти: фортепіано",
+                InventoryNumber = 39990320,
+                Quantity = 3,
+                Price = 2967.23m,
+                InventoryDate = new DateTime(2011, 3, 13)
+            },
+            new Inventory
+            {
+                Name = "Документ-камера цифрова",
+                InventoryNumber = 79035646,
+                Quantity = 4,
+                Price = 617.62m,
+                InventoryDate = new DateTime(2015, 10, 23)
+            },
+            new Inventory
+            {
+                Name = "Доріжка акробатична гумова",
+                InventoryNumber = 92989347,
+                Quantity = 18,
+                Price = 308.83m,
+                InventoryDate = new DateTime(2015, 2, 11)
+            },
+            new Inventory
+            {
+                Name = "Доріжка бігова",
+                InventoryNumber = 78018477,
+                Quantity = 44,
+                Price = 2730.79m,
+                InventoryDate = new DateTime(2011, 2, 25)
+            },
+            new Inventory
+            {
+                Name = "Дошка аудиторна магнітно-крейдова стаціонарна або магнітно-маркерна стаціонарна/портативна",
+                InventoryNumber = 15364932,
+                Quantity = 17,
+                Price = 2147.96m,
+                InventoryDate = new DateTime(2016, 12, 22)
+            },
+            new Inventory
+            {
+                Name = "Дошка з нотним станом (магнітна)",
+                InventoryNumber = 39411636,
+                Quantity = 47,
+                Price = 2777.77m,
+                InventoryDate = new DateTime(2011, 12, 2)
+            },
+            new Inventory
+            {
+                Name = "Дошка коркова",
+                InventoryNumber = 47758574,
+                Quantity = 47,
+                Price = 2083.23m,
+                InventoryDate = new DateTime(2013, 3, 14)
+            },
+            new Inventory
+            {
+                Name = "Драбина еластична для тренувань",
+                InventoryNumber = 57361022,
+                Quantity = 49,
+                Price = 1680.83m,
+                InventoryDate = new DateTime(2017, 3, 25)
+            },
+            new Inventory
+            {
+                Name = "Електронні освітні ресурси",
+                InventoryNumber = 82607997,
+                Quantity = 25,
+                Price = 689.99m,
+                InventoryDate = new DateTime(2018, 11, 7)
+            },
+            new Inventory
+            {
+                Name = "Еліптичний ергометр",
+                InventoryNumber = 34209363,
+                Quantity = 16,
+                Price = 2860.55m,
+                InventoryDate = new DateTime(2012, 12, 25)
+            },
+            new Inventory
+            {
+                Name = "Еспандер гумовий",
+                InventoryNumber = 76396336,
+                Quantity = 12,
+                Price = 315.64m,
+                InventoryDate = new DateTime(2015, 1, 24)
+            },
+            new Inventory
+            {
+                Name = "Еспандер для бігу",
+                InventoryNumber = 90200781,
+                Quantity = 46,
+                Price = 1339.65m,
+                InventoryDate = new DateTime(2011, 1, 6)
+            },
+            new Inventory
+            {
+                Name = "Еспандер для ніг",
+                InventoryNumber = 73303321,
+                Quantity = 27,
+                Price = 2009.38m,
+                InventoryDate = new DateTime(2015, 6, 4)
+            },
+            new Inventory
+            {
+                Name = "Еспандер для рук",
+                InventoryNumber = 41518097,
+                Quantity = 23,
+                Price = 407.93m,
+                InventoryDate = new DateTime(2020, 9, 14)
+            },
+            new Inventory
+            {
+                Name = "Естафетні палички",
+                InventoryNumber = 61363041,
+                Quantity = 32,
+                Price = 289.10m,
+                InventoryDate = new DateTime(2018, 9, 18)
+            },
+            new Inventory
+            {
+                Name = "Жердина (різного номіналу)",
+                InventoryNumber = 19796638,
+                Quantity = 16,
+                Price = 2933.45m,
+                InventoryDate = new DateTime(2019, 6, 28)
+            },
+            new Inventory
+            {
+                Name = "Жердини для брусів (паралельні, різновисокі)",
+                InventoryNumber = 47333908,
+                Quantity = 6,
+                Price = 2789.10m,
+                InventoryDate = new DateTime(2018, 9, 9)
+            },
+            new Inventory
+            {
+                Name = "Замки для закріплення дисків на грифі штанги",
+                InventoryNumber = 51042950,
+                Quantity = 40,
+                Price = 1535.76m,
+                InventoryDate = new DateTime(2011, 12, 10)
+            },
+            new Inventory
+            {
+                Name = "Зображення символів держави",
+                InventoryNumber = 61827496,
+                Quantity = 42,
+                Price = 2487.64m,
+                InventoryDate = new DateTime(2020, 10, 15)
+            },
+            new Inventory
+            {
+                Name = "Ігрові набори для конструювання з різними способами з’єднання деталей",
+                InventoryNumber = 79521044,
+                Quantity = 46,
+                Price = 1536.52m,
+                InventoryDate = new DateTime(2017, 11, 12)
+            },
+            new Inventory
+            {
+                Name = "Календар природи",
+                InventoryNumber = 80832974,
+                Quantity = 10,
+                Price = 568.33m,
+                InventoryDate = new DateTime(2019, 12, 20)
+            },
+            new Inventory
+            {
+                Name = "Камертон",
+                InventoryNumber = 29737934,
+                Quantity = 45,
+                Price = 191.53m,
+                InventoryDate = new DateTime(2018, 1, 11)
+            },
+            new Inventory
+            {
+                Name = "Канат гімнастичний для лазіння",
+                InventoryNumber = 28815071,
+                Quantity = 33,
+                Price = 2283.69m,
+                InventoryDate = new DateTime(2019, 5, 27)
+            },
+            new Inventory
+            {
+                Name = "Канат для перетягування",
+                InventoryNumber = 99855183,
+                Quantity = 28,
+                Price = 1926.06m,
+                InventoryDate = new DateTime(2018, 2, 26)
+            },
+            new Inventory
+            {
+                Name = "Карти настінні: політична світу, адміністративно-територіальна України",
+                InventoryNumber = 81177337,
+                Quantity = 14,
+                Price = 1698.90m,
+                InventoryDate = new DateTime(2016, 1, 17)
+            },
+            new Inventory
+            {
+                Name = "Карти настінні: тематичні (природні зони, корисні копалини, рослинний та тваринний світ, природо-заповідний фонд, історико-етнографічна, народні промисли) карти України",
+                InventoryNumber = 54810019,
+                Quantity = 42,
+                Price = 872.06m,
+                InventoryDate = new DateTime(2016, 11, 15)
+            },
+            new Inventory
+            {
+                Name = "Карти настінні: фізичні (світу, півкуль, України, регіону)",
+                InventoryNumber = 25112377,
+                Quantity = 32,
+                Price = 2586.11m,
+                InventoryDate = new DateTime(2019, 10, 3)
+            },
+            new Inventory
+            {
+                Name = "Карти: географічна карта Європи",
+                InventoryNumber = 38395191,
+                Quantity = 45,
+                Price = 2468.59m,
+                InventoryDate = new DateTime(2015, 8, 4)
+            },
+            new Inventory
+            {
+                Name = "Карти: географічна карта країни, мова якої вивчається",
+                InventoryNumber = 77545235,
+                Quantity = 50,
+                Price = 1621.64m,
+                InventoryDate = new DateTime(2016, 7, 9)
+            },
+            new Inventory
+            {
+                Name = "Каса букв та буквосполучень",
+                InventoryNumber = 81842182,
+                Quantity = 3,
+                Price = 307.37m,
+                InventoryDate = new DateTime(2013, 1, 19)
+            },
+            new Inventory
+            {
+                Name = "Каса цифр і лічильного матеріалу на магнітному кріпленні (предметні картинки, геометричні фігури тощо)",
+                InventoryNumber = 23632808,
+                Quantity = 37,
+                Price = 2574.04m,
+                InventoryDate = new DateTime(2015, 3, 6)
+            },
+            new Inventory
+            {
+                Name = "Квадрат сотенний (математичний куб)",
+                InventoryNumber = 21226482,
+                Quantity = 35,
+                Price = 2232.61m,
+                InventoryDate = new DateTime(2013, 8, 21)
+            },
+            new Inventory
+            {
+                Name = "Кеглі",
+                InventoryNumber = 19377476,
+                Quantity = 10,
+                Price = 2249.47m,
+                InventoryDate = new DateTime(2016, 6, 7)
+            },
+            new Inventory
+            {
+                Name = "Килим з дорожньою розміткою",
+                InventoryNumber = 19874240,
+                Quantity = 18,
+                Price = 1973.24m,
+                InventoryDate = new DateTime(2015, 9, 2)
+            },
+            new Inventory
+            {
+                Name = "Килимок (дитячий каремат) або килимок-конструктор з пазлів для занять на вулиці",
+                InventoryNumber = 16771348,
+                Quantity = 48,
+                Price = 807.83m,
+                InventoryDate = new DateTime(2021, 9, 24)
+            },
+            new Inventory
+            {
+                Name = "Кільце баскетбольне",
+                InventoryNumber = 49839138,
+                Quantity = 46,
+                Price = 1856.48m,
+                InventoryDate = new DateTime(2013, 8, 3)
+            },
+            new Inventory
+            {
+                Name = "Кінь гімнастичний маховий",
+                InventoryNumber = 33317123,
+                Quantity = 44,
+                Price = 2185.94m,
+                InventoryDate = new DateTime(2017, 4, 27)
+            },
+            new Inventory
+            {
+                Name = "Козел для опорних стрибків",
+                InventoryNumber = 44666924,
+                Quantity = 26,
+                Price = 1123.06m,
+                InventoryDate = new DateTime(2019, 6, 11)
+            },
+            new Inventory
+            {
+                Name = "Колекції: види паперу",
+                InventoryNumber = 60416616,
+                Quantity = 14,
+                Price = 1949.96m,
+                InventoryDate = new DateTime(2020, 2, 20)
+            },
+            new Inventory
+            {
+                Name = "Колекції: види тканин та ниток, зразки сировини для їх виготовлення",
+                InventoryNumber = 11687426,
+                Quantity = 36,
+                Price = 110.42m,
+                InventoryDate = new DateTime(2019, 5, 7)
+            },
+            new Inventory
+            {
+                Name = "Колекції: витинанки",
+                InventoryNumber = 95298733,
+                Quantity = 8,
+                Price = 2974.33m,
+                InventoryDate = new DateTime(2020, 10, 21)
+            },
+            new Inventory
+            {
+                Name = "Колекції: гірські породи",
+                InventoryNumber = 23666005,
+                Quantity = 45,
+                Price = 1647.13m,
+                InventoryDate = new DateTime(2018, 4, 16)
+            },
+            new Inventory
+            {
+                Name = "Колекції: ґрунти",
+                InventoryNumber = 56038979,
+                Quantity = 24,
+                Price = 144.80m,
+                InventoryDate = new DateTime(2018, 1, 7)
+            },
+            new Inventory
+            {
+                Name = "Колекції: кора дерев",
+                InventoryNumber = 73621957,
+                Quantity = 15,
+                Price = 1533.93m,
+                InventoryDate = new DateTime(2020, 5, 13)
+            },
+            new Inventory
+            {
+                Name = "Колекції: корисні копалини та продукти їх переробки",
+                InventoryNumber = 30273255,
+                Quantity = 30,
+                Price = 2314.99m,
+                InventoryDate = new DateTime(2021, 3, 27)
+            },
+            new Inventory
+            {
+                Name = "Колекції: морське дно",
+                InventoryNumber = 17406056,
+                Quantity = 23,
+                Price = 1504.35m,
+                InventoryDate = new DateTime(2016, 9, 6)
+            },
+            new Inventory
+            {
+                Name = "Колекції: насіння та плоди (овочевих, зернових, прядивних, плодово-ягідних, квітково-декоративних культур)",
+                InventoryNumber = 94475821,
+                Quantity = 25,
+                Price = 2105.29m,
+                InventoryDate = new DateTime(2017, 8, 16)
+            },
+            new Inventory
+            {
+                Name = "Колекції: писанки тощо",
+                InventoryNumber = 86981158,
+                Quantity = 45,
+                Price = 2976.97m,
+                InventoryDate = new DateTime(2011, 5, 19)
+            },
+            new Inventory
+            {
+                Name = "Колекції: породи деревини",
+                InventoryNumber = 70422836,
+                Quantity = 15,
+                Price = 1960.20m,
+                InventoryDate = new DateTime(2019, 2, 3)
+            },
+            new Inventory
+            {
+                Name = "Колекції: розвиток комах",
+                InventoryNumber = 76785136,
+                Quantity = 5,
+                Price = 2210.62m,
+                InventoryDate = new DateTime(2017, 8, 7)
+            },
+            new Inventory
+            {
+                Name = "Колода гімнастична",
+                InventoryNumber = 95956520,
+                Quantity = 11,
+                Price = 2100.36m,
+                InventoryDate = new DateTime(2017, 8, 24)
+            },
+            new Inventory
+            {
+                Name = "Комп’ютерний стіл / стіл для принтера",
+                InventoryNumber = 17487483,
+                Quantity = 1,
+                Price = 2404.25m,
+                InventoryDate = new DateTime(2020, 10, 16)
+            },
+            new Inventory
+            {
+                Name = "Компас шкільний",
+                InventoryNumber = 58775329,
+                Quantity = 4,
+                Price = 1983.17m,
+                InventoryDate = new DateTime(2021, 1, 15)
+            },
+            new Inventory
+            {
+                Name = "Комплект для гри в настільний теніс",
+                InventoryNumber = 50676099,
+                Quantity = 7,
+                Price = 817.96m,
+                InventoryDate = new DateTime(2011, 4, 26)
+            },
+            new Inventory
+            {
+                Name = "Комплект навчально-наочних засобів для навчання грамоти/письма (на магнітах): вимоги до правильної постави під час письма та користування письмовим приладдям",
+                InventoryNumber = 39390870,
+                Quantity = 15,
+                Price = 1140.76m,
+                InventoryDate = new DateTime(2015, 9, 17)
+            },
+            new Inventory
+            {
+                Name = "Комплект навчально-наочних засобів для навчання грамоти/письма (на магнітах): зразки з’єднань букв (нижнього, середнього, верхнього)",
+                InventoryNumber = 51844093,
+                Quantity = 20,
+                Price = 2504.96m,
+                InventoryDate = new DateTime(2016, 9, 12)
+            },
+            new Inventory
+            {
+                Name = "Комплект навчально-наочних засобів для навчання грамоти/письма (на магнітах): зразки каліграфічного письма букв (великих та малих) та їх з’єднань українського алфавіту та мов корінних народів, національних меншин",
+                InventoryNumber = 88813450,
+                Quantity = 14,
+                Price = 946.61m,
+                InventoryDate = new DateTime(2012, 1, 10)
+            },
+            new Inventory
+            {
+                Name = "Комплект навчально-наочних засобів для навчання грамоти/письма (на магнітах): український алфавіт (друковані й рукописні літери, великі і малі)",
+                InventoryNumber = 89331555,
+                Quantity = 42,
+                Price = 1580.30m,
+                InventoryDate = new DateTime(2011, 3, 1)
+            },
+            new Inventory
+            {
+                Name = "Комплект навчально-наочних засобів для навчання грамоти/письма (на магнітах): флеш-картки",
+                InventoryNumber = 50598657,
+                Quantity = 41,
+                Price = 351.00m,
+                InventoryDate = new DateTime(2013, 2, 15)
+            },
+            new Inventory
+            {
+                Name = "Комплекти для рольових ігор відповідно до тем навчальної програми",
+                InventoryNumber = 97655601,
+                Quantity = 44,
+                Price = 2891.37m,
+                InventoryDate = new DateTime(2019, 4, 9)
+            },
+            new Inventory
+            {
+                Name = "Комплекти лічильного матеріалу роздаткові для: вивчення складу числа",
+                InventoryNumber = 52472441,
+                Quantity = 35,
+                Price = 889.60m,
+                InventoryDate = new DateTime(2013, 5, 12)
+            },
+            new Inventory
+            {
+                Name = "Комплекти лічильного матеріалу роздаткові для: лічби від 0 до 1000",
+                InventoryNumber = 76537730,
+                Quantity = 4,
+                Price = 1227.51m,
+                InventoryDate = new DateTime(2013, 1, 21)
+            },
+            new Inventory
+            {
+                Name = "Комплекти плакатів: безпека життєдіяльності",
+                InventoryNumber = 32073096,
+                Quantity = 14,
+                Price = 458.02m,
+                InventoryDate = new DateTime(2021, 3, 12)
+            },
+            new Inventory
+            {
+                Name = "Комплекти плакатів: безпека на дорозі",
+                InventoryNumber = 46522693,
+                Quantity = 13,
+                Price = 260.24m,
+                InventoryDate = new DateTime(2014, 12, 27)
+            },
+            new Inventory
+            {
+                Name = "Комплекти плакатів: будова тіла людини",
+                InventoryNumber = 55718996,
+                Quantity = 13,
+                Price = 897.48m,
+                InventoryDate = new DateTime(2014, 6, 23)
+            },
+            new Inventory
+            {
+                Name = "Комплекти плакатів: екологічна культура, дбайливе ставлення до довкілля",
+                InventoryNumber = 51620198,
+                Quantity = 5,
+                Price = 169.29m,
+                InventoryDate = new DateTime(2021, 9, 10)
+            },
+            new Inventory
+            {
+                Name = "Комплекти плакатів: емоції людини",
+                InventoryNumber = 15522278,
+                Quantity = 34,
+                Price = 1453.42m,
+                InventoryDate = new DateTime(2012, 5, 5)
+            },
+            new Inventory
+            {
+                Name = "Комплекти плакатів: жива природа",
+                InventoryNumber = 67669401,
+                Quantity = 11,
+                Price = 2280.60m,
+                InventoryDate = new DateTime(2014, 12, 24)
+            },
+            new Inventory
+            {
+                Name = "Комплекти плакатів: здоров’я людини",
+                InventoryNumber = 47485566,
+                Quantity = 3,
+                Price = 2002.43m,
+                InventoryDate = new DateTime(2016, 5, 1)
+            },
+            new Inventory
+            {
+                Name = "Комплекти плакатів: здоровий спосіб життя",
+                InventoryNumber = 32958807,
+                Quantity = 7,
+                Price = 2230.52m,
+                InventoryDate = new DateTime(2014, 9, 4)
+            },
+            new Inventory
+            {
+                Name = "Комплекти плакатів: Земля",
+                InventoryNumber = 21798166,
+                Quantity = 22,
+                Price = 1750.92m,
+                InventoryDate = new DateTime(2017, 10, 27)
+            },
+            new Inventory
+            {
+                Name = "Комплекти плакатів: корисні і шкідливі звички",
+                InventoryNumber = 73331164,
+                Quantity = 13,
+                Price = 1766.62m,
+                InventoryDate = new DateTime(2019, 11, 15)
+            },
+            new Inventory
+            {
+                Name = "Комплекти плакатів: надання домедичної допомоги",
+                InventoryNumber = 95659673,
+                Quantity = 15,
+                Price = 2715.77m,
+                InventoryDate = new DateTime(2020, 9, 21)
+            },
+            new Inventory
+            {
+                Name = "Комплекти плакатів: небезпечні тварини",
+                InventoryNumber = 27726944,
+                Quantity = 7,
+                Price = 952.55m,
+                InventoryDate = new DateTime(2015, 11, 13)
+            },
+            new Inventory
+            {
+                Name = "Комплекти плакатів: нежива природа",
+                InventoryNumber = 25216777,
+                Quantity = 46,
+                Price = 2160.81m,
+                InventoryDate = new DateTime(2011, 9, 16)
+            },
+            new Inventory
+            {
+                Name = "Комплекти плакатів: особиста гігієна школяра",
+                InventoryNumber = 63950999,
+                Quantity = 36,
+                Price = 2911.44m,
+                InventoryDate = new DateTime(2014, 12, 26)
+            },
+            new Inventory
+            {
+                Name = "Комплекти плакатів: охорона природи",
+                InventoryNumber = 64839705,
+                Quantity = 4,
+                Price = 1369.51m,
+                InventoryDate = new DateTime(2019, 8, 21)
+            },
+            new Inventory
+            {
+                Name = "Комплекти плакатів: пори року",
+                InventoryNumber = 33949790,
+                Quantity = 31,
+                Price = 598.54m,
+                InventoryDate = new DateTime(2012, 8, 3)
+            },
+            new Inventory
+            {
+                Name = "Комплекти плакатів: правила поведінки в природному, техногенному та соціальному оточенні",
+                InventoryNumber = 21041371,
+                Quantity = 19,
+                Price = 1358.56m,
+                InventoryDate = new DateTime(2011, 2, 16)
+            },
+            new Inventory
+            {
+                Name = "Комплекти плакатів: правила пожежної безпеки",
+                InventoryNumber = 83908706,
+                Quantity = 34,
+                Price = 1700.82m,
+                InventoryDate = new DateTime(2012, 5, 25)
+            },
+            new Inventory
+            {
+                Name = "Комплекти плакатів: правильне харчування",
+                InventoryNumber = 33560182,
+                Quantity = 35,
+                Price = 1549.50m,
+                InventoryDate = new DateTime(2011, 3, 5)
+            },
+            new Inventory
+            {
+                Name = "Комплекти плакатів: праця людей",
+                InventoryNumber = 61421817,
+                Quantity = 30,
+                Price = 935.66m,
+                InventoryDate = new DateTime(2011, 4, 18)
+            },
+            new Inventory
+            {
+                Name = "Комплекти плакатів: система органів тіла людини",
+                InventoryNumber = 37379538,
+                Quantity = 20,
+                Price = 1481.70m,
+                InventoryDate = new DateTime(2017, 3, 8)
+            },
+            new Inventory
+            {
+                Name = "Комплекти плакатів: соціальна складова здоров’я",
+                InventoryNumber = 35714788,
+                Quantity = 2,
+                Price = 1020.90m,
+                InventoryDate = new DateTime(2017, 11, 11)
+            },
+            new Inventory
+            {
+                Name = "Комплекти плакатів: фізична складова здоров’я",
+                InventoryNumber = 23293378,
+                Quantity = 30,
+                Price = 1752.20m,
+                InventoryDate = new DateTime(2015, 7, 9)
+            },
+            new Inventory
+            {
+                Name = "Конструктори для вивчення різних конструкцій та механізмів",
+                InventoryNumber = 42100131,
+                Quantity = 25,
+                Price = 1975.64m,
+                InventoryDate = new DateTime(2017, 7, 28)
+            },
+            new Inventory
+            {
+                Name = "Контейнери для роздаткового матеріалу / конструкторів",
+                InventoryNumber = 30618830,
+                Quantity = 13,
+                Price = 1303.42m,
+                InventoryDate = new DateTime(2011, 7, 28)
+            },
+            new Inventory
+            {
+                Name = "Контрольно-вимірювальні інструменти: ваги математичні (математичний баланс)",
+                InventoryNumber = 83222960,
+                Quantity = 6,
+                Price = 352.83m,
+                InventoryDate = new DateTime(2019, 9, 21)
+            },
+            new Inventory
+            {
+                Name = "Контрольно-вимірювальні інструменти: лінійка (не менше 15 см)",
+                InventoryNumber = 18998782,
+                Quantity = 13,
+                Price = 1522.29m,
+                InventoryDate = new DateTime(2014, 11, 11)
+            },
+            new Inventory
+            {
+                Name = "Контрольно-вимірювальні інструменти: метр з сантиметровим діленням",
+                InventoryNumber = 59712767,
+                Quantity = 33,
+                Price = 2394.81m,
+                InventoryDate = new DateTime(2012, 11, 17)
+            },
+            new Inventory
+            {
+                Name = "Контрольно-вимірювальні інструменти: метр навчальний з кольоровою шкалою",
+                InventoryNumber = 63565484,
+                Quantity = 9,
+                Price = 281.71m,
+                InventoryDate = new DateTime(2021, 8, 23)
+            },
+            new Inventory
+            {
+                Name = "Контрольно-вимірювальні інструменти: рулетка (на менше 1 м)",
+                InventoryNumber = 98983735,
+                Quantity = 37,
+                Price = 2599.72m,
+                InventoryDate = new DateTime(2016, 5, 27)
+            },
+            new Inventory
+            {
+                Name = "Контрольно-вимірювальні інструменти: трикутники (45°, 30°-60°)",
+                InventoryNumber = 87339997,
+                Quantity = 14,
+                Price = 1502.38m,
+                InventoryDate = new DateTime(2014, 10, 23)
+            },
+            new Inventory
+            {
+                Name = "Контрольно-вимірювальні інструменти: циркуль",
+                InventoryNumber = 37214358,
+                Quantity = 17,
+                Price = 2672.91m,
+                InventoryDate = new DateTime(2020, 4, 9)
+            },
+            new Inventory
+            {
+                Name = "Контрольно-вимірювальні прилади: набір годинників пісочних (не менше 3-х від 1 до 5 хв.)",
+                InventoryNumber = 84682794,
+                Quantity = 4,
+                Price = 1956.22m,
+                InventoryDate = new DateTime(2013, 1, 26)
+            },
+            new Inventory
+            {
+                Name = "Контрольно-вимірювальні прилади: набір мірного посуду (з не крихкого матеріалу) об’ємом від 50 до 500 мл",
+                InventoryNumber = 27253738,
+                Quantity = 6,
+                Price = 1221.32m,
+                InventoryDate = new DateTime(2019, 6, 11)
+            },
+            new Inventory
+            {
+                Name = "Контрольно-вимірювальні прилади: спідометр",
+                InventoryNumber = 94081226,
+                Quantity = 43,
+                Price = 1427.12m,
+                InventoryDate = new DateTime(2014, 10, 28)
+            },
+            new Inventory
+            {
+                Name = "Контрольно-вимірювальні прилади: терези демонстраційні з набором важків",
+                InventoryNumber = 89896972,
+                Quantity = 30,
+                Price = 2678.25m,
+                InventoryDate = new DateTime(2017, 6, 17)
+            },
+            new Inventory
+            {
+                Name = "Контрольно-вимірювальні прилади: терези з набором важків",
+                InventoryNumber = 90550432,
+                Quantity = 12,
+                Price = 2540.05m,
+                InventoryDate = new DateTime(2011, 10, 15)
+            },
+            new Inventory
+            {
+                Name = "Контрольно-вимірювальні прилади: термометр",
+                InventoryNumber = 75077061,
+                Quantity = 39,
+                Price = 2553.90m,
+                InventoryDate = new DateTime(2019, 2, 17)
+            },
+            new Inventory
+            {
+                Name = "Конус поролоновий",
+                InventoryNumber = 24723448,
+                Quantity = 36,
+                Price = 2116.66m,
+                InventoryDate = new DateTime(2021, 4, 8)
+            },
+            new Inventory
+            {
+                Name = "Корзина для м’ячів",
+                InventoryNumber = 59687721,
+                Quantity = 3,
+                Price = 2543.98m,
+                InventoryDate = new DateTime(2011, 5, 27)
+            },
+            new Inventory
+            {
+                Name = "Корзина для тенісних м’ячів",
+                InventoryNumber = 40487677,
+                Quantity = 50,
+                Price = 1632.15m,
+                InventoryDate = new DateTime(2020, 12, 21)
+            },
+            new Inventory
+            {
+                Name = "Лабораторний набір для дослідження властивостей води, різних речовин та тіл",
+                InventoryNumber = 46794470,
+                Quantity = 14,
+                Price = 1977.12m,
+                InventoryDate = new DateTime(2011, 5, 23)
+            },
+            new Inventory
+            {
+                Name = "Лабораторний набір з вивчення елементарних фізичних явищ (сила, рух, швидкість тощо)",
+                InventoryNumber = 15863238,
+                Quantity = 9,
+                Price = 897.95m,
+                InventoryDate = new DateTime(2020, 2, 19)
+            },
+            new Inventory
+            {
+                Name = "Лабораторний набір з вивчення явища магнетизму",
+                InventoryNumber = 59703651,
+                Quantity = 9,
+                Price = 2126.73m,
+                InventoryDate = new DateTime(2020, 2, 3)
+            },
+            new Inventory
+            {
+                Name = "Ламінатор",
+                InventoryNumber = 36745222,
+                Quantity = 46,
+                Price = 863.53m,
+                InventoryDate = new DateTime(2017, 1, 11)
+            },
+            new Inventory
+            {
+                Name = "Лічильний матеріал (наприклад, набір Кюізенера, геометричні фігури тощо)",
+                InventoryNumber = 76562052,
+                Quantity = 41,
+                Price = 2527.96m,
+                InventoryDate = new DateTime(2020, 9, 24)
+            },
+            new Inventory
+            {
+                Name = "Лупа ручна шкільна",
+                InventoryNumber = 99989127,
+                Quantity = 41,
+                Price = 2517.54m,
+                InventoryDate = new DateTime(2012, 5, 25)
+            },
+            new Inventory
+            {
+                Name = "М’яке крісло-мішок",
+                InventoryNumber = 94335924,
+                Quantity = 5,
+                Price = 1095.44m,
+                InventoryDate = new DateTime(2020, 11, 5)
+            },
+            new Inventory
+            {
+                Name = "М’яч волейбольний",
+                InventoryNumber = 98186484,
+                Quantity = 35,
+                Price = 2886.61m,
+                InventoryDate = new DateTime(2013, 7, 7)
+            },
+            new Inventory
+            {
+                Name = "М’яч для метань тренувальний різної ваги гумовий",
+                InventoryNumber = 34208948,
+                Quantity = 23,
+                Price = 2590.71m,
+                InventoryDate = new DateTime(2015, 8, 1)
+            },
+            new Inventory
+            {
+                Name = "М’яч для тенісу настільного",
+                InventoryNumber = 52626518,
+                Quantity = 39,
+                Price = 852.78m,
+                InventoryDate = new DateTime(2014, 4, 17)
+            },
+            new Inventory
+            {
+                Name = "М’яч тенісний",
+                InventoryNumber = 96813764,
+                Quantity = 9,
+                Price = 1566.50m,
+                InventoryDate = new DateTime(2015, 11, 8)
+            },
+            new Inventory
+            {
+                Name = "М’ячі баскетбольні різного діаметра",
+                InventoryNumber = 83967008,
+                Quantity = 22,
+                Price = 2392.48m,
+                InventoryDate = new DateTime(2020, 12, 2)
+            },
+            new Inventory
+            {
+                Name = "М’ячі гумові різного діаметра",
+                InventoryNumber = 77578363,
+                Quantity = 20,
+                Price = 116.16m,
+                InventoryDate = new DateTime(2012, 8, 10)
+            },
+            new Inventory
+            {
+                Name = "М’ячі футбольні різного діаметра",
+                InventoryNumber = 47693717,
+                Quantity = 28,
+                Price = 850.75m,
+                InventoryDate = new DateTime(2017, 8, 7)
+            },
+            new Inventory
+            {
+                Name = "Магніт смуговий лабораторний",
+                InventoryNumber = 97045733,
+                Quantity = 29,
+                Price = 683.33m,
+                InventoryDate = new DateTime(2019, 8, 17)
+            },
+            new Inventory
+            {
+                Name = "Магнітна дошка фліпчарт / магнітна дошка-мольберт",
+                InventoryNumber = 65545314,
+                Quantity = 34,
+                Price = 2325.64m,
+                InventoryDate = new DateTime(2019, 12, 21)
+            },
+            new Inventory
+            {
+                Name = "Манометр (для вимірювання тиску в м’ячах)",
+                InventoryNumber = 67807254,
+                Quantity = 27,
+                Price = 2505.40m,
+                InventoryDate = new DateTime(2018, 5, 4)
+            },
+            new Inventory
+            {
+                Name = "Масажні килимки, доріжки",
+                InventoryNumber = 49894386,
+                Quantity = 22,
+                Price = 1604.04m,
+                InventoryDate = new DateTime(2019, 9, 7)
+            },
+            new Inventory
+            {
+                Name = "Мат гімнастичний різного розміру",
+                InventoryNumber = 12024054,
+                Quantity = 18,
+                Price = 426.08m,
+                InventoryDate = new DateTime(2021, 11, 22)
+            },
+            new Inventory
+            {
+                Name = "Математичне віяло (від 1 до 20)",
+                InventoryNumber = 39020284,
+                Quantity = 18,
+                Price = 1689.11m,
+                InventoryDate = new DateTime(2014, 6, 9)
+            },
+            new Inventory
+            {
+                Name = "Математичне дзеркало",
+                InventoryNumber = 17438932,
+                Quantity = 1,
+                Price = 2367.90m,
+                InventoryDate = new DateTime(2013, 3, 8)
+            },
+            new Inventory
+            {
+                Name = "Математичний магнітно-маркерний планшет",
+                InventoryNumber = 36109329,
+                Quantity = 49,
+                Price = 1447.07m,
+                InventoryDate = new DateTime(2013, 6, 4)
+            },
+            new Inventory
+            {
+                Name = "Метроном механічний",
+                InventoryNumber = 54962833,
+                Quantity = 37,
+                Price = 613.22m,
+                InventoryDate = new DateTime(2012, 3, 6)
+            },
+            new Inventory
+            {
+                Name = "Мікроскоп шкільний",
+                InventoryNumber = 73125086,
+                Quantity = 8,
+                Price = 2631.71m,
+                InventoryDate = new DateTime(2021, 10, 9)
+            },
+            new Inventory
+            {
+                Name = "Мікрофон",
+                InventoryNumber = 54769231,
+                Quantity = 34,
+                Price = 2414.71m,
+                InventoryDate = new DateTime(2021, 6, 17)
+            },
+            new Inventory
+            {
+                Name = "Місток для опорних стрибків",
+                InventoryNumber = 28435158,
+                Quantity = 18,
+                Price = 237.20m,
+                InventoryDate = new DateTime(2016, 8, 11)
+            },
+            new Inventory
+            {
+                Name = "Місце приземлення для стрибків у висоту (мати)",
+                InventoryNumber = 40552318,
+                Quantity = 13,
+                Price = 733.41m,
+                InventoryDate = new DateTime(2013, 7, 20)
+            },
+            new Inventory
+            {
+                Name = "Мобільна метеостанція",
+                InventoryNumber = 78326148,
+                Quantity = 38,
+                Price = 2609.51m,
+                InventoryDate = new DateTime(2021, 6, 4)
+            },
+            new Inventory
+            {
+                Name = "Мобільний стелаж",
+                InventoryNumber = 64521822,
+                Quantity = 9,
+                Price = 620.99m,
+                InventoryDate = new DateTime(2014, 8, 10)
+            },
+            new Inventory
+            {
+                Name = "Моделі: Скелет людини",
+                InventoryNumber = 48712268,
+                Quantity = 5,
+                Price = 663.52m,
+                InventoryDate = new DateTime(2016, 9, 16)
+            },
+            new Inventory
+            {
+                Name = "Модель будови рослин",
+                InventoryNumber = 53614256,
+                Quantity = 15,
+                Price = 1610.72m,
+                InventoryDate = new DateTime(2020, 1, 4)
+            },
+            new Inventory
+            {
+                Name = "Модель демонстраційного механічного годинника (24 години, не менше 2-х стрілок)",
+                InventoryNumber = 17983686,
+                Quantity = 48,
+                Price = 406.29m,
+                InventoryDate = new DateTime(2019, 10, 26)
+            },
+            new Inventory
+            {
+                Name = "Модель механічного годинника (24 години, не менше 2-х стрілок)",
+                InventoryNumber = 97463197,
+                Quantity = 23,
+                Price = 1920.18m,
+                InventoryDate = new DateTime(2012, 3, 2)
+            },
+            new Inventory
+            {
+                Name = "Модель світлофора, набір дорожніх знаків",
+                InventoryNumber = 49880941,
+                Quantity = 26,
+                Price = 773.13m,
+                InventoryDate = new DateTime(2018, 5, 9)
+            },
+            new Inventory
+            {
+                Name = "Модель тіла людини, розбірна",
+                InventoryNumber = 46352422,
+                Quantity = 42,
+                Price = 2294.43m,
+                InventoryDate = new DateTime(2018, 2, 15)
+            },
+            new Inventory
+            {
+                Name = "Модель, що відображає кругообіг води в природі",
+                InventoryNumber = 26551410,
+                Quantity = 43,
+                Price = 1705.54m,
+                InventoryDate = new DateTime(2018, 10, 7)
+            },
+            new Inventory
+            {
+                Name = "Модель, що відображує гігієну зубів",
+                InventoryNumber = 28112404,
+                Quantity = 44,
+                Price = 2071.27m,
+                InventoryDate = new DateTime(2019, 11, 14)
+            },
+            new Inventory
+            {
+                Name = "Модель-аплікація «Числова пряма»",
+                InventoryNumber = 14192597,
+                Quantity = 40,
+                Price = 1126.40m,
+                InventoryDate = new DateTime(2013, 5, 4)
+            },
+            new Inventory
+            {
+                Name = "Модель-фартух, що відображає внутрішню будову тіла людини",
+                InventoryNumber = 73202097,
+                Quantity = 14,
+                Price = 2612.58m,
+                InventoryDate = new DateTime(2012, 1, 6)
+            },
+            new Inventory
+            {
+                Name = "Мольберти",
+                InventoryNumber = 38384393,
+                Quantity = 42,
+                Price = 2718.31m,
+                InventoryDate = new DateTime(2013, 6, 7)
+            },
+            new Inventory
+            {
+                Name = "Мультимедійний проєктор",
+                InventoryNumber = 44604305,
+                Quantity = 18,
+                Price = 2563.51m,
+                InventoryDate = new DateTime(2017, 8, 27)
+            },
+            new Inventory
+            {
+                Name = "Набір букв на магнітах (англійська, німецька, французька, іспанська тощо)",
+                InventoryNumber = 44094563,
+                Quantity = 15,
+                Price = 2104.53m,
+                InventoryDate = new DateTime(2015, 12, 10)
+            },
+            new Inventory
+            {
+                Name = "Набір геометричних тіл та фігур",
+                InventoryNumber = 44907354,
+                Quantity = 36,
+                Price = 1819.25m,
+                InventoryDate = new DateTime(2019, 8, 17)
+            },
+            new Inventory
+            {
+                Name = "Набір для вивчення часток і дробів",
+                InventoryNumber = 94146083,
+                Quantity = 8,
+                Price = 1405.52m,
+                InventoryDate = new DateTime(2017, 1, 24)
+            },
+            new Inventory
+            {
+                Name = "Набір для розвитку алгоритмічного мислення",
+                InventoryNumber = 69800379,
+                Quantity = 2,
+                Price = 2438.34m,
+                InventoryDate = new DateTime(2014, 5, 27)
+            },
+            new Inventory
+            {
+                Name = "Набір для спостереження за розвитком і ростом рослин",
+                InventoryNumber = 40841315,
+                Quantity = 48,
+                Price = 1189.97m,
+                InventoryDate = new DateTime(2015, 5, 16)
+            },
+            new Inventory
+            {
+                Name = "Набір іграшок: літературні персонажі",
+                InventoryNumber = 67473779,
+                Quantity = 23,
+                Price = 554.35m,
+                InventoryDate = new DateTime(2015, 11, 3)
+            },
+            new Inventory
+            {
+                Name = "Набір іграшок: тварини дикі та домашні (реалістичні)",
+                InventoryNumber = 50681283,
+                Quantity = 16,
+                Price = 948.74m,
+                InventoryDate = new DateTime(2016, 10, 10)
+            },
+            new Inventory
+            {
+                Name = "Набір інструментів, приладів та пристосувань для догляду за кімнатними рослинами",
+                InventoryNumber = 64406554,
+                Quantity = 28,
+                Price = 671.43m,
+                InventoryDate = new DateTime(2014, 4, 10)
+            },
+            new Inventory
+            {
+                Name = "Набір лабораторний",
+                InventoryNumber = 80518109,
+                Quantity = 38,
+                Price = 1067.32m,
+                InventoryDate = new DateTime(2011, 12, 17)
+            },
+            new Inventory
+            {
+                Name = "Набір лабораторний демонстраційний",
+                InventoryNumber = 25102650,
+                Quantity = 1,
+                Price = 2766.05m,
+                InventoryDate = new DateTime(2019, 1, 1)
+            },
+            new Inventory
+            {
+                Name = "Набір ляльок, фігур та декорацій для лялькового театру: в національному одязі (різнонаціональна)",
+                InventoryNumber = 98282114,
+                Quantity = 47,
+                Price = 1112.84m,
+                InventoryDate = new DateTime(2011, 2, 5)
+            },
+            new Inventory
+            {
+                Name = "Набір ляльок, фігур та декорацій для лялькового театру: літературні та казкові персонажі",
+                InventoryNumber = 50236057,
+                Quantity = 28,
+                Price = 847.12m,
+                InventoryDate = new DateTime(2014, 3, 21)
+            },
+            new Inventory
+            {
+                Name = "Набір ляльок, фігур та декорацій для лялькового театру: ляльки-рукавички для лялькового театру",
+                InventoryNumber = 60492280,
+                Quantity = 8,
+                Price = 927.05m,
+                InventoryDate = new DateTime(2016, 10, 23)
+            },
+            new Inventory
+            {
+                Name = "Набір ляльок, фігур та декорацій для лялькового театру: маски казкових героїв та тварин",
+                InventoryNumber = 77495835,
+                Quantity = 2,
+                Price = 2013.08m,
+                InventoryDate = new DateTime(2011, 9, 17)
+            },
+            new Inventory
+            {
+                Name = "Набір магнітних нотних знаків",
+                InventoryNumber = 30734351,
+                Quantity = 32,
+                Price = 1657.33m,
+                InventoryDate = new DateTime(2017, 3, 25)
+            },
+            new Inventory
+            {
+                Name = "Набір настільних розвивальних ігор: головоломки тощо",
+                InventoryNumber = 26694861,
+                Quantity = 35,
+                Price = 831.83m,
+                InventoryDate = new DateTime(2014, 7, 24)
+            },
+            new Inventory
+            {
+                Name = "Набір настільних розвивальних ігор: кубики для настільної гри з піктограмами тощо",
+                InventoryNumber = 99182065,
+                Quantity = 29,
+                Price = 1387.04m,
+                InventoryDate = new DateTime(2011, 11, 22)
+            },
+            new Inventory
+            {
+                Name = "Набір настільних розвивальних ігор: літературне лото, доміно",
+                InventoryNumber = 19358638,
+                Quantity = 22,
+                Price = 1785.85m,
+                InventoryDate = new DateTime(2017, 6, 22)
+            },
+            new Inventory
+            {
+                Name = "Набір настільних розвивальних ігор: маршрутні ігри",
+                InventoryNumber = 38730416,
+                Quantity = 35,
+                Price = 819.80m,
+                InventoryDate = new DateTime(2012, 1, 1)
+            },
+            new Inventory
+            {
+                Name = "Набір настільних розвивальних ігор: мовне лото, доміно",
+                InventoryNumber = 42351538,
+                Quantity = 48,
+                Price = 864.30m,
+                InventoryDate = new DateTime(2019, 10, 14)
+            },
+            new Inventory
+            {
+                Name = "Набір настільних розвивальних ігор: ребуси, головоломки",
+                InventoryNumber = 67155743,
+                Quantity = 44,
+                Price = 1002.32m,
+                InventoryDate = new DateTime(2015, 3, 14)
+            },
+            new Inventory
+            {
+                Name = "Набір настільних розвивальних ігор: розрізні пазли / картинки",
+                InventoryNumber = 52182458,
+                Quantity = 14,
+                Price = 1901.38m,
+                InventoryDate = new DateTime(2016, 6, 6)
+            },
+            new Inventory
+            {
+                Name = "Набір настільних розвивальних ігор: шахи, шашки",
+                InventoryNumber = 44050874,
+                Quantity = 36,
+                Price = 571.37m,
+                InventoryDate = new DateTime(2020, 12, 7)
+            },
+            new Inventory
+            {
+                Name = "Набір посуду для сервірування",
+                InventoryNumber = 12644021,
+                Quantity = 31,
+                Price = 642.48m,
+                InventoryDate = new DateTime(2019, 4, 16)
+            },
+            new Inventory
+            {
+                Name = "Набір таблиць",
+                InventoryNumber = 66740787,
+                Quantity = 4,
+                Price = 2122.18m,
+                InventoryDate = new DateTime(2013, 12, 17)
+            },
+            new Inventory
+            {
+                Name = "Набір таблиць (для мов, що вивчаються) на магнітах: алфавіт",
+                InventoryNumber = 60812332,
+                Quantity = 13,
+                Price = 2255.52m,
+                InventoryDate = new DateTime(2021, 5, 28)
+            },
+            new Inventory
+            {
+                Name = "Набір таблиць (для мов, що вивчаються) на магнітах: граматичні, до розділів граматичного матеріалу, передбаченого навчальною програмою",
+                InventoryNumber = 50545055,
+                Quantity = 36,
+                Price = 810.74m,
+                InventoryDate = new DateTime(2012, 2, 5)
+            },
+            new Inventory
+            {
+                Name = "Набір таблиць (для мов, що вивчаються) на магнітах: календар",
+                InventoryNumber = 24191989,
+                Quantity = 43,
+                Price = 725.43m,
+                InventoryDate = new DateTime(2011, 9, 8)
+            },
+            new Inventory
+            {
+                Name = "Набір таблиць (для мов, що вивчаються) на магнітах: транскрипційні знаки",
+                InventoryNumber = 87989571,
+                Quantity = 23,
+                Price = 165.47m,
+                InventoryDate = new DateTime(2011, 9, 7)
+            },
+            new Inventory
+            {
+                Name = "Набір таблиць (у т. ч. магнітні, пазли): величини та їх одиниці",
+                InventoryNumber = 37298418,
+                Quantity = 44,
+                Price = 1925.09m,
+                InventoryDate = new DateTime(2019, 10, 4)
+            },
+            new Inventory
+            {
+                Name = "Набір таблиць (у т. ч. магнітні, пазли): геометричні фігури, геометричні тіла та їх властивості",
+                InventoryNumber = 80447236,
+                Quantity = 12,
+                Price = 1097.40m,
+                InventoryDate = new DateTime(2011, 11, 7)
+            },
+            new Inventory
+            {
+                Name = "Набір таблиць (у т. ч. магнітні, пазли): дії над числами, взаємозв’язок дій над числами",
+                InventoryNumber = 51760959,
+                Quantity = 21,
+                Price = 1022.98m,
+                InventoryDate = new DateTime(2012, 6, 7)
+            },
+            new Inventory
+            {
+                Name = "Набір таблиць (у т. ч. магнітні, пазли): задачі, типові задачі, опорні схеми",
+                InventoryNumber = 99780956,
+                Quantity = 46,
+                Price = 1389.10m,
+                InventoryDate = new DateTime(2011, 8, 12)
+            },
+            new Inventory
+            {
+                Name = "Набір таблиць (у т. ч. магнітні, пазли): закони та властивості арифметичних дій",
+                InventoryNumber = 40088483,
+                Quantity = 29,
+                Price = 1074.37m,
+                InventoryDate = new DateTime(2015, 5, 14)
+            },
+            new Inventory
+            {
+                Name = "Набір таблиць (у т. ч. магнітні, пазли): зразки каліграфічного письма цифр і знаків",
+                InventoryNumber = 60124334,
+                Quantity = 27,
+                Price = 1569.36m,
+                InventoryDate = new DateTime(2016, 9, 16)
+            },
+            new Inventory
+            {
+                Name = "Набір таблиць (у т. ч. магнітні, пазли): лічба (кількісна, порядкова)",
+                InventoryNumber = 42858008,
+                Quantity = 34,
+                Price = 2859.18m,
+                InventoryDate = new DateTime(2012, 4, 26)
+            },
+            new Inventory
+            {
+                Name = "Набір таблиць (у т. ч. магнітні, пазли): математичні вирази",
+                InventoryNumber = 84693729,
+                Quantity = 5,
+                Price = 2840.08m,
+                InventoryDate = new DateTime(2021, 8, 10)
+            },
+            new Inventory
+            {
+                Name = "Набір таблиць (у т. ч. магнітні, пазли): набір / таблиця, що відображає частину цілого в крузі",
+                InventoryNumber = 96884343,
+                Quantity = 35,
+                Price = 2957.30m,
+                InventoryDate = new DateTime(2019, 1, 23)
+            },
+            new Inventory
+            {
+                Name = "Набір таблиць (у т. ч. магнітні, пазли): набір для вивчення розряду числа, таблиця розрядів",
+                InventoryNumber = 79701008,
+                Quantity = 14,
+                Price = 796.85m,
+                InventoryDate = new DateTime(2013, 6, 6)
+            },
+            new Inventory
+            {
+                Name = "Набір таблиць (у т. ч. магнітні, пазли): нумерація чисел, склад числа",
+                InventoryNumber = 79898493,
+                Quantity = 19,
+                Price = 2643.51m,
+                InventoryDate = new DateTime(2020, 6, 11)
+            },
+            new Inventory
+            {
+                Name = "Набір таблиць (у т. ч. магнітні, пазли): ознаки, властивості, відношення предметів",
+                InventoryNumber = 75882912,
+                Quantity = 47,
+                Price = 2248.62m,
+                InventoryDate = new DateTime(2019, 10, 23)
+            },
+            new Inventory
+            {
+                Name = "Набір таблиць (у т. ч. магнітні, пазли): рівняння",
+                InventoryNumber = 35290384,
+                Quantity = 44,
+                Price = 1808.94m,
+                InventoryDate = new DateTime(2016, 3, 15)
+            },
+            new Inventory
+            {
+                Name = "Набір таблиць (у т. ч. магнітні, пазли): розташування у просторі й на площині",
+                InventoryNumber = 51731046,
+                Quantity = 18,
+                Price = 2964.98m,
+                InventoryDate = new DateTime(2011, 6, 19)
+            },
+            new Inventory
+            {
+                Name = "Набір таблиць (у т. ч. магнітні, пазли): таблиці до тем навчальної програми",
+                InventoryNumber = 55400202,
+                Quantity = 38,
+                Price = 1592.95m,
+                InventoryDate = new DateTime(2018, 10, 11)
+            },
+            new Inventory
+            {
+                Name = "Набір таблиць (у т. ч. магнітні, пазли): таблиця множення",
+                InventoryNumber = 37503713,
+                Quantity = 7,
+                Price = 768.91m,
+                InventoryDate = new DateTime(2019, 5, 27)
+            },
+            new Inventory
+            {
+                Name = "Набір таблиць до основних розділів граматичного матеріалу",
+                InventoryNumber = 14924719,
+                Quantity = 49,
+                Price = 1852.10m,
+                InventoryDate = new DateTime(2017, 4, 19)
+            },
+            new Inventory
+            {
+                Name = "Набір таблиць: вправи для збільшення кута зору, поля читання",
+                InventoryNumber = 63114767,
+                Quantity = 10,
+                Price = 2622.82m,
+                InventoryDate = new DateTime(2013, 7, 5)
+            },
+            new Inventory
+            {
+                Name = "Набір таблиць: вправи для формування навичок читання",
+                InventoryNumber = 31635216,
+                Quantity = 13,
+                Price = 366.10m,
+                InventoryDate = new DateTime(2018, 10, 3)
+            },
+            new Inventory
+            {
+                Name = "Набір технологічних карт",
+                InventoryNumber = 28142951,
+                Quantity = 39,
+                Price = 2758.76m,
+                InventoryDate = new DateTime(2013, 5, 21)
+            },
+            new Inventory
+            {
+                Name = "Набір цифр і математичних знаків на дошці (математичний планшет або геоборд)",
+                InventoryNumber = 86697354,
+                Quantity = 3,
+                Price = 606.58m,
+                InventoryDate = new DateTime(2014, 6, 20)
+            },
+            new Inventory
+            {
+                Name = "Набірне/магнітне полотно",
+                InventoryNumber = 60574963,
+                Quantity = 26,
+                Price = 1552.68m,
+                InventoryDate = new DateTime(2017, 6, 7)
+            },
+            new Inventory
+            {
+                Name = "Набори (комплекти) сюжетних та предметних малюнків (для розвитку мовлення, словникові слова та їх написання, до казок) (по класах)",
+                InventoryNumber = 92656332,
+                Quantity = 44,
+                Price = 372.78m,
+                InventoryDate = new DateTime(2014, 6, 8)
+            },
+            new Inventory
+            {
+                Name = "Набори для колективної творчості (різні види, в т. ч. для в’язання гачком, вишивання/ квілінгу/аплікації/писанкарства тощо)",
+                InventoryNumber = 82335790,
+                Quantity = 16,
+                Price = 753.03m,
+                InventoryDate = new DateTime(2014, 6, 15)
+            },
+            new Inventory
+            {
+                Name = "Набори для навчання грамоти та читання: каса букв та складів",
+                InventoryNumber = 37465942,
+                Quantity = 29,
+                Price = 1141.41m,
+                InventoryDate = new DateTime(2012, 7, 17)
+            },
+            new Inventory
+            {
+                Name = "Набори для навчання грамоти та читання: набір карток з графічним позначенням мовних одиниць (звуки, склади, слова)",
+                InventoryNumber = 14773445,
+                Quantity = 42,
+                Price = 1855.23m,
+                InventoryDate = new DateTime(2020, 9, 6)
+            },
+            new Inventory
+            {
+                Name = "Набори канцелярського приладдя",
+                InventoryNumber = 54261055,
+                Quantity = 12,
+                Price = 2129.26m,
+                InventoryDate = new DateTime(2012, 8, 1)
+            },
+            new Inventory
+            {
+                Name = "Набори карток (у т. ч. на магнітах): для лічби та усного рахунку від 0 до 100",
+                InventoryNumber = 69792898,
+                Quantity = 30,
+                Price = 2319.83m,
+                InventoryDate = new DateTime(2020, 10, 26)
+            },
+            new Inventory
+            {
+                Name = "Набори карток (у т. ч. на магнітах): для математичних диктантів",
+                InventoryNumber = 11443579,
+                Quantity = 44,
+                Price = 1082.54m,
+                InventoryDate = new DateTime(2018, 5, 2)
+            },
+            new Inventory
+            {
+                Name = "Набори карток (у т. ч. на магнітах): ілюстрації до типових задач",
+                InventoryNumber = 57184609,
+                Quantity = 25,
+                Price = 1801.15m,
+                InventoryDate = new DateTime(2018, 1, 26)
+            },
+            new Inventory
+            {
+                Name = "Набори карток (у т. ч. на магнітах): склад числа",
+                InventoryNumber = 40457472,
+                Quantity = 22,
+                Price = 2767.42m,
+                InventoryDate = new DateTime(2020, 8, 19)
+            },
+            new Inventory
+            {
+                Name = "Набори плакатів",
+                InventoryNumber = 65765937,
+                Quantity = 3,
+                Price = 528.95m,
+                InventoryDate = new DateTime(2020, 11, 6)
+            },
+            new Inventory
+            {
+                Name = "Набори тематичних, сюжетних, предметних малюнків (картинок) відповідно до тем навчальної програми",
+                InventoryNumber = 61377756,
+                Quantity = 32,
+                Price = 2009.43m,
+                InventoryDate = new DateTime(2013, 9, 24)
+            },
+            new Inventory
+            {
+                Name = "Навчальний набір грошових знаків країн, мови яких вивчаються",
+                InventoryNumber = 77150259,
+                Quantity = 22,
+                Price = 2352.80m,
+                InventoryDate = new DateTime(2016, 2, 21)
+            },
+            new Inventory
+            {
+                Name = "Навчальний набір грошових знаків України",
+                InventoryNumber = 34111675,
+                Quantity = 20,
+                Price = 1354.15m,
+                InventoryDate = new DateTime(2016, 5, 7)
+            },
+            new Inventory
+            {
+                Name = "Навчально-наочні засоби (наприклад, блоки Дьєнеша, творчі ігри для вивчення цифр, арифметичні/ числові/математичні штанги тощо)",
+                InventoryNumber = 66473372,
+                Quantity = 41,
+                Price = 611.06m,
+                InventoryDate = new DateTime(2019, 11, 7)
+            },
+            new Inventory
+            {
+                Name = "Насос універсальний для накачування спортивних м’ячів",
+                InventoryNumber = 20639391,
+                Quantity = 38,
+                Price = 127.68m,
+                InventoryDate = new DateTime(2012, 4, 21)
+            },
+            new Inventory
+            {
+                Name = "Настільні логіко-розвивальні ігри",
+                InventoryNumber = 77364302,
+                Quantity = 6,
+                Price = 162.18m,
+                InventoryDate = new DateTime(2012, 2, 22)
+            },
+            new Inventory
+            {
+                Name = "Настільні розвиваючі ігри (лото, доміно, кубики) мовою, що вивчається",
+                InventoryNumber = 46988760,
+                Quantity = 17,
+                Price = 2428.95m,
+                InventoryDate = new DateTime(2019, 12, 18)
+            },
+            new Inventory
+            {
+                Name = "Об’єкти народних ремесел",
+                InventoryNumber = 22589738,
+                Quantity = 44,
+                Price = 954.04m,
+                InventoryDate = new DateTime(2013, 8, 6)
+            },
+            new Inventory
+            {
+                Name = "Обручі різних розмірів",
+                InventoryNumber = 29966669,
+                Quantity = 4,
+                Price = 2171.72m,
+                InventoryDate = new DateTime(2021, 4, 1)
+            },
+            new Inventory
+            {
+                Name = "Огородження (бортики) для тенісу настільного",
+                InventoryNumber = 12567715,
+                Quantity = 39,
+                Price = 2333.16m,
+                InventoryDate = new DateTime(2015, 2, 27)
+            },
+            new Inventory
+            {
+                Name = "Опадомір",
+                InventoryNumber = 86349177,
+                Quantity = 32,
+                Price = 587.43m,
+                InventoryDate = new DateTime(2011, 9, 1)
+            },
+            new Inventory
+            {
+                Name = "Орбітрек",
+                InventoryNumber = 72893881,
+                Quantity = 6,
+                Price = 980.35m,
+                InventoryDate = new DateTime(2018, 2, 1)
+            },
+            new Inventory
+            {
+                Name = "Палиця гімнастична",
+                InventoryNumber = 49301207,
+                Quantity = 45,
+                Price = 2697.84m,
+                InventoryDate = new DateTime(2016, 8, 28)
+            },
+            new Inventory
+            {
+                Name = "Палітри та пензлики",
+                InventoryNumber = 93206415,
+                Quantity = 46,
+                Price = 425.39m,
+                InventoryDate = new DateTime(2019, 11, 6)
+            },
+            new Inventory
+            {
+                Name = "Папір А3",
+                InventoryNumber = 13799620,
+                Quantity = 42,
+                Price = 2586.18m,
+                InventoryDate = new DateTime(2021, 2, 9)
+            },
+            new Inventory
+            {
+                Name = "Папір багатофункціональний офісний А4",
+                InventoryNumber = 12349254,
+                Quantity = 49,
+                Price = 764.51m,
+                InventoryDate = new DateTime(2020, 11, 9)
+            },
+            new Inventory
+            {
+                Name = "Папір для дошки фліпчарта або дошки-мольберта",
+                InventoryNumber = 52286847,
+                Quantity = 5,
+                Price = 517.04m,
+                InventoryDate = new DateTime(2014, 7, 15)
+            },
+            new Inventory
+            {
+                Name = "Папки-реєстратори",
+                InventoryNumber = 90833220,
+                Quantity = 29,
+                Price = 2803.02m,
+                InventoryDate = new DateTime(2018, 6, 11)
+            },
+            new Inventory
+            {
+                Name = "Парта-конторка",
+                InventoryNumber = 22436026,
+                Quantity = 24,
+                Price = 410.49m,
+                InventoryDate = new DateTime(2019, 7, 6)
+            },
+            new Inventory
+            {
+                Name = "Перекладина гімнастична",
+                InventoryNumber = 84402769,
+                Quantity = 2,
+                Price = 2168.66m,
+                InventoryDate = new DateTime(2021, 1, 25)
+            },
+            new Inventory
+            {
+                Name = "Планка (брусок, дошка) відштовхування для стрибків у довжину",
+                InventoryNumber = 24684905,
+                Quantity = 35,
+                Price = 2950.00m,
+                InventoryDate = new DateTime(2021, 8, 5)
+            },
+            new Inventory
+            {
+                Name = "Планка для бар’єра легкоатлетичного",
+                InventoryNumber = 81605188,
+                Quantity = 29,
+                Price = 123.17m,
+                InventoryDate = new DateTime(2017, 1, 16)
+            },
+            new Inventory
+            {
+                Name = "Планка для стрибка у висоту",
+                InventoryNumber = 85993449,
+                Quantity = 32,
+                Price = 1247.36m,
+                InventoryDate = new DateTime(2017, 11, 10)
+            },
+            new Inventory
+            {
+                Name = "Плівка для ламінування",
+                InventoryNumber = 33603060,
+                Quantity = 17,
+                Price = 1099.36m,
+                InventoryDate = new DateTime(2016, 11, 19)
+            },
+            new Inventory
+            {
+                Name = "Покриття спортивне синтетичне (у рулонах)",
+                InventoryNumber = 29536331,
+                Quantity = 12,
+                Price = 1394.81m,
+                InventoryDate = new DateTime(2011, 1, 24)
+            },
+            new Inventory
+            {
+                Name = "Поле для гри Твістер",
+                InventoryNumber = 63372517,
+                Quantity = 25,
+                Price = 375.46m,
+                InventoryDate = new DateTime(2013, 2, 23)
+            },
+            new Inventory
+            {
+                Name = "Поміст",
+                InventoryNumber = 59936130,
+                Quantity = 46,
+                Price = 2794.37m,
+                InventoryDate = new DateTime(2019, 11, 26)
+            },
+            new Inventory
+            {
+                Name = "Прапорець зі стійкою (різного кольору)",
+                InventoryNumber = 43255577,
+                Quantity = 27,
+                Price = 1230.34m,
+                InventoryDate = new DateTime(2016, 12, 25)
+            },
+            new Inventory
+            {
+                Name = "Прапорець сигнальний, стартовий та фінішний",
+                InventoryNumber = 81463531,
+                Quantity = 13,
+                Price = 462.78m,
+                InventoryDate = new DateTime(2015, 9, 19)
+            },
+            new Inventory
+            {
+                Name = "Прапорець суддівський (різного кольору)",
+                InventoryNumber = 59620244,
+                Quantity = 34,
+                Price = 2495.41m,
+                InventoryDate = new DateTime(2014, 10, 12)
+            },
+            new Inventory
+            {
+                Name = "Предмети символіки українського народу",
+                InventoryNumber = 75984590,
+                Quantity = 38,
+                Price = 1612.25m,
+                InventoryDate = new DateTime(2012, 1, 17)
+            },
+            new Inventory
+            {
+                Name = "Прилад для вимірювання висоти",
+                InventoryNumber = 53131030,
+                Quantity = 30,
+                Price = 1571.17m,
+                InventoryDate = new DateTime(2017, 1, 1)
+            },
+            new Inventory
+            {
+                Name = "Ракетка для бадмінтону",
+                InventoryNumber = 48089331,
+                Quantity = 25,
+                Price = 1372.90m,
+                InventoryDate = new DateTime(2015, 2, 10)
+            },
+            new Inventory
+            {
+                Name = "Ракетка тенісна тренувальна",
+                InventoryNumber = 34983872,
+                Quantity = 34,
+                Price = 937.26m,
+                InventoryDate = new DateTime(2017, 4, 23)
+            },
+            new Inventory
+            {
+                Name = "Ракетки для бадмінтону",
+                InventoryNumber = 75269446,
+                Quantity = 11,
+                Price = 2275.94m,
+                InventoryDate = new DateTime(2015, 9, 14)
+            },
+            new Inventory
+            {
+                Name = "Ракетки пластикові",
+                InventoryNumber = 98703536,
+                Quantity = 12,
+                Price = 464.60m,
+                InventoryDate = new DateTime(2016, 1, 5)
+            },
+            new Inventory
+            {
+                Name = "Рама з кільцями гімнастична",
+                InventoryNumber = 46737661,
+                Quantity = 11,
+                Price = 1626.19m,
+                InventoryDate = new DateTime(2019, 1, 10)
+            },
+            new Inventory
+            {
+                Name = "Рахівниця / абакус навчальний",
+                InventoryNumber = 44035483,
+                Quantity = 11,
+                Price = 719.11m,
+                InventoryDate = new DateTime(2012, 12, 7)
+            },
+            new Inventory
+            {
+                Name = "Робототехнічний набір для здійснення програмованого руху",
+                InventoryNumber = 31107720,
+                Quantity = 7,
+                Price = 1662.96m,
+                InventoryDate = new DateTime(2016, 1, 4)
+            },
+            new Inventory
+            {
+                Name = "Ростомір",
+                InventoryNumber = 21398589,
+                Quantity = 9,
+                Price = 1551.32m,
+                InventoryDate = new DateTime(2018, 6, 23)
+            },
+            new Inventory
+            {
+                Name = "Рулетка для вимірів",
+                InventoryNumber = 86765452,
+                Quantity = 3,
+                Price = 2655.51m,
+                InventoryDate = new DateTime(2011, 8, 23)
+            },
+            new Inventory
+            {
+                Name = "Рулетка, шнур мірний",
+                InventoryNumber = 89230866,
+                Quantity = 45,
+                Price = 1466.87m,
+                InventoryDate = new DateTime(2014, 1, 26)
+            },
+            new Inventory
+            {
+                Name = "Свисток",
+                InventoryNumber = 83260473,
+                Quantity = 25,
+                Price = 1843.76m,
+                InventoryDate = new DateTime(2021, 3, 2)
+            },
+            new Inventory
+            {
+                Name = "Світловідбивні жилети для дітей",
+                InventoryNumber = 63019312,
+                Quantity = 31,
+                Price = 875.69m,
+                InventoryDate = new DateTime(2016, 3, 17)
+            },
+            new Inventory
+            {
+                Name = "Секундомір",
+                InventoryNumber = 93583467,
+                Quantity = 25,
+                Price = 590.13m,
+                InventoryDate = new DateTime(2011, 5, 25)
+            },
+            new Inventory
+            {
+                Name = "Силовий тренажер",
+                InventoryNumber = 68679715,
+                Quantity = 34,
+                Price = 2307.44m,
+                InventoryDate = new DateTime(2019, 12, 1)
+            },
+            new Inventory
+            {
+                Name = "Сітка бадмінтонна",
+                InventoryNumber = 52998329,
+                Quantity = 17,
+                Price = 1864.46m,
+                InventoryDate = new DateTime(2015, 3, 2)
+            },
+            new Inventory
+            {
+                Name = "Сітка баскетбольна",
+                InventoryNumber = 78784896,
+                Quantity = 47,
+                Price = 395.33m,
+                InventoryDate = new DateTime(2017, 9, 17)
+            },
+            new Inventory
+            {
+                Name = "Сітка безпеки",
+                InventoryNumber = 56685273,
+                Quantity = 9,
+                Price = 2891.68m,
+                InventoryDate = new DateTime(2016, 2, 24)
+            },
+            new Inventory
+            {
+                Name = "Сітка волейбольна",
+                InventoryNumber = 57280593,
+                Quantity = 17,
+                Price = 2522.94m,
+                InventoryDate = new DateTime(2014, 2, 3)
+            },
+            new Inventory
+            {
+                Name = "Сітка для тенісу настільного",
+                InventoryNumber = 67734087,
+                Quantity = 44,
+                Price = 1499.08m,
+                InventoryDate = new DateTime(2017, 8, 10)
+            },
+            new Inventory
+            {
+                Name = "Сітка для футбольних воріт",
+                InventoryNumber = 25720970,
+                Quantity = 4,
+                Price = 1674.73m,
+                InventoryDate = new DateTime(2017, 6, 25)
+            },
+            new Inventory
+            {
+                Name = "Сітка тенісна",
+                InventoryNumber = 49768231,
+                Quantity = 9,
+                Price = 1142.77m,
+                InventoryDate = new DateTime(2013, 10, 8)
+            },
+            new Inventory
+            {
+                Name = "Скакалка",
+                InventoryNumber = 54001960,
+                Quantity = 16,
+                Price = 2480.88m,
+                InventoryDate = new DateTime(2017, 6, 7)
+            },
+            new Inventory
+            {
+                Name = "Словники з української мови та мов корінних народів, національних меншин, у тому числі ілюстровані та/або комбіновані: антонімів",
+                InventoryNumber = 91311042,
+                Quantity = 10,
+                Price = 1656.55m,
+                InventoryDate = new DateTime(2021, 3, 17)
+            },
+            new Inventory
+            {
+                Name = "Словники з української мови та мов корінних народів, національних меншин, у тому числі ілюстровані та/або комбіновані: орфографічний",
+                InventoryNumber = 27956141,
+                Quantity = 9,
+                Price = 729.73m,
+                InventoryDate = new DateTime(2016, 10, 11)
+            },
+            new Inventory
+            {
+                Name = "Словники з української мови та мов корінних народів, національних меншин, у тому числі ілюстровані та/або комбіновані: перекладний",
+                InventoryNumber = 62526946,
+                Quantity = 8,
+                Price = 943.77m,
+                InventoryDate = new DateTime(2019, 6, 17)
+            },
+            new Inventory
+            {
+                Name = "Словники з української мови та мов корінних народів, національних меншин, у тому числі ілюстровані та/або комбіновані: синонімів",
+                InventoryNumber = 14009647,
+                Quantity = 47,
+                Price = 2171.84m,
+                InventoryDate = new DateTime(2012, 1, 27)
+            },
+            new Inventory
+            {
+                Name = "Словники з української мови та мов корінних народів, національних меншин, у тому числі ілюстровані та/або комбіновані: тлумачний",
+                InventoryNumber = 53644093,
+                Quantity = 16,
+                Price = 1773.65m,
+                InventoryDate = new DateTime(2017, 10, 23)
+            },
+            new Inventory
+            {
+                Name = "Словники перекладні, в тому числі ілюстровані",
+                InventoryNumber = 36040030,
+                Quantity = 3,
+                Price = 1167.54m,
+                InventoryDate = new DateTime(2013, 9, 13)
+            },
+            new Inventory
+            {
+                Name = "Спортивна мішень",
+                InventoryNumber = 82934930,
+                Quantity = 13,
+                Price = 2571.71m,
+                InventoryDate = new DateTime(2021, 5, 9)
+            },
+            new Inventory
+            {
+                Name = "Спортивний інвентар: гімнастичні палиці",
+                InventoryNumber = 69011035,
+                Quantity = 47,
+                Price = 1277.53m,
+                InventoryDate = new DateTime(2021, 8, 17)
+            },
+            new Inventory
+            {
+                Name = "Спортивний інвентар: м’яч",
+                InventoryNumber = 98314932,
+                Quantity = 37,
+                Price = 2609.56m,
+                InventoryDate = new DateTime(2013, 7, 16)
+            },
+            new Inventory
+            {
+                Name = "Спортивний інвентар: обруч",
+                InventoryNumber = 56890811,
+                Quantity = 41,
+                Price = 588.01m,
+                InventoryDate = new DateTime(2017, 6, 26)
+            },
+            new Inventory
+            {
+                Name = "Спортивний інвентар: скакалка",
+                InventoryNumber = 13480369,
+                Quantity = 32,
+                Price = 1144.15m,
+                InventoryDate = new DateTime(2015, 3, 21)
+            },
+            new Inventory
+            {
+                Name = "Станок хореографічний",
+                InventoryNumber = 11682847,
+                Quantity = 17,
+                Price = 1407.06m,
+                InventoryDate = new DateTime(2020, 12, 6)
+            },
+            new Inventory
+            {
+                Name = "Стартовий блок",
+                InventoryNumber = 77934436,
+                Quantity = 5,
+                Price = 1693.93m,
+                InventoryDate = new DateTime(2015, 6, 3)
+            },
+            new Inventory
+            {
+                Name = "Стійка для виконання вправ з м’ячем",
+                InventoryNumber = 60666699,
+                Quantity = 25,
+                Price = 2085.38m,
+                InventoryDate = new DateTime(2021, 7, 3)
+            },
+            new Inventory
+            {
+                Name = "Стійка для гантелей розбірних",
+                InventoryNumber = 94039574,
+                Quantity = 4,
+                Price = 1500.21m,
+                InventoryDate = new DateTime(2019, 9, 26)
+            },
+            new Inventory
+            {
+                Name = "Стійка для стрибків у висоту",
+                InventoryNumber = 36389693,
+                Quantity = 12,
+                Price = 2410.22m,
+                InventoryDate = new DateTime(2021, 11, 22)
+            },
+            new Inventory
+            {
+                Name = "Стійка з набором гантелей хромованих від 0,5 до 10 кг",
+                InventoryNumber = 93831411,
+                Quantity = 12,
+                Price = 2133.95m,
+                InventoryDate = new DateTime(2018, 12, 9)
+            },
+            new Inventory
+            {
+                Name = "Стійка під диски",
+                InventoryNumber = 24508933,
+                Quantity = 8,
+                Price = 2351.51m,
+                InventoryDate = new DateTime(2018, 6, 14)
+            },
+            new Inventory
+            {
+                Name = "Стійка під штанги для присідання зі штангою",
+                InventoryNumber = 12263449,
+                Quantity = 5,
+                Price = 1159.57m,
+                InventoryDate = new DateTime(2011, 1, 27)
+            },
+            new Inventory
+            {
+                Name = "Стійки бадмінтонні переносні",
+                InventoryNumber = 30894866,
+                Quantity = 3,
+                Price = 226.30m,
+                InventoryDate = new DateTime(2013, 6, 5)
+            },
+            new Inventory
+            {
+                Name = "Стійки тенісні",
+                InventoryNumber = 32801168,
+                Quantity = 11,
+                Price = 1803.64m,
+                InventoryDate = new DateTime(2017, 7, 20)
+            },
+            new Inventory
+            {
+                Name = "Стіл (парта) учнівський(а)",
+                InventoryNumber = 47659413,
+                Quantity = 41,
+                Price = 624.30m,
+                InventoryDate = new DateTime(2019, 6, 6)
+            },
+            new Inventory
+            {
+                Name = "Стіл для малювання піском",
+                InventoryNumber = 46041942,
+                Quantity = 44,
+                Price = 1593.14m,
+                InventoryDate = new DateTime(2015, 10, 13)
+            },
+            new Inventory
+            {
+                Name = "Стіл для роботи з конструктором(ами)",
+                InventoryNumber = 38889209,
+                Quantity = 14,
+                Price = 1835.30m,
+                InventoryDate = new DateTime(2011, 10, 19)
+            },
+            new Inventory
+            {
+                Name = "Стіл для тенісу настільного",
+                InventoryNumber = 58283947,
+                Quantity = 11,
+                Price = 735.46m,
+                InventoryDate = new DateTime(2020, 9, 25)
+            },
+            new Inventory
+            {
+                Name = "Стіл учительський",
+                InventoryNumber = 74864416,
+                Quantity = 33,
+                Price = 2265.26m,
+                InventoryDate = new DateTime(2016, 6, 22)
+            },
+            new Inventory
+            {
+                Name = "Стілець для вчителя",
+                InventoryNumber = 74691993,
+                Quantity = 30,
+                Price = 1807.65m,
+                InventoryDate = new DateTime(2011, 3, 19)
+            },
+            new Inventory
+            {
+                Name = "Стілець учнівський",
+                InventoryNumber = 36588460,
+                Quantity = 12,
+                Price = 1834.44m,
+                InventoryDate = new DateTime(2012, 9, 4)
+            },
+            new Inventory
+            {
+                Name = "Стінка гімнастична",
+                InventoryNumber = 49890972,
+                Quantity = 43,
+                Price = 755.43m,
+                InventoryDate = new DateTime(2017, 12, 6)
+            },
+            new Inventory
+            {
+                Name = "Струни для ракетки",
+                InventoryNumber = 61300247,
+                Quantity = 12,
+                Price = 1284.20m,
+                InventoryDate = new DateTime(2021, 1, 10)
+            },
+            new Inventory
+            {
+                Name = "Сумка для м’ячів",
+                InventoryNumber = 55121459,
+                Quantity = 29,
+                Price = 343.79m,
+                InventoryDate = new DateTime(2014, 1, 24)
+            },
+            new Inventory
+            {
+                Name = "Схеми/таблиці/картки про будову комп’ютера",
+                InventoryNumber = 52317764,
+                Quantity = 43,
+                Price = 1385.02m,
+                InventoryDate = new DateTime(2019, 8, 7)
+            },
+            new Inventory
+            {
+                Name = "Таблиці загальних тем (організація робочого місця, правила безпеки на уроці, правила користування окремими інструментами, економне ставлення до використання матеріалів)",
+                InventoryNumber = 86743135,
+                Quantity = 13,
+                Price = 184.04m,
+                InventoryDate = new DateTime(2021, 9, 16)
+            },
+            new Inventory
+            {
+                Name = "Таблиці, плакати, календарі до пам’ятних дат (подій) держави, традицій і свят українського народу",
+                InventoryNumber = 15434452,
+                Quantity = 19,
+                Price = 1635.45m,
+                InventoryDate = new DateTime(2011, 5, 25)
+            },
+            new Inventory
+            {
+                Name = "Таблиці, плакати, календарі ілюстрації історичних пам’ятників, архітектурних споруд, пам’яток культури, об’єктів культурно-історичної спадщини рідного краю, України",
+                InventoryNumber = 67608853,
+                Quantity = 6,
+                Price = 2132.24m,
+                InventoryDate = new DateTime(2016, 12, 6)
+            },
+            new Inventory
+            {
+                Name = "Таблиці, плакати, календарі ілюстрації предметів народно-ужиткового побуту",
+                InventoryNumber = 43941429,
+                Quantity = 39,
+                Price = 1759.17m,
+                InventoryDate = new DateTime(2013, 7, 20)
+            },
+            new Inventory
+            {
+                Name = "Таблиці, плакати, календарі охорони природи і довкілля",
+                InventoryNumber = 62173934,
+                Quantity = 49,
+                Price = 542.21m,
+                InventoryDate = new DateTime(2019, 9, 24)
+            },
+            new Inventory
+            {
+                Name = "Таблиці, плакати, календарі портрети історичних осіб, політичних діячів, визначних постатей",
+                InventoryNumber = 72825359,
+                Quantity = 35,
+                Price = 604.93m,
+                InventoryDate = new DateTime(2021, 10, 20)
+            },
+            new Inventory
+            {
+                Name = "Таблиці: з кольорознавства",
+                InventoryNumber = 27247623,
+                Quantity = 32,
+                Price = 1549.41m,
+                InventoryDate = new DateTime(2020, 11, 19)
+            },
+            new Inventory
+            {
+                Name = "Таблиці: з тем навчальної програми",
+                InventoryNumber = 83466752,
+                Quantity = 21,
+                Price = 553.79m,
+                InventoryDate = new DateTime(2013, 9, 27)
+            },
+            new Inventory
+            {
+                Name = "Таблиці: зразки різних видів мистецтва",
+                InventoryNumber = 22929883,
+                Quantity = 47,
+                Price = 2654.57m,
+                InventoryDate = new DateTime(2013, 5, 25)
+            },
+            new Inventory
+            {
+                Name = "Таблиці: репродукції картин художників",
+                InventoryNumber = 69489138,
+                Quantity = 31,
+                Price = 2081.68m,
+                InventoryDate = new DateTime(2014, 5, 22)
+            },
+            new Inventory
+            {
+                Name = "Танграм",
+                InventoryNumber = 48085671,
+                Quantity = 15,
+                Price = 2083.50m,
+                InventoryDate = new DateTime(2018, 5, 20)
+            },
+            new Inventory
+            {
+                Name = "Телевізор Smart TV",
+                InventoryNumber = 74022200,
+                Quantity = 32,
+                Price = 1145.12m,
+                InventoryDate = new DateTime(2021, 5, 10)
+            },
+            new Inventory
+            {
+                Name = "Телурій",
+                InventoryNumber = 73937244,
+                Quantity = 27,
+                Price = 2659.08m,
+                InventoryDate = new DateTime(2021, 6, 5)
+            },
+            new Inventory
+            {
+                Name = "Термометр (зовнішній, кімнатний)",
+                InventoryNumber = 57709343,
+                Quantity = 19,
+                Price = 923.19m,
+                InventoryDate = new DateTime(2013, 8, 22)
+            },
+            new Inventory
+            {
+                Name = "Тренажер для м’язів живота",
+                InventoryNumber = 95152971,
+                Quantity = 23,
+                Price = 1060.59m,
+                InventoryDate = new DateTime(2014, 5, 5)
+            },
+            new Inventory
+            {
+                Name = "Тренажер для м’язів ніг",
+                InventoryNumber = 13330142,
+                Quantity = 42,
+                Price = 852.19m,
+                InventoryDate = new DateTime(2019, 6, 18)
+            },
+            new Inventory
+            {
+                Name = "Тренажер для м’язів рук",
+                InventoryNumber = 96839414,
+                Quantity = 6,
+                Price = 175.25m,
+                InventoryDate = new DateTime(2015, 6, 2)
+            },
+            new Inventory
+            {
+                Name = "Тренажер для м’язів спини",
+                InventoryNumber = 64254737,
+                Quantity = 8,
+                Price = 1761.28m,
+                InventoryDate = new DateTime(2016, 7, 24)
+            },
+            new Inventory
+            {
+                Name = "Тренажер для сідничних м’язів",
+                InventoryNumber = 11964357,
+                Quantity = 37,
+                Price = 604.92m,
+                InventoryDate = new DateTime(2016, 10, 28)
+            },
+            new Inventory
+            {
+                Name = "Тренажер комбінований",
+                InventoryNumber = 53555521,
+                Quantity = 12,
+                Price = 1993.40m,
+                InventoryDate = new DateTime(2021, 10, 27)
+            },
+            new Inventory
+            {
+                Name = "Тренажер лижний",
+                InventoryNumber = 44789530,
+                Quantity = 22,
+                Price = 964.46m,
+                InventoryDate = new DateTime(2013, 12, 15)
+            },
+            new Inventory
+            {
+                Name = "Фігури людини і тварин з рухомими частинами",
+                InventoryNumber = 19073897,
+                Quantity = 49,
+                Price = 405.98m,
+                InventoryDate = new DateTime(2014, 12, 9)
+            },
+            new Inventory
+            {
+                Name = "Фітнес-канат",
+                InventoryNumber = 22461066,
+                Quantity = 4,
+                Price = 2645.63m,
+                InventoryDate = new DateTime(2013, 8, 14)
+            },
+            new Inventory
+            {
+                Name = "Фішки",
+                InventoryNumber = 28113189,
+                Quantity = 21,
+                Price = 2791.32m,
+                InventoryDate = new DateTime(2016, 4, 18)
+            },
+            new Inventory
+            {
+                Name = "Числова лінійка: від 0 до 100 з набором карток до неї (десятки, одиниці, чисті)",
+                InventoryNumber = 97635052,
+                Quantity = 25,
+                Price = 126.76m,
+                InventoryDate = new DateTime(2013, 4, 6)
+            },
+            new Inventory
+            {
+                Name = "Числова лінійка: від 0 до 1000 з набором карток до неї (сотні, десятки, одиниці, чисті)",
+                InventoryNumber = 95993051,
+                Quantity = 3,
+                Price = 1124.43m,
+                InventoryDate = new DateTime(2012, 1, 2)
+            },
+            new Inventory
+            {
+                Name = "Шафа для інвентарю",
+                InventoryNumber = 77513324,
+                Quantity = 20,
+                Price = 601.66m,
+                InventoryDate = new DateTime(2011, 6, 16)
+            },
+            new Inventory
+            {
+                Name = "Шафа/секція/стелаж для особистих речей педагогічного працівника",
+                InventoryNumber = 76257120,
+                Quantity = 37,
+                Price = 2343.91m,
+                InventoryDate = new DateTime(2020, 5, 21)
+            },
+            new Inventory
+            {
+                Name = "Шафи/секції/стелажі для особистих речей дітей/ шафи для одягу / змінного взуття",
+                InventoryNumber = 21363543,
+                Quantity = 12,
+                Price = 1913.55m,
+                InventoryDate = new DateTime(2012, 9, 10)
+            },
+            new Inventory
+            {
+                Name = "Ширма для лялькового театру",
+                InventoryNumber = 11256564,
+                Quantity = 45,
+                Price = 544.27m,
+                InventoryDate = new DateTime(2018, 3, 14)
+            },
+            new Inventory
+            {
+                Name = "Штанга тренувальна",
+                InventoryNumber = 56630706,
+                Quantity = 42,
+                Price = 2151.50m,
+                InventoryDate = new DateTime(2020, 4, 26)
+            },
+            new Inventory
+            {
+                Name = "Штучне покриття корту (хард)",
+                InventoryNumber = 97087198,
+                Quantity = 2,
+                Price = 130.14m,
+                InventoryDate = new DateTime(2019, 6, 6)
+            },
+            new Inventory
+            {
+                Name = "Щит баскетбольний",
+                InventoryNumber = 39369827,
+                Quantity = 7,
+                Price = 2916.46m,
+                InventoryDate = new DateTime(2015, 10, 16)
+            },
+            new Inventory
+            {
+                Name = "Ядро різної ваги",
+                InventoryNumber = 85207321,
+                Quantity = 6,
+                Price = 370.41m,
+                InventoryDate = new DateTime(2013, 2, 1)
+            },

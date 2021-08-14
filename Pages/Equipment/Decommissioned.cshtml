@@ -1,12 +1,12 @@
 ﻿@page
-@model sms.Pages.Equipment.IndexModel
+@model sms.Pages.Equipment.DecommissionedModel
 
 @{
     ViewData["Title"] = "Інвентаризація";
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
-<h1>Інвентаризація - обладнання на обліку</h1>
+<h1>Інвентаризація - списане обладнання</h1>
 
 <form asp-page="./Index" method="get">
     <div class="form-actions no-color">
@@ -17,7 +17,7 @@
                 <i class="fa fa-search"></i>
             </button> |
             <a asp-page="./Index" class="btn btn-default"><i class="fas fa-times"></i></a>
-            <a class="btn btn-outline-secondary" asp-page="./Decommissioned">Списане обладнання<i class="fas fa-external-link-alt ml-1"></i></a>
+            <a class="btn btn-outline-secondary" asp-page="./Index">Обладнання на обліку<i class="fas fa-external-link-alt ml-1"></i></a>
         </p>
     </div>
 </form>
@@ -53,7 +53,7 @@
             <th>
                 <a asp-page="./Index" asp-route-sortOrder="@Model.DateSort"
                    asp-route-currentFilter="@Model.CurrentFilter">
-                    @Html.DisplayNameFor(model => model.Inventory[0].InventoryDate)
+                    @Html.DisplayNameFor(model => model.Inventory[0].DecommissionDate)
                 </a>
             </th>
             <th></th>
@@ -70,7 +70,8 @@
                     </th>
                     <td>
                         @item.Name.Substring(0, Math.Min(item.Name.Length, 70))
-                        @if (item.Name.Length > 70) { <text>...</text> }
+                        @if (item.Name.Length > 70)
+                        {<text>...</text>}
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.InventoryNumber)
@@ -82,7 +83,7 @@
                         @item.Price.ToString("C", System.Globalization.CultureInfo.CreateSpecificCulture("uk"))
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.InventoryDate)
+                        @Html.DisplayFor(modelItem => item.DecommissionDate)
                     </td>
                     <td>
                         <a asp-page="./Edit" asp-route-id="@item.Id"><i class="fas fa-pencil-alt fa-lg"></i></a> |
@@ -102,28 +103,28 @@
     var nextDisabled = !Model.Inventory.HasNextPage ? "disabled" : "";
 }
 
-<a asp-page="./Index"
+<a asp-page="./Decommissioned"
    asp-route-sortOrder="@Model.CurrentSort"
    asp-route-pageIndex="1"
    asp-route-currentFilter="@Model.CurrentFilter"
    class="btn btn-primary @prevDisabled">
     <i class="fas fa-fast-backward"></i>
 </a>
-<a asp-page="./Index"
+<a asp-page="./Decommissioned"
    asp-route-sortOrder="@Model.CurrentSort"
    asp-route-pageIndex="@(Model.Inventory.PageIndex - 1)"
    asp-route-currentFilter="@Model.CurrentFilter"
    class="btn btn-primary @prevDisabled">
     <i class="fas fa-arrow-alt-circle-left fa-lg"></i>
 </a>
-<a asp-page="./Index"
+<a asp-page="./Decommissioned"
    asp-route-sortOrder="@Model.CurrentSort"
    asp-route-pageIndex="@(Model.Inventory.PageIndex + 1)"
    asp-route-currentFilter="@Model.CurrentFilter"
    class="btn btn-primary @nextDisabled">
     <i class="fas fa-arrow-alt-circle-right fa-lg"></i>
 </a>
-<a asp-page="./Index"
+<a asp-page="./Decommissioned"
    asp-route-sortOrder="@Model.CurrentSort"
    asp-route-pageIndex="@(Model.Inventory.TotalPages)"
    asp-route-currentFilter="@Model.CurrentFilter"
