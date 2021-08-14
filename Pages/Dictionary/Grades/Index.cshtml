@@ -22,10 +22,10 @@
 </form>
 
 <table class="row table table-responsive">
-    <thead>
+    <thead style="text-align: center">
         <tr>
             <th scope="col">#</th>
-            <th scope="col" style="text-align: center">
+            <th scope="col">
                 <a asp-page="./Index" asp-route-sortOrder="@Model.NameSort"
                    asp-route-currentFilter="@Model.CurrentFilter">
                     @Html.DisplayNameFor(model => model.Grade[0].FullName)

@@ -1,18 +1,18 @@
 ﻿@page
-@model sms.Pages.Students.IndexModel
+@model sms.Pages.Equipment.IndexModel
 
 @{
-    ViewData["Title"] = "Список учнів";
+    ViewData["Title"] = "Index";
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
-<h1>Список учнів</h1>
+<h1>Інвентар</h1>
 
 <form asp-page="./Index" method="get">
     <div class="form-actions no-color">
         <p>
-            <a asp-page="Create"><i class="fas fa-user-plus fa-lg"></i></a>
-            <input type="text" name="SearchString" value="@Model.CurrentFilter" placeholder="Пошук по ПІБ" />
+            <a asp-page="Create"><i class="fas fa-plus-circle fa-lg"></i></a>
+            <input type="text" name="SearchString" value="@Model.CurrentFilter" placeholder="Пошук" />
             <button type="submit" class="btn btn-default">
                 <i class="fa fa-search"></i>
             </button> |
@@ -21,39 +21,38 @@
     </div>
 </form>
 
-<table class="table table-responsive text-nowrap">
+<table class="table table-responsive text-nowrap table-sm">
     <thead style="text-align: center">
         <tr>
             <th scope="col">#</th>
-            <th scope="col">Фото</th>
-            <th scope="col">
+            <th>
                 <a asp-page="./Index" asp-route-sortOrder="@Model.NameSort"
                    asp-route-currentFilter="@Model.CurrentFilter">
-                    @Html.DisplayNameFor(model => model.Student[0].LastName)
+                    @Html.DisplayNameFor(model => model.Inventory[0].Name)
                 </a>
             </th>
-            <th scope="col">
-                @Html.DisplayNameFor(model => model.Student[0].FirstName)
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.NumberSort"
+                   asp-route-currentFilter="@Model.CurrentFilter">
+                    @Html.DisplayNameFor(model => model.Inventory[0].InventoryNumber)
+                </a>
             </th>
-            <th scope="col">
-                @Html.DisplayNameFor(model => model.Student[0].Patronymic)
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.QtySort"
+                   asp-route-currentFilter="@Model.CurrentFilter">
+                    @Html.DisplayNameFor(model => model.Inventory[0].Quantity)
+                </a>
             </th>
-            <th scope="col">
-                @Html.DisplayNameFor(model => model.Student[0].Gender)
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.PriceSort"
+                   asp-route-currentFilter="@Model.CurrentFilter">
+                    @Html.DisplayNameFor(model => model.Inventory[0].Price)
+                </a>
             </th>
-            <th scope="col">
+            <th>
                 <a asp-page="./Index" asp-route-sortOrder="@Model.DateSort"
                    asp-route-currentFilter="@Model.CurrentFilter">
-                    @Html.DisplayNameFor(model => model.Student[0].DateOfBirth)
-                </a>
-            </th>
-            <th scope="col">
-                @Html.DisplayNameFor(model => model.Student[0].Age)
-            </th>
-            <th scope="col">
-                <a asp-page="./Index" asp-route-sortOrder="@Model.GradeSort"
-                   asp-route-currentFilter="@Model.CurrentFilter">
-                    @Html.DisplayNameFor(model => model.Student[0].Grade.FullName)
+                    @Html.DisplayNameFor(model => model.Inventory[0].InventoryDate)
                 </a>
             </th>
             <th></th>
@@ -62,40 +61,27 @@
     <tbody>
         @{
             int i = 0;
-            foreach (var item in Model.Student)
+            foreach (var item in Model.Inventory)
             {
                 <tr>
                     <th scope="row">
-                        @Model.Student.SeqNum[i]
+                        @Model.Inventory.SeqNum[i]
                     </th>
                     <td>
-                        @if (!string.IsNullOrEmpty(item.ProfilePicture))
-                        {<img src="~/images/avatars/@item.ProfilePicture"
-                              class="rounded-circle"
-                              height="40" width:auto
-                              asp-append-version="true" />
-                        }
+                        @item.Name.Substring(0, Math.Min(item.Name.Length, 70))
+                        @if (item.Name.Length > 70) { <text>...</text> }
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.LastName)
+                        @Html.DisplayFor(modelItem => item.InventoryNumber)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.FirstName)
+                        @Html.DisplayFor(modelItem => item.Quantity)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Patronymic)
+                        @item.Price.ToString("C", System.Globalization.CultureInfo.CreateSpecificCulture("uk"))
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Gender)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DateOfBirth)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Age)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Grade.FullName)
+                        @Html.DisplayFor(modelItem => item.InventoryDate)
                     </td>
                     <td>
                         <a asp-page="./Edit" asp-route-id="@item.Id"><i class="fas fa-pencil-alt fa-lg"></i></a> |
@@ -105,13 +91,14 @@
                 </tr>
                 i++;
             }
+
         }
     </tbody>
 </table>
 
 @{
-    var prevDisabled = !Model.Student.HasPreviousPage ? "disabled" : "";
-    var nextDisabled = !Model.Student.HasNextPage ? "disabled" : "";
+    var prevDisabled = !Model.Inventory.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.Inventory.HasNextPage ? "disabled" : "";
 }
 
 <a asp-page="./Index"
@@ -123,21 +110,21 @@
 </a>
 <a asp-page="./Index"
    asp-route-sortOrder="@Model.CurrentSort"
-   asp-route-pageIndex="@(Model.Student.PageIndex - 1)"
+   asp-route-pageIndex="@(Model.Inventory.PageIndex - 1)"
    asp-route-currentFilter="@Model.CurrentFilter"
    class="btn btn-primary @prevDisabled">
     <i class="fas fa-arrow-alt-circle-left fa-lg"></i>
 </a>
 <a asp-page="./Index"
    asp-route-sortOrder="@Model.CurrentSort"
-   asp-route-pageIndex="@(Model.Student.PageIndex + 1)"
+   asp-route-pageIndex="@(Model.Inventory.PageIndex + 1)"
    asp-route-currentFilter="@Model.CurrentFilter"
    class="btn btn-primary @nextDisabled">
     <i class="fas fa-arrow-alt-circle-right fa-lg"></i>
 </a>
 <a asp-page="./Index"
    asp-route-sortOrder="@Model.CurrentSort"
-   asp-route-pageIndex="@(Model.Student.TotalPages)"
+   asp-route-pageIndex="@(Model.Inventory.TotalPages)"
    asp-route-currentFilter="@Model.CurrentFilter"
    class="btn btn-primary @nextDisabled">
     <i class="fas fa-fast-forward"></i>

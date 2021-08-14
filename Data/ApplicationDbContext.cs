@@ -14,10 +14,12 @@ namespace sms.Data
         {
         }
 
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    base.OnModelCreating(modelBuilder);
-        //}
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder); // do not comment, causes IdentityDbContext errors
+            modelBuilder.Entity<Inventory>()
+                .Property(o => o.Price).HasColumnType("decimal(18,2)");
+        }
 
         public DbSet<Grade> Grades { get; set; }
         public DbSet<Lesson> Lessons { get; set; }
@@ -28,5 +30,6 @@ namespace sms.Data
         public DbSet<Gradebook> Gradebooks { get; set; }
         public DbSet<Assignment> Assignments { get; set; }
         public DbSet<Book> Books { get; set; }
+        public DbSet<Inventory> Inventories { get; set; }
     }
 }

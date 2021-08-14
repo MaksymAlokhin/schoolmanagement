@@ -1,0 +1,56 @@
+﻿@page
+@model sms.Pages.Equipment.DetailsModel
+
+@{
+    ViewData["Title"] = "Деталі";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Деталі</h1>
+
+<div>
+    <h4>Обладнання</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Inventory.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Inventory.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Inventory.InventoryNumber)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Inventory.InventoryNumber)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Inventory.Quantity)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Inventory.Quantity)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Inventory.Price)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Inventory.Price)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Inventory.InventoryDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Inventory.InventoryDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Inventory.DecommissionDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Inventory.DecommissionDate)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Inventory.Id">Редагувати</a> |
+    <a asp-page="./Index">Назад</a>
+</div>

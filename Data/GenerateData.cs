@@ -9,10 +9,10 @@ using System.Text;
 
 namespace sms.Data
 {
-    public class SaveDataToFile
+    public class GenerateData
     {
         private readonly sms.Data.ApplicationDbContext _context;
-        public SaveDataToFile(sms.Data.ApplicationDbContext context)
+        public GenerateData(sms.Data.ApplicationDbContext context)
         {
             _context = context;
         }
@@ -296,6 +296,29 @@ namespace sms.Data
             sb.Replace("StudentId = 130,", "Student = s116,");
             sb.Replace("StudentId = 131,", "Student = s117,");
             sb.Replace("StudentId = 132,", "Student = s118,");
+        }
+        public void GenerateInventory()
+        {
+            Random random = new Random();
+            string[] lines = System.IO.File.ReadAllLines(@"inventory.txt");
+            System.Text.StringBuilder sb = new System.Text.StringBuilder();
+            string text = String.Empty;
+
+            foreach (string line in lines)
+            {
+                sb.Append($"            new Inventory{Environment.NewLine}            {{{Environment.NewLine}                " +
+                    $"Name = \"{line}\",{Environment.NewLine}                InventoryNumber = {random.Next(11111111,100000000)}," +
+                    $"{Environment.NewLine}                Quantity = {random.Next(1, 51)},{Environment.NewLine}                " +
+                    $"Price = {RandomDecimal(random, 100, 3000)}m,{Environment.NewLine}                " +
+                    $"InventoryDate = new DateTime({random.Next(DateTime.Now.Year - 10, DateTime.Now.Year + 1)}, {random.Next(1, 13)}, {random.Next(1, 29)})" +
+                    $"{Environment.NewLine}            }},{Environment.NewLine}");
+                File.WriteAllText("inventory_seed.txt", sb.ToString());
+            }
+
+        }
+        public decimal RandomDecimal(Random rnd, double min, double max)
+        {
+            return Decimal.Round((decimal)(rnd.NextDouble() * (max - min) + min), 2); ;
         }
     }
 }

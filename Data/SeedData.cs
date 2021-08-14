@@ -137,6 +137,10 @@ namespace sms.Data
             {
                 context.AddRange(BooksSeedData.data);
             }
+            if (!context.Inventories.Any())
+            {
+                context.AddRange(InventoriesSeedData.data);
+            }
 
             context.SaveChanges();
         }
