@@ -17,7 +17,7 @@ To create database, type in Package Manager Console (Visual Studio):<br />
 `Update-Database`<br /><br />
 Users are:
 ```
-1@1.com
+newuser@sms.com
 steward@sms.com
 parent@sms.com
 admin@sms.com

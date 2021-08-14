@@ -37,7 +37,7 @@ namespace sms.Data
                 var parentID = await EnsureUser(serviceProvider, testUserPw, "parent@sms.com");
                 await EnsureRole(serviceProvider, parentID, Constants.ParentsRole);
 
-                var newID = await EnsureUser(serviceProvider, testUserPw, "1@1.com");
+                var newID = await EnsureUser(serviceProvider, testUserPw, "newuser@sms.com");
 
                 SeedDB(context, adminID);
             }
