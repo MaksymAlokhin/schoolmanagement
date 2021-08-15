@@ -17,6 +17,7 @@ namespace sms.Pages.Remote
     public class EditModel : PageModel
     {
         private readonly sms.Data.ApplicationDbContext _context;
+        public int? PageIndex { get; set; }
 
         public EditModel(sms.Data.ApplicationDbContext context)
         {
@@ -26,8 +27,9 @@ namespace sms.Pages.Remote
         [BindProperty]
         public Assignment Assignment { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task<IActionResult> OnGetAsync(int? pageIndex, int? id)
         {
+            PageIndex = pageIndex; 
             if (id == null)
             {
                 return NotFound();
@@ -57,7 +59,7 @@ namespace sms.Pages.Remote
 
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(int? pageIndex)
         {
             if (!ModelState.IsValid)
             {
@@ -86,8 +88,12 @@ namespace sms.Pages.Remote
                     throw;
                 }
             }
-
-            return RedirectToPage("./Index", new { gradeId = $"{Assignment.GradeId}", subjectId = $"{Assignment.SubjectId}" });
+            return RedirectToPage("./Index", new
+            {
+                gradeId = $"{Assignment.GradeId}",
+                subjectId = $"{Assignment.SubjectId}",
+                pageIndex = $"{pageIndex}"
+            });
         }
 
         private bool AssignmentExists(int id)

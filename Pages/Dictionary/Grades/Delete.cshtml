@@ -30,6 +30,5 @@
     <form method="post">
         <input type="hidden" asp-for="Grade.Id" />
         <input type="submit" value="Видалити" class="btn btn-danger" /> |
-        <a asp-page="./Index">Назад</a>
-    </form>
+        <a asp-page="./Index" asp-route-pageIndex="@Model.PageIndex">Назад</a>    </form>
 </div>

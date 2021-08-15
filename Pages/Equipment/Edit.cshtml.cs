@@ -14,6 +14,7 @@ namespace sms.Pages.Equipment
     public class EditModel : PageModel
     {
         private readonly sms.Data.ApplicationDbContext _context;
+        public int? PageIndex { get; set; }
 
         public EditModel(sms.Data.ApplicationDbContext context)
         {
@@ -23,8 +24,10 @@ namespace sms.Pages.Equipment
         [BindProperty]
         public Inventory Inventory { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task<IActionResult> OnGetAsync(int? pageIndex, int? id)
         {
+            PageIndex = pageIndex; 
+            
             if (id == null)
             {
                 return NotFound();
@@ -41,7 +44,7 @@ namespace sms.Pages.Equipment
 
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(int? pageIndex)
         {
             if (!ModelState.IsValid)
             {
@@ -66,7 +69,7 @@ namespace sms.Pages.Equipment
                 }
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Index", new { pageIndex = $"{pageIndex}" });
         }
 
         private bool InventoryExists(int id)

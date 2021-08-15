@@ -105,9 +105,9 @@
                         @{
                             var gradeId = Model.gradeList.Where(g => g.Number == item.Grade).Select(g => g.Id).First();
                         }
-                        <a asp-page="./Edit" asp-route-id="@item.Id"><i class="fas fa-pencil-alt fa-lg"></i></a> |
+                        <a asp-page="./Edit" asp-route-id="@item.Id" asp-route-pageIndex="@Model.Book.PageIndex"><i class="fas fa-pencil-alt fa-lg"></i></a> |
                         <a asp-page="./LendStudent" asp-route-id="@item.Id" asp-route-gradeId="@gradeId"><i class="fas fa-book fa-lg"></i></a> |
-                        <a asp-page="./Delete" asp-route-id="@item.Id"><i class="fas fa-trash fa-lg text-danger"></i></a>
+                        <a asp-page="./Delete" asp-route-id="@item.Id" asp-route-pageIndex="@Model.Book.PageIndex"><i class="fas fa-trash fa-lg text-danger"></i></a>
                     </td>
                 </tr>
                 i++;

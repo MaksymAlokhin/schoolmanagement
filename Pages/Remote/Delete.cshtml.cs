@@ -15,6 +15,7 @@ namespace sms.Pages.Remote
     public class DeleteModel : PageModel
     {
         private readonly sms.Data.ApplicationDbContext _context;
+        public int? PageIndex { get; set; }
 
         public DeleteModel(sms.Data.ApplicationDbContext context)
         {
@@ -24,8 +25,10 @@ namespace sms.Pages.Remote
         [BindProperty]
         public Assignment Assignment { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task<IActionResult> OnGetAsync(int? pageIndex, int? id)
         {
+            PageIndex = pageIndex;
+
             if (id == null)
             {
                 return NotFound();
@@ -43,7 +46,7 @@ namespace sms.Pages.Remote
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync(int? id)
+        public async Task<IActionResult> OnPostAsync(int? pageIndex, int? id)
         {
             if (id == null)
             {
@@ -58,7 +61,12 @@ namespace sms.Pages.Remote
                 await _context.SaveChangesAsync();
             }
 
-            return RedirectToPage("./Index", new { gradeId = $"{Assignment.GradeId}", subjectId = $"{Assignment.SubjectId}" });
+            return RedirectToPage("./Index", new
+            {
+                gradeId = $"{Assignment.GradeId}",
+                subjectId = $"{Assignment.SubjectId}",
+                pageIndex = $"{pageIndex}"
+            });
         }
     }
 }

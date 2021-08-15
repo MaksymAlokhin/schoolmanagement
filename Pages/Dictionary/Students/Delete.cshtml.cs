@@ -18,6 +18,7 @@ namespace sms.Pages.Students
     {
         private readonly sms.Data.ApplicationDbContext _context;
         private readonly IWebHostEnvironment webHostEnvironment;
+        public int? PageIndex { get; set; }
 
         public DeleteModel(sms.Data.ApplicationDbContext context, IWebHostEnvironment hostEnvironment)
         {
@@ -28,8 +29,10 @@ namespace sms.Pages.Students
         [BindProperty]
         public Student Student { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task<IActionResult> OnGetAsync(int? pageIndex, int? id)
         {
+            PageIndex = pageIndex; 
+            
             if (id == null)
             {
                 return NotFound();
@@ -48,7 +51,7 @@ namespace sms.Pages.Students
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync(int? id)
+        public async Task<IActionResult> OnPostAsync(int? pageIndex, int? id)
         {
             if (id == null)
             {
@@ -76,7 +79,7 @@ namespace sms.Pages.Students
                 }
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Index", new { pageIndex = $"{pageIndex}" });
         }
     }
 }

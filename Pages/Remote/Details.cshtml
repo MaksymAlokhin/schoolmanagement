@@ -37,15 +37,20 @@
                     </div>
                     <p class="card-text" style="white-space: pre-line;">@Html.Raw(Model.Assignment.Post)</p>
                     <div class="card-footer">
-                        <a class="card-link" asp-page="./Edit" asp-route-id="@Model.Assignment.Id">Редагувати</a>
+                        <a class="card-link" asp-page="./Edit"
+                           asp-route-id="@Model.Assignment.Id"
+                           asp-route-pageIndex="@Model.PageIndex">
+                            Редагувати
+                        </a>
                         <a class="card-link" asp-page="./Index"
                            asp-route-gradeId="@Model.Assignment.GradeId"
-                           asp-route-subjectId="@Model.Assignment.SubjectId">Назад</a>
+                           asp-route-subjectId="@Model.Assignment.SubjectId"
+                           asp-route-pageIndex="@Model.PageIndex">
+                            Назад
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-@*Html.DisplayFor(model => model.Assignment.Post)*@

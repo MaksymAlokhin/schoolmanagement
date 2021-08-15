@@ -26,10 +26,12 @@ namespace sms.Pages.Subjects
         public Subject Subject { get; set; }
         public List<int> selectedTeachers { get; set; }
         public SelectList TeacherNameSL { get; set; }
+        public int? PageIndex { get; set; }
 
-
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task<IActionResult> OnGetAsync(int? pageIndex, int? id)
         {
+            PageIndex = pageIndex; 
+            
             if (id == null)
             {
                 return NotFound();
@@ -57,7 +59,7 @@ namespace sms.Pages.Subjects
 
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync(int? id, int[] selectedTeachers)
+        public async Task<IActionResult> OnPostAsync(int? pageIndex, int? id, int[] selectedTeachers)
         {
             if (!ModelState.IsValid)
             {
@@ -89,7 +91,7 @@ namespace sms.Pages.Subjects
                 }
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Index", new { pageIndex = $"{pageIndex}" });
         }
 
         private bool SubjectExists(int id)

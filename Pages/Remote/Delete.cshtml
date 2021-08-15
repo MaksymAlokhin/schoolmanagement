@@ -44,7 +44,10 @@
                             <input type="submit" value="Видалити" class="btn btn-danger card-link" />
                             <a class="card-link" asp-page="./Index"
                                asp-route-gradeId="@Model.Assignment.GradeId"
-                               asp-route-subjectId="@Model.Assignment.SubjectId">Назад</a>
+                               asp-route-subjectId="@Model.Assignment.SubjectId"
+                               asp-route-pageIndex="@Model.PageIndex">
+                                Назад
+                            </a>
                         </div>
                     </form>
                 </div>

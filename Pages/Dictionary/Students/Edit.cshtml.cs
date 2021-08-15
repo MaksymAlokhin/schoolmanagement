@@ -31,6 +31,7 @@ namespace sms.Pages.Students
         public int GradeNumber { get; set; }
         public SelectList GradeLettersSL { get; set; }
         public string GradeLetter { get; set; }
+        public int? PageIndex { get; set; }
         public IFormFile FormFile { get; set; }
         private readonly string[] permittedExtensions = { ".jpg", ".jpeg", ".png", ".gif", ".bmp", ".tif", ".tiff" };
         public string Gender { get; set; } = "Не вказано";
@@ -39,8 +40,10 @@ namespace sms.Pages.Students
         [BindProperty]
         public Student Student { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task<IActionResult> OnGetAsync(int? pageIndex, int? id)
         {
+            PageIndex = pageIndex; 
+            
             if (id == null)
             {
                 return NotFound();
@@ -62,7 +65,7 @@ namespace sms.Pages.Students
 
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync(int? id, int GradeNumber, string GradeLetter, string Gender)
+        public async Task<IActionResult> OnPostAsync(int? pageIndex, int? id, int GradeNumber, string GradeLetter, string Gender)
         {
             var studentToUpdate = _context.Students.Include(t => t.Grade).Single(s => s.Id == id);
 
@@ -125,7 +128,7 @@ namespace sms.Pages.Students
                     throw;
                 }
             }
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Index", new { pageIndex = $"{pageIndex}" });
         }
 
         private bool StudentExists(int id)

@@ -13,6 +13,7 @@ namespace sms.Pages.Dictionary.Curricula
     public class DeleteModel : PageModel
     {
         private readonly sms.Data.ApplicationDbContext _context;
+        public int? PageIndex { get; set; }
 
         public DeleteModel(sms.Data.ApplicationDbContext context)
         {
@@ -22,8 +23,10 @@ namespace sms.Pages.Dictionary.Curricula
         [BindProperty]
         public Curriculum Curriculum { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task<IActionResult> OnGetAsync(int? pageIndex, int? id)
         {
+            PageIndex = pageIndex; 
+            
             if (id == null)
             {
                 return NotFound();
@@ -41,7 +44,7 @@ namespace sms.Pages.Dictionary.Curricula
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync(int? id)
+        public async Task<IActionResult> OnPostAsync(int? pageIndex, int? id)
         {
             if (id == null)
             {
@@ -56,7 +59,7 @@ namespace sms.Pages.Dictionary.Curricula
                 await _context.SaveChangesAsync();
             }
 
-            return RedirectToPage("./Index", new { gradeId = $"{Curriculum.GradeId}" });
+            return RedirectToPage("./Index", new { gradeId = $"{Curriculum.GradeId}", pageIndex = $"{pageIndex}" });
         }
     }
 }

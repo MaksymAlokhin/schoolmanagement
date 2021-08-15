@@ -15,6 +15,7 @@ namespace sms.Pages.Students
     public class DetailsModel : PageModel
     {
         private readonly sms.Data.ApplicationDbContext _context;
+        public int? PageIndex { get; set; }
 
         public DetailsModel(sms.Data.ApplicationDbContext context)
         {
@@ -23,8 +24,10 @@ namespace sms.Pages.Students
 
         public Student Student { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task<IActionResult> OnGetAsync(int? pageIndex, int? id)
         {
+            PageIndex = pageIndex; 
+            
             if (id == null)
             {
                 return NotFound();

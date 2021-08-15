@@ -51,7 +51,7 @@ namespace sms.Pages.Subjects
                     }
                 }
 
-                _context.Subjects.Add(Subject);
+                _context.Subjects.Add(newSubject);
                 await _context.SaveChangesAsync();
                 return RedirectToPage("./Index");
             }

@@ -62,6 +62,6 @@
     </dl>
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.Teacher.Id">Редагувати</a> |
-    <a asp-page="./Index">Назад</a>
+    <a asp-page="./Edit" asp-route-id="@Model.Teacher.Id" asp-route-pageIndex="@Model.PageIndex">Редагувати</a> |
+    <a asp-page="./Index" asp-route-pageIndex="@Model.PageIndex">Назад</a>
 </div>

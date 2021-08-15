@@ -16,6 +16,7 @@ namespace sms.Pages.Grades
     public class EditModel : PageModel
     {
         private readonly sms.Data.ApplicationDbContext _context;
+        public int? PageIndex { get; set; }
 
         public EditModel(sms.Data.ApplicationDbContext context)
         {
@@ -25,8 +26,10 @@ namespace sms.Pages.Grades
         [BindProperty]
         public Grade Grade { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task<IActionResult> OnGetAsync(int? pageIndex, int? id)
         {
+            PageIndex = pageIndex; 
+            
             if (id == null)
             {
                 return NotFound();
@@ -43,7 +46,7 @@ namespace sms.Pages.Grades
 
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(int? pageIndex)
         {
             if (!ModelState.IsValid)
             {
@@ -68,7 +71,7 @@ namespace sms.Pages.Grades
                 }
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Index", new { pageIndex = $"{pageIndex}" });
         }
 
         private bool GradeExists(int id)

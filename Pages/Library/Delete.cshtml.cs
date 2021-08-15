@@ -15,6 +15,7 @@ namespace sms.Pages.Library
     public class DeleteModel : PageModel
     {
         private readonly sms.Data.ApplicationDbContext _context;
+        public int? PageIndex { get; set; }
 
         public DeleteModel(sms.Data.ApplicationDbContext context)
         {
@@ -24,8 +25,9 @@ namespace sms.Pages.Library
         [BindProperty]
         public Book Book { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task<IActionResult> OnGetAsync(int? pageIndex, int? id)
         {
+            PageIndex = pageIndex; 
             if (id == null)
             {
                 return NotFound();
@@ -40,7 +42,7 @@ namespace sms.Pages.Library
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync(int? id)
+        public async Task<IActionResult> OnPostAsync(int? pageIndex, int? id)
         {
             if (id == null)
             {
@@ -55,7 +57,7 @@ namespace sms.Pages.Library
                 await _context.SaveChangesAsync();
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Index", new { pageIndex = $"{pageIndex}" });
         }
     }
 }

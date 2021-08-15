@@ -13,7 +13,7 @@ namespace sms.Pages.Equipment
     public class DetailsModel : PageModel
     {
         private readonly sms.Data.ApplicationDbContext _context;
-        public string PageIndex { get; set; }
+        public int? PageIndex { get; set; }
 
         public DetailsModel(sms.Data.ApplicationDbContext context)
         {
@@ -22,7 +22,7 @@ namespace sms.Pages.Equipment
 
         public Inventory Inventory { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(string pageIndex, int? id)
+        public async Task<IActionResult> OnGetAsync(int? pageIndex, int? id)
         {
             PageIndex = pageIndex;
 
@@ -39,7 +39,7 @@ namespace sms.Pages.Equipment
             }
             return Page();
         }
-        public async Task<IActionResult> OnPostAsync(string pageIndex, int? id)
+        public async Task<IActionResult> OnPostAsync(int? pageIndex, int? id)
         {
             if (id == null)
             {

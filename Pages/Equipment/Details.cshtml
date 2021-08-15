@@ -57,7 +57,7 @@
     @if (Model.Inventory.DecommissionDate.HasValue)
     {
         <input type="submit" value="Поставити на облік" class="btn btn-success" /> @:|
-        <a asp-page="./Edit" asp-route-id="@Model.Inventory.Id">Редагувати</a> @:|
+        <a asp-page="./Edit" asp-route-id="@Model.Inventory.Id" asp-route-pageIndex="@Model.PageIndex">Редагувати</a> @:|
         <a asp-page="./Decommissioned" asp-route-pageIndex="@Model.PageIndex">Назад</a>
     }
     else
