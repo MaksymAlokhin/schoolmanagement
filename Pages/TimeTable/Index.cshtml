@@ -6,27 +6,6 @@
 
 <h1>Розклад уроків - вчителі</h1>
 
-@*<form method="get">
-        <div class="form-group">
-            <label class="control-label"><i class="fas fa-calendar-day"></i></label>
-            <select style="width:60px" name="day" onchange="this.form.submit();">
-                @foreach (var item in Model.Days)
-                {
-                    if (item.Text == Model.selectedDay)
-                    {
-                        <option value="@item.Text" selected>@item.Text</option>
-                    }
-                    else
-                    {
-                        <option value="@item.Text">@item.Text</option>
-                    }
-
-                }
-            </select>
-        </div>
-    </form>*@
-
-
 <div class="container">
     <div class="row">
         <div class="col-sm">
@@ -42,9 +21,6 @@
         </div>
     </div>
 </div>
-
-
-
 
 <div class="table-responsive col-container" id="schoolTable">
     <table class="table table-hover table-bordered table-striped">

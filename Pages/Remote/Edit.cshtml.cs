@@ -35,11 +35,15 @@ namespace sms.Pages.Remote
                 return NotFound();
             }
 
+            //Get data from DB
+            //Завантаження даних з БД
             Assignment = await _context.Assignments
                 .Include(a => a.Grade)
                 .Include(a => a.Subject)
                 .Include(a => a.Teacher).FirstOrDefaultAsync(m => m.Id == id);
 
+            //Initialize assignment with static data
+            //Ініціалізація даними, що не редагуються
             Grade grade = _context.Grades.Single(g => g.Id == Assignment.GradeId);
             Subject subject = _context.Subjects.Single(s => s.Id == Assignment.SubjectId);
             int teacherId = _context.Curricula
@@ -67,10 +71,13 @@ namespace sms.Pages.Remote
             }
 
             //HtmlSanitizer – cleans html from constructs that can be used for cross site scripting (XSS)
+            //HtmlSanitizer - захист від XSS
             var sanitizer = new HtmlSanitizer();
             var sanitized = sanitizer.Sanitize(Assignment.Post);
             Assignment.Post = sanitized;
 
+            //Save edited data to DB
+            //Збереження змін у БД
             _context.Attach(Assignment).State = EntityState.Modified;
 
             try

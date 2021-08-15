@@ -29,6 +29,8 @@ namespace sms.Pages.Remote
             selectedGrade = gradeId;
             selectedSubject = subjectId;
 
+            //Initialize assignment with static data
+            //Ініціалізація даними, що не редагуються
             Assignment = new Assignment();
             Assignment.GradeId = gradeId;
             Assignment.SubjectId = subjectId;
@@ -59,10 +61,13 @@ namespace sms.Pages.Remote
             }
 
             //HtmlSanitizer – cleans html from constructs that can be used for cross site scripting (XSS)
+            //HtmlSanitizer - захист від XSS
             var sanitizer = new HtmlSanitizer();
             var sanitized = sanitizer.Sanitize(Assignment.Post);
             Assignment.Post = sanitized;
 
+            //Save new assignment to DB
+            //Збереження даних у БД
             _context.Assignments.Add(Assignment);
             await _context.SaveChangesAsync();
 

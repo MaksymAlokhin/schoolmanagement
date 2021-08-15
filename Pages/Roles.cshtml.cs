@@ -41,12 +41,13 @@ namespace sms.Pages
         public IList<UserRoles> userRoles { get; set; }
 
         public IList<IdentityUser> users { get; set; }
-        public async Task OnGetAsync(string sortOrder, string currentFilter, string searchString, bool noRoles, int? pageIndex)
+        public async Task OnGetAsync(string sortOrder, string currentFilter, 
+            string searchString, bool noRoles, int? pageIndex)
         {
             //Dropdown for roles
+            //Випадаючий список ролей
             var rolesQuery = _context.Roles.OrderBy(r => r.Name);
-            RoleNameSL = new SelectList(rolesQuery.AsNoTracking(),
-                        "Name", "Name");
+            RoleNameSL = new SelectList(rolesQuery.AsNoTracking(), "Name", "Name");
 
             CurrentSort = sortOrder; 
             NameSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
@@ -91,11 +92,15 @@ namespace sms.Pages
                 }
             }
 
+            //Search filter
+            //Фільтр пошуку
             if (!String.IsNullOrEmpty(searchString))
             {
                 userRoles = userRoles.Where(s => s.UserName.Contains(searchString)).ToList();
             }
 
+            //Sort order
+            //Сортування
             switch (sortOrder)
             {
                 case "name_desc":
@@ -113,6 +118,7 @@ namespace sms.Pages
             }
 
             //Pagination
+            //Розподіл на сторінки
             var pageSize = Configuration.GetValue("PageSize", 10);
             userRolesPaginated = PaginatedList<UserRoles>.CreateFromList(
                 userRoles, pageIndex ?? 1, pageSize);
@@ -120,27 +126,36 @@ namespace sms.Pages
 
         public async Task<IActionResult> OnPostAsync(string mainid, string rolename, bool noRoles, int? pageIndex)
         {
-            //Save checkbox state
             NoRolesCheckbox = noRoles;
+            
             //Get all roles
+            //Отримання всіх ролей
             var rolesQuery = _context.Roles.OrderBy(r => r.Name).ToList();
             string allroles = string.Join(",", rolesQuery);
 
             //Get user and his role by id
+            //Визначення користувача і ролі за id
             var user = await _usermanager.FindByIdAsync(mainid);
             var roles = await _usermanager.GetRolesAsync(user);
 
             //Remove old role before adding new one
+            //Видалення старої ролі перед додаванням нової
             await _usermanager.RemoveFromRolesAsync(user, roles);
 
-            //Check if there is an existing role befor assigning it.
-            //Без повноважень is not added (or you get error)
+            //Check if role actually exists, before assigning it
+            //Без повноважень is a ficticious role that should not be added
+            //
+            //Перевірка, чи роль дійсно існує, перш ніж додавати її користувачеві
+            //Без повноважень не можна додавати як роль
             if (allroles.Contains(rolename)) await _usermanager.AddToRoleAsync(user, rolename);
 
             return RedirectToPage("/Roles", new { noRoles = noRoles, pageIndex = pageIndex });
         }
 
     }
+    
+    //Data structure for page model
+    //Структура даних для представлення користувача на сторінці
     public class UserRoles
     {
         public string UserId { get; set; }

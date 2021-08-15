@@ -34,6 +34,8 @@ namespace sms.Pages.TimeTable
                 return NotFound();
             }
 
+            //Get data from DB
+            //Завантажити дані з БД
             Lesson = await _context.Lessons
                 .Include(l => l.Grade)
                 .Include(l => l.Subject)
@@ -53,6 +55,8 @@ namespace sms.Pages.TimeTable
                 return NotFound();
             }
 
+            //Find record and delete it from DB
+            //Знайти і видалити дані з БД
             Lesson = await _context.Lessons.FindAsync(id);
 
             if (Lesson != null)

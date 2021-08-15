@@ -33,6 +33,8 @@ namespace sms.Pages.TimeTable
             slots = Enumerable.Range(1, 8).ToArray();
             days = new string[] { "Пн", "Вт", "Ср", "Чт", "Пт" };
 
+            //Grades dropdown
+            //Випадаючий список уроків
             GradesSL = new List<SelectListItem>();
             var grades = _context.Grades.OrderBy(g => g.Number).ThenBy(g => g.Letter);
             foreach (Grade g in grades)
@@ -40,7 +42,13 @@ namespace sms.Pages.TimeTable
                 GradesSL.Add(new SelectListItem { Value = $"{g.Id}", Text = $"{g.FullName}" });
             }
 
-            lessons = await _context.Lessons.Where(l => l.GradeId == gradeId).Include(l => l.Grade).Include(l => l.Subject).ToListAsync();
+            //Get data from DB
+            //Завантаження даних з БД
+            lessons = await _context.Lessons
+                .Where(l => l.GradeId == gradeId)
+                .Include(l => l.Grade)
+                .Include(l => l.Subject)
+                .ToListAsync();
         }
     }
 }

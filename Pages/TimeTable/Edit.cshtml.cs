@@ -24,7 +24,7 @@ namespace sms.Pages.TimeTable
 
         [BindProperty]
         public Lesson Lesson { get; set; }
-        public List<SelectListItem> GradesList { get; set; }
+        public List<SelectListItem> GradesSL { get; set; }
         public SelectList SubjectNameSL { get; set; }
 
         public async Task<IActionResult> OnGetAsync(string day, int slot, int teacher)
@@ -40,8 +40,14 @@ namespace sms.Pages.TimeTable
                 return NotFound();
             }
 
+            //Dropdown list of available Grades (that don't have a lesson on this slot)
+            //Випадаючий список класів, у яких зараз немає уроку
             #region Generate Droplist of available Grades for this day and slot
-            var LessonsOnThisDayAndSlot = _context.Lessons.Include(l => l.Grade).Where(l => l.Day == day).Where(l => l.Slot == slot).ToList();
+            var LessonsOnThisDayAndSlot = _context.Lessons
+                .Include(l => l.Grade)
+                .Where(l => l.Day == day)
+                .Where(l => l.Slot == slot)
+                .ToList();
 
             List<int> takenGrades = new List<int>();
 
@@ -51,23 +57,28 @@ namespace sms.Pages.TimeTable
             }
 
             var allGrades = _context.Grades.OrderBy(g => g.Number).ThenBy(g => g.Letter);
-            GradesList = new List<SelectListItem>();
+            GradesSL = new List<SelectListItem>();
             foreach (Grade grade in allGrades)
             {
                 if (!takenGrades.Contains(grade.Id))
                 {
-                    GradesList.Add(new SelectListItem { Value = $"{grade.Id}", Text = $"{grade.FullName}"});
+                    GradesSL.Add(new SelectListItem { Value = $"{grade.Id}", Text = $"{grade.FullName}"});
                 }
                 else if (grade.Id == Lesson.GradeId)
                 {
                     var item = new SelectListItem { Value = $"{grade.Id}", Text = $"{grade.FullName}" };
                     item.Selected = true;
-                    GradesList.Add(item);
+                    GradesSL.Add(item);
                 }
             }
             #endregion
 
-            var subjectsQuery = _context.Subjects.Include(s => s.Teachers).Where(t => t.Teachers.Any(k => k.Id == teacher)).OrderBy(s => s.Name);
+            //Subjects dropdown list
+            //Випадаючий список предметів
+            var subjectsQuery = _context.Subjects
+                .Include(s => s.Teachers)
+                .Where(t => t.Teachers.Any(k => k.Id == teacher))
+                .OrderBy(s => s.Name);
             SubjectNameSL = new SelectList(subjectsQuery.AsNoTracking(), "Id", "Name"); //list, id, value
 
             return Page();
@@ -81,6 +92,9 @@ namespace sms.Pages.TimeTable
             {
                 return Page();
             }
+
+            //Save changed record to DB
+            //Зберегти змінений запис у БД
             _context.Attach(Lesson).State = EntityState.Modified;
             try
             {

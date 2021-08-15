@@ -11,19 +11,19 @@
     <form method="get">
         <div class="row">
             <div class="col-sm-auto">
-                    @if (Model.selectedGrade != 0 && Model.selectedSubject != 0)
-                    {
-                        <a asp-page="Create"
-                           asp-route-gradeId="@Model.selectedGrade"
-                           asp-route-subjectId="@Model.selectedSubject">
-                            <i class="fas fa-plus-circle fa-lg"></i>
-                        </a>
-                    }
+                @if (Model.selectedGrade != 0 && Model.selectedSubject != 0)
+                {
+                    <a asp-page="Create"
+                       asp-route-gradeId="@Model.selectedGrade"
+                       asp-route-subjectId="@Model.selectedSubject">
+                        <i class="fas fa-plus-circle fa-lg"></i>
+                    </a>
+                }
             </div>
             <div class="col-sm-auto">
                 <div class="form-group">
                     <label asp-for="selectedGrade" class="control-label"><i class="fas fa-users"></i></label>
-                    <select asp-for="selectedGrade" name="gradeId" style="width:auto" asp-items="Model.grades">
+                    <select asp-for="selectedGrade" name="gradeId" style="width:auto" asp-items="Model.GradesSL">
                         <option value="0">Оберіть клас</option>
                     </select>
                 </div>
@@ -96,7 +96,8 @@
     <i class="fas fa-arrow-alt-circle-right fa-lg"></i>
 </a>
 
-
+@* Fill subject dropdown *@
+@* Заповнення випадаючого списку предметів *@
 @section scripts{
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     <script>

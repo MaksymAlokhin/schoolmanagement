@@ -49,16 +49,24 @@ namespace sms.Pages.TimeTable
 
         public void OnGetGenerateAsync()
         {
+            //Generate timetable
+            //Генерація розкладу
             Generator gen = new Generator(_context, _logger);
             gen.Generate();
             gen.RemoveGaps();
             var x = gen.lessons;
 
+            //Delete all rows from Lessons table
+            //Видалення усіх рядків з таблиці уроків
             _context.Database.ExecuteSqlRaw("TRUNCATE TABLE [Lessons]");
 
+            //Save generated lessons to DB
+            //Збереження згенерованих уроків у БД
             _context.Lessons.AddRange(x);
             _context.SaveChanges();
 
+            //Get data from DB
+            //Завантаження даних з БД
             teachers = _context.Teachers
                 .OrderBy(i => i.LastName)
                 .ToList();
@@ -67,10 +75,6 @@ namespace sms.Pages.TimeTable
                 .Include(i => i.Grade)
                 .ToList();
             selectedDay = "Пн";
-
-
-            //RedirectToPage("./Index", new { day = $"{selectedDay}" });
-            //Page();
         }
     }
 }

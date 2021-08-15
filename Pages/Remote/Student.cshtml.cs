@@ -18,7 +18,7 @@ namespace sms.Pages.Remote
     {
         private readonly sms.Data.ApplicationDbContext _context;
         private readonly IConfiguration Configuration;
-        public List<SelectListItem> grades;
+        public List<SelectListItem> GradesSL;
         public int selectedGrade;
         public int selectedSubject;
         public string DateSort { get; set; }
@@ -42,6 +42,8 @@ namespace sms.Pages.Remote
 
             DateSort = String.IsNullOrEmpty(sortOrder) ? "date" : "";
 
+            //Subject dropdown list
+            //Випадаючий список предметів
             if (gradeId != 0)
             {
                 SubjectsSL = _context.Curricula
@@ -69,11 +71,13 @@ namespace sms.Pages.Remote
 
             }
 
-            grades = new List<SelectListItem>();
-            var grad = _context.Grades.OrderBy(g => g.Number).ThenBy(g => g.Letter);
-            foreach (Grade g in grad)
+            //Grades dropdown list
+            //Випадаючий список предметів
+            GradesSL = new List<SelectListItem>();
+            var grades = _context.Grades.OrderBy(g => g.Number).ThenBy(g => g.Letter);
+            foreach (Grade g in grades)
             {
-                grades.Add(new SelectListItem { Value = $"{g.Id}", Text = $"{g.FullName}" });
+                GradesSL.Add(new SelectListItem { Value = $"{g.Id}", Text = $"{g.FullName}" });
             }
 
             if (gradeId != 0 && subjectId != 0)
@@ -82,6 +86,8 @@ namespace sms.Pages.Remote
                 IQueryable<Assignment> assignmentsIQ = _context.Assignments
                     .Where(a => a.GradeId == gradeId && a.SubjectId == subjectId);
 
+                //Sort order
+                //Сортування
                 switch (sortOrder)
                 {
                     case "date":
@@ -92,21 +98,25 @@ namespace sms.Pages.Remote
                         break;
                 }
 
+                //Pagination
+                //Розподіл на сторінки
                 //var pageSize = Configuration.GetValue("PageSize", 10);
                 var pageSize = 2;
                 Assignment = await PaginatedList<Assignment>.CreateAsync(
                     assignmentsIQ.AsNoTracking(), pageIndex ?? 1, pageSize);
-
-
-                //Assignment = await assignmentsIQ.AsNoTracking().ToListAsync();
             }
-            //give an empty list
+            //Give an empty list if query properties are empty
+            //Пустий список завдань, якщо на сторінку не надійшли параметри
             else
             {
                 Assignment = await PaginatedList<Assignment>.CreateAsync(
-                 _context.Assignments.Where(x => x.DateOfPost == new DateTime(1, 1, 1)).AsNoTracking(), pageIndex ?? 1, 1);
+                 _context.Assignments
+                 .Where(x => x.DateOfPost == new DateTime(2, 2, 2)) //fictitious date
+                 .AsNoTracking(), pageIndex ?? 1, 1); //pagesize of one
             }
         }
+        //Give data for subjects dropdown list
+        //Дані для ниспадаючого списку предметів
         public JsonResult OnGetSubjects(string gradeId)
         {
             if (!string.IsNullOrWhiteSpace(gradeId))
@@ -123,8 +133,6 @@ namespace sms.Pages.Remote
                         Value = g.SubjectId.ToString(),
                         Text = g.Subject.Name
                     }).ToList();
-
-                //var subj = new SelectList(subjects, "Value", "Text");
 
                 return new JsonResult(subjects);
             }

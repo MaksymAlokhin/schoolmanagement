@@ -34,6 +34,8 @@ namespace sms.Pages.Remote
                 return NotFound();
             }
 
+            //Get data from DB
+            //Завантаження даних з БД
             Assignment = await _context.Assignments
                 .Include(a => a.Grade)
                 .Include(a => a.Subject)
@@ -53,6 +55,8 @@ namespace sms.Pages.Remote
                 return NotFound();
             }
 
+            //Find and remove record from DB
+            //Знаходження та видалення запису у БД
             Assignment = await _context.Assignments.FindAsync(id);
 
             if (Assignment != null)

@@ -12,7 +12,7 @@
             <div class="col-sm-auto">
                 <div class="form-group">
                     <label asp-for="selectedGrade" class="control-label"><i class="fas fa-users"></i></label>
-                    <select asp-for="selectedGrade" name="gradeId" style="width:auto" asp-items="Model.grades">
+                    <select asp-for="selectedGrade" name="gradeId" style="width:auto" asp-items="Model.GradesSL">
                         <option value="0">Оберіть клас</option>
                     </select>
                 </div>
@@ -79,7 +79,8 @@
     <i class="fas fa-arrow-alt-circle-right fa-lg"></i>
 </a>
 
-
+@* Fill subject dropdown *@
+@* Заповнення випадаючого списку предметів *@
 @section scripts{
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     <script>
