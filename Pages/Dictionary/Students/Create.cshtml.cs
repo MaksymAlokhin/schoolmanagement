@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using sms;
 using sms.Data;
+using sms.Models;
 
 namespace sms.Pages.Students
 {
@@ -26,10 +27,7 @@ namespace sms.Pages.Students
             _context = context;
             webHostEnvironment = hostEnvironment;
         }
-        public SelectList GradeNumbersSL { get; set; }
-        public int GradeNumber { get; set; }
-        public SelectList GradeLettersSL { get; set; }
-        public string GradeLetter { get; set; }
+        public List<SelectListItem> GradesSL { get; set; }
         public IFormFile FormFile { get; set; }
         private readonly string[] permittedExtensions = { ".jpg", ".jpeg", ".png", ".gif", ".bmp", ".tif", ".tiff" };
         public string Gender { get; set; } = "Не вказано";
@@ -38,8 +36,15 @@ namespace sms.Pages.Students
 
         public IActionResult OnGet()
         {
-            GradeNumbersSL = new SelectList(_context.Grades.OrderBy(x => x.Number).Select(x => x.Number).Distinct());
-            GradeLettersSL = new SelectList(_context.Grades.OrderBy(x => x.Letter).Select(x => x.Letter).Distinct());
+            //Grade dropdown
+            //Випадаючий список класу
+            GradesSL = new List<SelectListItem>();
+            var grades = _context.Grades.OrderBy(g => g.Number).ThenBy(g => g.Letter);
+            foreach (Grade g in grades)
+            {
+                GradesSL.Add(new SelectListItem { Value = $"{g.Id}", Text = $"{g.FullName}" });
+            }
+
             return Page();
         }
 
@@ -47,38 +52,51 @@ namespace sms.Pages.Students
         public Student Student { get; set; }
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
-        public async Task<IActionResult> OnPostAsync(int? id, int GradeNumber, string GradeLetter, string Gender)
+        public async Task<IActionResult> OnPostAsync(int? id, string Gender)
         {
+            //Create student and fill data
+            //Створення учня і заповнення даними
             var newStudent = new Student();
 
             if (await TryUpdateModelAsync<Student>(
                                             newStudent,
                                             "Student",
                                             i => i.LastName, i => i.FirstName, i => i.Patronymic,
-                                            i => i.DateOfBirth, i => i.Address))
+                                            i => i.DateOfBirth, i => i.Address, i => i.GradeId))
             {
-                newStudent.Grade = _context.Grades.Where(x => x.Number == GradeNumber).Where(x => x.Letter == GradeLetter).Single();
                 if (Gender == "Не вказано") newStudent.Gender = null;
                 else newStudent.Gender = Gender;
+
                 if (FormFile != null)
                 {
+                    //Check permitted extensions for photo
+                    //Перевірка фото на тип файлу
                     var ext = Path.GetExtension(FormFile.FileName).ToLowerInvariant();
                     if (!string.IsNullOrEmpty(ext) || permittedExtensions.Contains(ext))
                     {
+                        //Get random filename for server storage
+                        //Формування випадкового імені файлу для збереження на сервері
                         string uploadsFolder = Path.Combine(webHostEnvironment.WebRootPath, @"images\avatars"); //webHost adds 'wwwroot'
                         var trustedFileNameForFileStorage = Path.GetRandomFileName();
                         trustedFileNameForFileStorage = trustedFileNameForFileStorage.Substring(0, 8)
                             + trustedFileNameForFileStorage.Substring(9) + ext;
                         var filePath = Path.Combine(uploadsFolder, trustedFileNameForFileStorage);
 
+                        //Copy data to a new file
+                        //Копіювання даних у новий файл
                         using (var fileStream = System.IO.File.Create(filePath))
                         {
                             await FormFile.CopyToAsync(fileStream);
                         }
+
+                        //Update student photo
+                        //Оновлення фото учня
                         newStudent.ProfilePicture = trustedFileNameForFileStorage;
                     }
                 }
 
+                //Save new student to DB
+                //Збереження нового учня у БД
                 _context.Students.Add(newStudent);
                 await _context.SaveChangesAsync();
                 return RedirectToPage("./Index");

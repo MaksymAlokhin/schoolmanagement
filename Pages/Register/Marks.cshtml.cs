@@ -19,7 +19,7 @@ namespace sms.Pages.Register
             _context = context;
         }
         private readonly sms.Data.ApplicationDbContext _context;
-        public List<SelectListItem> grades;
+        public List<SelectListItem> GradesSL;
         public List<Marks> subjects;
         public int selectedGrade;
         public int selectedMonth;
@@ -41,10 +41,6 @@ namespace sms.Pages.Register
             new SelectListItem { Value = $"{DateTime.Now.Year+1}", Text = $"{DateTime.Now.Year+1}" },
             new SelectListItem { Value = $"{DateTime.Now.Year+2}", Text = $"{DateTime.Now.Year+2}" }
         };
-
-
-        //string sMonth = DateTime.Now.ToString("MM"); //01
-        //string sMonth = DateTime.Now.ToString(); //1
 
         public List<SelectListItem> Months { get; } = new List<SelectListItem>
         {
@@ -70,6 +66,8 @@ namespace sms.Pages.Register
             if (year == 0) selectedYear = DateTime.Now.Year;
             else selectedYear = year;
 
+            //Students dropdown
+            //Випадаючий список учнів
             if (gradeId != 0)
             {
                 StudentsSL = _context.Students
@@ -96,13 +94,17 @@ namespace sms.Pages.Register
                     };
             }
 
-            grades = new List<SelectListItem>();
-            var grad = _context.Grades.OrderBy(g => g.Number).ThenBy(g => g.Letter);
-            foreach (Grade g in grad)
+            //Grades dropdown
+            //Випадаючий список класів
+            GradesSL = new List<SelectListItem>();
+            var grades = _context.Grades.OrderBy(g => g.Number).ThenBy(g => g.Letter);
+            foreach (Grade g in grades)
             {
-                grades.Add(new SelectListItem { Value = $"{g.Id}", Text = $"{g.FullName}" });
+                GradesSL.Add(new SelectListItem { Value = $"{g.Id}", Text = $"{g.FullName}" });
             }
 
+            //Data for student academic awards table
+            //Дані для таблиці успішності учнів
             var SubjectsIQ = _context.Gradebooks
                     .Include(s => s.Student)
                     .Where(s => s.LessonDate.Month == month && s.LessonDate.Year == year
@@ -124,6 +126,8 @@ namespace sms.Pages.Register
             NameSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             MarkSort = sortOrder == "mark" ? "mark_desc" : "mark";
 
+            //Sort order
+            //Сортування
             switch (sortOrder)
             {
                 case "name_desc":
@@ -142,12 +146,17 @@ namespace sms.Pages.Register
 
             subjects = SubjectsIQ.ToList();
 
+            //String of all student's marks
+            //Рядок з усіма оцінками учня
             foreach (var subj in subjects)
             {
                 string concat = String.Join(", ", subj.Mark);
                 subj.ConcatenatedMarks = concat;
             }
         }
+
+        //Get students names for dropdown
+        //Отримання списку учнів для випадаючого списку
         public JsonResult OnGetStudents(string gradeId)
         {
             if (!string.IsNullOrWhiteSpace(gradeId))
@@ -170,6 +179,8 @@ namespace sms.Pages.Register
             }
             return null;
         }
+        //Generate data for student academic performance bar chart
+        //Генерувати дані для діаграми успішності учнів
         public JsonResult OnPostData(int year, int month, int gradeId, int studentId)
         {
             var subjects = _context.Gradebooks
@@ -194,6 +205,8 @@ namespace sms.Pages.Register
             return new JsonResult(subjects);
         }
     }
+    //Student academic performance table data
+    //Дані для таблиці успішності учнів
     public class Marks
     {
         public string Name { get; set; }

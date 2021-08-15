@@ -18,7 +18,6 @@ namespace sms.Pages.Equipment
         {
             _context = context;
         }
-
         public IActionResult OnGet()
         {
             return Page();
@@ -35,6 +34,8 @@ namespace sms.Pages.Equipment
                 return Page();
             }
 
+            //Add new record to DB
+            //Додати новий запис до БД
             _context.Inventories.Add(Inventory);
             await _context.SaveChangesAsync();
 

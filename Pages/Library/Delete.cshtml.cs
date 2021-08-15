@@ -33,6 +33,8 @@ namespace sms.Pages.Library
                 return NotFound();
             }
 
+            //Get data from DB
+            //Завантаження даних з БД
             Book = await _context.Books.FirstOrDefaultAsync(m => m.Id == id);
 
             if (Book == null)
@@ -49,6 +51,8 @@ namespace sms.Pages.Library
                 return NotFound();
             }
 
+            //Find and delete the record
+            //Знаходження і видалення запису
             Book = await _context.Books.FindAsync(id);
 
             if (Book != null)

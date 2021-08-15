@@ -19,7 +19,7 @@ namespace sms.Pages.Register
         private readonly sms.Data.ApplicationDbContext _context;
         private readonly IConfiguration Configuration;
         public IList<Gradebook> gradebook { get; set; }
-        public List<SelectListItem> grades;
+        public List<SelectListItem> GradesSL;
         public int selectedGrade;
         public int selectedSubject;
         public int selectedMonth;
@@ -39,10 +39,6 @@ namespace sms.Pages.Register
             new SelectListItem { Value = $"{DateTime.Now.Year+1}", Text = $"{DateTime.Now.Year+1}" },
             new SelectListItem { Value = $"{DateTime.Now.Year+2}", Text = $"{DateTime.Now.Year+2}" }
         };
-
-
-        //string sMonth = DateTime.Now.ToString("MM"); //01
-        //string sMonth = DateTime.Now.ToString(); //1
 
         public List<SelectListItem> Months { get; } = new List<SelectListItem>
         {
@@ -93,6 +89,8 @@ namespace sms.Pages.Register
             if (year == 0) selectedYear = DateTime.Now.Year;
             else selectedYear = year;
 
+            //Subject dropdown
+            //Випадаючий список предметів
             if (gradeId != 0)
             {
                 SubjectsSL = _context.Curricula
@@ -120,6 +118,8 @@ namespace sms.Pages.Register
 
             }
 
+            //Get list of day with lessons
+            //Список дат з уроками з певного предмету
             #region get list of days that actually have lessons on them
             var ukrDays = await _context.Lessons
                 .Where(l => l.GradeId == gradeId && l.SubjectId == subjectId)
@@ -147,7 +147,8 @@ namespace sms.Pages.Register
             var pageSize = 15;
             pages = PaginatedList<int>.CreateFromList(weekdays, pageIndex ?? 1, pageSize);
 
-
+            //List of students
+            //Список учнів
             if (gradeId != 0)
             {
                 students = await _context.Students
@@ -158,24 +159,32 @@ namespace sms.Pages.Register
             }
             else { students = new List<Student>(); }
 
-            grades = new List<SelectListItem>();
-            var grad = _context.Grades.OrderBy(g => g.Number).ThenBy(g => g.Letter);
-            foreach (Grade g in grad)
+            //Grades dropdown
+            //Ниспадаючий список класів
+            GradesSL = new List<SelectListItem>();
+            var grades = _context.Grades.OrderBy(g => g.Number).ThenBy(g => g.Letter);
+            foreach (Grade g in grades)
             {
-                grades.Add(new SelectListItem { Value = $"{g.Id}", Text = $"{g.FullName}" });
+                GradesSL.Add(new SelectListItem { Value = $"{g.Id}", Text = $"{g.FullName}" });
             }
 
+            //Get mark from gradebook for a date
+            //Отримання оцінки на певну дату
             gradebook = await _context.Gradebooks
                 .Include(g => g.Student)
                 .Where(g => g.LessonDate.Month == month && g.LessonDate.Year == year && g.SubjectId == subjectId && g.Student.GradeId == gradeId)
                 .ToListAsync();
         }
-        public async Task<IActionResult> OnPostAsync(int studentId, int day, string mark, int year, int month, int gradeId, int subjectId, int pageIndex)
+        public async Task<IActionResult> OnPostAsync(int studentId, int day, 
+            string mark, int year, int month, int gradeId, int subjectId, int pageIndex)
         {
-            var existingGradebook = _context.Gradebooks.SingleOrDefault(g => g.LessonDate == new DateTime(year, month, day)
+            var existingGradebook = _context.Gradebooks
+                .SingleOrDefault(g => g.LessonDate == new DateTime(year, month, day)
                 && g.StudentId == studentId && g.SubjectId == subjectId);
             if (existingGradebook == null && mark != null)
             {
+                //Create a new record in the gradebook
+                //Створення нового запису у журналі
                 var newGradebook = new Gradebook
                 {
                     LessonDate = new DateTime(year, month, day),
@@ -189,6 +198,8 @@ namespace sms.Pages.Register
             }
             else
             {
+                //Remove a record from gradebook if the cell is empty
+                //Видалення запису з журналу, якщо комірка пуста
                 if (mark == null)
                 {
                     _context.Remove(existingGradebook);
@@ -206,6 +217,9 @@ namespace sms.Pages.Register
                 month = $"{ month }"
             });
         }
+
+        //Get list of subjects for dropdown
+        //Отримання списку предметів для випадаючого списку
         public JsonResult OnGetSubjects(string gradeId)
         {
             if (!string.IsNullOrWhiteSpace(gradeId))
@@ -229,6 +243,9 @@ namespace sms.Pages.Register
             }
             return null;
         }
+
+        //Get all dates in a month
+        //Отримання всіх дат у певний місяць
         public IEnumerable<DateTime> AllDatesInMonth(int year, int month)
         {
             int days = DateTime.DaysInMonth(year, month);

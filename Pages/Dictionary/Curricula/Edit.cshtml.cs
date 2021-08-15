@@ -35,6 +35,8 @@ namespace sms.Pages.Dictionary.Curricula
                 return NotFound();
             }
 
+            //Load data from DB
+            //Беремо навантаження з БД
             Curriculum = await _context.Curricula
                 .Include(c => c.Grade)
                 .Include(c => c.Subject)
@@ -45,6 +47,8 @@ namespace sms.Pages.Dictionary.Curricula
                 return NotFound();
             }
 
+            //Grades dropdown
+            //Випадаючий список класів
             var allGrades = _context.Grades.OrderBy(g => g.Number).ThenBy(g => g.Letter);
             GradesList = new List<SelectListItem>();
             foreach (Grade grade in allGrades)
@@ -52,6 +56,8 @@ namespace sms.Pages.Dictionary.Curricula
                 GradesList.Add(new SelectListItem { Value = $"{grade.Id}", Text = $"{grade.FullName}" });
             }
 
+            //Subjects dropdown
+            //Випадаючий список предметів
             var allSubjects = _context.Subjects.OrderBy(s => s.Name).Where(s => s.Teachers.Any(t => t.Id == Curriculum.TeacherId));
             SubjectsSL = new List<SelectListItem>();
 
@@ -65,8 +71,8 @@ namespace sms.Pages.Dictionary.Curricula
                 });
             }
 
-
-            //ViewData["SubjectId"] = new SelectList(_context.Subjects.OrderBy(s => s.Name), "Id", "Name");
+            //Teachers dropdown
+            //Випадачний список вчителів
             ViewData["TeacherId"] = new SelectList(_context.Teachers.OrderBy(t => t.LastName).ThenBy(t => t.FirstName), "Id", "FullName");
             return Page();
         }
@@ -80,6 +86,8 @@ namespace sms.Pages.Dictionary.Curricula
                 return Page();
             }
 
+            //Save changes to DB
+            //Збереження відредагованих змін у БД
             _context.Attach(Curriculum).State = EntityState.Modified;
 
             try
@@ -104,6 +112,9 @@ namespace sms.Pages.Dictionary.Curricula
         {
             return _context.Curricula.Any(e => e.Id == id);
         }
+        
+        //Load list of subjects from DB
+        //Отримання даних про предмети для випадаючого списку
         public JsonResult OnGetSubjects(string teacherId)
         {
             if (!string.IsNullOrWhiteSpace(teacherId))
@@ -118,7 +129,6 @@ namespace sms.Pages.Dictionary.Curricula
                                Value = n.Id.ToString(),
                                Text = n.Name
                            }).ToList();
-                //var subj = new SelectList(subjects, "Value", "Text");
 
                 return new JsonResult(subjects);
             }

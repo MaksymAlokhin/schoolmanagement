@@ -30,8 +30,6 @@ namespace sms.Pages.Equipment
             Configuration = configuration;
         }
 
-        //public IList<Inventory> Inventory { get;set; }
-
         public async Task OnGetAsync(string sortOrder,
             string currentFilter, string searchString, int? pageIndex)
         {
@@ -56,11 +54,15 @@ namespace sms.Pages.Equipment
 
             IQueryable<Inventory> inventoryIQ = _context.Inventories.Where(i => i.DecommissionDate.HasValue);
 
+            //Search filter
+            //Фільтр пошуку
             if (!String.IsNullOrEmpty(searchString))
             {
                 inventoryIQ = inventoryIQ.Where(s => s.Name.Contains(searchString));
             }
 
+            //Sort order
+            //Сортування
             switch (sortOrder)
             {
                 case "name_desc":
@@ -94,6 +96,9 @@ namespace sms.Pages.Equipment
                     inventoryIQ = inventoryIQ.OrderBy(s => s.Name);
                     break;
             }
+
+            //Pagination
+            //Розподіл на сторінки
             var pageSize = Configuration.GetValue("PageSize", 10);
             Inventory = await PaginatedList<Inventory>.CreateAsync(
                 inventoryIQ.AsNoTracking(), pageIndex ?? 1, pageSize);

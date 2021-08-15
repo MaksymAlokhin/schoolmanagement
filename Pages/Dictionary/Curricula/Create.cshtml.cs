@@ -24,9 +24,14 @@ namespace sms.Pages.Dictionary.Curricula
 
         public IActionResult OnGet(int gradeId = 1)
         {
+            //Default values
+            //Значення за замовчуванням
             Curriculum = new Curriculum();
             Curriculum.GradeId = gradeId;
             Curriculum.Quantity = 1;
+            
+            //Grades dropdown
+            //Випадаючий список класів
             var allGrades = _context.Grades.OrderBy(g => g.Number).ThenBy(g => g.Letter);
             GradesList = new List<SelectListItem>();
             foreach (Grade grade in allGrades)
@@ -34,6 +39,8 @@ namespace sms.Pages.Dictionary.Curricula
                 GradesList.Add(new SelectListItem { Value = $"{grade.Id}", Text = $"{grade.FullName}" });
             }
 
+            //Subjects dropdown
+            //Випадаючий список предметів - пустий
             SubjectsSL = new List<SelectListItem>()
             {
                 new SelectListItem
@@ -43,6 +50,8 @@ namespace sms.Pages.Dictionary.Curricula
                 }
             };
 
+            //Teachers dropdown
+            //Випадаючий список вчителів
             ViewData["TeacherId"] = new SelectList(_context.Teachers.OrderBy(t => t.LastName).ThenBy(t => t.FirstName), "Id", "FullName");
             return Page();
         }
@@ -53,6 +62,8 @@ namespace sms.Pages.Dictionary.Curricula
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
+            //Save to DB
+            //Збереження новоствореного навантаження
             if (!ModelState.IsValid)
             {
                 return Page();
@@ -64,6 +75,8 @@ namespace sms.Pages.Dictionary.Curricula
             return RedirectToPage("./Index", new { gradeId = $"{Curriculum.GradeId}" });
         }
 
+        //Subjects dropdown
+        //Випадаючий список предметів. Завантажується за допомогою JavaScript після вибору класу
         public JsonResult OnGetSubjects(string teacherId)
         {
             if (!string.IsNullOrWhiteSpace(teacherId))
@@ -78,7 +91,6 @@ namespace sms.Pages.Dictionary.Curricula
                                Value = n.Id.ToString(),
                                Text = n.Name
                            }).ToList();
-                //var subj = new SelectList(subjects, "Value", "Text");
 
                 return new JsonResult(subjects);
             }

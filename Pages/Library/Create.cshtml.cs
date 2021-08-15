@@ -37,6 +37,8 @@ namespace sms.Pages.Library
                 return Page();
             }
 
+            //Save new record to DB
+            //Збереження нового запису у БД
             _context.Books.Add(Book);
             await _context.SaveChangesAsync();
 

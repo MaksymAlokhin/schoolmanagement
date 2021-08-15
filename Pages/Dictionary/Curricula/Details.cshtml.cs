@@ -30,6 +30,8 @@ namespace sms.Pages.Dictionary.Curricula
                 return NotFound();
             }
 
+            //Load data from DB
+            //Беремо навантаження з БД
             Curriculum = await _context.Curricula
                 .Include(c => c.Grade)
                 .Include(c => c.Subject)

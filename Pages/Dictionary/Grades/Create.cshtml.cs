@@ -37,6 +37,8 @@ namespace sms.Pages.Grades
                 return Page();
             }
 
+            //Save new item to DB
+            //Збереження створеної сутності у БД
             _context.Grades.Add(Grade);
             await _context.SaveChangesAsync();
 

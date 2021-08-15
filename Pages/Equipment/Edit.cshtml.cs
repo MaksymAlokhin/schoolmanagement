@@ -33,6 +33,8 @@ namespace sms.Pages.Equipment
                 return NotFound();
             }
 
+            //Get data from DB
+            //Завантаження даних з БД
             Inventory = await _context.Inventories.FirstOrDefaultAsync(m => m.Id == id);
 
             if (Inventory == null)
@@ -51,6 +53,8 @@ namespace sms.Pages.Equipment
                 return Page();
             }
 
+            //Save changes to DB
+            //Збереження змін у БД
             _context.Attach(Inventory).State = EntityState.Modified;
 
             try

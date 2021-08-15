@@ -48,12 +48,17 @@ namespace sms.Pages.Grades
 
             IQueryable<Grade> gradesIQ = from s in _context.Grades
                                          select s;
-            
+
+            //Search filter
+            //Фільтр пошуку
             if (!String.IsNullOrEmpty(searchString))
             {
                 gradesIQ = gradesIQ.Where(s => s.Number.ToString().Contains(searchString)
                                        || s.Letter.Contains(searchString));
             }
+
+            //Sort order
+            //Сортування
             switch (sortOrder)
             {
                 case "name_desc":
@@ -64,6 +69,8 @@ namespace sms.Pages.Grades
                     break;
             }
 
+            //Pagination
+            //Розподіл на сторінки
             var pageSize = Configuration.GetValue("PageSize", 10);
             Grade = await PaginatedList<Grade>.CreateAsync(
                 gradesIQ.AsNoTracking(), pageIndex ?? 1, pageSize);

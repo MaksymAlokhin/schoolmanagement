@@ -20,6 +20,10 @@ namespace sms.Pages.Teachers
     {
         private readonly sms.Data.ApplicationDbContext _context;
         private readonly IWebHostEnvironment webHostEnvironment;
+        public List<int> selectedSubjects { get; set; }
+        public SelectList SubjectNameSL { get; set; }
+        public IFormFile FormFile { get; set; }
+        private readonly string[] permittedExtensions = { ".jpg", ".jpeg", ".png", ".gif", ".bmp", ".tif", ".tiff" };
 
         public CreateModel(sms.Data.ApplicationDbContext context, IWebHostEnvironment hostEnvironment)
         {
@@ -27,16 +31,13 @@ namespace sms.Pages.Teachers
             webHostEnvironment = hostEnvironment;
         }
 
-        public List<int> selectedSubjects { get; set; }
-        public SelectList SubjectNameSL { get; set; }
-        public IFormFile FormFile { get; set; }
-        private readonly string[] permittedExtensions = { ".jpg", ".jpeg", ".png", ".gif", ".bmp", ".tif", ".tiff" };
-
         [BindProperty]
         public Teacher Teacher { get; set; }
 
         public IActionResult OnGet()
         {
+            //Subjects multiple select list
+            //Список множинного вибору предметів
             var subjectsQuery = _context.Subjects.OrderBy(r => r.Name);
             SubjectNameSL = new SelectList(subjectsQuery, "Id", "Name"); //list, id, value
 
@@ -46,6 +47,8 @@ namespace sms.Pages.Teachers
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync(int[] selectedSubjects)
         {
+            //Create a record and fill it with data
+            //Створення запису і заповнення даними
             var newTeacher = new Teacher();
             newTeacher.Subjects = new List<Subject>();
 
@@ -61,23 +64,34 @@ namespace sms.Pages.Teachers
 
                 if (FormFile != null)
                 {
+                    //Check permitted extensions for photo
+                    //Перевірка фото на тип файлу
                     var ext = Path.GetExtension(FormFile.FileName).ToLowerInvariant();
                     if (!string.IsNullOrEmpty(ext) || permittedExtensions.Contains(ext))
                     {
+                        //Get random filename for server storage
+                        //Формування випадкового імені файлу для збереження на сервері
                         string uploadsFolder = Path.Combine(webHostEnvironment.WebRootPath, @"images\avatars"); //webHost adds 'wwwroot'
                         var trustedFileNameForFileStorage = Path.GetRandomFileName();
                         trustedFileNameForFileStorage = trustedFileNameForFileStorage.Substring(0, 8)
                             + trustedFileNameForFileStorage.Substring(9) + ext;
                         var filePath = Path.Combine(uploadsFolder, trustedFileNameForFileStorage);
 
+                        //Copy data to a new file
+                        //Копіювання даних у новий файл
                         using (var fileStream = System.IO.File.Create(filePath))
                         {
                             await FormFile.CopyToAsync(fileStream);
                         }
+
+                        //Update student photo
+                        //Оновлення фото
                         newTeacher.ProfilePicture = trustedFileNameForFileStorage;
                     }
                 }
 
+                //Save new teacher to DB
+                //Збереження нового вчителя у БД
                 _context.Teachers.Add(newTeacher);
                 await _context.SaveChangesAsync();
                 return RedirectToPage("./Index");

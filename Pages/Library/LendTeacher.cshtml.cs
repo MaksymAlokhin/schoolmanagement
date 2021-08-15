@@ -18,7 +18,6 @@ namespace sms.Pages.Library
     {
         private readonly sms.Data.ApplicationDbContext _context;
         private readonly IConfiguration Configuration;
-        //public List<Teacher> teachers;
         public PaginatedList<Teacher> teachers { get; set; }
         public string NameSort { get; set; }
         public string CurrentFilter { get; set; }
@@ -57,6 +56,8 @@ namespace sms.Pages.Library
 
             IQueryable<Teacher> teachersIQ = _context.Teachers.Include(m => m.Books);
 
+            //Search filter
+            //Фільтр пошуку
             if (!String.IsNullOrEmpty(searchString))
             {
                 teachersIQ = teachersIQ.Where(s => s.LastName.Contains(searchString)
@@ -64,6 +65,8 @@ namespace sms.Pages.Library
                                        || s.Patronymic.Contains(searchString));
             }
 
+            //Sort order
+            //Сортування
             switch (sortOrder)
             {
                 case "name_desc":
@@ -80,6 +83,8 @@ namespace sms.Pages.Library
                     break;
             }
 
+            //Pagination
+            //Розподіл на сторінки
             var pageSize = Configuration.GetValue("PageSize", 4);
             teachers = await PaginatedList<Teacher>.CreateAsync(
                 teachersIQ, pageIndex ?? 1, pageSize);
@@ -92,6 +97,9 @@ namespace sms.Pages.Library
         {
             var teacher = await _context.Teachers.Include(m => m.Books).FirstOrDefaultAsync(m => m.Id == teacherId);
             Book = await _context.Books.Include(m => m.Teachers).FirstOrDefaultAsync(m => m.Id == id);
+            
+            //Take or give book to a teacher
+            //Забрати чи видати книгу вчителю
             if (!teacher.Books.Contains(Book))
             {
                 teacher.Books.Add(Book);

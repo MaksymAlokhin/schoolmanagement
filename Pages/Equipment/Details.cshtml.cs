@@ -19,7 +19,6 @@ namespace sms.Pages.Equipment
         {
             _context = context;
         }
-
         public Inventory Inventory { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? pageIndex, int? id)
@@ -31,6 +30,8 @@ namespace sms.Pages.Equipment
                 return NotFound();
             }
 
+            //Load data from DB
+            //Завантаження даних з БД
             Inventory = await _context.Inventories.FirstOrDefaultAsync(m => m.Id == id);
 
             if (Inventory == null)
@@ -48,6 +49,8 @@ namespace sms.Pages.Equipment
 
             Inventory = await _context.Inventories.FindAsync(id);
 
+            //Decommission or reverse decommission
+            //Списання або постановка на облік
             if (Inventory != null)
             {
                 if(Inventory.DecommissionDate.HasValue)

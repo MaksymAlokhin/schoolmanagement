@@ -35,6 +35,8 @@ namespace sms.Pages.Grades
                 return NotFound();
             }
 
+            //Load data from DB
+            //Завантаження даних з БД
             Grade = await _context.Grades.FirstOrDefaultAsync(m => m.Id == id);
 
             if (Grade == null)
@@ -53,6 +55,8 @@ namespace sms.Pages.Grades
                 return Page();
             }
 
+            //Save edits to DB
+            //Збереження змін у БД
             _context.Attach(Grade).State = EntityState.Modified;
 
             try

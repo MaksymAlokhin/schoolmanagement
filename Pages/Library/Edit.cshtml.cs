@@ -35,6 +35,8 @@ namespace sms.Pages.Library
                 return NotFound();
             }
 
+            //Get data from DB
+            //Завантаження даних з БД
             Book = await _context.Books.FirstOrDefaultAsync(m => m.Id == id);
 
             if (Book == null)
@@ -53,6 +55,8 @@ namespace sms.Pages.Library
                 return Page();
             }
 
+            //Save changes to DB
+            //Збереження змін у БД
             _context.Attach(Book).State = EntityState.Modified;
 
             try

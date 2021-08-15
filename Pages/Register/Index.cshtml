@@ -13,7 +13,7 @@
             <div class="col-sm-2">
                 <div class="form-group">
                     <label asp-for="selectedGrade" class="control-label"><i class="fas fa-users"></i></label>
-                    <select asp-for="selectedGrade" name="gradeId" style="width:auto" asp-items="Model.grades">
+                    <select asp-for="selectedGrade" name="gradeId" style="width:auto" asp-items="Model.GradesSL">
                         <option value="0">Оберіть клас</option>
                     </select>
                 </div>
@@ -49,9 +49,9 @@
                 <th scope="col" style="text-align:center" class="col-auto">ПІБ Учня / Число</th>
                 @foreach (var day in @Model.pages)
                 {
-                <th scope="col" style="text-align:center" class="col-auto">
-                    @day
-                </th>
+                    <th scope="col" style="text-align:center" class="col-auto">
+                        @day
+                    </th>
                 }
             </tr>
         </thead>
@@ -111,7 +111,8 @@
     <i class="fas fa-arrow-alt-circle-right fa-lg"></i>
 </a>
 
-
+@* Fill subject dropdown *@
+@* Заповнення випадаючого списку предмету *@
 @section scripts{
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     <script>

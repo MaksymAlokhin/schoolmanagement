@@ -18,14 +18,6 @@ namespace sms.Pages.Library
     {
         private readonly sms.Data.ApplicationDbContext _context;
         private readonly IConfiguration Configuration;
-
-        public IndexModel(sms.Data.ApplicationDbContext context, IConfiguration configuration)
-        {
-            _context = context;
-            Configuration = configuration;
-        }
-
-        //public IList<Book> Book { get;set; }
         public string NameSort { get; set; }
         public string GradeSort { get; set; }
         public string YearSort { get; set; }
@@ -51,6 +43,13 @@ namespace sms.Pages.Library
             new SelectListItem { Value = "10", Text = "10 кл." },
             new SelectListItem { Value = "11", Text = "11 кл." }
         };
+
+        public IndexModel(sms.Data.ApplicationDbContext context, IConfiguration configuration)
+        {
+            _context = context;
+            Configuration = configuration;
+        }
+
         public async Task OnGetAsync(string grade, string sortOrder,
             string currentFilter, string searchString, int? pageIndex)
         {
@@ -78,6 +77,8 @@ namespace sms.Pages.Library
 
             IQueryable<Book> booksIQ = _context.Books.Include(b => b.Teachers).Include(b => b.Students);
 
+            //Search filter
+            //Фільтр пошуку
             if (!String.IsNullOrEmpty(searchString))
             {
                 booksIQ = booksIQ.Where(s => s.Name.Contains(searchString)
@@ -85,6 +86,8 @@ namespace sms.Pages.Library
                                        || s.PublishingHouse.Contains(searchString));
             }
 
+            //Sort order
+            //Сортування
             switch (sortOrder)
             {
                 case "grade_desc":
@@ -118,6 +121,8 @@ namespace sms.Pages.Library
                 booksIQ = booksIQ.Where(b => b.Grade == Convert.ToInt32(selectedGrade));
             }
 
+            //Pagination
+            //Розподіл на сторінки
             var pageSize = Configuration.GetValue("PageSize", 10);
             Book = await PaginatedList<Book>.CreateAsync(
                 booksIQ.AsNoTracking(), pageIndex ?? 1, pageSize);

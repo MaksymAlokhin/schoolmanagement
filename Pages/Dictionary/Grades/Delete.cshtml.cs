@@ -34,6 +34,8 @@ namespace sms.Pages.Grades
                 return NotFound();
             }
 
+            //Load data from DB
+            //Завантаження даних з БД
             Grade = await _context.Grades.FirstOrDefaultAsync(m => m.Id == id);
 
             if (Grade == null)
@@ -50,6 +52,8 @@ namespace sms.Pages.Grades
                 return NotFound();
             }
 
+            //Find item in DB and delete
+            //Знаходження даних у базі даних та видалення
             Grade = await _context.Grades.FindAsync(id);
 
             if (Grade != null)

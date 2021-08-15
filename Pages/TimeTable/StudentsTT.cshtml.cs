@@ -18,7 +18,7 @@ namespace sms.Pages.TimeTable
         private readonly ApplicationDbContext _context;
         public int[] slots;
         public string[] days;
-        public List<SelectListItem> grades;
+        public List<SelectListItem> GradesSL;
         public int selectedGrade;
         public List<Lesson> lessons;
         public StudentsTTModel(ApplicationDbContext context)
@@ -33,11 +33,11 @@ namespace sms.Pages.TimeTable
             slots = Enumerable.Range(1, 8).ToArray();
             days = new string[] { "Ïí", "Âò", "Ñð", "×ò", "Ïò" };
 
-            grades = new List<SelectListItem>();
-            var grad = _context.Grades.OrderBy(g => g.Number).ThenBy(g => g.Letter);
-            foreach (Grade g in grad)
+            GradesSL = new List<SelectListItem>();
+            var grades = _context.Grades.OrderBy(g => g.Number).ThenBy(g => g.Letter);
+            foreach (Grade g in grades)
             {
-                grades.Add(new SelectListItem { Value = $"{g.Id}", Text = $"{g.FullName}" });
+                GradesSL.Add(new SelectListItem { Value = $"{g.Id}", Text = $"{g.FullName}" });
             }
 
             lessons = await _context.Lessons.Where(l => l.GradeId == gradeId).Include(l => l.Grade).Include(l => l.Subject).ToListAsync();

@@ -38,6 +38,7 @@ namespace sms.Pages.Students
                 return NotFound();
             }
 
+            //Load data from DB
             Student = await _context.Students
                 .Include(s => s.Grade).FirstOrDefaultAsync(m => m.Id == id);
 
@@ -58,8 +59,12 @@ namespace sms.Pages.Students
                 return NotFound();
             }
 
+            //Find the record in DB
+            //Знаходження даних у БД
             Student = await _context.Students.FindAsync(id);
 
+            //Delete photo file
+            //Видалення файлу фото
             string uploadsFolder = Path.Combine(webHostEnvironment.WebRootPath, @"images/avatars"); //webHost adds 'wwwroot'
             var oldFile = Student.ProfilePicture;
             var fileToDelete = string.Empty;
@@ -68,6 +73,8 @@ namespace sms.Pages.Students
                 fileToDelete = Path.Combine(uploadsFolder, oldFile);
             }
 
+            //Delete student from DB
+            //Видалення учня з БД
             if (Student != null)
             {
                 _context.Students.Remove(Student);

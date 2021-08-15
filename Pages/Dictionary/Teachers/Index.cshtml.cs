@@ -17,16 +17,16 @@ namespace sms.Pages.Teachers
     {
         private readonly sms.Data.ApplicationDbContext _context;
         private readonly IConfiguration Configuration;
+        public string NameSort { get; set; }
+        public string CurrentFilter { get; set; }
+        public string CurrentSort { get; set; }
+        public PaginatedList<Teacher> Teacher { get; set; }
 
         public IndexModel(sms.Data.ApplicationDbContext context, IConfiguration configuration)
         {
             _context = context;
             Configuration = configuration;
         }
-        public string NameSort { get; set; }
-        public string CurrentFilter { get; set; }
-        public string CurrentSort { get; set; }
-        public PaginatedList<Teacher> Teacher { get; set; }
 
         public async Task OnGetAsync(string sortOrder,
             string currentFilter, string searchString, int? pageIndex)
@@ -46,6 +46,8 @@ namespace sms.Pages.Teachers
 
             IQueryable<Teacher> teachersIQ = _context.Teachers;
 
+            //Search filter
+            //Фільтр пошуку
             if (!String.IsNullOrEmpty(searchString))
             {
                 teachersIQ = teachersIQ.Where(s => s.LastName.Contains(searchString)
@@ -53,6 +55,8 @@ namespace sms.Pages.Teachers
                                        || s.Patronymic.Contains(searchString));
             }
 
+            //Sort order
+            //Сортування
             switch (sortOrder)
             {
                 case "name_desc":
@@ -63,6 +67,8 @@ namespace sms.Pages.Teachers
                     break;
             }
 
+            //Pagination
+            //Розподіл на сторінки
             var pageSize = Configuration.GetValue("PageSize", 10);
             Teacher = await PaginatedList<Teacher>.CreateAsync(
                 teachersIQ.AsNoTracking(), pageIndex ?? 1, pageSize);

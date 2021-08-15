@@ -33,6 +33,8 @@ namespace sms.Pages.Teachers
                 return NotFound();
             }
 
+            //Load data from DB
+            //Завантаження даних з БД
             Teacher = await _context.Teachers.Include(x => x.Subjects).FirstOrDefaultAsync(m => m.Id == id);
 
             if (Teacher == null)

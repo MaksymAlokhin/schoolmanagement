@@ -24,7 +24,6 @@ namespace sms.Pages.Dictionary.Curricula
         public string CurrentSort { get; set; }
 
         public PaginatedList<Curriculum> Curriculum { get; set; }
-        //public IList<Curriculum> Curriculum { get;set; }
 
         public IndexModel(sms.Data.ApplicationDbContext context, IConfiguration configuration)
         {
@@ -38,8 +37,6 @@ namespace sms.Pages.Dictionary.Curricula
             selectedGrade = gradeId;
 
             CurrentSort = sortOrder;
-            //NameSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
-            //SubjSort = sortOrder == "subj" ? "subj_desc" : "subj";
 
             SubjSort = String.IsNullOrEmpty(sortOrder) ? "subj_desc" : "";
             NameSort = sortOrder == "name" ? "name_desc" : "name";
@@ -57,6 +54,8 @@ namespace sms.Pages.Dictionary.Curricula
 
             IQueryable<Curriculum> curriculaIQ = _context.Curricula.Include(c => c.Subject).Include(c => c.Teacher);
 
+            //Search filter
+            //Фільтр пошуку
             if (!String.IsNullOrEmpty(searchString))
             {
                 curriculaIQ = curriculaIQ.Where(s => s.Teacher.LastName.Contains(searchString)
@@ -65,6 +64,8 @@ namespace sms.Pages.Dictionary.Curricula
                                        || s.Subject.Name.Contains(searchString));
             }
 
+            //Sort order
+            //Сортування
             switch (sortOrder)
             {
                 case "subj_desc":
@@ -81,23 +82,8 @@ namespace sms.Pages.Dictionary.Curricula
                     break;
             }
 
-
-            //switch (sortOrder)
-            //{
-            //    case "name_desc":
-            //        curriculaIQ = curriculaIQ.OrderByDescending(s => s.Teacher.LastName);
-            //        break;
-            //    case "subj":
-            //        curriculaIQ = curriculaIQ.OrderBy(s => s.Subject.Name);
-            //        break;
-            //    case "subj_desc":
-            //        curriculaIQ = curriculaIQ.OrderByDescending(s => s.Subject.Name);
-            //        break;
-            //    default:
-            //        curriculaIQ = curriculaIQ.OrderBy(s => s.Teacher.LastName);
-            //        break;
-            //}
-
+            //Grades dropdown
+            //Випадаючий список класу
             grades = new List<SelectListItem>();
             var grad = _context.Grades.OrderBy(g => g.Number).ThenBy(g => g.Letter);
             foreach (Grade g in grad)
@@ -105,10 +91,8 @@ namespace sms.Pages.Dictionary.Curricula
                 grades.Add(new SelectListItem { Value = $"{g.Id}", Text = $"{g.FullName}" });
             }
 
-            //Curriculum = await curriculaIQ
-            //    .Where(с => с.GradeId == gradeId)
-            //    .ToListAsync();
-
+            //Pagination
+            //Розподіл на сторінки
             var pageSize = Configuration.GetValue("PageSize", 10);
             Curriculum = await PaginatedList<Curriculum>.CreateAsync(
                 curriculaIQ.Where(с => с.GradeId == gradeId).AsNoTracking(), pageIndex ?? 1, pageSize);

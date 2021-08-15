@@ -71,6 +71,8 @@
 
 @section scripts{
     <script>
+        @* Get query parameters *@
+        @* Отримання значень параметрів з рядка адреси *@
         function query_string(variable) {
             var query = window.location.search.substring(1);
             var vars = query.split("&");
@@ -81,13 +83,17 @@
             return (false);
         }
 
-        var ctx = document.getElementById('doughnutChart').getContext('2d');
-
-        var id = query_string('id');
-
+        @* Random color generator *@
+        @* Генератор випадкових кольорів *@
         var randomColorGenerator = function () {
             return '#' + (Math.random().toString(16) + '0000000').slice(2, 8);
         };
+
+        var ctx = document.getElementById('doughnutChart').getContext('2d');
+        var id = query_string('id');
+
+        @* Draw bar chart for student gender *@
+        @* Діаграма розподілу учнів за статтю *@
         $.ajax({
             url: "?handler=Gender",
             type: "POST",
@@ -122,6 +128,8 @@
             }
         });
 
+        @* Draw bar chart for student age *@
+        @* Діаграма розподілу учнів за віком *@
         var ctx2 = document.getElementById('barChart').getContext('2d');
         $.ajax({
             url: "?handler=Age",

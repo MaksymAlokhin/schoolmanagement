@@ -50,6 +50,8 @@ namespace sms.Pages.Register
             else selectedYear = year;
             selectedSemester = semester;
 
+            //Select time period
+            //Вибір часового проміжку
             DateTime startDate1 = new DateTime(selectedYear, 9, 1);
             DateTime startDate2 = new DateTime(selectedYear, 1, 1);
             DateTime endDate1 = new DateTime(selectedYear, 12, 31);
@@ -68,6 +70,8 @@ namespace sms.Pages.Register
                     break;
             }
 
+            //Generate data for academic performance table
+            //Генерація даних для таблиці успішності по класам
             var gradesIQ = _context.Gradebooks
                 .Include(s => s.Student)
                 .Where(s => s.LessonDate >= startDate && s.LessonDate <= endDate && s.Mark != "0")
@@ -95,6 +99,8 @@ namespace sms.Pages.Register
             NameSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             MarkSort = sortOrder == "mark" ? "mark_desc" : "mark";
 
+            //Sort order
+            //Сортування
             switch (sortOrder)
             {
                 case "name_desc":
@@ -113,15 +119,18 @@ namespace sms.Pages.Register
 
             grades = gradesIQ.ToList();
         }
+        //Generate data for academic performance chart by grade
+        //Генерація даних для діаграми успішності по класам
         public JsonResult OnPostData(int year, int semester)
         {
+            //Select time period
+            //Вибір часового проміжку
             DateTime startDate1 = new DateTime(year, 9, 1);
             DateTime startDate2 = new DateTime(year, 1, 1);
             DateTime endDate1 = new DateTime(year, 12, 31);
             DateTime endDate2 = new DateTime(year, 5, 31);
             DateTime startDate = DateTime.Now;
             DateTime endDate = DateTime.Now;
-
             switch (semester)
             {
                 case 1:
@@ -134,6 +143,8 @@ namespace sms.Pages.Register
                     break;
             }
 
+            //Generate data for academic performance chart
+            //Генерація даних для діаграми успішності по класам
             var grades = _context.Gradebooks
                 .Include(s => s.Student)
                 .Where(s => s.LessonDate >= startDate && s.LessonDate <= endDate && s.Mark != "0")
@@ -155,12 +166,14 @@ namespace sms.Pages.Register
                     Number = g.Key.Number,
                     Letter = g.Key.Letter
                 })
-                .OrderBy(s => s.Number).ThenBy(s => s.Number)
+                .OrderBy(s => s.Number).ThenBy(s => s.Letter)
                 .ToList();
 
             return new JsonResult(grades);
         }
     }
+    //Data structure for academic performance chart and table
+    //Структура даних для діагарми та таблиці успішності по класам
     public class Stats
     {
         public int Id { get; set; }

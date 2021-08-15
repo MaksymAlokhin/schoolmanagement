@@ -39,8 +39,8 @@
             </div>
             <div class="col-sm-6">
                 <div class="form-group">
-                    <label asp-for="GradeNumber" class="control-label">Клас</label>
-                    <select asp-for="GradeNumber" class="form-control" asp-items="@Model.GradeNumbersSL"></select>
+                    <label asp-for="Student.GradeId" class="control-label">Клас</label>
+                    <select asp-for="Student.GradeId" class="form-control" asp-items="@Model.GradesSL"></select>
                 </div>
             </div>
         </div>
@@ -54,19 +54,13 @@
             </div>
             <div class="col-sm-6">
                 <div class="form-group">
-                    <label asp-for="GradeLetter" class="control-label">Буква</label>
-                    <select asp-for="GradeLetter" class="form-control" asp-items="@Model.GradeLettersSL"></select>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-6">
-                <div class="form-group">
                     <label asp-for="Student.DateOfBirth" class="control-label"></label>
                     <input asp-for="Student.DateOfBirth" class="form-control" />
                     <span asp-validation-for="Student.DateOfBirth" class="text-danger"></span>
                 </div>
             </div>
+        </div>
+        <div class="row">
             <div class="col-sm-6">
                 <div class="form-group">
                     <label asp-for="Student.ProfilePicture" class="control-label"></label>
@@ -77,8 +71,6 @@
                     <span asp-validation-for="FormFile" class="text-danger"></span>
                 </div>
             </div>
-        </div>
-        <div class="row">
             <div class="col-sm-6">
                 <div class="form-group">
                     <label asp-for="Student.Gender" class="control-label"></label><br />
@@ -88,6 +80,8 @@
                     }
                 </div>
             </div>
+        </div>
+        <div class="row">
             <div class="col-sm-6">
                 <div class="form-group">
                     <input type="submit" value="Створити" class="btn btn-primary" />
@@ -100,6 +94,8 @@
     </form>
 </div>
 
+@* Display the name of the selected file *@
+@* Відображення назви вибраного файлу *@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     <script type="text/javascript">

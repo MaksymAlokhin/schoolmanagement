@@ -11,7 +11,7 @@
 <form method="get">
     <div class="form-group">
         <label asp-for="selectedGrade" class="control-label"><i class="fas fa-users"></i></label>
-        <select asp-for="selectedGrade" name="gradeId" style="width:auto" asp-items="Model.grades" onchange="this.form.submit();"></select>
+        <select asp-for="selectedGrade" name="gradeId" style="width:auto" asp-items="Model.GradesSL" onchange="this.form.submit();"></select>
     </div>
 </form>
 

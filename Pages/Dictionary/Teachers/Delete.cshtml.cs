@@ -38,6 +38,8 @@ namespace sms.Pages.Teachers
                 return NotFound();
             }
 
+            //Load data from DB
+            //Завантаження даних з БД
             Teacher = await _context.Teachers.Include(t => t.Subjects).FirstOrDefaultAsync(m => m.Id == id);
 
             if (Teacher == null)
@@ -54,8 +56,12 @@ namespace sms.Pages.Teachers
                 return NotFound();
             }
 
+            //Find the record in DB
+            //Знаходження запису у БД
             Teacher = await _context.Teachers.FindAsync(id);
 
+            //Delete photo file
+            //Видалення файлу фото
             string uploadsFolder = Path.Combine(webHostEnvironment.WebRootPath, @"images/avatars"); //webHost adds 'wwwroot'
             var oldFile = Teacher.ProfilePicture;
             var fileToDelete = string.Empty;
@@ -64,6 +70,8 @@ namespace sms.Pages.Teachers
                 fileToDelete = Path.Combine(uploadsFolder, oldFile);
             }
 
+            //Delete teacher from DB
+            //Видалення вчителя з БД
             if (Teacher != null)
             {
                 _context.Teachers.Remove(Teacher);

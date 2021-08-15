@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using sms;
 using sms.Data;
+using sms.Models;
 
 namespace sms.Pages.Students
 {
@@ -27,10 +28,7 @@ namespace sms.Pages.Students
             _context = context;
             webHostEnvironment = hostEnvironment;
         }
-        public SelectList GradeNumbersSL { get; set; }
-        public int GradeNumber { get; set; }
-        public SelectList GradeLettersSL { get; set; }
-        public string GradeLetter { get; set; }
+        public List<SelectListItem> GradesSL { get; set; }
         public int? PageIndex { get; set; }
         public IFormFile FormFile { get; set; }
         private readonly string[] permittedExtensions = { ".jpg", ".jpeg", ".png", ".gif", ".bmp", ".tif", ".tiff" };
@@ -49,53 +47,70 @@ namespace sms.Pages.Students
                 return NotFound();
             }
 
+            //Load data from DB
+            //Завантаження даних з БД
             Student = await _context.Students
                 .Include(s => s.Grade).FirstOrDefaultAsync(m => m.Id == id);
             if(!string.IsNullOrEmpty(Student.Gender)) Gender = Student.Gender;
+            
             if (Student == null)
             {
                 return NotFound();
             }
-            GradeNumbersSL = new SelectList(_context.Grades.OrderBy(x => x.Number).Select(x => x.Number).Distinct());
-            GradeLettersSL = new SelectList(_context.Grades.OrderBy(x => x.Letter).Select(x => x.Letter).Distinct());
-            GradeNumber = Student.Grade.Number;
-            GradeLetter = Student.Grade.Letter;
+
+            //Grade dropdown
+            //Випадаючий список класу
+            GradesSL = new List<SelectListItem>();
+            var grades = _context.Grades.OrderBy(g => g.Number).ThenBy(g => g.Letter);
+            foreach (Grade g in grades)
+            {
+                GradesSL.Add(new SelectListItem { Value = $"{g.Id}", Text = $"{g.FullName}" });
+            }
+
             return Page();
         }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync(int? pageIndex, int? id, int GradeNumber, string GradeLetter, string Gender)
+        public async Task<IActionResult> OnPostAsync(int? pageIndex, int? id, string Gender)
         {
+            //Find item in DB and update it
+            //Знаходження запису у БД і оновлення
             var studentToUpdate = _context.Students.Include(t => t.Grade).Single(s => s.Id == id);
 
             if (await TryUpdateModelAsync<Student>(
                             studentToUpdate,
                             "Student",
                             i => i.LastName, i => i.FirstName, i => i.Patronymic,
-                            i => i.DateOfBirth, i => i.Address))
+                            i => i.DateOfBirth, i => i.Address, i => i.GradeId))
             {
-                studentToUpdate.Grade = _context.Grades.Where(x => x.Number == GradeNumber).Where(x => x.Letter == GradeLetter).Single();
-                
                 if (Gender == "Не вказано") studentToUpdate.Gender = null;
                 else studentToUpdate.Gender = Gender;
 
                 if (FormFile != null)
                 {
+                    //Check permitted extensions for photo
+                    //Перевірка фото на тип файлу
                     var ext = Path.GetExtension(FormFile.FileName).ToLowerInvariant();
                     if (!string.IsNullOrEmpty(ext) || permittedExtensions.Contains(ext))
                     {
+                        //Get random filename for server storage
+                        //Формування випадкового імені файлу для збереження на сервері
                         string uploadsFolder = Path.Combine(webHostEnvironment.WebRootPath, @"images\avatars"); //webHost adds 'wwwroot'
                         var trustedFileNameForFileStorage = Path.GetRandomFileName();
                         trustedFileNameForFileStorage = trustedFileNameForFileStorage.Substring(0, 8) 
                             + trustedFileNameForFileStorage.Substring(9) + ext;
                         var filePath = Path.Combine(uploadsFolder, trustedFileNameForFileStorage);
 
+                        //Copy data to a new file
+                        //Копіювання даних у новий файл
                         using (var fileStream = System.IO.File.Create(filePath))
                         {
                             await FormFile.CopyToAsync(fileStream);
                         }
 
+                        //Delete old photo file
+                        //Видалення старого файлу з фото
                         var oldFile = studentToUpdate.ProfilePicture;
                         var fileToDelete = string.Empty;
                         if (!string.IsNullOrEmpty(oldFile))
@@ -108,6 +123,8 @@ namespace sms.Pages.Students
                             System.IO.File.Delete(fileToDelete);
                         }
 
+                        //Update student photo
+                        //Оновлення фото учня
                         studentToUpdate.ProfilePicture = trustedFileNameForFileStorage;
                     }
                 }

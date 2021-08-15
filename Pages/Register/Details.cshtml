@@ -54,6 +54,8 @@
 
 @section scripts{
     <script>
+        @* Get query parameters *@
+        @* Отримання значень параметрів з рядка адреси *@
         function query_string(variable) {
             var query = window.location.search.substring(1);
             var vars = query.split("&");
@@ -70,9 +72,13 @@
         var semester = query_string('semester');
         var gradeId = query_string('gradeId');
 
+        @* Random color generator *@
+        @* Генератор випадкових кольорів *@
         var randomColorGenerator = function () {
             return '#' + (Math.random().toString(16) + '0000000').slice(2, 8);
         };
+        @* Draw bar chart of grade's academic performance *@
+        @* Діаграма успішності класу *@
         $.ajax({
             url: "?handler=Data",
             type: "POST",

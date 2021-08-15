@@ -51,6 +51,8 @@ namespace sms.Pages.Students
 
             IQueryable<Student> studentsIQ = _context.Students.Include(i => i.Grade);
 
+            //Search filter
+            //Фільтр пошуку
             if (!String.IsNullOrEmpty(searchString))
             {
                 studentsIQ = studentsIQ.Where(s => s.LastName.Contains(searchString)
@@ -58,6 +60,8 @@ namespace sms.Pages.Students
                                        || s.Patronymic.Contains(searchString));
             }
 
+            //Sort order
+            //Сортування
             switch (sortOrder)
             {
                 case "name_desc":
@@ -80,6 +84,8 @@ namespace sms.Pages.Students
                     break;
             }
 
+            //Pagination
+            //Розподіл на сторінки
             var pageSize = Configuration.GetValue("PageSize", 10);
             Student = await PaginatedList<Student>.CreateAsync(
                 studentsIQ.AsNoTracking(), pageIndex ?? 1, pageSize);

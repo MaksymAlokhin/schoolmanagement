@@ -34,6 +34,8 @@ namespace sms.Pages.Grades
                 return NotFound();
             }
 
+            //Load and sort data from DB
+            //Завантаження даних з БД та сортування
             Grade = await _context.Grades.FirstOrDefaultAsync(m => m.Id == id);
             Student = await _context.Students
                 .Where(s => s.GradeId == id)
@@ -48,6 +50,8 @@ namespace sms.Pages.Grades
             }
             return Page();
         }
+        //Return students grouped by gender
+        //Інформація про студентів, згрупованих по статі
         public JsonResult OnPostGender(int id)
         {
             var gender = _context.Students
@@ -63,6 +67,9 @@ namespace sms.Pages.Grades
 
             return new JsonResult(gender);
         }
+
+        //Return students grouped by age
+        //Інформація про студентів, згрупованих по віку
         public JsonResult OnPostAge(int id)
         {
             var age = _context.Students

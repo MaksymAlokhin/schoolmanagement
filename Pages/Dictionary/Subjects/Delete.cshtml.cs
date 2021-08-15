@@ -34,6 +34,8 @@ namespace sms.Pages.Subjects
                 return NotFound();
             }
 
+            //Load data from DB
+            //Завантаження даних з БД
             Subject = await _context.Subjects.Include(x => x.Teachers).FirstOrDefaultAsync(m => m.Id == id);
 
             if (Subject == null)
@@ -50,6 +52,8 @@ namespace sms.Pages.Subjects
                 return NotFound();
             }
 
+            //Find and delete record
+            //Знаходження і видалення запису
             Subject = await _context.Subjects.FindAsync(id);
 
             if (Subject != null)

@@ -33,6 +33,8 @@ namespace sms.Pages.Students
                 return NotFound();
             }
 
+            //Load data from DB
+            //Завантаження даних з БД
             Student = await _context.Students
                 .Include(s => s.Grade).FirstOrDefaultAsync(m => m.Id == id);
 

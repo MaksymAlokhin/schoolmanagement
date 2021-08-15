@@ -15,6 +15,8 @@ namespace sms.Pages.Subjects
     public class CreateModel : PageModel
     {
         private readonly sms.Data.ApplicationDbContext _context;
+        public List<int> selectedTeachers { get; set; }
+        public SelectList TeacherNameSL { get; set; }
 
         public CreateModel(sms.Data.ApplicationDbContext context)
         {
@@ -23,12 +25,16 @@ namespace sms.Pages.Subjects
 
         public IActionResult OnGet()
         {
-            var teachersQuery = _context.Teachers.OrderBy(r => r.LastName);
+            var teachersQuery = _context.Teachers
+                .OrderBy(r => r.LastName)
+                .ThenBy(r => r.FirstName)
+                .ThenBy(r => r.Patronymic);
+            
+            //Teachers dropdown
+            //Випадаючий список вчителів
             TeacherNameSL = new SelectList(teachersQuery, "Id", "FullName"); //list, id, value
             return Page();
         }
-        public List<int> selectedTeachers { get; set; }
-        public SelectList TeacherNameSL { get; set; }
 
         [BindProperty]
         public Subject Subject { get; set; }
@@ -36,6 +42,8 @@ namespace sms.Pages.Subjects
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync(int[] selectedTeachers)
         {
+            //Create record and fill properties with data
+            //Створення запису і заповнення полів даними
             var newSubject = new Subject();
             newSubject.Teachers = new List<Teacher>();
 
@@ -51,6 +59,8 @@ namespace sms.Pages.Subjects
                     }
                 }
 
+                //Save record to DB
+                //Збереження запису у БД
                 _context.Subjects.Add(newSubject);
                 await _context.SaveChangesAsync();
                 return RedirectToPage("./Index");

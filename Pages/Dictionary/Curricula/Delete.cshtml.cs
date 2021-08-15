@@ -32,6 +32,8 @@ namespace sms.Pages.Dictionary.Curricula
                 return NotFound();
             }
 
+            //Load data from DB
+            //Завантаження даних з БД
             Curriculum = await _context.Curricula
                 .Include(c => c.Grade)
                 .Include(c => c.Subject)
@@ -50,7 +52,9 @@ namespace sms.Pages.Dictionary.Curricula
             {
                 return NotFound();
             }
-
+            
+            //Find and delete from DB
+            //Знаходимо вказане навантаження та видаляємо з БД
             Curriculum = await _context.Curricula.FindAsync(id);
 
             if (Curriculum != null)

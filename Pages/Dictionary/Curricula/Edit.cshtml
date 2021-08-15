@@ -46,6 +46,8 @@
     <a asp-page="./Index" asp-route-gradeId="@Model.Curriculum.GradeId" asp-route-pageIndex="@Model.PageIndex">Назад</a>
 </div>
 
+@* Pupulate subjects dropdown *@
+@* Заповнення випадаючого списку предметів *@
 @section scripts{
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     <script>

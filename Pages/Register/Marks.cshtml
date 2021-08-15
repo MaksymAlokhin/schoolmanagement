@@ -13,7 +13,7 @@
             <div class="col-sm-2">
                 <div class="form-group">
                     <label asp-for="selectedGrade" class="control-label"><i class="fas fa-users"></i></label>
-                    <select asp-for="selectedGrade" name="gradeId" style="width:auto" asp-items="Model.grades">
+                    <select asp-for="selectedGrade" name="gradeId" style="width:auto" asp-items="Model.GradesSL">
                         <option value="0">Оберіть клас</option>
                     </select>
                 </div>
@@ -95,6 +95,8 @@
 @section scripts{
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     <script>
+        @* Fill students dropdown *@
+        @* Заповнення випадаючого списку учнями *@
         $(function () {
             $("#selectedGrade").on("change", function () {
                 var gradeId = $(this).val();
@@ -107,6 +109,9 @@
                 });
             });
         });
+
+        @* Get query parameters *@
+        @* Отримання значень параметрів з рядка адреси *@
         function query_string(variable) {
             var query = window.location.search.substring(1);
             var vars = query.split("&");
@@ -124,9 +129,14 @@
         var gradeId = query_string('gradeId');
         var studentId = query_string('studentId');
 
+        @* Random color generator *@
+        @* Генератор випадкових кольорів *@
         var randomColorGenerator = function () {
             return '#' + (Math.random().toString(16) + '0000000').slice(2, 8);
         };
+
+        @* Bar chars: student's academic performance *@
+        @* Діаграма успішності учня *@
         $.ajax({
             url: "?handler=Data",
             type: "POST",
@@ -168,5 +178,4 @@
             }
         });
     </script>
-
 }

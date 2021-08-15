@@ -17,6 +17,10 @@ namespace sms.Pages.Subjects
     {
         private readonly sms.Data.ApplicationDbContext _context;
         private readonly IConfiguration Configuration;
+        public string NameSort { get; set; }
+        public string CurrentFilter { get; set; }
+        public string CurrentSort { get; set; }
+        public PaginatedList<Subject> Subject { get; set; }
 
         public IndexModel(sms.Data.ApplicationDbContext context, IConfiguration configuration)
         {
@@ -24,11 +28,6 @@ namespace sms.Pages.Subjects
             Configuration = configuration;
         }
 
-        public string NameSort { get; set; }
-        public string CurrentFilter { get; set; }
-        public string CurrentSort { get; set; }
-
-        public PaginatedList<Subject> Subject { get; set; }
         public async Task OnGetAsync(string sortOrder,
             string currentFilter, string searchString, int? pageIndex)
         {
@@ -46,10 +45,16 @@ namespace sms.Pages.Subjects
 
             IQueryable<Subject> subjectsIQ = from s in _context.Subjects
                                              select s;
+            
+            //Search filter
+            //Фільтр пошуку
             if (!String.IsNullOrEmpty(searchString))
             {
                 subjectsIQ = subjectsIQ.Where(s => s.Name.Contains(searchString));
             }
+
+            //Sort order
+            //Сортування
             switch (sortOrder)
             {
                 case "name_desc":
@@ -60,6 +65,8 @@ namespace sms.Pages.Subjects
                     break;
             }
 
+            //Pagination
+            //Розподіл на сторінки
             var pageSize = Configuration.GetValue("PageSize", 10);
             Subject = await PaginatedList<Subject>.CreateAsync(
                 subjectsIQ.AsNoTracking(), pageIndex ?? 1, pageSize);

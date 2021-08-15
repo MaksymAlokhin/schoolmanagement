@@ -33,6 +33,8 @@ namespace sms.Pages.Subjects
                 return NotFound();
             }
 
+            //Load data from DB
+            //Завантаження даних з БД
             Subject = await _context.Subjects.Include(x => x.Teachers).FirstOrDefaultAsync(m => m.Id == id);
 
             if (Subject == null)

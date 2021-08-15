@@ -32,6 +32,8 @@ namespace sms.Pages.Equipment
                 return NotFound();
             }
 
+            //Load data from DB
+            //Завантаження даних з БД
             Inventory = await _context.Inventories.FirstOrDefaultAsync(m => m.Id == id);
 
             if (Inventory == null)
@@ -48,6 +50,8 @@ namespace sms.Pages.Equipment
                 return NotFound();
             }
 
+            //Find and delete the record
+            //Знаходження і видалення запису
             Inventory = await _context.Inventories.FindAsync(id);
 
             if (Inventory != null)

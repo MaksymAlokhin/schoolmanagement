@@ -18,7 +18,6 @@ namespace sms.Pages.Library
     {
         private readonly sms.Data.ApplicationDbContext _context;
         private readonly IConfiguration Configuration;
-        //public List<Reader> readers { get; set; } = new List<Reader>();
         public PaginatedList<Reader> readers { get; set; }
         public IList<Reader> readersList { get; set; } = new List<Reader>();
         public string NameSort { get; set; }
@@ -53,14 +52,17 @@ namespace sms.Pages.Library
 
             CurrentFilter = searchString;
 
+            //Get data from DB
+            //Отримання даних з БД
             Book = await _context.Books
                 .Include(m => m.Students)
                 .Include(m => m.Teachers)
                 .FirstOrDefaultAsync(m => m.Id == id);
-
             var students = await _context.Students.Include(s => s.Books).Include(s => s.Grade).Where(s => s.Books.Any(b => b.Id == id)).ToListAsync();
             var teachers = await _context.Teachers.Include(s => s.Books).Where(s => s.Books.Any(b => b.Id == id)).ToListAsync();
 
+            //Search filter
+            //Фільтр пошуку
             if (!String.IsNullOrEmpty(searchString))
             {
                 students = students.Where(s => s.LastName.Contains(searchString)
@@ -73,6 +75,8 @@ namespace sms.Pages.Library
                                     .ToList();
             }
 
+            //Create a list of readers from students and teachers
+            //Створення списку читачів з вчителів і учнів
             foreach (var student in students)
             {
                 readersList.Add(new Reader { Id = student.Id, Name = student.FullName, Type = Type.Учень, Grade = student.Grade.FullName });
@@ -82,6 +86,8 @@ namespace sms.Pages.Library
                 readersList.Add(new Reader { Id = teacher.Id, Name = teacher.FullName, Type = Type.Вчитель });
             }
 
+            //Sort order
+            //Сортування
             switch (sortOrder)
             {
                 case "name_desc":
@@ -108,16 +114,24 @@ namespace sms.Pages.Library
                     break;
             }
 
+            //Pagination
+            //Розподіл на сторінки
             var pageSize = Configuration.GetValue("PageSize", 10);
             readers = PaginatedList<Reader>.CreateFromList(
                 readersList, pageIndex ?? 1, pageSize);
 
             return Page();
         }
-        public async Task<IActionResult> OnPostAsync(int id, string sortOrder, string currentFilter, int? studentId, int? teacherId, int? pageIndex)
+        public async Task<IActionResult> OnPostAsync(int id, string sortOrder, 
+            string currentFilter, int? studentId, int? teacherId, int? pageIndex)
         {            
-            Book = await _context.Books.Include(m => m.Teachers).Include(m => m.Students).FirstOrDefaultAsync(m => m.Id == id);
+            Book = await _context.Books
+                .Include(m => m.Teachers)
+                .Include(m => m.Students)
+                .FirstOrDefaultAsync(m => m.Id == id);
 
+            //Take book from student
+            //Забрати книгу в учня
             if (studentId.HasValue)
             {
                 var student = await _context.Students.Include(m => m.Books).FirstOrDefaultAsync(m => m.Id == studentId);
@@ -129,6 +143,9 @@ namespace sms.Pages.Library
                     _context.SaveChanges();
                 }
             }
+
+            //Take book from teacher
+            //Забрати книгу у вчителя
             if (teacherId.HasValue)
             {
                 var teacher = await _context.Teachers.Include(m => m.Books).FirstOrDefaultAsync(m => m.Id == teacherId);
@@ -140,6 +157,7 @@ namespace sms.Pages.Library
                     _context.SaveChanges();
                 }
             }
+
             return RedirectToPage("./Details", new
             {
                 id = $"{id}",

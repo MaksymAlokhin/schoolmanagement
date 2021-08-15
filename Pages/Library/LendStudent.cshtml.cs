@@ -21,7 +21,6 @@ namespace sms.Pages.Library
         public List<SelectListItem> GradesSL;
         public int selectedGrade { get; set; }
         public List<SelectListItem> StudentsSL { get; set; }
-        //public IList<Student> students;
         public PaginatedList<Student> students { get; set; }
         public string NameSort { get; set; }
         public string GradeSort { get; set; }
@@ -58,13 +57,14 @@ namespace sms.Pages.Library
             if (gradeId != null)
                 selectedGrade = (int)gradeId;
             else selectedGrade = 0;
-            //else selectedGrade = _context.Grades.First().Id;
 
             Book = await _context.Books
                 .Include(m => m.Students)
                 .Include(m => m.Teachers)
                 .FirstOrDefaultAsync(m => m.Id == id);
 
+            //Grades selectlist
+            //Випадаючий список класів
             GradesSL = new List<SelectListItem>();
             var grad = _context.Grades.OrderBy(g => g.Number).ThenBy(g => g.Letter);
             GradesSL.Add(new SelectListItem("Всі класи", "0"));
@@ -75,6 +75,8 @@ namespace sms.Pages.Library
             
             IQueryable<Student> studentsIQ;
             
+            //Only students of a certain grade
+            //Лише учні певного класу
             if (selectedGrade > 0)
             {
                 studentsIQ = _context.Students
@@ -82,6 +84,8 @@ namespace sms.Pages.Library
                     .Include(m => m.Grade)
                     .Where(m => m.GradeId == selectedGrade);
             }
+            //All students
+            //Усі учні
             else
             {
                 studentsIQ = _context.Students
@@ -89,6 +93,8 @@ namespace sms.Pages.Library
                     .Include(m => m.Grade);
             }
 
+            //Search filter
+            //Фільтр пошуку
             if (!String.IsNullOrEmpty(searchString))
             {
                 studentsIQ = studentsIQ.Where(s => s.LastName.Contains(searchString)
@@ -96,6 +102,8 @@ namespace sms.Pages.Library
                                        || s.Patronymic.Contains(searchString));
             }
 
+            //Sort order
+            //Сортування
             switch (sortOrder)
             {
                 case "name_desc":
@@ -121,18 +129,23 @@ namespace sms.Pages.Library
                         .ThenBy(s => s.Patronymic);
                     break;
             }
-            
+
+            //Pagination
+            //Розподіл на сторінки
             var pageSize = Configuration.GetValue("PageSize", 10);
             students = await PaginatedList<Student>.CreateAsync(
                 studentsIQ, pageIndex ?? 1, pageSize);
 
             return Page();
         }
-        public async Task<IActionResult> OnPostAsync(int studentId, 
-            string sortOrder, string currentFilter, int id, int gradeId, int? pageIndex)
+        public async Task<IActionResult> OnPostAsync(int studentId, string sortOrder, 
+            string currentFilter, int id, int gradeId, int? pageIndex)
         {
             var student = await _context.Students.Include(m => m.Books).FirstOrDefaultAsync(m => m.Id == studentId);
             Book = await _context.Books.Include(m => m.Students).FirstOrDefaultAsync(m => m.Id == id);
+            
+            //Take or give book to a student
+            //Забрати чи видати книгу учневі
             if (!student.Books.Contains(Book))
             {
                 student.Books.Add(Book);
@@ -145,6 +158,7 @@ namespace sms.Pages.Library
                 Book.Qty++;
                 _context.SaveChanges();
             }
+
             return RedirectToPage("./LendStudent", new
             {
                 id = $"{id}",
