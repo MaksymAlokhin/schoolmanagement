@@ -68,7 +68,6 @@
                             <form method="post">
                                 <input type="hidden" name="id" asp-for="@Model.Book.Id" />
                                 <input type="hidden" name="pageIndex" asp-for="@Model.readers.PageIndex" />
-                                <input type="hidden" name="teacherId" asp-for="@Model.readers[reader].Id" />
                                 <input type="hidden" name="sortOrder" asp-for="@Model.CurrentSort" />
                                 <input type="hidden" name="currentFilter" asp-for="@Model.CurrentFilter" />
                                 @if (Model.readers[reader].Type == Type.Вчитель)
