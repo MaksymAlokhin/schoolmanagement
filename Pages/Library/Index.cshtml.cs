@@ -76,7 +76,7 @@ namespace sms.Pages.Library
 
             CurrentFilter = searchString;
 
-            IQueryable<Book> booksIQ = _context.Books;
+            IQueryable<Book> booksIQ = _context.Books.Include(b => b.Teachers).Include(b => b.Students);
 
             if (!String.IsNullOrEmpty(searchString))
             {
