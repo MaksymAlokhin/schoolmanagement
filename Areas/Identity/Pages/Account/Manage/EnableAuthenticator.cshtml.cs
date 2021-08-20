@@ -95,9 +95,9 @@ namespace sms.Areas.Identity.Pages.Account.Manage
 
             await _userManager.SetTwoFactorEnabledAsync(user, true);
             var userId = await _userManager.GetUserIdAsync(user);
-            _logger.LogInformation("Користувач з ID '{UserId}' увімкнув двофакторну аутентифікацію із застосунком.", userId);
+            _logger.LogInformation("Користувач з ID '{UserId}' увімкнув двофакторну автентифікацію із застосунком.", userId);
 
-            StatusMessage = "Ваш застосунок аутентифікації перевірено.";
+            StatusMessage = "Ваш застосунок автентифікації перевірено.";
 
             if (await _userManager.CountRecoveryCodesAsync(user) == 0)
             {

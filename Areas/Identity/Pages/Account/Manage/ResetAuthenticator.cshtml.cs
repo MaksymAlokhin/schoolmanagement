@@ -49,10 +49,10 @@ namespace sms.Areas.Identity.Pages.Account.Manage
 
             await _userManager.SetTwoFactorEnabledAsync(user, false);
             await _userManager.ResetAuthenticatorKeyAsync(user);
-            _logger.LogInformation("Користувач з ID {0} скинув ключ застосунку аутентифікації.", user.Id); //originally '{UserId}', now {0}
+            _logger.LogInformation("Користувач з ID {0} скинув ключ застосунку автентифікації.", user.Id); //originally '{UserId}', now {0}
 
             await _signInManager.RefreshSignInAsync(user);
-            StatusMessage = "Ваш ключ застосунку аутентифікації було скинуто, Вам потрібно налаштувати застосунок аутентифікації використовуючи новий ключ.";
+            StatusMessage = "Ваш ключ застосунку автентифікації було скинуто, Вам потрібно налаштувати застосунок автентифікації використовуючи новий ключ.";
 
             return RedirectToPage("./EnableAuthenticator");
         }

@@ -1,12 +1,12 @@
 ﻿@page
 @model LoginWith2faModel
 @{
-    ViewData["Title"] = "Двофакторна аутентифікація";
+    ViewData["Title"] = "Двофакторна автентифікація";
 }
 
 <h1>@ViewData["Title"]</h1>
 <hr />
-<p>Ваш вхід захищений застосунком аутентифікації. Введіть код аутентифікації внизу.</p>
+<p>Ваш вхід захищений застосунком автентифікації. Введіть код автентифікації внизу.</p>
 <div class="row">
     <div class="col-md-4">
         <form method="post" asp-route-returnUrl="@Model.ReturnUrl">
@@ -32,7 +32,7 @@
     </div>
 </div>
 <p>
-    Немає доступу до пристрою аутентифікації? Ви можете
+    Немає доступу до пристрою автентифікації? Ви можете
     <a id="recovery-code-login" asp-page="./LoginWithRecoveryCode" asp-route-returnUrl="@Model.ReturnUrl">увійти з кодом відновлення</a>.
 </p>
 

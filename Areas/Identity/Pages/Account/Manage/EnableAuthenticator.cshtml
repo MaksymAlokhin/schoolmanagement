@@ -1,18 +1,18 @@
 ﻿@page
 @model EnableAuthenticatorModel
 @{
-    ViewData["Title"] = "Налаштування застосунку аутентифікації";
+    ViewData["Title"] = "Налаштування застосунку автентифікації";
     ViewData["ActivePage"] = ManageNavPages.TwoFactorAuthentication;
 }
 
 <partial name="_StatusMessage" for="StatusMessage" />
 <h4>@ViewData["Title"]</h4>
 <div>
-    <p>Щоб користуватись застосунком аутентифікації, виконайте наступні кроки:</p>
+    <p>Щоб користуватись застосунком автентифікації, виконайте наступні кроки:</p>
     <ol class="list">
         <li>
             <p>
-                Завантажте застосунок для двофакторної аутентифікації, наприклад Microsoft Authenticator для
+                Завантажте застосунок для двофакторної автентифікації, наприклад Microsoft Authenticator для
                 <a href="https://go.microsoft.com/fwlink/?Linkid=825072">Android</a> та
                 <a href="https://go.microsoft.com/fwlink/?Linkid=825073">iOS</a> або
                 Google Authenticator для
@@ -21,14 +21,14 @@
             </p>
         </li>
         <li>
-            <p>Відскануйте QR код або введіть цей ключ <kbd>@Model.SharedKey</kbd> у ваш застосунок подвійної аутентифікації. Наявність пробілів та різниця між великими і маленькими літерами не має значення.</p>
+            <p>Відскануйте QR код або введіть цей ключ <kbd>@Model.SharedKey</kbd> у ваш застосунок подвійної автентифікації. Наявність пробілів та різниця між великими і маленькими літерами не має значення.</p>
             <div class="alert alert-info">Навчіться, як <a href="https://go.microsoft.com/fwlink/?Linkid=852423">увімкнути генерацію QR коду</a>.</div>
             <div id="qrCode"></div>
             <div id="qrCodeData" data-url="@Html.Raw(@Model.AuthenticatorUri)"></div>
         </li>
         <li>
             <p>
-                Відсканувавши QR код або ввівши код, який вверху, ваш застосунок двофакторної аутентифікації надасть вам
+                Відсканувавши QR код або ввівши код, який вверху, ваш застосунок двофакторної автентифікації надасть вам
                 унікальний код. Введіть код у поле підтвердження внизу.
             </p>
             <div class="row">

@@ -64,7 +64,7 @@ namespace sms.Areas.Identity.Pages.Account.Manage
             }
 
             await _signInManager.ForgetTwoFactorClientAsync();
-            StatusMessage = "Цей браузер забуто. Коли ви знову зайдете з цього браузера, Вас попросять ввести код двофакторної аутентифікації.";
+            StatusMessage = "Цей браузер забуто. Коли ви знову зайдете з цього браузера, Вас попросять ввести код двофакторної автентифікації.";
             return RedirectToPage();
         }
     }

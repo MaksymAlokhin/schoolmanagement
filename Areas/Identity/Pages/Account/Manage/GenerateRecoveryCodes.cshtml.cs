@@ -40,7 +40,7 @@ namespace sms.Areas.Identity.Pages.Account.Manage
             if (!isTwoFactorEnabled)
             {
                 var userId = await _userManager.GetUserIdAsync(user);
-                throw new InvalidOperationException($"Неможливо згенерувати коди відновлення для користувача з ID '{userId}', тому що двофакторна аутентифікація не увімкнена.");
+                throw new InvalidOperationException($"Неможливо згенерувати коди відновлення для користувача з ID '{userId}', тому що двофакторна автентифікація не увімкнена.");
             }
 
             return Page();
@@ -58,13 +58,13 @@ namespace sms.Areas.Identity.Pages.Account.Manage
             var userId = await _userManager.GetUserIdAsync(user);
             if (!isTwoFactorEnabled)
             {
-                throw new InvalidOperationException($"Неможливо згенерувати коди відновлення для користувача з ID '{userId}', так як двофакторна аутентифікація не увімкнена.");
+                throw new InvalidOperationException($"Неможливо згенерувати коди відновлення для користувача з ID '{userId}', так як двофакторна автентифікація не увімкнена.");
             }
 
             var recoveryCodes = await _userManager.GenerateNewTwoFactorRecoveryCodesAsync(user, 10);
             RecoveryCodes = recoveryCodes.ToArray();
 
-            _logger.LogInformation("Користувач з ID {0} згенерував нові коди відновлення двофакторної аутентифікації.", userId); //originally '{UserId}' now {0}
+            _logger.LogInformation("Користувач з ID {0} згенерував нові коди відновлення двофакторної автентифікації.", userId); //originally '{UserId}' now {0}
             StatusMessage = "Ви згенерували нові коди відновлення.";
             return RedirectToPage("./ShowRecoveryCodes");
         }

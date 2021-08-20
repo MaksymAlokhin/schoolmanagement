@@ -35,7 +35,7 @@ namespace sms.Areas.Identity.Pages.Account
             [Required]
             [StringLength(7, ErrorMessage = "{0} повинен бути довжиною принаймні {2} та максимум {1} символів.", MinimumLength = 6)]
             [DataType(DataType.Text)]
-            [Display(Name = "Код аутентифікатора")]
+            [Display(Name = "Код автентифікатора")]
             public string TwoFactorCode { get; set; }
 
             [Display(Name = "Запам'ятати цей пристрій")]
@@ -49,7 +49,7 @@ namespace sms.Areas.Identity.Pages.Account
 
             if (user == null)
             {
-                throw new InvalidOperationException($"Неможливо знайти користувача з двофакторною аутентифікацією.");
+                throw new InvalidOperationException($"Неможливо знайти користувача з двофакторною автентифікацією.");
             }
 
             ReturnUrl = returnUrl;
@@ -70,7 +70,7 @@ namespace sms.Areas.Identity.Pages.Account
             var user = await _signInManager.GetTwoFactorAuthenticationUserAsync();
             if (user == null)
             {
-                throw new InvalidOperationException($"Неможливо знайти користувача з двофакторною аутентифікацією.");
+                throw new InvalidOperationException($"Неможливо знайти користувача з двофакторною автентифікацією.");
             }
 
             var authenticatorCode = Input.TwoFactorCode.Replace(" ", string.Empty).Replace("-", string.Empty);
@@ -79,7 +79,7 @@ namespace sms.Areas.Identity.Pages.Account
 
             if (result.Succeeded)
             {
-                _logger.LogInformation("Користувач з ID '{UserId}' зайшов з двофакторною аутентифікацією.", user.Id);
+                _logger.LogInformation("Користувач з ID '{UserId}' зайшов з двофакторною автентифікацією.", user.Id);
                 return LocalRedirect(returnUrl);
             }
             else if (result.IsLockedOut)
@@ -89,8 +89,8 @@ namespace sms.Areas.Identity.Pages.Account
             }
             else
             {
-                _logger.LogWarning("Неправильний код аутентифікації введено для користувача з ID '{UserId}'.", user.Id);
-                ModelState.AddModelError(string.Empty, "Неправильний код аутентифікації.");
+                _logger.LogWarning("Неправильний код автентифікації введено для користувача з ID '{UserId}'.", user.Id);
+                ModelState.AddModelError(string.Empty, "Неправильний код автентифікації.");
                 return Page();
             }
         }

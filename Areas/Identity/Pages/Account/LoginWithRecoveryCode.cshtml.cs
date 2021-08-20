@@ -43,7 +43,7 @@ namespace sms.Areas.Identity.Pages.Account
             var user = await _signInManager.GetTwoFactorAuthenticationUserAsync();
             if (user == null)
             {
-                throw new InvalidOperationException($"Неможливо знайти користувача з двофакторною аутентифікацією.");
+                throw new InvalidOperationException($"Неможливо знайти користувача з двофакторною автентифікацією.");
             }
 
             ReturnUrl = returnUrl;
@@ -61,7 +61,7 @@ namespace sms.Areas.Identity.Pages.Account
             var user = await _signInManager.GetTwoFactorAuthenticationUserAsync();
             if (user == null)
             {
-                throw new InvalidOperationException($"Неможливо знайти користувача з двофакторною аутентифікацією.");
+                throw new InvalidOperationException($"Неможливо знайти користувача з двофакторною автентифікацією.");
             }
 
             var recoveryCode = Input.RecoveryCode.Replace(" ", string.Empty);

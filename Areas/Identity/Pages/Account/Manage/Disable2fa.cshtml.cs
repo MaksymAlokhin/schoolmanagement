@@ -35,7 +35,7 @@ namespace sms.Areas.Identity.Pages.Account.Manage
 
             if (!await _userManager.GetTwoFactorEnabledAsync(user))
             {
-                throw new InvalidOperationException($"Неможливо відключити двофакторну аутентифікацію для користувача з ID '{_userManager.GetUserId(User)}', так як вона зараз не включена.");
+                throw new InvalidOperationException($"Неможливо відключити двофакторну автентифікацію для користувача з ID '{_userManager.GetUserId(User)}', так як вона зараз не включена.");
             }
 
             return Page();
@@ -52,11 +52,11 @@ namespace sms.Areas.Identity.Pages.Account.Manage
             var disable2faResult = await _userManager.SetTwoFactorEnabledAsync(user, false);
             if (!disable2faResult.Succeeded)
             {
-                throw new InvalidOperationException($"Відбулася неочікувана помилка при відключенні двофакторної аутентифікації для користувача з ID '{_userManager.GetUserId(User)}'.");
+                throw new InvalidOperationException($"Відбулася неочікувана помилка при відключенні двофакторної автентифікації для користувача з ID '{_userManager.GetUserId(User)}'.");
             }
 
-            _logger.LogInformation("Користувач з ID '{UserId}' відключив двофакторну аутентифікацію.", _userManager.GetUserId(User));
-            StatusMessage = "Двофакторна аутентифікація відключена. Ви можете її включити знову під час налаштування застосунку аутентифікації";
+            _logger.LogInformation("Користувач з ID '{UserId}' відключив двофакторну автентифікацію.", _userManager.GetUserId(User));
+            StatusMessage = "Двофакторна автентифікація відключена. Ви можете її включити знову під час налаштування застосунку автентифікації";
             return RedirectToPage("./TwoFactorAuthentication");
         }
     }
