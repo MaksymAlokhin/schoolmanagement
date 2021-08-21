@@ -9,9 +9,11 @@ using Microsoft.EntityFrameworkCore;
 using sms.Data;
 using sms.Models;
 using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Authorization;
 
 namespace sms.Pages.Dictionary.Curricula
 {
+    [Authorize(Roles = "Адміністратор")]
     public class IndexModel : PageModel
     {
         private readonly sms.Data.ApplicationDbContext _context;
