@@ -11,46 +11,44 @@
 <h3>Ви впевнені, що хочете видалити це?</h3>
 <h4>Завдання</h4>
 <hr />
-<div class="container">
-    <div class="row">
-        <div class="col-sm-auto">
-            <div>
-                <i class="fas fa-users"></i>
-                @Html.DisplayFor(model => model.Assignment.Grade.FullName)
-            </div>
-            <div>
-                <i class="fas fa-book-open"></i>
-                @Html.DisplayFor(model => model.Assignment.Subject.Name)
-            </div>
-            <div>
-                <i class="fas fa-calendar-alt"></i>
-                @Html.DisplayFor(model => model.Assignment.DateOfPost)
-            </div>
-            <div>
-                <i class="fas fa-chalkboard-teacher"></i>
-                @Html.DisplayFor(model => model.Assignment.Teacher.FullName)
-            </div>
+<div class="row">
+    <div class="col-sm-auto">
+        <div>
+            <i class="fas fa-users"></i>
+            @Html.DisplayFor(model => model.Assignment.Grade.FullName)
         </div>
-        <div class="col-sm">
-            <div class="card">
-                <div class="card-body">
-                    <div class="card-header bg-light">
-                        <h5 class="card-title">@Html.DisplayNameFor(model => model.Assignment.Post)</h5>
-                    </div>
-                    <p class="card-text" style="white-space: pre-line; max-height: 500px;">@Html.Raw(Model.Assignment.Post)</p>
-                    <form method="post">
-                        <input type="hidden" asp-for="Assignment.Id" />
-                        <div class="card-footer">
-                            <input type="submit" value="Видалити" class="btn btn-danger card-link" />
-                            <a class="card-link" asp-page="./Index"
-                               asp-route-gradeId="@Model.Assignment.GradeId"
-                               asp-route-subjectId="@Model.Assignment.SubjectId"
-                               asp-route-pageIndex="@Model.PageIndex">
-                                Назад
-                            </a>
-                        </div>
-                    </form>
+        <div>
+            <i class="fas fa-book-open"></i>
+            @Html.DisplayFor(model => model.Assignment.Subject.Name)
+        </div>
+        <div>
+            <i class="fas fa-calendar-alt"></i>
+            @Html.DisplayFor(model => model.Assignment.DateOfPost)
+        </div>
+        <div>
+            <i class="fas fa-chalkboard-teacher"></i>
+            @Html.DisplayFor(model => model.Assignment.Teacher.FullName)
+        </div>
+    </div>
+    <div class="col-sm">
+        <div class="card">
+            <div class="card-body">
+                <div class="card-header bg-light">
+                    <h5 class="card-title">@Html.DisplayNameFor(model => model.Assignment.Post)</h5>
                 </div>
+                <p class="card-text" style="white-space: pre-line; max-height: 500px;">@Html.Raw(Model.Assignment.Post)</p>
+                <form method="post">
+                    <input type="hidden" asp-for="Assignment.Id" />
+                    <div class="card-footer">
+                        <input type="submit" value="Видалити" class="btn btn-danger card-link" />
+                        <a class="card-link" asp-page="./Index"
+                           asp-route-gradeId="@Model.Assignment.GradeId"
+                           asp-route-subjectId="@Model.Assignment.SubjectId"
+                           asp-route-pageIndex="@Model.PageIndex">
+                            Назад
+                        </a>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

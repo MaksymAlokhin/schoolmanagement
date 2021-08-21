@@ -8,44 +8,42 @@
 
 <h1>Статистичні дані по @Model.gradeName класу</h1>
 
-<div class="container">
-    <div class="row">
-        <table class="col-sm-5 table table-responsive table-hover table-striped table-sm text-nowrap" id="schoolTable">
-            <thead>
+<div class="row">
+    <table class="col-sm-5 table table-responsive table-hover table-striped table-sm text-nowrap" id="schoolTable">
+        <thead>
+            <tr>
+                <th scope="col" style="text-align:center" class="col-auto">#</th>
+                <th scope="col" style="text-align: center" class="col-auto">
+                    <a asp-page="./Details" asp-route-sortOrder="@Model.NameSort"
+                       asp-route-year="@Model.selectedYear"
+                       asp-route-semester="@Model.selectedSemester"
+                       asp-route-gradeId="@Model.selectedGrade">Предмет</a>
+                </th>
+                <th scope="col" style="text-align: center" class="col-auto">
+                    <a asp-page="./Details" asp-route-sortOrder="@Model.MarkSort"
+                       asp-route-year="@Model.selectedYear"
+                       asp-route-semester="@Model.selectedSemester"
+                       asp-route-gradeId="@Model.selectedGrade">Середній бал</a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (var subject = 0; subject < Model.subjects.Count(); subject++)
+            {
                 <tr>
-                    <th scope="col" style="text-align:center" class="col-auto">#</th>
-                    <th scope="col" style="text-align: center" class="col-auto">
-                        <a asp-page="./Details" asp-route-sortOrder="@Model.NameSort"
-                           asp-route-year="@Model.selectedYear"
-                           asp-route-semester="@Model.selectedSemester"
-                           asp-route-gradeId="@Model.selectedGrade">Предмет</a>
-                    </th>
-                    <th scope="col" style="text-align: center" class="col-auto">
-                        <a asp-page="./Details" asp-route-sortOrder="@Model.MarkSort"
-                           asp-route-year="@Model.selectedYear"
-                           asp-route-semester="@Model.selectedSemester"
-                           asp-route-gradeId="@Model.selectedGrade">Середній бал</a>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                @for (var subject = 0; subject < Model.subjects.Count(); subject++)
-                {
-                    <tr>
-                        <th scope="row" style="text-align:center">@(subject+1)</th>
-                        <th scope="row">@Model.subjects[subject].Name</th>
+                    <th scope="row" style="text-align:center">@(subject+1)</th>
+                    <th scope="row">@Model.subjects[subject].Name</th>
 
-                        <td style="text-align:center">
-                            @Model.subjects[subject].Avg
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-        <div class="col-sm-6 offset-sm-1">
-            <h4 style="text-align: center">Успішність</h4>
-            <canvas id="barChart" width="800" height="700"></canvas>
-        </div>
+                    <td style="text-align:center">
+                        @Model.subjects[subject].Avg
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="col-sm-6 offset-sm-1">
+        <h4 style="text-align: center">Успішність</h4>
+        <canvas id="barChart" width="800" height="700"></canvas>
     </div>
 </div>
 <div>

@@ -6,28 +6,26 @@
 
 <h2>Повноваження</h2>
 
-<div class="container">
-    <form asp-page="./Roles" method="get">
-        <input type="hidden" name="sortOrder" asp-for="@Model.CurrentSort" />
-        <div class="row">
-            <div class="col-auto">
-                <div class="form-actions no-color">
-                    <p>
-                        <input type="text" name="SearchString" value="@Model.CurrentFilter" placeholder="Пошук" />
-                        <button type="submit" class="btn btn-default">
-                            <i class="fa fa-search"></i>
-                        </button> |
-                        <a asp-page="./Roles" class="btn btn-default"><i class="fas fa-times"></i></a>
-                    </p>
-                </div>
-            </div>
-            <div class="col-auto">
-                <label>Без повноважень</label>
-                <input asp-for="NoRolesCheckbox" type="checkbox" value="True" data-val="true" onchange="this.form.submit();" data-val-required="The NoRolesCheckbox field is required." id="noRoles" name="noRoles" />
+<form asp-page="./Roles" method="get">
+    <input type="hidden" name="sortOrder" asp-for="@Model.CurrentSort" />
+    <div class="row">
+        <div class="col-auto">
+            <div class="form-actions no-color">
+                <p>
+                    <input type="text" name="SearchString" value="@Model.CurrentFilter" placeholder="Пошук" />
+                    <button type="submit" class="btn btn-default">
+                        <i class="fa fa-search"></i>
+                    </button> |
+                    <a asp-page="./Roles" class="btn btn-default"><i class="fas fa-times"></i></a>
+                </p>
             </div>
         </div>
-    </form>
-</div>
+        <div class="col-auto">
+            <label>Без повноважень</label>
+            <input asp-for="NoRolesCheckbox" type="checkbox" value="True" data-val="true" onchange="this.form.submit();" data-val-required="The NoRolesCheckbox field is required." id="noRoles" name="noRoles" />
+        </div>
+    </div>
+</form>
 
 <table class="table table-responsive">
     <thead style="text-align: center">

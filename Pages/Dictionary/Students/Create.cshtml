@@ -10,89 +10,87 @@
 
 <h4>Учень</h4>
 <hr />
-<div class="container">
-    <form enctype="multipart/form-data" method="post">
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <div class="row">
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <label asp-for="Student.LastName" class="control-label"></label>
-                    <input asp-for="Student.LastName" class="form-control" />
-                    <span asp-validation-for="Student.LastName" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <label asp-for="Student.Address" class="control-label"></label>
-                    <input asp-for="Student.Address" class="form-control" />
-                    <span asp-validation-for="Student.Address" class="text-danger"></span>
-                </div>
+<form enctype="multipart/form-data" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label asp-for="Student.LastName" class="control-label"></label>
+                <input asp-for="Student.LastName" class="form-control" />
+                <span asp-validation-for="Student.LastName" class="text-danger"></span>
             </div>
         </div>
-        <div class="row">
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <label asp-for="Student.FirstName" class="control-label"></label>
-                    <input asp-for="Student.FirstName" class="form-control" />
-                    <span asp-validation-for="Student.FirstName" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <label asp-for="Student.GradeId" class="control-label">Клас</label>
-                    <select asp-for="Student.GradeId" class="form-control" asp-items="@Model.GradesSL"></select>
-                </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label asp-for="Student.Address" class="control-label"></label>
+                <input asp-for="Student.Address" class="form-control" />
+                <span asp-validation-for="Student.Address" class="text-danger"></span>
             </div>
         </div>
-        <div class="row">
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <label asp-for="Student.Patronymic" class="control-label"></label>
-                    <input asp-for="Student.Patronymic" class="form-control" />
-                    <span asp-validation-for="Student.Patronymic" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <label asp-for="Student.DateOfBirth" class="control-label"></label>
-                    <input asp-for="Student.DateOfBirth" class="form-control" />
-                    <span asp-validation-for="Student.DateOfBirth" class="text-danger"></span>
-                </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label asp-for="Student.FirstName" class="control-label"></label>
+                <input asp-for="Student.FirstName" class="form-control" />
+                <span asp-validation-for="Student.FirstName" class="text-danger"></span>
             </div>
         </div>
-        <div class="row">
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <label asp-for="Student.ProfilePicture" class="control-label"></label>
-                    <div class="custom-file">
-                        <input asp-for="FormFile" class="custom-file-input" id="customFile">
-                        <label class="custom-file-label" for="customFile">Оберіть файл</label>
-                    </div>
-                    <span asp-validation-for="FormFile" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <label asp-for="Student.Gender" class="control-label"></label><br />
-                    @foreach (var gender in Model.Genders)
-                    {
-                        <input type="radio" asp-for="Gender" value="@gender" />@gender<br />
-                    }
-                </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label asp-for="Student.GradeId" class="control-label">Клас</label>
+                <select asp-for="Student.GradeId" class="form-control" asp-items="@Model.GradesSL"></select>
             </div>
         </div>
-        <div class="row">
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <input type="submit" value="Створити" class="btn btn-primary" />
-                </div>
-                <div>
-                    <a asp-page="Index">Назад</a>
-                </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label asp-for="Student.Patronymic" class="control-label"></label>
+                <input asp-for="Student.Patronymic" class="form-control" />
+                <span asp-validation-for="Student.Patronymic" class="text-danger"></span>
             </div>
         </div>
-    </form>
-</div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label asp-for="Student.DateOfBirth" class="control-label"></label>
+                <input asp-for="Student.DateOfBirth" class="form-control" />
+                <span asp-validation-for="Student.DateOfBirth" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label asp-for="Student.ProfilePicture" class="control-label"></label>
+                <div class="custom-file">
+                    <input asp-for="FormFile" class="custom-file-input" id="customFile">
+                    <label class="custom-file-label" for="customFile">Оберіть файл</label>
+                </div>
+                <span asp-validation-for="FormFile" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label asp-for="Student.Gender" class="control-label"></label><br />
+                @foreach (var gender in Model.Genders)
+                {
+                    <input type="radio" asp-for="Gender" value="@gender" />@gender<br />
+                }
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <input type="submit" value="Створити" class="btn btn-primary" />
+            </div>
+            <div>
+                <a asp-page="Index">Назад</a>
+            </div>
+        </div>
+    </div>
+</form>
 
 @* Display the name of the selected file *@
 @* Відображення назви вибраного файлу *@

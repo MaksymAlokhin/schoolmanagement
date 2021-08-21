@@ -5,24 +5,21 @@
 }
 
 <h1>Розклад уроків - вчителі</h1>
-
-<div class="container">
-    <div class="row">
-        <div class="col-sm">
-            <form method="get">
-                <div class="form-group">
-                    <label asp-for="selectedDay" class="control-label"><i class="fas fa-calendar-day"></i></label>
-                    <select asp-for="selectedDay" name="day" style="width:auto" asp-items="Model.Days" onchange="this.form.submit();"></select>
-                </div>
-            </form>
-        </div>
-        <div class="col-sm">
-            <a asp-page-handler="Generate" class="btn btn-secondary" role="button" aria-pressed="true">Згенерувати розклад</a>
-        </div>
+<div class="row">
+    <div class="col-sm">
+        <form method="get">
+            <div class="form-group">
+                <label asp-for="selectedDay" class="control-label"><i class="fas fa-calendar-day"></i></label>
+                <select asp-for="selectedDay" name="day" style="width:auto" asp-items="Model.Days" onchange="this.form.submit();"></select>
+            </div>
+        </form>
+    </div>
+    <div class="col-sm">
+        <a asp-page-handler="Generate" class="btn btn-secondary" role="button" aria-pressed="true">Згенерувати розклад</a>
     </div>
 </div>
 
-<div class="table-responsive" id="schoolTable">
+<div class="table-responsive text-nowrap" id="schoolTable">
     <table class="table table-hover table-bordered table-striped">
         <thead>
             <tr>

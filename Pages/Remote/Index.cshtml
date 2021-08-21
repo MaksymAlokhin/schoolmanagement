@@ -7,36 +7,34 @@
 }
 
 <h1>Дистанційне навчання</h1>
-<div class="container">
-    <form method="get">
-        <div class="row">
-            <div class="col-sm-auto">
-                @if (Model.selectedGrade != 0 && Model.selectedSubject != 0)
-                {
-                    <a asp-page="Create"
-                       asp-route-gradeId="@Model.selectedGrade"
-                       asp-route-subjectId="@Model.selectedSubject">
-                        <i class="fas fa-plus-circle fa-lg"></i>
-                    </a>
-                }
-            </div>
-            <div class="col-sm-auto">
-                <div class="form-group">
-                    <label asp-for="selectedGrade" class="control-label"><i class="fas fa-users"></i></label>
-                    <select asp-for="selectedGrade" name="gradeId" style="width:auto" asp-items="Model.GradesSL">
-                        <option value="0">Оберіть клас</option>
-                    </select>
-                </div>
-            </div>
-            <div class="col-sm-auto">
-                <div class="form-group">
-                    <label asp-for="selectedSubject" class="control-label"><i class="fas fa-book-open"></i></label>
-                    <select asp-for="selectedSubject" name="subjectId" style="width:auto" asp-items="Model.SubjectsSL" onchange="this.form.submit();"></select>
-                </div>
+<form method="get">
+    <div class="row">
+        <div class="col-sm-auto">
+            @if (Model.selectedGrade != 0 && Model.selectedSubject != 0)
+            {
+                <a asp-page="Create"
+                   asp-route-gradeId="@Model.selectedGrade"
+                   asp-route-subjectId="@Model.selectedSubject">
+                    <i class="fas fa-plus-circle fa-lg"></i>
+                </a>
+            }
+        </div>
+        <div class="col-sm-auto">
+            <div class="form-group">
+                <label asp-for="selectedGrade" class="control-label"><i class="fas fa-users"></i></label>
+                <select asp-for="selectedGrade" name="gradeId" style="width:auto" asp-items="Model.GradesSL">
+                    <option value="0">Оберіть клас</option>
+                </select>
             </div>
         </div>
-    </form>
-</div>
+        <div class="col-sm-auto">
+            <div class="form-group">
+                <label asp-for="selectedSubject" class="control-label"><i class="fas fa-book-open"></i></label>
+                <select asp-for="selectedSubject" name="subjectId" style="width:auto" asp-items="Model.SubjectsSL" onchange="this.form.submit();"></select>
+            </div>
+        </div>
+    </div>
+</form>
 <table class="table table-responsive">
     <thead>
         <tr>

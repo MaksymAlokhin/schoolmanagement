@@ -10,47 +10,45 @@
 
 <h4>Завдання</h4>
 <hr />
-<div class="container">
-    <div class="row">
-        <div class="col-sm-auto">
-            <div>
-                <i class="fas fa-users"></i>
-                @Html.DisplayFor(model => model.Assignment.Grade.FullName)
-            </div>
-            <div>
-                <i class="fas fa-book-open"></i>
-                @Html.DisplayFor(model => model.Assignment.Subject.Name)
-            </div>
-            <div>
-                <i class="fas fa-calendar-alt"></i>
-                @Html.DisplayFor(model => model.Assignment.DateOfPost)
-            </div>
-            <div>
-                <i class="fas fa-chalkboard-teacher"></i>
-                @Html.DisplayFor(model => model.Assignment.Teacher.FullName)
-            </div>
+<div class="row">
+    <div class="col-sm-auto">
+        <div>
+            <i class="fas fa-users"></i>
+            @Html.DisplayFor(model => model.Assignment.Grade.FullName)
         </div>
-        <div class="col-sm">
-            <div class="card">
-                <div class="card-body">
-                    <form method="post">
-                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                        <input type="hidden" asp-for="Assignment.DateOfPost" />
-                        <input type="hidden" asp-for="Assignment.SubjectId" />
-                        <input type="hidden" asp-for="Assignment.GradeId" />
-                        <input type="hidden" asp-for="Assignment.TeacherId" />
+        <div>
+            <i class="fas fa-book-open"></i>
+            @Html.DisplayFor(model => model.Assignment.Subject.Name)
+        </div>
+        <div>
+            <i class="fas fa-calendar-alt"></i>
+            @Html.DisplayFor(model => model.Assignment.DateOfPost)
+        </div>
+        <div>
+            <i class="fas fa-chalkboard-teacher"></i>
+            @Html.DisplayFor(model => model.Assignment.Teacher.FullName)
+        </div>
+    </div>
+    <div class="col-sm">
+        <div class="card">
+            <div class="card-body">
+                <form method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Assignment.DateOfPost" />
+                    <input type="hidden" asp-for="Assignment.SubjectId" />
+                    <input type="hidden" asp-for="Assignment.GradeId" />
+                    <input type="hidden" asp-for="Assignment.TeacherId" />
 
-                        <h5 class="card-title">@Html.DisplayNameFor(model => model.Assignment.Post)</h5>
-                        <p class="card-text">
-                            <textarea rows="15" asp-for="Assignment.Post" class="form-control"></textarea>
-                            <span asp-validation-for="Assignment.Post" class="text-danger"></span>
-                        </p>
-                        <input type="submit" value="Створити" class="btn btn-primary card-link" />
-                        <a class="card-link" asp-page="./Index"
-                           asp-route-gradeId="@Model.Assignment.GradeId"
-                           asp-route-subjectId="@Model.Assignment.SubjectId">Назад</a>
-                    </form>
-                </div>
+                    <h5 class="card-title">@Html.DisplayNameFor(model => model.Assignment.Post)</h5>
+                    <p class="card-text">
+                        <textarea rows="15" asp-for="Assignment.Post" class="form-control"></textarea>
+                        <span asp-validation-for="Assignment.Post" class="text-danger"></span>
+                    </p>
+                    <input type="submit" value="Створити" class="btn btn-primary card-link" />
+                    <a class="card-link" asp-page="./Index"
+                       asp-route-gradeId="@Model.Assignment.GradeId"
+                       asp-route-subjectId="@Model.Assignment.SubjectId">Назад</a>
+                </form>
             </div>
         </div>
     </div>

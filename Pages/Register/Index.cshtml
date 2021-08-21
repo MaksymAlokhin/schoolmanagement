@@ -7,85 +7,81 @@
 }
 
 <h1>Класний журнал</h1>
-<div class="container">
-    <form method="get">
-        <div class="row">
-            <div class="col-sm-2">
-                <div class="form-group">
-                    <label asp-for="selectedGrade" class="control-label"><i class="fas fa-users"></i></label>
-                    <select asp-for="selectedGrade" name="gradeId" style="width:auto" asp-items="Model.GradesSL">
-                        <option value="0">Оберіть клас</option>
-                    </select>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="form-group">
-                    <label asp-for="selectedSubject" class="control-label"><i class="fas fa-book-open"></i></label>
-                    <select asp-for="selectedSubject" name="subjectId" style="width:auto" asp-items="Model.SubjectsSL" onchange="this.form.submit();"></select>
-                </div>
-            </div>
-            <div class="col-sm-2">
-                <div class="form-group">
-                    <label asp-for="selectedMonth" class="control-label"><i class="fas fa-calendar-alt"></i></label>
-                    <select asp-for="selectedMonth" name="month" style="width:auto" asp-items="Model.Months" onchange="this.form.submit();"></select>
-                </div>
-            </div>
-            <div class="col-sm-2">
-                <div class="form-group">
-                    <label asp-for="selectedYear" class="control-label"><i class="fas fa-calendar"></i></label>
-                    <select asp-for="selectedYear" name="year" style="width:auto" asp-items="Model.YearSL" onchange="this.form.submit();"></select>
-                </div>
+<form method="get">
+    <div class="row">
+        <div class="col-sm-2">
+            <div class="form-group">
+                <label asp-for="selectedGrade" class="control-label"><i class="fas fa-users"></i></label>
+                <select asp-for="selectedGrade" name="gradeId" style="width:auto" asp-items="Model.GradesSL">
+                    <option value="0">Оберіть клас</option>
+                </select>
             </div>
         </div>
-    </form>
-</div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label asp-for="selectedSubject" class="control-label"><i class="fas fa-book-open"></i></label>
+                <select asp-for="selectedSubject" name="subjectId" style="width:auto" asp-items="Model.SubjectsSL" onchange="this.form.submit();"></select>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="form-group">
+                <label asp-for="selectedMonth" class="control-label"><i class="fas fa-calendar-alt"></i></label>
+                <select asp-for="selectedMonth" name="month" style="width:auto" asp-items="Model.Months" onchange="this.form.submit();"></select>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="form-group">
+                <label asp-for="selectedYear" class="control-label"><i class="fas fa-calendar"></i></label>
+                <select asp-for="selectedYear" name="year" style="width:auto" asp-items="Model.YearSL" onchange="this.form.submit();"></select>
+            </div>
+        </div>
+    </div>
+</form>
 
 
-<div class="container">
-    <table class="table table-hover table-striped table-responsive table-sm text-nowrap" id="schoolTable">
-        <thead>
+<table class="table table-hover table-striped table-responsive table-sm text-nowrap" id="schoolTable">
+    <thead>
+        <tr>
+            <th scope="col" style="text-align:center" class="col-auto">#</th>
+            <th scope="col" style="text-align:center" class="col-auto">ПІБ Учня / Число</th>
+            @foreach (var day in @Model.pages)
+            {
+                <th scope="col" style="text-align:center" class="col-auto">
+                    @day
+                </th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @for (var student = 0; student < Model.students.Count; student++)
+        {
             <tr>
-                <th scope="col" style="text-align:center" class="col-auto">#</th>
-                <th scope="col" style="text-align:center" class="col-auto">ПІБ Учня / Число</th>
+                <th scope="row" style="text-align:center">@(student+1)</th>
+                <th scope="row">@Model.students[student].FullName</th>
                 @foreach (var day in @Model.pages)
                 {
-                    <th scope="col" style="text-align:center" class="col-auto">
-                        @day
-                    </th>
+                    <td style="text-align:center">
+                        @{
+                            var mark = @Model.gradebook.Where(i => i.StudentId == Model.students[student].Id).Where(i => i.LessonDate == new DateTime(Model.selectedYear, Model.selectedMonth, day)).Select(i => i.Mark).ToList().FirstOrDefault();
+                        }
+                        <form method="post">
+                            <div class="form-group">
+                                <select asp-for="@mark" name="mark" style="width:auto" asp-items="Model.Marks" onchange="this.form.submit();"></select>
+                            </div>
+                            <input type="hidden" name="pageIndex" value="@Model.selectedPage" />
+                            <input type="hidden" name="day" value="@day" />
+                            <input type="hidden" name="studentId" value="@Model.students[student].Id" />
+                            <input type="hidden" name="year" value="@Model.selectedYear" />
+                            <input type="hidden" name="month" value="@Model.selectedMonth" />
+                            <input type="hidden" name="gradeId" value="@Model.selectedGrade" />
+                            <input type="hidden" name="subjectId" value="@Model.selectedSubject" />
+                        </form>
+                    </td>
                 }
             </tr>
-        </thead>
-        <tbody>
-            @for (var student = 0; student < Model.students.Count; student++)
-            {
-                <tr>
-                    <th scope="row" style="text-align:center">@(student+1)</th>
-                    <th scope="row">@Model.students[student].FullName</th>
-                    @foreach (var day in @Model.pages)
-                    {
-                        <td style="text-align:center">
-                            @{
-                                var mark = @Model.gradebook.Where(i => i.StudentId == Model.students[student].Id).Where(i => i.LessonDate == new DateTime(Model.selectedYear, Model.selectedMonth, day)).Select(i => i.Mark).ToList().FirstOrDefault();
-                            }
-                            <form method="post">
-                                <div class="form-group">
-                                    <select asp-for="@mark" name="mark" style="width:auto" asp-items="Model.Marks" onchange="this.form.submit();"></select>
-                                </div>
-                                <input type="hidden" name="pageIndex" value="@Model.selectedPage" />
-                                <input type="hidden" name="day" value="@day" />
-                                <input type="hidden" name="studentId" value="@Model.students[student].Id" />
-                                <input type="hidden" name="year" value="@Model.selectedYear" />
-                                <input type="hidden" name="month" value="@Model.selectedMonth" />
-                                <input type="hidden" name="gradeId" value="@Model.selectedGrade" />
-                                <input type="hidden" name="subjectId" value="@Model.selectedSubject" />
-                            </form>
-                        </td>
-                    }
-                </tr>
-            }
-        </tbody>
-    </table>
-</div>
+        }
+    </tbody>
+</table>
 
 @{
     var prevDisabled = !Model.pages.HasPreviousPage ? "disabled" : "";
