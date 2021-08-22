@@ -1,5 +1,5 @@
 ﻿@page
-@model sms.Pages.Register.DetailsModel
+@model sms.Pages.Register.StatGradeDetailsModel
 
 @{
     ViewData["Title"] = "Статистичні дані по класу";
@@ -9,45 +9,102 @@
 <h1>Статистичні дані по @Model.gradeName класу</h1>
 
 <div class="row">
-    <table class="col-sm-5 table table-responsive table-hover table-striped table-sm text-nowrap" id="schoolTable">
-        <thead>
+    <table class="col-sm-5 table table-responsive text-nowrap table-hover" id="schoolTable">
+        <thead style="text-align:center">
             <tr>
-                <th scope="col" style="text-align:center" class="col-auto">#</th>
-                <th scope="col" style="text-align: center" class="col-auto">
-                    <a asp-page="./Details" asp-route-sortOrder="@Model.NameSort"
+                <th scope="col" class="col-auto">#</th>
+                <th scope="col" class="col-auto">
+                    <a asp-page="./StatGradeDetails"
+                       asp-route-sortOrder="@Model.NameSort"
                        asp-route-year="@Model.selectedYear"
                        asp-route-semester="@Model.selectedSemester"
-                       asp-route-gradeId="@Model.selectedGrade">Предмет</a>
+                       asp-route-gradeId="@Model.selectedGrade">
+                        Предмет
+                    </a>
                 </th>
-                <th scope="col" style="text-align: center" class="col-auto">
-                    <a asp-page="./Details" asp-route-sortOrder="@Model.MarkSort"
+                <th scope="col" class="col-auto">
+                    <a asp-page="./StatGradeDetails"
+                       asp-route-sortOrder="@Model.MarkSort"
                        asp-route-year="@Model.selectedYear"
                        asp-route-semester="@Model.selectedSemester"
-                       asp-route-gradeId="@Model.selectedGrade">Середній бал</a>
+                       asp-route-gradeId="@Model.selectedGrade">
+                        Сер.бал
+                    </a>
                 </th>
             </tr>
         </thead>
         <tbody>
-            @for (var subject = 0; subject < Model.subjects.Count(); subject++)
-            {
-                <tr>
-                    <th scope="row" style="text-align:center">@(subject+1)</th>
-                    <th scope="row">@Model.subjects[subject].Name</th>
+            @{
+                int i = 0;
+                for (var subject = 0; subject < Model.subjects.Count(); subject++)
+                {
+                    <tr style="text-align:center">
+                        <th scope="row">@Model.subjects.SeqNum[i]</th>
+                        <th>@Model.subjects[subject].Name</th>
 
-                    <td style="text-align:center">
-                        @Model.subjects[subject].Avg
-                    </td>
-                </tr>
+                        <td>
+                            @Model.subjects[subject].Avg
+                        </td>
+                    </tr>
+                    i++;
+                }
             }
         </tbody>
     </table>
-    <div class="col-sm-6 offset-sm-1">
+    <div class="col-sm-7">
         <h4 style="text-align: center">Успішність</h4>
-        <canvas id="barChart" width="800" height="700"></canvas>
+        <canvas id="barChart" width="800" height="600"></canvas>
     </div>
 </div>
-<div>
-    <a asp-page="./Statistics">Назад</a>
+
+@{
+    var prevDisabled = !Model.subjects.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.subjects.HasNextPage ? "disabled" : "";
+}
+
+<a asp-page="./StatGradeDetails"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="1"
+   asp-route-year="@Model.selectedYear"
+   asp-route-semester="@Model.selectedSemester"
+   asp-route-gradeId="@Model.selectedGrade"
+   class="btn btn-primary @prevDisabled">
+    <i class="fas fa-arrow-alt-circle-left fa-fast-backward"></i>
+</a>
+<a asp-page="./StatGradeDetails"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.subjects.PageIndex - 1)"
+   asp-route-year="@Model.selectedYear"
+   asp-route-semester="@Model.selectedSemester"
+   asp-route-gradeId="@Model.selectedGrade"
+   class="btn btn-primary @prevDisabled">
+    <i class="fas fa-arrow-alt-circle-left fa-lg"></i>
+</a>
+<a asp-page="./StatGradeDetails"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.subjects.PageIndex + 1)"
+   asp-route-year="@Model.selectedYear"
+   asp-route-semester="@Model.selectedSemester"
+   asp-route-gradeId="@Model.selectedGrade"
+   class="btn btn-primary @nextDisabled">
+    <i class="fas fa-arrow-alt-circle-right fa-lg"></i>
+</a>
+<a asp-page="./StatGradeDetails"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.subjects.TotalPages)"
+   asp-route-year="@Model.selectedYear"
+   asp-route-semester="@Model.selectedSemester"
+   asp-route-gradeId="@Model.selectedGrade"
+   class="btn btn-primary @nextDisabled">
+    <i class="fas fa-arrow-alt-circle-right fa-fast-forward"></i>
+</a>
+
+<div class="mt-1">
+    <a asp-page="./StatGrade"
+       asp-route-year="@Model.selectedYear"
+       asp-route-semester="@Model.selectedSemester">
+        Назад
+    </a>
 </div>
 
 @section scripts{

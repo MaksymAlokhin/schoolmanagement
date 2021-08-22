@@ -22,7 +22,7 @@
     </div>
 </form>
 
-<table class="table table-responsive text-nowrap">
+<table class="table table-responsive text-nowrap table-hover">
     <thead style="text-align: center">
         <tr>
             <th>
@@ -60,7 +60,7 @@
                 </td>
                 <td>
                     <a asp-page="./Edit" asp-route-id="@item.Id" asp-route-pageIndex="@Model.Curriculum.PageIndex"><i class="fas fa-pencil-alt fa-lg"></i></a> |
-                    <a asp-page="./Details" asp-route-id="@item.Id" asp-route-pageIndex="@Model.Curriculum.PageIndex"><i class="fas fa-eye fa-lg"></i></a> |                    
+                    <a asp-page="./Details" asp-route-id="@item.Id" asp-route-pageIndex="@Model.Curriculum.PageIndex"><i class="fas fa-eye fa-lg"></i></a> |
                     <a asp-page="./Delete" asp-route-id="@item.Id" asp-route-pageIndex="@Model.Curriculum.PageIndex"><i class="fas fa-trash fa-lg text-danger"></i></a>
                 </td>
             </tr>
@@ -76,6 +76,14 @@
 
 <a asp-page="./Index"
    asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="1"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   asp-route-gradeId="@Model.selectedGrade"
+   class="btn btn-primary @prevDisabled">
+    <i class="fas fa-arrow-alt-circle-left fa-fast-backward"></i>
+</a>
+<a asp-page="./Index"
+   asp-route-sortOrder="@Model.CurrentSort"
    asp-route-pageIndex="@(Model.Curriculum.PageIndex - 1)"
    asp-route-currentFilter="@Model.CurrentFilter"
    asp-route-gradeId="@Model.selectedGrade"
@@ -89,4 +97,12 @@
    asp-route-gradeId="@Model.selectedGrade"
    class="btn btn-primary @nextDisabled">
     <i class="fas fa-arrow-alt-circle-right fa-lg"></i>
+</a>
+<a asp-page="./Index"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.Curriculum.TotalPages)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   asp-route-gradeId="@Model.selectedGrade"
+   class="btn btn-primary @nextDisabled">
+    <i class="fas fa-arrow-alt-circle-right fa-fast-forward"></i>
 </a>

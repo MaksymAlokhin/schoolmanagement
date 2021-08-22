@@ -7,20 +7,23 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using sms.Models;
 
 namespace sms.Pages.Register
 {
     [Authorize(Roles = "Адміністратор, Вчитель, Батьки")]
-    public class MarksModel : PageModel
+    public class StatStudentModel : PageModel
     {
-        public MarksModel(sms.Data.ApplicationDbContext context)
+        public StatStudentModel(sms.Data.ApplicationDbContext context, IConfiguration configuration)
         {
             _context = context;
+            Configuration = configuration;
         }
         private readonly sms.Data.ApplicationDbContext _context;
+        private readonly IConfiguration Configuration;
         public List<SelectListItem> GradesSL;
-        public List<Marks> subjects;
+        public PaginatedList<StatStudent> subjects;
         public int selectedGrade;
         public int selectedMonth;
         public int selectedYear;
@@ -58,8 +61,9 @@ namespace sms.Pages.Register
             new SelectListItem { Value = "12", Text = "Грудень" }
         };
 
-        public void OnGetAsync(string sortOrder, int gradeId = 0, int year = 0, int month = 9, int studentId = 0)
+        public void OnGetAsync(string sortOrder, int gradeId = 0, int year = 0, int month = 9, int studentId = 0, int? pageIndex = 1)
         {
+            CurrentSort = sortOrder; 
             selectedGrade = gradeId;
             selectedMonth = month;
             selectedStudent = studentId;
@@ -116,7 +120,7 @@ namespace sms.Pages.Register
                     })
                     .AsEnumerable()
                     .GroupBy(s => s.Name)
-                    .Select(g => new Marks
+                    .Select(g => new StatStudent
                     {
                         Name = g.Key,
                         Avg = Math.Round(g.Average(s => s.Mark), 1),
@@ -144,7 +148,9 @@ namespace sms.Pages.Register
                     break;
             }
 
-            subjects = SubjectsIQ.ToList();
+            var pageSize = Configuration.GetValue("PageSize", 10);
+            subjects = PaginatedList<StatStudent>.CreateFromList(
+                SubjectsIQ.ToList(), pageIndex ?? 1, pageSize);
 
             //String of all student's marks
             //Рядок з усіма оцінками учня
@@ -194,7 +200,7 @@ namespace sms.Pages.Register
                                 })
                                 .AsEnumerable()
                                 .GroupBy(s => s.Name)
-                                .Select(g => new Marks
+                                .Select(g => new StatStudent
                                 {
                                     Name = g.Key,
                                     Avg = Math.Round(g.Average(s => s.Mark), 1),
@@ -207,7 +213,7 @@ namespace sms.Pages.Register
     }
     //Student academic performance table data
     //Дані для таблиці успішності учнів
-    public class Marks
+    public class StatStudent
     {
         public string Name { get; set; }
         public List<int> Mark { get; set; }

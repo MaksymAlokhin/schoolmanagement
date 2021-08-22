@@ -3376,14 +3376,6 @@ Teacher = shulga
 },
 new Gradebook
 {
-LessonDate = new DateTime(2021, 9, 13),
-Mark = "9",
-Student = s007,
-Subject = algebra,
-Teacher = shulga
-},
-new Gradebook
-{
 LessonDate = new DateTime(2021, 9, 2),
 Mark = "7",
 Student = s098,
@@ -3659,14 +3651,6 @@ new Gradebook
 LessonDate = new DateTime(2021, 9, 10),
 Mark = "12",
 Student = s098,
-Subject = chemistry,
-Teacher = shevchenko
-},
-new Gradebook
-{
-LessonDate = new DateTime(2021, 9, 24),
-Mark = "6",
-Student = s007,
 Subject = chemistry,
 Teacher = shevchenko
 },

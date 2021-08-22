@@ -1,0 +1,173 @@
+﻿@page
+@model sms.Pages.Register.StatGradeModel
+
+@{
+    ViewData["Title"] = "Статистичні дані по класам";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Статистичні дані по класам</h1>
+<form method="get">
+    <div class="row">
+        <div class="col-sm-2">
+            <div class="form-group">
+                <label asp-for="selectedYear" class="control-label"><i class="fas fa-users"></i></label>
+                <select asp-for="selectedYear" name="year" style="width:auto" asp-items="Model.YearSL" onchange="this.form.submit();">
+                </select>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="form-group">
+                <label asp-for="selectedSemester" class="control-label"><i class="fas fa-user"></i></label>
+                <select asp-for="selectedSemester" name="semester" style="width:auto" asp-items="Model.SemesterSL" onchange="this.form.submit();"></select>
+            </div>
+        </div>
+    </div>
+</form>
+
+<div class="row">
+    <table class="col-sm-3 table table-responsive text-nowrap table-hover" id="schoolTable">
+        <thead style="text-align:center">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">
+                    <a asp-page="./StatGrade"
+                       asp-route-sortOrder="@Model.NameSort"
+                       asp-route-year="@Model.selectedYear"
+                       asp-route-semester="@Model.selectedSemester">
+                        Клас
+                    </a>
+                </th>
+                <th scope="col">
+                    <a asp-page="./StatGrade" 
+                       asp-route-sortOrder="@Model.MarkSort"
+                       asp-route-year="@Model.selectedYear"
+                       asp-route-semester="@Model.selectedSemester">
+                        Сер.бал
+                    </a>
+                </th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                int i = 0;
+                foreach (var grade in Model.grades)
+                {
+                    <tr style="text-align:center">
+                        <th scope="row">
+                            @Model.grades.SeqNum[i]
+                        </th>
+                        <th>@grade.Name</th>
+                        <td>
+                            @grade.Avg
+                        </td>
+                        <td>
+                            <a asp-page="./StatGradeDetails"
+                               asp-route-year="@Model.selectedYear"
+                               asp-route-semester="@Model.selectedSemester"
+                               asp-route-gradeId="@grade.Id">
+                                <i class="fas fa-eye fa-lg text-secondary"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    i++;
+                }
+
+            }
+        </tbody>
+    </table>
+    <div class="col-sm-9">
+        <h4 style="text-align: center">Успішність</h4>
+        <canvas id="barChart" width="800" height="500"></canvas>
+    </div>
+</div>
+
+@{
+    var prevDisabled = !Model.grades.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.grades.HasNextPage ? "disabled" : "";
+}
+
+<a asp-page="./StatGrade"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="1"
+   asp-route-year="@Model.selectedYear"
+   asp-route-semester="@Model.selectedSemester"
+   class="btn btn-primary @prevDisabled">
+    <i class="fas fa-arrow-alt-circle-left fa-fast-backward"></i>
+</a>
+<a asp-page="./StatGrade"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.grades.PageIndex - 1)"
+   asp-route-year="@Model.selectedYear"
+   asp-route-semester="@Model.selectedSemester"
+   class="btn btn-primary @prevDisabled">
+    <i class="fas fa-arrow-alt-circle-left fa-lg"></i>
+</a>
+<a asp-page="./StatGrade"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.grades.PageIndex + 1)"
+   asp-route-year="@Model.selectedYear"
+   asp-route-semester="@Model.selectedSemester"
+   class="btn btn-primary @nextDisabled">
+    <i class="fas fa-arrow-alt-circle-right fa-lg"></i>
+</a>
+<a asp-page="./StatGrade"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.grades.TotalPages)"
+   asp-route-year="@Model.selectedYear"
+   asp-route-semester="@Model.selectedSemester"
+   class="btn btn-primary @nextDisabled">
+    <i class="fas fa-arrow-alt-circle-right fa-fast-forward"></i>
+</a>
+
+@* Academic performance chart by grade *@
+@* Діаграма успішності по класам *@
+@section scripts{
+    <script>
+        var ctx = document.getElementById('barChart').getContext('2d');
+        var year = $("#selectedYear").val();
+        var semester = $("#selectedSemester").val();
+        var randomColorGenerator = function () {
+            return '#' + (Math.random().toString(16) + '0000000').slice(2, 8);
+        };
+        $.ajax({
+            url: "?handler=Data",
+            type: "POST",
+            headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+            dataType: "json",
+            data: { 'year': year, 'semester': semester },
+            success: function (data) {
+                var labels = [];
+                var dataresults = [];
+                $.each(data, function (index, item) {
+                    labels.push(item.name);
+                    dataresults.push(item.avg);
+                });
+                console.log(labels)
+                console.log(dataresults)
+                var myChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Успішність',
+                            data: dataresults,
+                            backgroundColor: randomColorGenerator,
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                suggestedMin: 1,
+                                suggestedMax: 12,
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+}
