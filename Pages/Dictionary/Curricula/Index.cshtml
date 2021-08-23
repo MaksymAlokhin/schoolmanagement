@@ -25,6 +25,7 @@
 <table class="table table-responsive text-nowrap table-hover">
     <thead style="text-align: center">
         <tr>
+            <th>#</th>
             <th>
                 <a asp-page="./Index" asp-route-sortOrder="@Model.SubjSort"
                    asp-route-currentFilter="@Model.CurrentFilter"
@@ -46,24 +47,31 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.Curriculum)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Subject.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Teacher.FullName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Quantity)
-                </td>
-                <td>
-                    <a asp-page="./Edit" asp-route-id="@item.Id" asp-route-pageIndex="@Model.Curriculum.PageIndex"><i class="fas fa-pencil-alt fa-lg"></i></a> |
-                    <a asp-page="./Details" asp-route-id="@item.Id" asp-route-pageIndex="@Model.Curriculum.PageIndex"><i class="fas fa-eye fa-lg"></i></a> |
-                    <a asp-page="./Delete" asp-route-id="@item.Id" asp-route-pageIndex="@Model.Curriculum.PageIndex"><i class="fas fa-trash fa-lg text-danger"></i></a>
-                </td>
-            </tr>
+        @{
+            int i = 0;
+            foreach (var item in Model.Curriculum)
+            {
+                <tr>
+                    <th>
+                        @Model.Curriculum.SeqNum[i]
+                    </th>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Subject.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Teacher.FullName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Quantity)
+                    </td>
+                    <td>
+                        <a asp-page="./Edit" asp-route-id="@item.Id" asp-route-pageIndex="@Model.Curriculum.PageIndex"><i class="fas fa-pencil-alt fa-lg"></i></a> |
+                        <a asp-page="./Details" asp-route-id="@item.Id" asp-route-pageIndex="@Model.Curriculum.PageIndex"><i class="fas fa-eye fa-lg"></i></a> |
+                        <a asp-page="./Delete" asp-route-id="@item.Id" asp-route-pageIndex="@Model.Curriculum.PageIndex"><i class="fas fa-trash fa-lg text-danger"></i></a>
+                    </td>
+                </tr>
+                i++;
+            }
         }
     </tbody>
 </table>
