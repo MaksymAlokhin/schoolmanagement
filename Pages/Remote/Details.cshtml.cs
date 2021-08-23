@@ -11,7 +11,7 @@ using sms.Models;
 
 namespace sms.Pages.Remote
 {
-    [Authorize(Roles = "Адміністратор, Вчитель")]
+    [Authorize(Roles = "Адміністратор, Вчитель, Батьки")]
     public class DetailsModel : PageModel
     {
         private readonly sms.Data.ApplicationDbContext _context;

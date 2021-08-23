@@ -13,7 +13,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace sms.Pages.Remote
 {
-    [Authorize(Roles = "Адміністратор, Вчитель")]
+    [Authorize(Roles = "Адміністратор, Вчитель, Батьки")]
     public class IndexModel : PageModel
     {
         private readonly sms.Data.ApplicationDbContext _context;

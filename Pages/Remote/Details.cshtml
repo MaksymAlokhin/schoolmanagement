@@ -38,18 +38,29 @@
             </div>
         </div>
         <div>
-            <a class="card-link" asp-page="./Edit"
-               asp-route-id="@Model.Assignment.Id"
-               asp-route-pageIndex="@Model.PageIndex">
-                Редагувати
-            </a>
-            <a class="card-link" asp-page="./Index"
-               asp-route-gradeId="@Model.Assignment.GradeId"
-               asp-route-subjectId="@Model.Assignment.SubjectId"
-               asp-route-pageIndex="@Model.PageIndex">
-                Назад
-            </a>
+            @if (ViewContext.HttpContext.User.IsInRole("Адміністратор") || ViewContext.HttpContext.User.IsInRole("Вчитель"))
+            {
+                <a class="card-link" asp-page="./Edit"
+                   asp-route-id="@Model.Assignment.Id"
+                   asp-route-pageIndex="@Model.PageIndex">
+                    Редагувати
+                </a>
+                <a class="card-link" asp-page="./Index"
+                   asp-route-gradeId="@Model.Assignment.GradeId"
+                   asp-route-subjectId="@Model.Assignment.SubjectId"
+                   asp-route-pageIndex="@Model.PageIndex">
+                    Назад
+                </a>
+            }
+            @if (ViewContext.HttpContext.User.IsInRole("Батьки"))
+            {
+                <a class="card-link" asp-page="./Index"
+                   asp-route-gradeId="@Model.Assignment.GradeId"
+                   asp-route-subjectId="@Model.Assignment.SubjectId"
+                   asp-route-pageIndex="@Model.PageIndex">
+                    Назад
+                </a>
+            }
         </div>
-
     </div>
 </div>

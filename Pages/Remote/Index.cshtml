@@ -9,16 +9,19 @@
 <h1>Дистанційне навчання</h1>
 <form method="get">
     <div class="row">
-        <div class="col-sm-auto">
-            @if (Model.selectedGrade != 0 && Model.selectedSubject != 0)
-            {
-                <a asp-page="Create"
-                   asp-route-gradeId="@Model.selectedGrade"
-                   asp-route-subjectId="@Model.selectedSubject">
-                    <i class="fas fa-plus-circle fa-lg"></i>
-                </a>
-            }
-        </div>
+        @if (ViewContext.HttpContext.User.IsInRole("Адміністратор") || ViewContext.HttpContext.User.IsInRole("Вчитель"))
+        {
+            <div class="col-sm-auto">
+                @if (Model.selectedGrade != 0 && Model.selectedSubject != 0)
+                {
+                    <a asp-page="Create"
+                       asp-route-gradeId="@Model.selectedGrade"
+                       asp-route-subjectId="@Model.selectedSubject">
+                        <i class="fas fa-plus-circle fa-lg"></i>
+                    </a>
+                }
+            </div>
+        }
         <div class="col-sm-auto">
             <div class="form-group">
                 <label asp-for="selectedGrade" class="control-label"><i class="fas fa-users"></i></label>
@@ -63,11 +66,20 @@
                     </th>
                     <td style="white-space: nowrap; text-align: center;">
                         @Html.DisplayFor(modelItem => item.DateOfPost)
-                        <div>
-                            <a asp-page="./Edit" asp-route-id="@item.Id" asp-route-pageIndex="@Model.Assignment.PageIndex"><i class="fas fa-pencil-alt fa-lg"></i></a> |
-                            <a asp-page="./Details" asp-route-id="@item.Id" asp-route-pageIndex="@Model.Assignment.PageIndex"><i class="fas fa-eye fa-lg"></i></a> |
-                            <a asp-page="./Delete" asp-route-id="@item.Id" asp-route-pageIndex="@Model.Assignment.PageIndex"><i class="fas fa-trash fa-lg text-danger"></i></a>
-                        </div>
+                        @if (ViewContext.HttpContext.User.IsInRole("Адміністратор") || ViewContext.HttpContext.User.IsInRole("Вчитель"))
+                        {
+                            <div>
+                                <a asp-page="./Edit" asp-route-id="@item.Id" asp-route-pageIndex="@Model.Assignment.PageIndex"><i class="fas fa-pencil-alt fa-lg"></i></a> |
+                                <a asp-page="./Details" asp-route-id="@item.Id" asp-route-pageIndex="@Model.Assignment.PageIndex"><i class="fas fa-eye fa-lg"></i></a> |
+                                <a asp-page="./Delete" asp-route-id="@item.Id" asp-route-pageIndex="@Model.Assignment.PageIndex"><i class="fas fa-trash fa-lg text-danger"></i></a>
+                            </div>
+                        }
+                        @if (ViewContext.HttpContext.User.IsInRole("Батьки"))
+                        {
+                            <div>
+                                <a asp-page="./Details" asp-route-id="@item.Id" asp-route-pageIndex="@Model.Assignment.PageIndex"><i class="fas fa-eye fa-lg"></i></a>
+                            </div>
+                        }
                     </td>
                     <td>
                         <div style="white-space: pre-line; overflow-y: auto; max-height: 200px;">
