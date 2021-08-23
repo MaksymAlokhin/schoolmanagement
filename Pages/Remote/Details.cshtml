@@ -29,26 +29,27 @@
         </div>
     </div>
     <div class="col-sm">
-        <div class="card">
+        <div class="card mb-1" style="overflow-y: auto; max-height: 400px;">
             <div class="card-body">
                 <div class="card-header bg-light">
                     <h5 class="card-title">@Html.DisplayNameFor(model => model.Assignment.Post)</h5>
                 </div>
                 <p class="card-text" style="white-space: pre-line;">@Html.Raw(Model.Assignment.Post)</p>
-                <div class="card-footer">
-                    <a class="card-link" asp-page="./Edit"
-                       asp-route-id="@Model.Assignment.Id"
-                       asp-route-pageIndex="@Model.PageIndex">
-                        Редагувати
-                    </a>
-                    <a class="card-link" asp-page="./Index"
-                       asp-route-gradeId="@Model.Assignment.GradeId"
-                       asp-route-subjectId="@Model.Assignment.SubjectId"
-                       asp-route-pageIndex="@Model.PageIndex">
-                        Назад
-                    </a>
-                </div>
             </div>
         </div>
+        <div>
+            <a class="card-link" asp-page="./Edit"
+               asp-route-id="@Model.Assignment.Id"
+               asp-route-pageIndex="@Model.PageIndex">
+                Редагувати
+            </a>
+            <a class="card-link" asp-page="./Index"
+               asp-route-gradeId="@Model.Assignment.GradeId"
+               asp-route-subjectId="@Model.Assignment.SubjectId"
+               asp-route-pageIndex="@Model.PageIndex">
+                Назад
+            </a>
+        </div>
+
     </div>
 </div>

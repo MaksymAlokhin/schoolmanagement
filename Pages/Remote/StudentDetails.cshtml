@@ -1,14 +1,12 @@
 ﻿@page
-@model sms.Pages.Remote.DeleteModel
+@model sms.Pages.Remote.StudentDetailsModel
 
 @{
-    ViewData["Title"] = "Видалити";
+    ViewData["Title"] = "Деталі";
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
-<h1>Видалити</h1>
-
-<h3>Ви впевнені, що хочете видалити це?</h3>
+<h1>Деталі</h1>
 <h4>Завдання</h4>
 <hr />
 <div class="row">
@@ -40,16 +38,12 @@
             </div>
         </div>
         <div>
-            <form method="post">
-                <input type="hidden" asp-for="Assignment.Id" />
-                <input type="submit" value="Видалити" class="btn btn-danger card-link" />
-                <a class="card-link" asp-page="./Index"
-                   asp-route-gradeId="@Model.Assignment.GradeId"
-                   asp-route-subjectId="@Model.Assignment.SubjectId"
-                   asp-route-pageIndex="@Model.PageIndex">
-                    Назад
-                </a>
-            </form>
+            <a class="card-link" asp-page="./Student"
+               asp-route-gradeId="@Model.Assignment.GradeId"
+               asp-route-subjectId="@Model.Assignment.SubjectId"
+               asp-route-pageIndex="@Model.PageIndex">
+                Назад
+            </a>
         </div>
     </div>
 </div>

@@ -97,8 +97,8 @@ namespace sms.Pages.Remote
 
                 //Pagination
                 //Розподіл на сторінки
-                //var pageSize = Configuration.GetValue("PageSize", 10);
-                var pageSize = 2;
+                var pageSize = Configuration.GetValue("PageSize", 10);
+                //var pageSize = 2;
                 Assignment = await PaginatedList<Assignment>.CreateAsync(
                     assignmentsIQ.AsNoTracking(), pageIndex ?? 1, pageSize);
             }
