@@ -36,10 +36,10 @@ namespace sms.Pages.Library
         [BindProperty]
         public Book Book { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(string sortOrder, string currentFilter, 
+        public async Task<IActionResult> OnGetAsync(string sortOrder, string currentFilter,
             string searchString, int id, int? gradeId, int? pageIndex)
         {
-            CurrentSort = sortOrder; 
+            CurrentSort = sortOrder;
             NameSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             GradeSort = sortOrder == "grade" ? "grade_desc" : "grade";
 
@@ -72,9 +72,9 @@ namespace sms.Pages.Library
             {
                 GradesSL.Add(new SelectListItem { Value = $"{g.Id}", Text = $"{g.FullName}" });
             }
-            
+
             IQueryable<Student> studentsIQ;
-            
+
             //Only students of a certain grade
             //Лише учні певного класу
             if (selectedGrade > 0)
@@ -99,7 +99,8 @@ namespace sms.Pages.Library
             {
                 studentsIQ = studentsIQ.Where(s => s.LastName.Contains(searchString)
                                        || s.FirstName.Contains(searchString)
-                                       || s.Patronymic.Contains(searchString));
+                                       || s.Patronymic.Contains(searchString)
+                                       || s.Grade.FullName.Contains(searchString));
             }
 
             //Sort order
