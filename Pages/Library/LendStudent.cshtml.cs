@@ -73,13 +73,13 @@ namespace sms.Pages.Library
                 GradesSL.Add(new SelectListItem { Value = $"{g.Id}", Text = $"{g.FullName}" });
             }
 
-            IQueryable<Student> studentsIQ;
+            IEnumerable<Student> studentsIE;
 
             //Only students of a certain grade
             //Лише учні певного класу
             if (selectedGrade > 0)
             {
-                studentsIQ = _context.Students
+                studentsIE = _context.Students
                     .Include(m => m.Books)
                     .Include(m => m.Grade)
                     .Where(m => m.GradeId == selectedGrade);
@@ -88,7 +88,7 @@ namespace sms.Pages.Library
             //Усі учні
             else
             {
-                studentsIQ = _context.Students
+                studentsIE = _context.Students
                     .Include(m => m.Books)
                     .Include(m => m.Grade);
             }
@@ -97,34 +97,35 @@ namespace sms.Pages.Library
             //Фільтр пошуку
             if (!String.IsNullOrEmpty(searchString))
             {
-                
-                studentsIQ = studentsIQ.Where(s => s.LastName.Contains(searchString)
+                studentsIE = studentsIE.AsEnumerable().Where(s => s.LastName.Contains(searchString)
                                        || s.FirstName.Contains(searchString)
-                                       || s.Patronymic.Contains(searchString));
-            }
+                                       || s.Patronymic.Contains(searchString)
+                                       || s.Grade.FullName.Contains(searchString));
 
+            }
+            
             //Sort order
             //Сортування
             switch (sortOrder)
             {
                 case "name_desc":
-                    studentsIQ = studentsIQ
+                    studentsIE = studentsIE
                         .OrderByDescending(s => s.LastName)
                         .ThenByDescending(s => s.FirstName)
                         .ThenByDescending(s => s.Patronymic);
                     break;
                 case "grade":
-                    studentsIQ = studentsIQ
+                    studentsIE = studentsIE
                         .OrderBy(s => s.Grade.Number)
                         .ThenBy(s => s.Grade.Letter);
                     break;
                 case "grade_desc":
-                    studentsIQ = studentsIQ
+                    studentsIE = studentsIE
                         .OrderByDescending(s => s.Grade.Number)
                         .ThenByDescending(s => s.Grade.Letter);
                     break;
                 default:
-                    studentsIQ = studentsIQ
+                    studentsIE = studentsIE
                         .OrderBy(s => s.LastName)
                         .ThenBy(s => s.FirstName)
                         .ThenBy(s => s.Patronymic);
@@ -134,8 +135,8 @@ namespace sms.Pages.Library
             //Pagination
             //Розподіл на сторінки
             var pageSize = Configuration.GetValue("PageSize", 10);
-            students = await PaginatedList<Student>.CreateAsync(
-                studentsIQ, pageIndex ?? 1, pageSize);
+            students = PaginatedList<Student>.CreateFromList(
+                studentsIE.ToList(), pageIndex ?? 1, pageSize);
 
             return Page();
         }
