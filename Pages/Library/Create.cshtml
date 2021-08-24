@@ -10,47 +10,60 @@
 
 <h4>Книга</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<form method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="row">
+        <div class="col-sm-6">
             <div class="form-group">
                 <label asp-for="Book.Author" class="control-label"></label>
                 <input asp-for="Book.Author" class="form-control" />
                 <span asp-validation-for="Book.Author" class="text-danger"></span>
             </div>
+        </div>
+        <div class="col-sm-6">
             <div class="form-group">
                 <label asp-for="Book.Name" class="control-label"></label>
                 <input asp-for="Book.Name" class="form-control" />
                 <span asp-validation-for="Book.Name" class="text-danger"></span>
             </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
             <div class="form-group">
                 <label asp-for="Book.PublishingHouse" class="control-label"></label>
                 <input asp-for="Book.PublishingHouse" class="form-control" />
                 <span asp-validation-for="Book.PublishingHouse" class="text-danger"></span>
             </div>
+        </div>
+        <div class="col-sm-6">
             <div class="form-group">
                 <label asp-for="Book.Year" class="control-label"></label>
                 <input asp-for="Book.Year" class="form-control" />
                 <span asp-validation-for="Book.Year" class="text-danger"></span>
             </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
             <div class="form-group">
                 <label asp-for="Book.Grade" class="control-label"></label>
                 <input asp-for="Book.Grade" class="form-control" />
                 <span asp-validation-for="Book.Grade" class="text-danger"></span>
             </div>
+        </div>
+        <div class="col-sm-6">
             <div class="form-group">
                 <label asp-for="Book.Qty" class="control-label"></label>
                 <input asp-for="Book.Qty" class="form-control" />
                 <span asp-validation-for="Book.Qty" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Створити" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
     </div>
-</div>
-
+    <div class="form-group">
+        <input type="submit" value="Створити" class="btn btn-primary" />
+    </div>
+</form>
 <div>
     <a asp-page="Index">Назад</a>
 </div>

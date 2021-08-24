@@ -33,7 +33,12 @@
 </div>
 
 <div>
-    <a asp-page="./Index" asp-route-pageIndex="@Model.PageIndex">Назад</a>
+    <a asp-page="./Index"
+       asp-route-pageIndex="@Model.PageIndex"
+       asp-route-sortOrder="@Model.CurrentSort"
+       asp-route-currentFilter="@Model.CurrentFilter">
+        Назад
+    </a>
 </div>
 
 @section Scripts {

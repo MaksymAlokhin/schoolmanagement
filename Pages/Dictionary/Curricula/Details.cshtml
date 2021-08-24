@@ -39,6 +39,18 @@
     </dl>
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.Curriculum.Id" asp-route-pageIndex="@Model.PageIndex">Радагувати</a> |
-    <a asp-page="./Index" asp-route-gradeId="@Model.Curriculum.GradeId" asp-route-pageIndex="@Model.PageIndex">Назад</a>
+    <a asp-page="./Edit"
+       asp-route-id="@Model.Curriculum.Id"
+       asp-route-pageIndex="@Model.PageIndex"
+       asp-route-sortOrder="@Model.CurrentSort"
+       asp-route-currentFilter="@Model.CurrentFilter">
+        Радагувати
+    </a> |
+    <a asp-page="./Index"
+       asp-route-gradeId="@Model.Curriculum.GradeId"
+       asp-route-pageIndex="@Model.PageIndex"
+       asp-route-sortOrder="@Model.CurrentSort"
+       asp-route-currentFilter="@Model.CurrentFilter">
+        Назад
+    </a>
 </div>

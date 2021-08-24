@@ -16,6 +16,9 @@ namespace sms.Pages.Dictionary.Curricula
     {
         private readonly sms.Data.ApplicationDbContext _context;
         public int? PageIndex { get; set; }
+        public string CurrentFilter { get; set; }
+        public string CurrentSort { get; set; }
+
         public DetailsModel(sms.Data.ApplicationDbContext context)
         {
             _context = context;
@@ -23,10 +26,13 @@ namespace sms.Pages.Dictionary.Curricula
 
         public Curriculum Curriculum { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? pageIndex, int? id)
+        public async Task<IActionResult> OnGetAsync(string sortOrder,
+            string currentFilter, int? pageIndex, int? id)
         {
-            PageIndex = pageIndex; 
-            
+            PageIndex = pageIndex;
+            CurrentSort = sortOrder;
+            CurrentFilter = currentFilter;
+
             if (id == null)
             {
                 return NotFound();

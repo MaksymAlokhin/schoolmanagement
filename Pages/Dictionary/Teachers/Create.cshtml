@@ -10,7 +10,6 @@
 
 <h4>Вчитель</h4>
 <hr />
-
 <form enctype="multipart/form-data" method="post">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <div class="row">
@@ -38,12 +37,6 @@
                 </div>
                 <span asp-validation-for="FormFile" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Створити" class="btn btn-primary" />
-            </div>
-            <div>
-                <a asp-page="Index">Назад</a>
-            </div>
         </div>
         <div class="col-sm-6">
             <div class="form-group">
@@ -53,7 +46,13 @@
             </div>
         </div>
     </div>
+    <div class="form-group">
+        <input type="submit" value="Створити" class="btn btn-primary" />
+    </div>
 </form>
+<div>
+    <a asp-page="Index">Назад</a>
+</div>
 
 @* Display the name of the selected file *@
 @* Відображення назви вибраного файлу *@

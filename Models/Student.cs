@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace sms
@@ -56,9 +57,15 @@ namespace sms
         {
             get
             {
-                if(!string.IsNullOrEmpty(LastName) && !string.IsNullOrEmpty(FirstName) && !string.IsNullOrEmpty(Patronymic))
-                return LastName + " " + FirstName[0] + "." + Patronymic[0] + ".";
-                return "";
+                StringBuilder sb = new StringBuilder("");
+                if (!string.IsNullOrEmpty(LastName)) sb.Append(LastName + " ");
+                if (!string.IsNullOrEmpty(LastName)) sb.Append(FirstName[0] + ".");
+                if (!string.IsNullOrEmpty(Patronymic)) sb.Append(Patronymic[0] + ".");
+                return sb.ToString();
+
+                //if (!string.IsNullOrEmpty(LastName) && !string.IsNullOrEmpty(FirstName) && !string.IsNullOrEmpty(Patronymic))
+                //return LastName + " " + FirstName[0] + "." + Patronymic[0] + ".";
+                //return "";
             }
         }
         [Display(Name = "Вік")]

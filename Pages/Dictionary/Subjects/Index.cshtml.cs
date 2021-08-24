@@ -12,7 +12,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace sms.Pages.Subjects
 {
-    [Authorize(Roles = "Адміністратор, Вчитель")]
+    [Authorize(Roles = "Адміністратор")]
     public class IndexModel : PageModel
     {
         private readonly sms.Data.ApplicationDbContext _context;

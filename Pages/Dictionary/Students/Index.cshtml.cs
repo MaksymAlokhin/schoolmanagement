@@ -12,7 +12,7 @@ using sms.Data;
 
 namespace sms.Pages.Students
 {
-    [Authorize(Roles = "Адміністратор, Вчитель")]
+    [Authorize(Roles = "Адміністратор")]
     public class IndexModel : PageModel
     {
         private readonly sms.Data.ApplicationDbContext _context;

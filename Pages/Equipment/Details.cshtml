@@ -53,17 +53,38 @@
 
 <form method="post">
     <input type="hidden" asp-for="Inventory.Id" />
-    <input type="hidden" name="pageIndex" asp-for="@Model.PageIndex" />
     @if (Model.Inventory.DecommissionDate.HasValue)
     {
         <input type="submit" value="Поставити на облік" class="btn btn-success" /> @:|
-        <a asp-page="./Edit" asp-route-id="@Model.Inventory.Id" asp-route-pageIndex="@Model.PageIndex">Редагувати</a> @:|
-        <a asp-page="./Decommissioned" asp-route-pageIndex="@Model.PageIndex">Назад</a>
+        <a asp-page="./Edit"
+           asp-route-id="@Model.Inventory.Id"
+           asp-route-pageIndex="@Model.PageIndex"
+           asp-route-sortOrder="@Model.CurrentSort"
+           asp-route-currentFilter="@Model.CurrentFilter">
+            Редагувати
+        </a> @:|
+        <a asp-page="./Decommissioned"
+           asp-route-pageIndex="@Model.PageIndex"
+           asp-route-sortOrder="@Model.CurrentSort"
+           asp-route-currentFilter="@Model.CurrentFilter">
+            Назад
+        </a>
     }
     else
     {
         <input type="submit" value="Списати" class="btn btn-danger" /> @:|
-        <a asp-page="./Edit" asp-route-id="@Model.Inventory.Id">Редагувати</a> @:|
-        <a asp-page="./Index" asp-route-pageIndex="@Model.PageIndex">Назад</a>
+        <a asp-page="./Edit"
+           asp-route-id="@Model.Inventory.Id"
+           asp-route-pageIndex="@Model.PageIndex"
+           asp-route-sortOrder="@Model.CurrentSort"
+           asp-route-currentFilter="@Model.CurrentFilter">
+            Редагувати
+        </a> @:|
+        <a asp-page="./Index"
+           asp-route-pageIndex="@Model.PageIndex"
+           asp-route-sortOrder="@Model.CurrentSort"
+           asp-route-currentFilter="@Model.CurrentFilter">
+            Назад
+        </a>
     }
 </form>

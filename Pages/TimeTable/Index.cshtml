@@ -1,12 +1,12 @@
 ﻿@page
 @model sms.Pages.TimeTable.IndexModel
 @{
-    ViewData["Title"] = "Розклад уроків - вчителі";
+    ViewData["Title"] = "Розклад уроків: вчителі";
 }
 
-<h1>Розклад уроків - вчителі</h1>
+<h1>Розклад уроків: вчителі</h1>
 <div class="row">
-    <div class="col-sm">
+    <div class="col-sm-auto">
         <form method="get">
             <div class="form-group">
                 <label asp-for="selectedDay" class="control-label"><i class="fas fa-calendar-day"></i></label>
@@ -14,13 +14,16 @@
             </div>
         </form>
     </div>
-    <div class="col-sm">
-        <a asp-page-handler="Generate" class="btn btn-secondary" role="button" aria-pressed="true">Згенерувати розклад</a>
-    </div>
+    @if (ViewContext.HttpContext.User.IsInRole("Адміністратор"))
+    {
+        <div class="col-sm-auto">
+            <a asp-page-handler="Generate" class="btn btn-secondary" role="button" aria-pressed="true">Згенерувати розклад</a>
+        </div>
+    }
 </div>
 
-<div>
-    <table class="table table-hover table-bordered table-striped table-responsive text-nowrap" id="schoolTable">
+<div class="table-responsive">
+    <table class="table table-hover table-bordered table-striped text-nowrap" style="width:auto" id="schoolTable">
         <thead>
             <tr>
                 <th scope="col" style="text-align:center">ПІБ Вчителя</th>
@@ -40,22 +43,29 @@
                     @for (var slot = 1; slot <= 8; slot++)
                     {
                         <td style="text-align:center">
-                            @{
+                            @if (ViewContext.HttpContext.User.IsInRole("Адміністратор"))
+                            {
                                 var les = @Model.lessons.Where(i => i.TeacherId == Model.teachers[teacher].Id).Where(i => i.Day == Model.selectedDay).Where(i => i.Slot == slot).Select(i => i.Grade.FullName);
                                 var empty = (les.Count() == 0);
                                 var buttonType = empty ? "btn-light" : "btn-secondary";
                                 var link = empty ? "./Create" : "./Edit";
+                                <a asp-page="@link"
+                                   asp-route-day="@Model.selectedDay"
+                                   asp-route-slot="@slot"
+                                   asp-route-teacher="@Model.teachers[teacher].Id"
+                                   class="btn @buttonType">
+                                    @if (empty)
+                                    {<i class="fas fa-plus"></i>}
+                                    @foreach (var i in les)
+                                    {@i}
+                                </a>
                             }
-                            <a asp-page="@link"
-                               asp-route-day="@Model.selectedDay"
-                               asp-route-slot="@slot"
-                               asp-route-teacher="@Model.teachers[teacher].Id"
-                               class="btn @buttonType">
-                                @if (empty)
-                                {<i class="fas fa-plus"></i>}
-                                @foreach (var i in les)
+                            @if (ViewContext.HttpContext.User.IsInRole("Вчитель"))
+                            {
+                                var les = @Model.lessons.Where(i => i.TeacherId == Model.teachers[teacher].Id).Where(i => i.Day == Model.selectedDay).Where(i => i.Slot == slot).Select(i => i.Grade.FullName);
+                                foreach (var i in les)
                                 {@i}
-                            </a>
+                        }
                         </td>
                     }
                 </tr>

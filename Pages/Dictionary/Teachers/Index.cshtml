@@ -12,7 +12,7 @@
     <div class="form-actions no-color">
         <p>
             <a asp-page="Create"><i class="fas fa-user-plus fa-lg mr-1"></i></a>
-            <input type="text" name="SearchString" value="@Model.CurrentFilter" placeholder="Пошук по ПІБ"/>
+            <input type="text" name="SearchString" value="@Model.CurrentFilter" placeholder="Пошук по ПІБ" />
             <button type="submit" class="btn btn-default">
                 <i class="fa fa-search"></i>
             </button> |
@@ -22,64 +22,85 @@
 </form>
 
 
-
-<table class="table table-responsive text-nowrap table-hover">
-    <thead style="text-align: center">
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Фото</th>
-            <th scope="col">
-                <a asp-page="./Index" asp-route-sortOrder="@Model.NameSort"
-                   asp-route-currentFilter="@Model.CurrentFilter">
-                    @Html.DisplayNameFor(model => model.Teacher[0].LastName)
-                </a>
-            </th>
-            <th scope="col">
-                @Html.DisplayNameFor(model => model.Teacher[0].FirstName)
-            </th>
-            <th scope="col">
-                @Html.DisplayNameFor(model => model.Teacher[0].Patronymic)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @{
-            int i = 0;
-            foreach (var item in Model.Teacher)
-            {
+<div class="row">
+    <div class="col-sm-auto">
+        <table class="table table-responsive text-nowrap table-hover">
+            <thead style="text-align: center">
                 <tr>
-                    <th scope="row">
-                        @Model.Teacher.SeqNum[i]
+                    <th scope="col">#</th>
+                    <th scope="col">Фото</th>
+                    <th scope="col">
+                        <a asp-page="./Index" asp-route-sortOrder="@Model.NameSort"
+                           asp-route-currentFilter="@Model.CurrentFilter">
+                            @Html.DisplayNameFor(model => model.Teacher[0].LastName)
+                        </a>
                     </th>
-                    <td>
-                        @if (!string.IsNullOrEmpty(item.ProfilePicture))
-                        {<img src="~/images/avatars/@item.ProfilePicture"
-                              class="rounded-circle"
-                              height="40" width:auto
-                              asp-append-version="true" />
-                        }
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.LastName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.FirstName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Patronymic)
-                    </td>
-                    <td>
-                        <a asp-page="./Edit" asp-route-id="@item.Id" asp-route-pageIndex="@Model.Teacher.PageIndex"><i class="fas fa-pencil-alt fa-lg"></i></a> |
-                        <a asp-page="./Details" asp-route-id="@item.Id" asp-route-pageIndex="@Model.Teacher.PageIndex"><i class="fas fa-eye fa-lg"></i></a> |
-                        <a asp-page="./Delete" asp-route-id="@item.Id" asp-route-pageIndex="@Model.Teacher.PageIndex"><i class="fas fa-trash fa-lg text-danger"></i></a>
-                    </td>
+                    <th scope="col">
+                        @Html.DisplayNameFor(model => model.Teacher[0].FirstName)
+                    </th>
+                    <th scope="col">
+                        @Html.DisplayNameFor(model => model.Teacher[0].Patronymic)
+                    </th>
+                    <th></th>
                 </tr>
-                i++;
-            }
-        }
-    </tbody>
-</table>
+            </thead>
+            <tbody>
+                @{
+                    int i = 0;
+                    foreach (var item in Model.Teacher)
+                    {
+                        <tr>
+                            <th scope="row">
+                                @Model.Teacher.SeqNum[i]
+                            </th>
+                            <td>
+                                @if (!string.IsNullOrEmpty(item.ProfilePicture))
+                                {<img src="~/images/avatars/@item.ProfilePicture"
+                                      class="rounded-circle"
+                                      height="40" width:auto
+                                      asp-append-version="true" />
+                                }
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LastName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FirstName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Patronymic)
+                            </td>
+                            <td>
+                                <a asp-page="./Edit"
+                                   asp-route-id="@item.Id"
+                                   asp-route-pageIndex="@Model.Teacher.PageIndex"
+                                   asp-route-sortOrder="@Model.CurrentSort"
+                                   asp-route-currentFilter="@Model.CurrentFilter">
+                                    <i class="fas fa-pencil-alt fa-lg"></i>
+                                </a> |
+                                <a asp-page="./Details"
+                                   asp-route-id="@item.Id"
+                                   asp-route-pageIndex="@Model.Teacher.PageIndex"
+                                   asp-route-sortOrder="@Model.CurrentSort"
+                                   asp-route-currentFilter="@Model.CurrentFilter">
+                                    <i class="fas fa-eye fa-lg"></i>
+                                </a> |
+                                <a asp-page="./Delete"
+                                   asp-route-id="@item.Id"
+                                   asp-route-pageIndex="@Model.Teacher.PageIndex"
+                                   asp-route-sortOrder="@Model.CurrentSort"
+                                   asp-route-currentFilter="@Model.CurrentFilter">
+                                    <i class="fas fa-trash fa-lg text-danger"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        i++;
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
 
 @{
     var prevDisabled = !Model.Teacher.HasPreviousPage ? "disabled" : "";

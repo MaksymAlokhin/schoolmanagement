@@ -16,6 +16,8 @@ namespace sms.Pages.Equipment
     {
         private readonly sms.Data.ApplicationDbContext _context;
         public int? PageIndex { get; set; }
+        public string CurrentSort { get; set; }
+        public string CurrentFilter { get; set; }
 
         public DeleteModel(sms.Data.ApplicationDbContext context)
         {
@@ -25,10 +27,13 @@ namespace sms.Pages.Equipment
         [BindProperty]
         public Inventory Inventory { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? pageIndex, int? id)
+        public async Task<IActionResult> OnGetAsync(string sortOrder,
+            string currentFilter, int? pageIndex, int? id)
         {
-            PageIndex = pageIndex; 
-            
+            PageIndex = pageIndex;
+            CurrentSort = sortOrder;
+            CurrentFilter = currentFilter;
+
             if (id == null)
             {
                 return NotFound();
@@ -45,7 +50,8 @@ namespace sms.Pages.Equipment
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync(int? pageIndex, int? id)
+        public async Task<IActionResult> OnPostAsync(string sortOrder,
+            string currentFilter, int? pageIndex, int? id)
         {
             if (id == null)
             {
@@ -62,7 +68,24 @@ namespace sms.Pages.Equipment
                 await _context.SaveChangesAsync();
             }
 
-            return RedirectToPage("./Index", new { pageIndex = $"{pageIndex}" });
+            if (Inventory.DecommissionDate.HasValue)
+            {
+                return RedirectToPage("./Decommissioned", new
+                {
+                    pageIndex = $"{pageIndex}",
+                    sortOrder = $"{sortOrder}",
+                    currentFilter = $"{currentFilter}"
+                });
+            }
+            else
+            {
+                return RedirectToPage("./Index", new
+                {
+                    pageIndex = $"{pageIndex}",
+                    sortOrder = $"{sortOrder}",
+                    currentFilter = $"{currentFilter}"
+                });
+            }
         }
     }
 }

@@ -12,7 +12,7 @@ using sms.Models;
 
 namespace sms.Pages.Register
 {
-    [Authorize(Roles = "Адміністратор, Вчитель, Батьки")]
+    [Authorize(Roles = "Адміністратор, Батьки")]
     public class StatStudentModel : PageModel
     {
         public StatStudentModel(sms.Data.ApplicationDbContext context, IConfiguration configuration)

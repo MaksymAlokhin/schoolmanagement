@@ -25,10 +25,22 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Grade.Letter)
         </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Grade.Room)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Grade.Room)
+        </dd>
     </dl>
-    
+
     <form method="post">
         <input type="hidden" asp-for="Grade.Id" />
         <input type="submit" value="Видалити" class="btn btn-danger" /> |
-        <a asp-page="./Index" asp-route-pageIndex="@Model.PageIndex">Назад</a>    </form>
+        <a asp-page="./Index"
+           asp-route-pageIndex="@Model.PageIndex"
+           asp-route-sortOrder="@Model.CurrentSort"
+           asp-route-currentFilter="@Model.CurrentFilter">
+            Назад
+        </a>
+    </form>
 </div>

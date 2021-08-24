@@ -24,6 +24,9 @@ namespace sms.Pages.Teachers
         public List<int> selectedSubjects { get; set; }
         public SelectList SubjectNameSL { get; set; }
         public int? PageIndex { get; set; }
+        public string CurrentFilter { get; set; }
+        public string CurrentSort { get; set; }
+
         public IFormFile FormFile { get; set; }
         private readonly string[] permittedExtensions = { ".jpg", ".jpeg", ".png", ".gif", ".bmp", ".tif", ".tiff" };
 
@@ -35,9 +38,13 @@ namespace sms.Pages.Teachers
 
         [BindProperty]
         public Teacher Teacher { get; set; }
-        public async Task<IActionResult> OnGetAsync(int? pageIndex, int? id)
+        public async Task<IActionResult> OnGetAsync(string sortOrder,
+            string currentFilter, int? pageIndex, int? id)
         {
             PageIndex = pageIndex;
+            CurrentSort = sortOrder;
+            CurrentFilter = currentFilter;
+
 
             if (id == null)
             {
@@ -73,10 +80,11 @@ namespace sms.Pages.Teachers
 
             return Page();
         }
-        
+
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync(int? pageIndex, int? id, int[] selectedSubjects)
+        public async Task<IActionResult> OnPostAsync(string sortOrder,
+            string currentFilter, int? pageIndex, int? id, int[] selectedSubjects)
         {
             if (!ModelState.IsValid)
             {
@@ -154,7 +162,12 @@ namespace sms.Pages.Teachers
                     throw;
                 }
             }
-            return RedirectToPage("./Index", new { pageIndex = $"{pageIndex}" });
+            return RedirectToPage("./Index", new
+            {
+                pageIndex = $"{pageIndex}",
+                sortOrder = $"{sortOrder}",
+                currentFilter = $"{currentFilter}"
+            });
         }
 
         private bool TeacherExists(int id)

@@ -16,6 +16,7 @@ namespace sms.Pages.Remote
     {
         private readonly sms.Data.ApplicationDbContext _context;
         public int? PageIndex { get; set; }
+        public string CurrentSort { get; set; }
 
         public DetailsModel(sms.Data.ApplicationDbContext context)
         {
@@ -24,10 +25,11 @@ namespace sms.Pages.Remote
 
         public Assignment Assignment { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? pageIndex, int? id)
+        public async Task<IActionResult> OnGetAsync(string sortOrder, int? pageIndex, int? id)
         {
-            PageIndex = pageIndex; 
-            
+            PageIndex = pageIndex;
+            CurrentSort = sortOrder;
+
             if (id == null)
             {
                 return NotFound();

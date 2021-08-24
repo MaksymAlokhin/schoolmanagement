@@ -11,68 +11,83 @@
 <hr />
 
 <dl class="row">
-    <dt class="col-sm-2">
-        @Html.DisplayNameFor(model => model.Grade.Number)
+    <dt class="col-sm-auto">
+        @Html.DisplayNameFor(model => model.Grade.Number):
     </dt>
-    <dd class="col-sm-10">
+    <dd class="col-sm-auto">
         @Html.DisplayFor(model => model.Grade.Number)
     </dd>
-    <dt class="col-sm-2">
-        @Html.DisplayNameFor(model => model.Grade.Letter)
+    <dt class="col-sm-auto">
+        @Html.DisplayNameFor(model => model.Grade.Letter):
     </dt>
-    <dd class="col-sm-10">
+    <dd class="col-sm-auto">
         @Html.DisplayFor(model => model.Grade.Letter)
     </dd>
-    <dt class="col-sm-2">
-        Учні
+    <dt class="col-sm-auto">
+        @Html.DisplayNameFor(model => model.Grade.Room):
     </dt>
-    <dd class="col-sm-10">
-        <div class="row">
-            <table class="col-sm-6 table table-responsive text-nowrap table-hover">
-                <tr>
-                    <th>#</th>
-                    <th>@Html.DisplayNameFor(model => model.Student[0].ShortName)</th>
-                    <th>@Html.DisplayNameFor(model => model.Student[0].Age)</th>
-                    <th></th>
-                </tr>
-                @{
-                    int i = 1;
-                    @foreach (var item in Model.Student)
-                    {
-                        <tr>
-                            <th>@i</th>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.ShortName)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Age)
-                            </td>
-                            <td>
-                                <a asp-page="../Students/Edit" asp-route-id="@item.Id"><i class="fas fa-pencil-alt fa-lg"></i></a> |
-                                <a asp-page="../Students/Details" asp-route-id="@item.Id"><i class="fas fa-eye fa-lg"></i></a> |
-                                <a asp-page="../Students/Delete" asp-route-id="@item.Id"><i class="fas fa-trash fa-lg text-danger"></i></a>
-                            </td>
-                        </tr>
-                        i++;
-                    }
-
-                }
-            </table>
-            <div class="col-sm-3">
-                <h4 style="text-align: center">Стать</h4>
-                <canvas id="doughnutChart" width="700" height="700"></canvas>
-            </div>
-            <div class="col-sm-3">
-                <h4 style="text-align: center">Вік</h4>
-                <canvas id="barChart" width="700" height="700"></canvas>
-            </div>
-        </div>
+    <dd class="col-sm-auto">
+        @Html.DisplayFor(model => model.Grade.Room)
     </dd>
 </dl>
+<div class="row">
+    <div class="col-sm-4">
+        <table class="col-sm-auto table table-responsive text-nowrap table-hover table-sm"
+               style="overflow-y: auto; max-height: 400px; width: auto;">
+            <tr>
+                <th>#</th>
+                <th>@Html.DisplayNameFor(model => model.Student[0].ShortName)</th>
+                <th>@Html.DisplayNameFor(model => model.Student[0].Age)</th>
+                <th></th>
+            </tr>
+            @{
+                int i = 1;
+                @foreach (var item in Model.Student)
+                {
+                    <tr>
+                        <th>@i</th>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ShortName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Age)
+                        </td>
+                        <td>
+                            <a asp-page="../Students/Edit" asp-route-id="@item.Id"><i class="fas fa-pencil-alt fa-lg"></i></a> |
+                            <a asp-page="../Students/Details" asp-route-id="@item.Id"><i class="fas fa-eye fa-lg"></i></a> |
+                            <a asp-page="../Students/Delete" asp-route-id="@item.Id"><i class="fas fa-trash fa-lg text-danger"></i></a>
+                        </td>
+                    </tr>
+                    i++;
+                }
+
+            }
+        </table>
+    </div>
+    <div class="col-sm-4">
+        <h4 style="text-align: center">Стать</h4>
+        <canvas id="doughnutChart"></canvas>
+    </div>
+    <div class="col-sm-4">
+        <h4 style="text-align: center">Вік</h4>
+        <canvas id="barChart" height="320"></canvas>
+    </div>
+</div>
 
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.Grade.Id" asp-route-pageIndex="@Model.PageIndex">Редагувати</a> |
-    <a asp-page="./Index" asp-route-pageIndex="@Model.PageIndex">Назад</a>
+    <a asp-page="./Edit"
+       asp-route-id="@Model.Grade.Id"
+       asp-route-pageIndex="@Model.PageIndex"
+       asp-route-sortOrder="@Model.CurrentSort"
+       asp-route-currentFilter="@Model.CurrentFilter">
+        Редагувати
+    </a> |
+    <a asp-page="./Index"
+       asp-route-pageIndex="@Model.PageIndex"
+       asp-route-sortOrder="@Model.CurrentSort"
+       asp-route-currentFilter="@Model.CurrentFilter">
+        Назад
+    </a>
 </div>
 
 @section scripts{

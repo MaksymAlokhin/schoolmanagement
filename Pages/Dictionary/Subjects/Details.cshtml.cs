@@ -11,11 +11,13 @@ using sms.Models;
 
 namespace sms.Pages.Subjects
 {
-    [Authorize(Roles = "Адміністратор, Вчитель")]
+    [Authorize(Roles = "Адміністратор")]
     public class DetailsModel : PageModel
     {
         private readonly sms.Data.ApplicationDbContext _context;
         public int? PageIndex { get; set; }
+        public string CurrentFilter { get; set; }
+        public string CurrentSort { get; set; }
 
         public DetailsModel(sms.Data.ApplicationDbContext context)
         {
@@ -24,10 +26,13 @@ namespace sms.Pages.Subjects
 
         public Subject Subject { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? pageIndex, int? id)
+        public async Task<IActionResult> OnGetAsync(string sortOrder,
+            string currentFilter, int? pageIndex, int? id)
         {
-            PageIndex = pageIndex; 
-            
+            PageIndex = pageIndex;
+            CurrentSort = sortOrder;
+            CurrentFilter = currentFilter;
+
             if (id == null)
             {
                 return NotFound();

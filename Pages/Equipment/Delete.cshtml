@@ -50,10 +50,27 @@
             @Html.DisplayFor(model => model.Inventory.DecommissionDate)
         </dd>
     </dl>
-    
+
     <form method="post">
         <input type="hidden" asp-for="Inventory.Id" />
         <input type="submit" value="Видалити" class="btn btn-danger" /> |
-        <a asp-page="./Index" asp-route-pageIndex="@Model.PageIndex">Назад</a>
+        @if (Model.Inventory.DecommissionDate.HasValue)
+        {
+            <a asp-page="./Decommissioned"
+               asp-route-pageIndex="@Model.PageIndex"
+               asp-route-sortOrder="@Model.CurrentSort"
+               asp-route-currentFilter="@Model.CurrentFilter">
+                Назад
+            </a>
+        }
+        else
+        {
+            <a asp-page="./Index"
+               asp-route-pageIndex="@Model.PageIndex"
+               asp-route-sortOrder="@Model.CurrentSort"
+               asp-route-currentFilter="@Model.CurrentFilter">
+                Назад
+            </a>
+        }
     </form>
 </div>

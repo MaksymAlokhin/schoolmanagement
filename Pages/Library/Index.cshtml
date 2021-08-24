@@ -103,11 +103,27 @@
                     </td>
                     <td>
                         @{
-                            var gradeId = Model.gradeList.Where(g => g.Number == item.Grade).Select(g => g.Id).First();
+                            var gradeId = Model.gradeList.Where(g => g.Number == item.Grade).Select(g => g.Id).FirstOrDefault();
                         }
-                        <a asp-page="./Edit" asp-route-id="@item.Id" asp-route-pageIndex="@Model.Book.PageIndex"><i class="fas fa-pencil-alt fa-lg"></i></a> |
-                        <a asp-page="./LendStudent" asp-route-id="@item.Id" asp-route-gradeId="@gradeId"><i class="fas fa-book fa-lg"></i></a> |
-                        <a asp-page="./Delete" asp-route-id="@item.Id" asp-route-pageIndex="@Model.Book.PageIndex"><i class="fas fa-trash fa-lg text-danger"></i></a>
+                        <a asp-page="./Edit"
+                           asp-route-id="@item.Id"
+                           asp-route-pageIndex="@Model.Book.PageIndex"
+                           asp-route-sortOrder="@Model.CurrentSort"
+                           asp-route-currentFilter="@Model.CurrentFilter">
+                            <i class="fas fa-pencil-alt fa-lg"></i>
+                        </a> |
+                        <a asp-page="./LendStudent"
+                           asp-route-id="@item.Id"
+                           asp-route-gradeId="@gradeId">
+                            <i class="fas fa-book fa-lg"></i>
+                        </a> |
+                        <a asp-page="./Delete"
+                           asp-route-id="@item.Id"
+                           asp-route-pageIndex="@Model.Book.PageIndex"
+                           asp-route-sortOrder="@Model.CurrentSort"
+                           asp-route-currentFilter="@Model.CurrentFilter">
+                            <i class="fas fa-trash fa-lg text-danger"></i>
+                        </a>
                     </td>
                 </tr>
                 i++;

@@ -42,13 +42,15 @@
             {
                 <a class="card-link" asp-page="./Edit"
                    asp-route-id="@Model.Assignment.Id"
-                   asp-route-pageIndex="@Model.PageIndex">
+                   asp-route-pageIndex="@Model.PageIndex"
+                   asp-route-sortOrder="@Model.CurrentSort">
                     Редагувати
                 </a>
                 <a class="card-link" asp-page="./Index"
                    asp-route-gradeId="@Model.Assignment.GradeId"
                    asp-route-subjectId="@Model.Assignment.SubjectId"
-                   asp-route-pageIndex="@Model.PageIndex">
+                   asp-route-pageIndex="@Model.PageIndex"
+                   asp-route-sortOrder="@Model.CurrentSort">
                     Назад
                 </a>
             }
@@ -57,7 +59,8 @@
                 <a class="card-link" asp-page="./Index"
                    asp-route-gradeId="@Model.Assignment.GradeId"
                    asp-route-subjectId="@Model.Assignment.SubjectId"
-                   asp-route-pageIndex="@Model.PageIndex">
+                   asp-route-pageIndex="@Model.PageIndex"
+                   asp-route-sortOrder="@Model.CurrentSort">
                     Назад
                 </a>
             }

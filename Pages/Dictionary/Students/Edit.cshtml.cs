@@ -30,6 +30,8 @@ namespace sms.Pages.Students
         }
         public List<SelectListItem> GradesSL { get; set; }
         public int? PageIndex { get; set; }
+        public string CurrentFilter { get; set; }
+        public string CurrentSort { get; set; }
         public IFormFile FormFile { get; set; }
         private readonly string[] permittedExtensions = { ".jpg", ".jpeg", ".png", ".gif", ".bmp", ".tif", ".tiff" };
         public string Gender { get; set; } = "Не вказано";
@@ -38,10 +40,13 @@ namespace sms.Pages.Students
         [BindProperty]
         public Student Student { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? pageIndex, int? id)
+        public async Task<IActionResult> OnGetAsync(string sortOrder,
+            string currentFilter, int? pageIndex, int? id)
         {
-            PageIndex = pageIndex; 
-            
+            PageIndex = pageIndex;
+            CurrentSort = sortOrder;
+            CurrentFilter = currentFilter;
+
             if (id == null)
             {
                 return NotFound();
@@ -51,8 +56,8 @@ namespace sms.Pages.Students
             //Завантаження даних з БД
             Student = await _context.Students
                 .Include(s => s.Grade).FirstOrDefaultAsync(m => m.Id == id);
-            if(!string.IsNullOrEmpty(Student.Gender)) Gender = Student.Gender;
-            
+            if (!string.IsNullOrEmpty(Student.Gender)) Gender = Student.Gender;
+
             if (Student == null)
             {
                 return NotFound();
@@ -72,7 +77,8 @@ namespace sms.Pages.Students
 
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync(int? pageIndex, int? id, string Gender)
+        public async Task<IActionResult> OnPostAsync(string sortOrder,
+            string currentFilter, int? pageIndex, int? id, string Gender)
         {
             //Find item in DB and update it
             //Знаходження запису у БД і оновлення
@@ -98,7 +104,7 @@ namespace sms.Pages.Students
                         //Формування випадкового імені файлу для збереження на сервері
                         string uploadsFolder = Path.Combine(webHostEnvironment.WebRootPath, @"images\avatars"); //webHost adds 'wwwroot'
                         var trustedFileNameForFileStorage = Path.GetRandomFileName();
-                        trustedFileNameForFileStorage = trustedFileNameForFileStorage.Substring(0, 8) 
+                        trustedFileNameForFileStorage = trustedFileNameForFileStorage.Substring(0, 8)
                             + trustedFileNameForFileStorage.Substring(9) + ext;
                         var filePath = Path.Combine(uploadsFolder, trustedFileNameForFileStorage);
 
@@ -145,7 +151,12 @@ namespace sms.Pages.Students
                     throw;
                 }
             }
-            return RedirectToPage("./Index", new { pageIndex = $"{pageIndex}" });
+            return RedirectToPage("./Index", new
+            {
+                pageIndex = $"{pageIndex}",
+                sortOrder = $"{sortOrder}",
+                currentFilter = $"{currentFilter}"
+            });
         }
 
         private bool StudentExists(int id)

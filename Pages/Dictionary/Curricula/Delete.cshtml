@@ -38,10 +38,16 @@
             @Html.DisplayFor(model => model.Curriculum.Teacher.FullName)
         </dd>
     </dl>
-    
+
     <form method="post">
         <input type="hidden" asp-for="Curriculum.Id" />
         <input type="submit" value="Видалити" class="btn btn-danger" /> |
-        <a asp-page="./Index" asp-route-gradeId="@Model.Curriculum.GradeId" asp-route-pageIndex="@Model.PageIndex">Назад</a>
+        <a asp-page="./Index"
+           asp-route-gradeId="@Model.Curriculum.GradeId"
+           asp-route-pageIndex="@Model.PageIndex"
+           asp-route-sortOrder="@Model.CurrentSort"
+           asp-route-currentFilter="@Model.CurrentFilter">
+            Назад
+        </a>
     </form>
 </div>

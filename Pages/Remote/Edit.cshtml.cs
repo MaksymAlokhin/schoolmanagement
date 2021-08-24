@@ -18,6 +18,7 @@ namespace sms.Pages.Remote
     {
         private readonly sms.Data.ApplicationDbContext _context;
         public int? PageIndex { get; set; }
+        public string CurrentSort { get; set; }
 
         public EditModel(sms.Data.ApplicationDbContext context)
         {
@@ -27,9 +28,11 @@ namespace sms.Pages.Remote
         [BindProperty]
         public Assignment Assignment { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? pageIndex, int? id)
+        public async Task<IActionResult> OnGetAsync(string sortOrder, int? pageIndex, int? id)
         {
-            PageIndex = pageIndex; 
+            PageIndex = pageIndex;
+            CurrentSort = sortOrder;
+
             if (id == null)
             {
                 return NotFound();
@@ -63,7 +66,7 @@ namespace sms.Pages.Remote
 
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync(int? pageIndex)
+        public async Task<IActionResult> OnPostAsync(string sortOrder, int? pageIndex)
         {
             if (!ModelState.IsValid)
             {
@@ -99,7 +102,8 @@ namespace sms.Pages.Remote
             {
                 gradeId = $"{Assignment.GradeId}",
                 subjectId = $"{Assignment.SubjectId}",
-                pageIndex = $"{pageIndex}"
+                pageIndex = $"{pageIndex}",
+                sortOrder = $"{sortOrder}"
             });
         }
 

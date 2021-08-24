@@ -16,6 +16,8 @@ namespace sms.Pages.Dictionary.Curricula
     {
         private readonly sms.Data.ApplicationDbContext _context;
         public int? PageIndex { get; set; }
+        public string CurrentFilter { get; set; }
+        public string CurrentSort { get; set; }
 
         public DeleteModel(sms.Data.ApplicationDbContext context)
         {
@@ -25,10 +27,13 @@ namespace sms.Pages.Dictionary.Curricula
         [BindProperty]
         public Curriculum Curriculum { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? pageIndex, int? id)
+        public async Task<IActionResult> OnGetAsync(string sortOrder,
+            string currentFilter, int? pageIndex, int? id)
         {
-            PageIndex = pageIndex; 
-            
+            PageIndex = pageIndex;
+            CurrentSort = sortOrder;
+            CurrentFilter = currentFilter;
+
             if (id == null)
             {
                 return NotFound();
@@ -48,13 +53,14 @@ namespace sms.Pages.Dictionary.Curricula
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync(int? pageIndex, int? id)
+        public async Task<IActionResult> OnPostAsync(string sortOrder,
+            string currentFilter, int? pageIndex, int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
-            
+
             //Find and delete from DB
             //Знаходимо вказане навантаження та видаляємо з БД
             Curriculum = await _context.Curricula.FindAsync(id);
@@ -65,7 +71,13 @@ namespace sms.Pages.Dictionary.Curricula
                 await _context.SaveChangesAsync();
             }
 
-            return RedirectToPage("./Index", new { gradeId = $"{Curriculum.GradeId}", pageIndex = $"{pageIndex}" });
+            return RedirectToPage("./Index", new
+            {
+                gradeId = $"{Curriculum.GradeId}",
+                pageIndex = $"{pageIndex}",
+                sortOrder = $"{sortOrder}",
+                currentFilter = $"{currentFilter}"
+            });
         }
     }
 }

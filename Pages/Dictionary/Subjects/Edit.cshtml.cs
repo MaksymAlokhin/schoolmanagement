@@ -19,6 +19,8 @@ namespace sms.Pages.Subjects
         public List<int> selectedTeachers { get; set; }
         public SelectList TeacherNameSL { get; set; }
         public int? PageIndex { get; set; }
+        public string CurrentFilter { get; set; }
+        public string CurrentSort { get; set; }
 
         public EditModel(sms.Data.ApplicationDbContext context)
         {
@@ -28,10 +30,13 @@ namespace sms.Pages.Subjects
         [BindProperty]
         public Subject Subject { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? pageIndex, int? id)
+        public async Task<IActionResult> OnGetAsync(string sortOrder,
+            string currentFilter, int? pageIndex, int? id)
         {
-            PageIndex = pageIndex; 
-            
+            PageIndex = pageIndex;
+            CurrentSort = sortOrder;
+            CurrentFilter = currentFilter;
+
             if (id == null)
             {
                 return NotFound();
@@ -64,7 +69,8 @@ namespace sms.Pages.Subjects
 
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync(int? pageIndex, int? id, int[] selectedTeachers)
+        public async Task<IActionResult> OnPostAsync(string sortOrder,
+            string currentFilter, int? pageIndex, int? id, int[] selectedTeachers)
         {
             if (!ModelState.IsValid)
             {
@@ -100,7 +106,12 @@ namespace sms.Pages.Subjects
                 }
             }
 
-            return RedirectToPage("./Index", new { pageIndex = $"{pageIndex}" });
+            return RedirectToPage("./Index", new
+            {
+                pageIndex = $"{pageIndex}",
+                sortOrder = $"{sortOrder}",
+                currentFilter = $"{currentFilter}"
+            });
         }
 
         private bool SubjectExists(int id)
