@@ -97,10 +97,10 @@ namespace sms.Pages.Library
             //Фільтр пошуку
             if (!String.IsNullOrEmpty(searchString))
             {
+                
                 studentsIQ = studentsIQ.Where(s => s.LastName.Contains(searchString)
                                        || s.FirstName.Contains(searchString)
-                                       || s.Patronymic.Contains(searchString)
-                                       || s.Grade.FullName.Contains(searchString));
+                                       || s.Patronymic.Contains(searchString));
             }
 
             //Sort order
