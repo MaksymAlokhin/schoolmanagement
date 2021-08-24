@@ -102,9 +102,9 @@
                         @Html.DisplayFor(modelItem => item.Qty)/@Html.DisplayFor(modelItem => item.TotalQty)
                     </td>
                     <td>
-                        @{
+                        @*@{
                             var gradeId = Model.gradeList.Where(g => g.Number == item.Grade).Select(g => g.Id).FirstOrDefault();
-                        }
+                        }*@
                         <a asp-page="./Edit"
                            asp-route-id="@item.Id"
                            asp-route-pageIndex="@Model.Book.PageIndex"
@@ -114,7 +114,7 @@
                         </a> |
                         <a asp-page="./LendStudent"
                            asp-route-id="@item.Id"
-                           asp-route-gradeId="@gradeId">
+                           asp-route-gradeNumber="@item.Grade">
                             <i class="fas fa-book fa-lg"></i>
                         </a> |
                         <a asp-page="./Delete"

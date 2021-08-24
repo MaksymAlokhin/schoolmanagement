@@ -37,7 +37,7 @@ namespace sms.Pages.Library
         public Book Book { get; set; }
 
         public async Task<IActionResult> OnGetAsync(string sortOrder, string currentFilter,
-            string searchString, int id, int? gradeId, int? pageIndex)
+            string searchString, int id, int? gradeNumber, int? pageIndex)
         {
             CurrentSort = sortOrder;
             NameSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
@@ -54,8 +54,8 @@ namespace sms.Pages.Library
 
             CurrentFilter = searchString;
 
-            if (gradeId != null)
-                selectedGrade = (int)gradeId;
+            if (gradeNumber != null)
+                selectedGrade = (int)gradeNumber;
             else selectedGrade = 0;
 
             Book = await _context.Books
@@ -66,11 +66,11 @@ namespace sms.Pages.Library
             //Grades selectlist
             //Випадаючий список класів
             GradesSL = new List<SelectListItem>();
-            var grad = _context.Grades.OrderBy(g => g.Number).ThenBy(g => g.Letter);
+            var grad = _context.Grades.OrderBy(g => g.Number).ThenBy(g => g.Letter).Select(g => g.Number).Distinct();
             GradesSL.Add(new SelectListItem("Всі класи", "0"));
-            foreach (Grade g in grad)
+            foreach (var g in grad)
             {
-                GradesSL.Add(new SelectListItem { Value = $"{g.Id}", Text = $"{g.FullName}" });
+                GradesSL.Add(new SelectListItem { Value = $"{g}", Text = $"{g}" });
             }
 
             IEnumerable<Student> studentsIE;
@@ -82,7 +82,7 @@ namespace sms.Pages.Library
                 studentsIE = _context.Students
                     .Include(m => m.Books)
                     .Include(m => m.Grade)
-                    .Where(m => m.GradeId == selectedGrade);
+                    .Where(m => m.Grade.Number == selectedGrade);
             }
             //All students
             //Усі учні

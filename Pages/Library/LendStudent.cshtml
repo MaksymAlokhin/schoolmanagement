@@ -23,7 +23,7 @@
             <form method="get">
                 <div class="form-group">
                     <label asp-for="selectedGrade" class="control-label"><i class="fas fa-users"></i></label>
-                    <select asp-for="selectedGrade" name="gradeId" style="width:auto" asp-items="Model.GradesSL" onchange="this.form.submit();"></select>
+                    <select asp-for="selectedGrade" name="gradeNumber" style="width:auto" asp-items="Model.GradesSL" onchange="this.form.submit();"></select>
                     <input type="hidden" name="id" asp-for="@Model.Book.Id" />
                 </div>
             </form>
@@ -57,7 +57,7 @@
                        asp-route-sortOrder="@Model.NameSort"
                        asp-route-id="@Model.Book.Id"
                        asp-route-currentFilter="@Model.CurrentFilter"
-                       asp-route-gradeId="@Model.selectedGrade">
+                       asp-route-gradeNumber="@Model.selectedGrade">
                         @Html.DisplayNameFor(model => model.students[0].FullName)
                     </a>
                 </th>
@@ -66,7 +66,7 @@
                        asp-route-sortOrder="@Model.GradeSort"
                        asp-route-id="@Model.Book.Id"
                        asp-route-currentFilter="@Model.CurrentFilter"
-                       asp-route-gradeId="@Model.selectedGrade">
+                       asp-route-gradeNumber="@Model.selectedGrade">
                         @Html.DisplayNameFor(model => model.students[0].Grade.FullName)
                     </a>
                 </th>
@@ -92,7 +92,7 @@
                             <form method="post">
                                 <input type="hidden" name="id" asp-for="@Model.Book.Id" />
                                 <input type="hidden" name="studentId" asp-for="@item.Id" />
-                                <input type="hidden" name="gradeId" asp-for="@Model.selectedGrade" />
+                                <input type="hidden" name="gradeNumber" asp-for="@Model.selectedGrade" />
                                 <input type="hidden" name="pageIndex" asp-for="@Model.students.PageIndex" />
                                 <input type="hidden" name="sortOrder" asp-for="@Model.CurrentSort" />
                                 <input type="hidden" name="currentFilter" asp-for="@Model.CurrentFilter" />
@@ -129,7 +129,7 @@
    asp-route-pageIndex="1"
    asp-route-currentFilter="@Model.CurrentFilter"
    asp-route-id="@Model.Book.Id"
-   asp-route-gradeId="@Model.selectedGrade"
+   asp-route-gradeNumber="@Model.selectedGrade"
    class="btn btn-primary @prevDisabled">
     <i class="fas fa-fast-backward"></i>
 </a>
@@ -138,7 +138,7 @@
    asp-route-pageIndex="@(Model.students.PageIndex - 1)"
    asp-route-currentFilter="@Model.CurrentFilter"
    asp-route-id="@Model.Book.Id"
-   asp-route-gradeId="@Model.selectedGrade"
+   asp-route-gradeNumber="@Model.selectedGrade"
    class="btn btn-primary @prevDisabled">
     <i class="fas fa-arrow-alt-circle-left fa-lg"></i>
 </a>
@@ -147,7 +147,7 @@
    asp-route-pageIndex="@(Model.students.PageIndex + 1)"
    asp-route-currentFilter="@Model.CurrentFilter"
    asp-route-id="@Model.Book.Id"
-   asp-route-gradeId="@Model.selectedGrade"
+   asp-route-gradeNumber="@Model.selectedGrade"
    class="btn btn-primary @nextDisabled">
     <i class="fas fa-arrow-alt-circle-right fa-lg"></i>
 </a>
@@ -156,7 +156,7 @@
    asp-route-pageIndex="@(Model.students.TotalPages)"
    asp-route-currentFilter="@Model.CurrentFilter"
    asp-route-id="@Model.Book.Id"
-   asp-route-gradeId="@Model.selectedGrade"
+   asp-route-gradeNumber="@Model.selectedGrade"
    class="btn btn-primary @nextDisabled">
     <i class="fas fa-fast-forward"></i>
 </a>
