@@ -91,28 +91,28 @@ namespace sms.Pages.Library
             switch (sortOrder)
             {
                 case "grade_desc":
-                    booksIQ = booksIQ.OrderByDescending(s => s.Grade);
+                    booksIQ = booksIQ.OrderByDescending(s => s.Grade).ThenByDescending(s => s.Name).ThenByDescending(s => s.Year);
                     break;
                 case "name":
-                    booksIQ = booksIQ.OrderBy(s => s.Name);
+                    booksIQ = booksIQ.OrderBy(s => s.Name).ThenBy(s => s.Grade).ThenBy(s => s.Year);
                     break;
                 case "name_desc":
-                    booksIQ = booksIQ.OrderByDescending(s => s.Name);
+                    booksIQ = booksIQ.OrderByDescending(s => s.Name).ThenByDescending(s => s.Grade).ThenByDescending(s => s.Year);
                     break;
                 case "year":
-                    booksIQ = booksIQ.OrderBy(s => s.Year);
+                    booksIQ = booksIQ.OrderBy(s => s.Year).ThenBy(s => s.Grade).ThenBy(s => s.Name);
                     break;
                 case "year_desc":
-                    booksIQ = booksIQ.OrderByDescending(s => s.Year);
+                    booksIQ = booksIQ.OrderByDescending(s => s.Year).ThenByDescending(s => s.Grade).ThenByDescending(s => s.Name);
                     break;
                 case "qty":
-                    booksIQ = booksIQ.OrderBy(s => s.Qty);
+                    booksIQ = booksIQ.OrderBy(s => s.Qty).ThenBy(s => s.Grade).ThenBy(s => s.Name);
                     break;
                 case "qty_desc":
-                    booksIQ = booksIQ.OrderByDescending(s => s.Qty);
+                    booksIQ = booksIQ.OrderByDescending(s => s.Qty).ThenByDescending(s => s.Grade).ThenByDescending(s => s.Name);
                     break;
                 default:
-                    booksIQ = booksIQ.OrderBy(s => s.Grade);
+                    booksIQ = booksIQ.OrderBy(s => s.Grade).ThenBy(s => s.Name).ThenBy(s => s.Year);
                     break;
             }
 
