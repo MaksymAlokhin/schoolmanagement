@@ -61,20 +61,6 @@ namespace sms.Pages.Library
             var students = await _context.Students.Include(s => s.Books).Include(s => s.Grade).Where(s => s.Books.Any(b => b.Id == id)).ToListAsync();
             var teachers = await _context.Teachers.Include(s => s.Books).Where(s => s.Books.Any(b => b.Id == id)).ToListAsync();
 
-            ////Search filter
-            ////Фільтр пошуку
-            //if (!String.IsNullOrEmpty(searchString))
-            //{
-            //    students = students.Where(s => s.LastName.Contains(searchString)
-            //                           || s.FirstName.Contains(searchString)
-            //                           || s.Patronymic.Contains(searchString))
-            //                        .ToList();
-            //    teachers = teachers.Where(s => s.LastName.Contains(searchString)
-            //                           || s.FirstName.Contains(searchString)
-            //                           || s.Patronymic.Contains(searchString))
-            //                        .ToList();
-            //}
-
             //Create a list of readers from students and teachers
             //Створення списку читачів з вчителів і учнів
             foreach (var student in students)
@@ -83,18 +69,18 @@ namespace sms.Pages.Library
             }
             foreach (var teacher in teachers)
             {
-                readersList.Add(new Reader { Id = teacher.Id, Name = teacher.FullName, Type = Type.Вчитель, Grade = "" });
+                readersList.Add(new Reader { Id = teacher.Id, Name = teacher.FullName, Type = Type.Персонал, Grade = "" });
             }
 
             //Search filter
             //Фільтр пошуку
             if (!String.IsNullOrEmpty(searchString))
             {
-                readersList = readersList.Where(s => s.Name.Contains(searchString)
-                                       || s.Grade.Contains(searchString))
+                readersList = readersList.Where(s => s.Name.ToLowerInvariant().Contains(searchString.ToLowerInvariant())
+                                       || s.Grade.ToLowerInvariant().Contains(searchString.ToLowerInvariant())
+                                       || s.Type.ToString().ToLowerInvariant().ToString().Contains(searchString.ToLowerInvariant()))
                                     .ToList();
             }
-
             //Sort order
             //Сортування
             switch (sortOrder)
@@ -186,6 +172,6 @@ namespace sms.Pages.Library
     public enum Type
     {
         Учень,
-        Вчитель
+        Персонал
     }
 }

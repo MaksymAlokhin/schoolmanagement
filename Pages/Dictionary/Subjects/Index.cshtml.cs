@@ -43,8 +43,7 @@ namespace sms.Pages.Subjects
             }
             CurrentFilter = searchString;
 
-            IQueryable<Subject> subjectsIQ = from s in _context.Subjects
-                                             select s;
+            IQueryable<Subject> subjectsIQ = _context.Subjects;
             
             //Search filter
             //Фільтр пошуку
