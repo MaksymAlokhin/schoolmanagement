@@ -15,15 +15,19 @@ namespace sms
 
         [Required]
         [StringLength(50, ErrorMessage = "Прізвище не може бути довше за 50 символів.")]
+        [RegularExpression(@"^[А-Я]+[а-яА-Я-]*$")]
         [Display(Name = "Прізвище")]
         public string LastName { get; set; }
 
         [Required]
         [StringLength(50, ErrorMessage = "Ім'я не може бути довше за 50 символів.")]
+        [RegularExpression(@"^[А-Я]+[а-яА-Я-]*$")]
         [Display(Name = "Ім'я")]
         public string FirstName { get; set; }
 
+        [Required]
         [StringLength(50, ErrorMessage = "По батькові не може бути довше за 50 символів.")]
+        [RegularExpression(@"^[А-Я]+[а-яА-Я-]*$")]
         [Display(Name = "По батькові")]
         public string Patronymic { get; set; }
 
@@ -33,6 +37,7 @@ namespace sms
         public DateTime DateOfBirth { get; set; }
 
         [StringLength(50)]
+        [RegularExpression(@"^[а-яА-Я0-9A-Za-z""'\s-.,]*$")]
         [Display(Name = "Адреса")]
         public string Address { get; set; }
 
