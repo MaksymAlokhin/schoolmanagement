@@ -31,7 +31,6 @@ namespace sms
         [Display(Name = "По батькові")]
         public string Patronymic { get; set; }
 
-        [Required]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name = "Дата нар.")]
