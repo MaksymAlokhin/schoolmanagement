@@ -11,13 +11,15 @@
 <h4>@Model.Teacher.FullName, вчитель</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
-        @if (!string.IsNullOrEmpty(@Model.Teacher.ProfilePicture))
-        {
-            <div class="img-fluid mw-100 h-auto">
-                <img src="~/images/avatars/@Model.Teacher.ProfilePicture" />
+    <div class="row">
+        <div class="col-md-4">
+            <div id="photo" class="img-fluid mw-100 h-auto">
+                @if (!string.IsNullOrEmpty(@Model.Teacher.ProfilePicture))
+                {
+                    <img id="upload" src="~/images/avatars/@Model.Teacher.ProfilePicture" />
+                }
             </div>
-        }
+        </div>
     </div>
 </div>
 <form enctype="multipart/form-data" method="post">
@@ -79,5 +81,25 @@
             var fileName = $(this).val().split("\\").pop();
             $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
         });
+        @* Display image of the selected photo *@
+        @* Показ завантаженого зображення *@
+        $("#customFile").change(function (e) {
+
+            for (var i = 0; i < e.originalEvent.srcElement.files.length; i++) {
+
+                var file = e.originalEvent.srcElement.files[i];
+
+                var img = document.createElement("img");
+                img.setAttribute("id", "upload");
+                var reader = new FileReader();
+                reader.onloadend = function () {
+                    img.src = reader.result;
+                }
+                reader.readAsDataURL(file);
+                $('#upload').remove();
+                $("#photo").after(img);
+            }
+        });
+
     </script>
 }

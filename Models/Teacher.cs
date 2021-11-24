@@ -11,20 +11,20 @@ namespace sms.Models
         public int Id { get; set; }
 
         [Required]
-        [RegularExpression(@"^[А-Я]+[а-яА-Я-]*$")]
         [StringLength(50, ErrorMessage = "Прізвище не може бути довше за 50 символів.")]
+        [RegularExpression(@"^[А-ЯІЇЄ']+[а-яА-Яіїє'-]*$")]
         [Display(Name = "Прізвище")]
         public string LastName { get; set; }
 
         [Required]
-        [RegularExpression(@"^[А-Я]+[а-яА-Я-]*$")]
         [StringLength(50, ErrorMessage = "Ім'я не може бути довше за 50 символів.")]
+        [RegularExpression(@"^[А-ЯІЇЄ']+[а-яА-Яіїє'-]*$")]
         [Display(Name = "Ім'я")]
         public string FirstName { get; set; }
 
         [Required]
-        [RegularExpression(@"^[А-Я]+[а-яА-Я-]*$")]
         [StringLength(50, ErrorMessage = "По батькові не може бути довше за 50 символів.")]
+        [RegularExpression(@"^[А-ЯІЇЄ']+[а-яА-Яіїє'-]*$")]
         [Display(Name = "По батькові")]
         public string Patronymic { get; set; }
 
