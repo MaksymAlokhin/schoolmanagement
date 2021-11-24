@@ -129,17 +129,17 @@ namespace sms.Pages.Teachers
 
                     //Delete old photo file
                     //Видалення старого файлу з фото
-                    var oldFile = teacherToUpdate.ProfilePicture;
-                    var fileToDelete = string.Empty;
-                    if (!string.IsNullOrEmpty(oldFile))
-                    {
-                        fileToDelete = Path.Combine(uploadsFolder, oldFile);
-                    }
+                    //var oldFile = teacherToUpdate.ProfilePicture;
+                    //var fileToDelete = string.Empty;
+                    //if (!string.IsNullOrEmpty(oldFile))
+                    //{
+                    //    fileToDelete = Path.Combine(uploadsFolder, oldFile);
+                    //}
 
-                    if (System.IO.File.Exists(fileToDelete))
-                    {
-                        System.IO.File.Delete(fileToDelete);
-                    }
+                    //if (System.IO.File.Exists(fileToDelete))
+                    //{
+                    //    System.IO.File.Delete(fileToDelete);
+                    //}
 
                     //Update teacher's photo
                     //Оновлення фото вчителя
