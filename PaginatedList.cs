@@ -62,7 +62,7 @@ namespace sms
                 var seqNum = Enumerable.Range(1, count)
                     .Take(pageSize).ToList();
 
-                return new PaginatedList<T>(items, count, pageIndex, pageSize, seqNum);
+                return new PaginatedList<T>(items, count, 1, pageSize, seqNum);
             }
         }
 
@@ -91,7 +91,7 @@ namespace sms
                 var seqNum = Enumerable.Range(1, count)
                     .Take(pageSize).ToList();
 
-                return new PaginatedList<T>(items, count, pageIndex, pageSize, seqNum);
+                return new PaginatedList<T>(items, count, 1, pageSize, seqNum);
             }
         }
     }
