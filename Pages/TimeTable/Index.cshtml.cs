@@ -76,5 +76,34 @@ namespace sms.Pages.TimeTable
                 .ToList();
             selectedDay = "Пн";
         }
+
+        public void OnGetGeneticAsync()
+        {
+            //Generate timetable
+            //Генерація розкладу
+            Scheduler scheduler = new Scheduler(_context, _logger);
+            List<Lesson> lessons = Scheduler.finalson.lessons;
+
+            //Delete all rows from Lessons table
+            //Видалення усіх рядків з таблиці уроків
+            _context.Database.ExecuteSqlRaw("TRUNCATE TABLE [Lessons]");
+
+            //Save generated lessons to DB
+            //Збереження згенерованих уроків у БД
+            _context.Lessons.AddRange(lessons);
+            _context.SaveChanges();
+
+            //Get data from DB
+            //Завантаження даних з БД
+            teachers = _context.Teachers
+                .OrderBy(i => i.LastName)
+                .ToList();
+            lessons = _context.Lessons
+                .Where(i => i.Day == "Пн")
+                .Include(i => i.Grade)
+                .ToList();
+            selectedDay = "Пн";
+        }
+
     }
 }
