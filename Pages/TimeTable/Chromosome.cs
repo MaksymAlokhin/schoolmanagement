@@ -26,7 +26,7 @@ namespace sms.Pages.TimeTable
             _context = context;
             _logger = logger;
             genes = new List<Gene>();
-
+            lessons = new List<Lesson>();
             foreach (int i in _context.Grades.Select(g => g.Id))
             {
                 genes.Add(new Gene(context, logger, i));

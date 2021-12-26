@@ -41,12 +41,13 @@ namespace sms.Pages.TimeTable
         //Ініціалізація першого покоління
         public void InitializePopulation()
         {
-
+            //_logger.LogInformation("Initializing population");
             firstlist = new List<Chromosome>();
             firstlistfitness = 0;
 
             for (int i = 0; i < populationsize; i++)
             {
+                _logger.LogInformation($"Initializing population {i}");
                 Chromosome c;
                 firstlist.Add(c = new Chromosome(_context, _logger));
                 firstlistfitness += c.fitness;
@@ -56,7 +57,7 @@ namespace sms.Pages.TimeTable
         }
         public void CreateNewGenerations()
         {
-
+            _logger.LogInformation("Creating new generations");
             Chromosome father = null;
             Chromosome mother = null;
             Chromosome son = null;
@@ -151,7 +152,7 @@ namespace sms.Pages.TimeTable
         //Схрещування двох хромосом
         public Chromosome Crossover(Chromosome father, Chromosome mother)
         {
-
+            _logger.LogInformation("Doing crossover");
             int randomint = random.Next(_context.Grades.Count());
             Gene temp = father.genes[randomint];
             father.genes[randomint] = mother.genes[randomint];
@@ -163,7 +164,7 @@ namespace sms.Pages.TimeTable
         //Мутація
         public void СustomMutation(Chromosome c)
         {
-
+            _logger.LogInformation("Doing mutation");
             double newfitness = 0, oldfitness = c.GetFitness();
             int geneno = random.Next(_context.Grades.Count());
 
