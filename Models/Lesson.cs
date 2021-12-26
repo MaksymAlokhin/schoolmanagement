@@ -11,10 +11,8 @@ namespace sms.Models
     {
         public int Id { get; set; }
 
-        [Required]
         [Display(Name = "День")]
-        [StringLength(16)]
-        public string Day { get; set; }
+        public int Day { get; set; }
 
         [Required]
         [Display(Name = "№ уроку")]

@@ -26,7 +26,7 @@ namespace sms.Pages.TimeTable
         public List<SelectListItem> GradesList { get; set; }
         public SelectList SubjectNameSL { get; set; }
 
-        public IActionResult OnGetAsync(string day, int slot, int teacher)
+        public IActionResult OnGetAsync(int day, int slot, int teacher)
         {
             //Initialize new record with static data
             //Ініціалізація нового запису даними, що незмінюються

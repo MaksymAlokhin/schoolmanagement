@@ -69,13 +69,13 @@ namespace sms.Pages.TimeTable
                 {
                     for (int slot = 8; slot > 1; slot--)
                     {
-                        if (lessons.Any(l => l.Day == ((Day)day).ToString()
+                        if (lessons.Any(l => l.Day == day
                                 && l.Slot == slot
                                 && l.GradeId == grade))
                         {
                             for (int i = slot - 1; i > 0; i--)
                             {
-                                if (!lessons.Any(l => l.Day == ((Day)day).ToString()
+                                if (!lessons.Any(l => l.Day == day
                                                       && l.Slot == slot
                                                       && l.GradeId == grade))
                                 {
@@ -98,7 +98,7 @@ namespace sms.Pages.TimeTable
                     int firstLesson = 0;
                     for (int slot = 1; slot <= 8; slot++)
                     {
-                        if (lessons.Any(l => l.Day == ((Day)day).ToString()
+                        if (lessons.Any(l => l.Day == day
                                 && l.Slot == slot
                                 && l.TeacherId == teacher))
                         {
@@ -111,7 +111,7 @@ namespace sms.Pages.TimeTable
                     int lastLesson = 0;
                     for (int slot = 8; slot > 1; slot--)
                     {
-                        if (lessons.Any(l => l.Day == ((Day)day).ToString()
+                        if (lessons.Any(l => l.Day == day
                                 && l.Slot == slot
                                 && l.TeacherId == teacher))
                         {
@@ -121,7 +121,7 @@ namespace sms.Pages.TimeTable
                     }
                     for (int slot = firstLesson + 1; slot < lastLesson; slot++)
                     {
-                        if (!lessons.Any(l => l.Day == ((Day)day).ToString()
+                        if (!lessons.Any(l => l.Day == day
                                               && l.Slot == slot
                                               && l.TeacherId == teacher))
                         {

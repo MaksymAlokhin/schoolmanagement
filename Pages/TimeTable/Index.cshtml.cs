@@ -20,14 +20,14 @@ namespace sms.Pages.TimeTable
         private readonly ILogger<IndexModel> _logger;
         public List<sms.Models.Lesson> lessons;
         public List<sms.Models.Teacher> teachers;
-        public string selectedDay;
+        public int selectedDay;
         public List<SelectListItem> Days { get; } = new List<SelectListItem>
         {
-            new SelectListItem { Value = "Ïí", Text = "Ïí" },
-            new SelectListItem { Value = "Âò", Text = "Âò" },
-            new SelectListItem { Value = "Ñð", Text = "Ñð" },
-            new SelectListItem { Value = "×ò", Text = "×ò" },
-            new SelectListItem { Value = "Ïò", Text = "Ïò" }
+            new SelectListItem { Value = "1", Text = "Ïí" },
+            new SelectListItem { Value = "2", Text = "Âò" },
+            new SelectListItem { Value = "3", Text = "Ñð" },
+            new SelectListItem { Value = "4", Text = "×ò" },
+            new SelectListItem { Value = "5", Text = "Ïò" }
         };
 
         public IndexModel(ApplicationDbContext context, ILogger<IndexModel> logger)
@@ -35,7 +35,7 @@ namespace sms.Pages.TimeTable
             _context = context;
             _logger = logger;
         }
-        public async Task OnGetAsync(string day = "Ïí")
+        public async Task OnGetAsync(int day = 1)
         {
             teachers = await _context.Teachers
                 .OrderBy(i => i.LastName)
@@ -71,10 +71,10 @@ namespace sms.Pages.TimeTable
                 .OrderBy(i => i.LastName)
                 .ToList();
             lessons = _context.Lessons
-                .Where(i => i.Day == "Ïí")
+                .Where(i => i.Day == 1)
                 .Include(i => i.Grade)
                 .ToList();
-            selectedDay = "Ïí";
+            selectedDay = 1;
         }
 
         public void OnGetGeneticAsync()
@@ -99,10 +99,10 @@ namespace sms.Pages.TimeTable
                 .OrderBy(i => i.LastName)
                 .ToList();
             lessons = _context.Lessons
-                .Where(i => i.Day == "Ïí")
+                .Where(i => i.Day == 1)
                 .Include(i => i.Grade)
                 .ToList();
-            selectedDay = "Ïí";
+            selectedDay = 1;
         }
 
     }

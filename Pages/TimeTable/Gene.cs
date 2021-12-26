@@ -37,7 +37,7 @@ namespace sms.Pages.TimeTable
                     geneLessons.Add(
                             new Lesson
                             {
-                                Day = ((Day)day).ToString(),
+                                Day = day,
                                 Slot = slot,
                                 Room = geneGrade.Room == null ? "" : geneGrade.Room,
                                 GradeId = grade,

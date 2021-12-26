@@ -77,7 +77,7 @@ namespace sms.Pages.TimeTable
                                 lessons.Add(
                                         new Lesson
                                         {
-                                            Day = ((Day)day).ToString(),
+                                            Day = day, //((Day)day).ToString()
                                             Slot = slot,
                                             Room = grade.Room == null ? "" :
                                                 _context.Grades
@@ -109,11 +109,11 @@ namespace sms.Pages.TimeTable
             //Вчитель або клас зайнятий у цей день/слот
             foreach (Lesson lesson in lessons)
             {
-                if ((lesson.Day == ((Day)day).ToString()
+                if ((lesson.Day == day
                     && lesson.Slot == slot
                     && lesson.GradeId == grade)
                     ||
-                    (lesson.Day == ((Day)day).ToString()
+                    (lesson.Day == day
                     && lesson.Slot == slot
                     && lesson.TeacherId == teacher))
                     return false;
@@ -163,11 +163,11 @@ namespace sms.Pages.TimeTable
                     {
                         //Find a gap
                         //Знаходження вікна
-                        if (lessons.Any(l => l.Day == ((Day)day).ToString()
+                        if (lessons.Any(l => l.Day == day
                                 && l.Slot == slot
                                 && l.GradeId == grade)
                             &&
-                         !lessons.Any(l => l.Day == ((Day)day).ToString()
+                         !lessons.Any(l => l.Day == day
                                  && l.Slot == slot - 1
                                  && l.GradeId == grade))
                         {
@@ -175,14 +175,14 @@ namespace sms.Pages.TimeTable
 
                             //Lesson that has a gap before
                             //Урок, що має вікно перед собою
-                            Lesson lonelyLesson = lessons.Single(l => l.Day == ((Day)day).ToString()
+                            Lesson lonelyLesson = lessons.Single(l => l.Day == day
                                 && l.Slot == slot
                                 && l.GradeId == grade);
 
                             //Lesson that prevents a teacher to have a lesson on the gap
                             //Урок, що не дає вчителю провести урок на вікні
                             Lesson conflictingLesson = lessons
-                                .Find(l => l.Day == ((Day)day).ToString()
+                                .Find(l => l.Day == day
                                         && l.Slot == slot - 1
                                         && l.TeacherId == lonelyLesson.TeacherId);
 
@@ -199,7 +199,7 @@ namespace sms.Pages.TimeTable
                                 //Але можливо, коли було вікно, а за ним два уроки
                                 //Тоді алгоритм рухає перший урок,
                                 //А другий може випадково змогти піднятись без конфлікту
-                                if (!lessons.Any(l => l.Day == ((Day)day).ToString()
+                                if (!lessons.Any(l => l.Day == day
                                                     && l.Slot == lonelyLesson.Slot - 1
                                                     && l.GradeId == lonelyLesson.GradeId))
                                 {
@@ -224,11 +224,11 @@ namespace sms.Pages.TimeTable
                                 //Знаходження кількості уроків, що цей клас має у інші дні
                                 var howManyLessonsPerDay = lessons
                                     .Where(l => l.GradeId == grade
-                                            && l.Day != ((Day)day).ToString()) //not this day
+                                            && l.Day != day) //not this day
                                     .GroupBy(g => new { g.GradeId, g.Day })
                                     .Select(g => new
                                     {
-                                        Day = (int)(Day)Enum.Parse(typeof(Day), g.Key.Day), //(int)Enum.Parse(typeof(Day), g.Key.Day) - also possible
+                                        Day = g.Key.Day, //(int)(Day)Enum.Parse(typeof(Day), g.Key.Day) *** (int)Enum.Parse(typeof(Day), g.Key.Day) - also possible
                                         Qty = g.Count()
                                     })
                                     .Where(g => g.Qty < 8) //don't take days with 8 lessons (8 is max per day)
@@ -244,7 +244,7 @@ namespace sms.Pages.TimeTable
                                 foreach (var item in howManyLessonsPerDay)
                                 {
                                     Lesson tempLesson = lessons
-                                        .Find(l => l.Day == ((Day)item.Day).ToString()
+                                        .Find(l => l.Day == item.Day
                                         && l.Slot == item.Qty + 1
                                         && l.TeacherId == lonelyLesson.TeacherId);
                                     if (tempLesson is null)
@@ -330,7 +330,7 @@ namespace sms.Pages.TimeTable
                                     if (daySlotCombo is null) continue;
                                     else
                                     {
-                                        lonelyLesson.Day = ((Day)daySlotCombo.Item1).ToString(); //day
+                                        lonelyLesson.Day = daySlotCombo.Item1; //day
                                         lonelyLesson.Slot = daySlotCombo.Item2; //slot
                                         _logger.LogInformation("Gap removed at day {1}, slot {2}, grade {3}", day, slot - 1, grade);
 

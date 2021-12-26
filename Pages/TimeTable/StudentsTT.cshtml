@@ -33,11 +33,11 @@
             {
                 <tr>
                     <th scope="row" style="text-align:center">@slot</th>
-                    @for (var day = 0; day < 5; day++)
+                    @for (int day = 1; day < 6; day++)
                     {
                         <td style="text-align:center">
                             @{
-                                var les = @Model.lessons.Where(l => l.Day == Model.days[day]).Where(l => l.Slot == slot).Select(l => l.Subject.Name);
+                                var les = @Model.lessons.Where(l => l.Day == day).Where(l => l.Slot == slot).Select(l => l.Subject.Name);
                             }
                             @foreach (var i in les)
                             {@i}

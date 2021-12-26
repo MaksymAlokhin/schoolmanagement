@@ -121,20 +121,13 @@ namespace sms.Pages.Register
             //Get list of day with lessons
             //Список дат з уроками з певного предмету
             #region get list of days that actually have lessons on them
-            var ukrDays = await _context.Lessons
+            List<int> dayNumbers = await _context.Lessons
                 .Where(l => l.GradeId == gradeId && l.SubjectId == subjectId)
                 .GroupBy(g => g.Day)
-                .Select(g => g.Key).ToListAsync();
-            List<int> dayNumbers = new List<int>();
-            foreach(string d in ukrDays)
-            {
-                dayNumbers.Add((int)Enum.Parse(typeof(UkrDay), d));
-            }
+                .Select(g => g.Key).ToListAsync(); ;
             List<DayOfWeek> engDays = new List<DayOfWeek>();
             foreach (int d in dayNumbers)
-            {
-                engDays.Add(((DayOfWeek)d));
-            }
+                engDays.Add((DayOfWeek)d);
             weekdays = new List<int>();
             foreach(DayOfWeek d in engDays)
             {
@@ -254,13 +247,5 @@ namespace sms.Pages.Register
                 yield return new DateTime(year, month, day);
             }
         }
-    }
-    enum UkrDay
-    {
-        Пн = 1,
-        Вт,
-        Ср,
-        Чт,
-        Пт
     }
 }

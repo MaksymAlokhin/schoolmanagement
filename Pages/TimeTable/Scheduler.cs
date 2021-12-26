@@ -187,16 +187,16 @@ namespace sms.Pages.TimeTable
             for (int day = 1; day <= 5; day++)
             {
                 Lesson first = c.genes[geneno].geneLessons
-                        .Where(l => l.Day == ((Day)day).ToString() && l.Slot == 1)
+                        .Where(l => l.Day == day && l.Slot == 1)
                         .FirstOrDefault();
                 Lesson last;
                 for (int slot = 1; slot < 8; slot++)
                 {
                     Lesson previous = c.genes[geneno].geneLessons
-                        .Where(l => l.Day == ((Day)day).ToString() && l.Slot == slot)
+                        .Where(l => l.Day == day && l.Slot == slot)
                         .FirstOrDefault();
                     Lesson next = c.genes[geneno].geneLessons
-                        .Where(l => l.Day == ((Day)day).ToString() && l.Slot == slot + 1)
+                        .Where(l => l.Day == day && l.Slot == slot + 1)
                         .FirstOrDefault();
 
                     if (previous != null && next != null)
@@ -226,19 +226,19 @@ namespace sms.Pages.TimeTable
                 {
                     day1 = random.Next(1, 6);
                     slotno1 = random.Next(1, 9);
-                } while (!c.genes[geneno].geneLessons.Any(l => l.Day == ((Day)day1).ToString() && l.Slot == slotno1));
+                } while (!c.genes[geneno].geneLessons.Any(l => l.Day == day1 && l.Slot == slotno1));
                 
                 do
                 {
                     day2 = random.Next(1, 6);
                     slotno2 = random.Next(1, 9);
-                } while (!c.genes[geneno].geneLessons.Any(l => l.Day == ((Day)day2).ToString() && l.Slot == slotno2));
+                } while (!c.genes[geneno].geneLessons.Any(l => l.Day == day2 && l.Slot == slotno2));
 
                 lessonOne = c.genes[geneno].geneLessons
-                    .Where(l => l.Day == ((Day)day1).ToString() && l.Slot == slotno1)
+                    .Where(l => l.Day == day1 && l.Slot == slotno1)
                     .FirstOrDefault();
                 LessonTwo = c.genes[geneno].geneLessons
-                    .Where(l => l.Day == ((Day)day2).ToString() && l.Slot == slotno2)
+                    .Where(l => l.Day == day2 && l.Slot == slotno2)
                     .FirstOrDefault();
 
             } while (lessonOne == LessonTwo);

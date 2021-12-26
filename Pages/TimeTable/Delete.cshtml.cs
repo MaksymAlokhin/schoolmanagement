@@ -15,7 +15,7 @@ namespace sms.Pages.TimeTable
     public class DeleteModel : PageModel
     {
         private readonly sms.Data.ApplicationDbContext _context;
-        public string day;
+        public int day;
 
         public DeleteModel(sms.Data.ApplicationDbContext context)
         {
