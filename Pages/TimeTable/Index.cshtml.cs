@@ -54,7 +54,7 @@ namespace sms.Pages.TimeTable
             Generator gen = new Generator(_context, _logger);
             gen.Generate();
             gen.RemoveGaps();
-            var x = gen.lessons;
+            var newLessons = gen.lessons;
 
             //Delete all rows from Lessons table
             //Видалення усіх рядків з таблиці уроків
@@ -62,7 +62,7 @@ namespace sms.Pages.TimeTable
 
             //Save generated lessons to DB
             //Збереження згенерованих уроків у БД
-            _context.Lessons.AddRange(x);
+            _context.Lessons.AddRange(newLessons);
             _context.SaveChanges();
 
             //Get data from DB
@@ -82,7 +82,7 @@ namespace sms.Pages.TimeTable
             //Generate timetable
             //Генерація розкладу
             Scheduler scheduler = new Scheduler(_context, _logger);
-            List<Lesson> lessons = Scheduler.finalson.lessons;
+            List<Lesson> newLessons = Scheduler.finalson.lessons;
 
             //Delete all rows from Lessons table
             //Видалення усіх рядків з таблиці уроків
@@ -90,7 +90,7 @@ namespace sms.Pages.TimeTable
 
             //Save generated lessons to DB
             //Збереження згенерованих уроків у БД
-            _context.Lessons.AddRange(lessons);
+            _context.Lessons.AddRange(newLessons);
             _context.SaveChanges();
 
             //Get data from DB

@@ -17,10 +17,12 @@ namespace sms.Pages.TimeTable
         List<Chromosome> newlist;
         double firstlistfitness;
         double newlistfitness;
-        int populationsize = 1000;
-        int maxgenerations = 100;
+        int populationsize = 20;
+        int maxgenerations = 10;
         public static Chromosome finalson;
         Random random;
+        int numberOfGrades;
+        //public List<int> allGradeIds;
 
         public Scheduler(ApplicationDbContext context,
                           ILogger<IndexModel> logger)
@@ -28,6 +30,8 @@ namespace sms.Pages.TimeTable
             _context = context;
             _logger = logger;
             random = new Random();
+            numberOfGrades = _context.Grades.Count();
+            //allGradeIds = _context.Grades.Select(g => g.Id).ToList();
 
             //initialising first generation of chromosomes and puting in first list
             //Ініціалізація першого покоління
@@ -41,7 +45,6 @@ namespace sms.Pages.TimeTable
         //Ініціалізація першого покоління
         public void InitializePopulation()
         {
-            //_logger.LogInformation("Initializing population");
             firstlist = new List<Chromosome>();
             firstlistfitness = 0;
 
@@ -68,7 +71,6 @@ namespace sms.Pages.TimeTable
             //Підбір хромосоми
             while (nogenerations < maxgenerations)
             {
-
                 newlist = new List<Chromosome>();
                 newlistfitness = 0;
                 int i;
@@ -85,6 +87,7 @@ namespace sms.Pages.TimeTable
                 //Додавання населення
                 while (i < populationsize)
                 {
+                    _logger.LogInformation($"Generation {nogenerations + 2,4}, Population size {i,4}");
 
                     father = SelectParentRoulette();
                     mother = SelectParentRoulette();
@@ -103,14 +106,20 @@ namespace sms.Pages.TimeTable
                     //int mutationType = random.Next(1, 4);
                     //switch (mutationType)
                     //{
-                    //    case 1: СustomMutation(son);
+                    //    case 1:
+                    //        СustomMutation(son);
                     //        break;
-                    //    case 2: SimpleMutation(son);
+                    //    case 2:
+                    //        SimpleMutation(son);
                     //        break;
-                    //    case 3: SwapMutation(son);
+                    //    case 3:
+                    //        SwapMutation(son);
                     //        break;
                     //}
+
                     СustomMutation(son);
+                    //SimpleMutation(son);
+
 
 
                     if (son.fitness == 1)
@@ -136,7 +145,7 @@ namespace sms.Pages.TimeTable
                 firstlist = newlist;
                 newlist.Sort();
                 firstlist.Sort();
-                _logger.LogInformation($"Generation {nogenerations + 2}");
+                finalson = newlist[0];
                 nogenerations++;
             }
         }
@@ -153,24 +162,40 @@ namespace sms.Pages.TimeTable
         public Chromosome Crossover(Chromosome father, Chromosome mother)
         {
             _logger.LogInformation("Doing crossover");
-            int randomint = random.Next(_context.Grades.Count());
+            int randomint = random.Next(numberOfGrades);
             Gene temp = father.genes[randomint];
             father.genes[randomint] = mother.genes[randomint];
             mother.genes[randomint] = temp;
-            if (father.GetFitness() > mother.GetFitness()) return father;
-            else return mother;
+            double fatherFitness = father.GetFitness();
+            double motherFitness = mother.GetFitness();
+            _logger.LogInformation($"Father fitness: {fatherFitness,7:N5}");
+            _logger.LogInformation($"Mother fitness: {motherFitness,7:N5}");
+
+            if (fatherFitness > motherFitness)
+            {
+                _logger.LogInformation("Father");
+                return father;
+            }
+            else
+            {
+                _logger.LogInformation("Mother");
+                return mother;
+            }
         }
         //custom mutation
         //Мутація
         public void СustomMutation(Chromosome c)
         {
-            _logger.LogInformation("Doing mutation");
+            _logger.LogInformation("Doing СustomMutation");
             double newfitness = 0, oldfitness = c.GetFitness();
-            int geneno = random.Next(_context.Grades.Count());
+            _logger.LogInformation($"Old fitness: {oldfitness,7:N5}");
 
             int i = 0;
+            int geneno;
+
             while (newfitness < oldfitness)
             {
+                geneno = random.Next(numberOfGrades);
 
                 c.genes[geneno] = new Gene(_context, _logger, geneno);
                 newfitness = c.GetFitness();
@@ -178,34 +203,49 @@ namespace sms.Pages.TimeTable
                 i++;
                 if (i >= 500000) break;
             }
-        }   
+            _logger.LogInformation($"New fitness: {oldfitness,7:N5}, i: {i,6}");
+
+        }
         //simple Mutation operation
         //Проста мутація
         public void SimpleMutation(Chromosome c)
         {
-            int geneno = random.Next(_context.Grades.Count());
-            for (int day = 1; day <= 5; day++)
+            _logger.LogInformation("Doing SimpleMutation");
+            double newfitness = 0, oldfitness = c.GetFitness();
+            _logger.LogInformation($"Old fitness: {oldfitness,7:N5}");
+            int i = 0;
+            while (newfitness < oldfitness)
             {
-                Lesson first = c.genes[geneno].geneLessons
-                        .Where(l => l.Day == day && l.Slot == 1)
-                        .FirstOrDefault();
-                Lesson last;
-                for (int slot = 1; slot < 8; slot++)
+                int geneno = random.Next(numberOfGrades);
+                for (int day = 1; day <= 5; day++)
                 {
-                    Lesson previous = c.genes[geneno].geneLessons
-                        .Where(l => l.Day == day && l.Slot == slot)
-                        .FirstOrDefault();
-                    Lesson next = c.genes[geneno].geneLessons
-                        .Where(l => l.Day == day && l.Slot == slot + 1)
-                        .FirstOrDefault();
-
-                    if (previous != null && next != null)
+                    Lesson first = c.genes[geneno].geneLessons
+                            .Where(l => l.Day == day && l.Slot == 1)
+                            .FirstOrDefault();
+                    Lesson last;
+                    for (int slot = 1; slot < 8; slot++)
                     {
-                        previous = next;
-                        last = next;
+                        Lesson previous = c.genes[geneno].geneLessons
+                            .Where(l => l.Day == day && l.Slot == slot)
+                            .FirstOrDefault();
+                        Lesson next = c.genes[geneno].geneLessons
+                            .Where(l => l.Day == day && l.Slot == slot + 1)
+                            .FirstOrDefault();
+
+                        if (previous != null && next != null)
+                        {
+                            previous = next;
+                            last = next;
+                        }
                     }
+                    last = first;
                 }
-                last = first;
+                newfitness = c.GetFitness();
+
+                i++;
+                _logger.LogInformation($"New fitness: {oldfitness,7:N5}, i: {i,6}");
+
+                if (i >= 500000) break;
             }
         }
 
@@ -213,39 +253,55 @@ namespace sms.Pages.TimeTable
         //Мутація перестановкою
         public void SwapMutation(Chromosome c)
         {
-            int geneno = random.Next(_context.Grades.Count());
+            _logger.LogInformation("Doing SwapMutation");
+            double newfitness = 0, oldfitness = c.GetFitness();
+            _logger.LogInformation($"Old fitness: {oldfitness,7:N5}");
+            int i = 0;
             int day1;
             int slotno1;
             int day2;
             int slotno2;
-            Lesson lessonOne, LessonTwo;
+            int geneno;
+            Lesson lessonOne, lessonTwo;
 
-            do
+            while (newfitness < oldfitness)
             {
+                geneno = random.Next(numberOfGrades);
+
                 do
                 {
-                    day1 = random.Next(1, 6);
-                    slotno1 = random.Next(1, 9);
-                } while (!c.genes[geneno].geneLessons.Any(l => l.Day == day1 && l.Slot == slotno1));
-                
-                do
-                {
-                    day2 = random.Next(1, 6);
-                    slotno2 = random.Next(1, 9);
-                } while (!c.genes[geneno].geneLessons.Any(l => l.Day == day2 && l.Slot == slotno2));
+                    do
+                    {
+                        day1 = random.Next(1, 6);
+                        slotno1 = random.Next(1, 9);
+                    } while (!c.genes[geneno].geneLessons.Any(l => l.Day == day1 && l.Slot == slotno1));
 
-                lessonOne = c.genes[geneno].geneLessons
-                    .Where(l => l.Day == day1 && l.Slot == slotno1)
-                    .FirstOrDefault();
-                LessonTwo = c.genes[geneno].geneLessons
-                    .Where(l => l.Day == day2 && l.Slot == slotno2)
-                    .FirstOrDefault();
+                    do
+                    {
+                        day2 = random.Next(1, 6);
+                        slotno2 = random.Next(1, 9);
+                    } while (!c.genes[geneno].geneLessons.Any(l => l.Day == day2 && l.Slot == slotno2));
 
-            } while (lessonOne == LessonTwo);
+                    lessonOne = c.genes[geneno].geneLessons
+                        .Where(l => l.Day == day1 && l.Slot == slotno1)
+                        .FirstOrDefault();
+                    lessonTwo = c.genes[geneno].geneLessons
+                        .Where(l => l.Day == day2 && l.Slot == slotno2)
+                        .FirstOrDefault();
 
-            Lesson temp = lessonOne;
-            lessonOne = LessonTwo;
-            LessonTwo = temp;
+                } while (lessonOne == lessonTwo);
+
+                Lesson temp = lessonOne;
+                lessonOne = lessonTwo;
+                lessonTwo = temp;
+
+                newfitness = c.GetFitness();
+
+                i++;
+                _logger.LogInformation($"New fitness: {oldfitness,7:N5}, i: {i,6}");
+
+                if (i >= 500000) break;
+            }
         }
     }
 }
