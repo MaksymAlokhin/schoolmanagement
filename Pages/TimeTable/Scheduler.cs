@@ -153,16 +153,12 @@ namespace sms.Pages.TimeTable
 
                 //if chromosome with required fitness not found in this generation
                 //Якщо бездоганну хромосому не знайшли
-                //_logger.LogInformation($"Firstlist Fitness: {firstlistfitness,7:N5}");
 
                 firstlist = newlist;
                 firstlistfitness = newlistfitness;
                 firstlist.Sort();
                 finalson = firstlist[0];
 
-                //_logger.LogInformation($"Newlist   Fitness: {newlistfitness,7:N5}");
-
-                //_logger.LogInformation($"Finalson Fitness: {finalson.fitness,7:N5}");
                 _logger.LogInformation($"Generation: {nogenerations + 2,4} Fitness: {firstlistfitness,7:N0} Finalson: {finalson.fitness,7:N5}");
 
                 nogenerations++;
@@ -173,10 +169,9 @@ namespace sms.Pages.TimeTable
         public Chromosome[] SelectBestParentsRoulette()
         {
             List<Chromosome> bestParents = new List<Chromosome>();
-            //bestParents = firstlist;
 
             int rnd = random.Next(1, 101);
-            if (rnd > 90 && rnd < 101) // 10% chance to take worst %
+            if (rnd > 90 && rnd < 101) // 10% chance to take worst 60%+
             {
                 for (int i = (int)(populationsize * 0.6) + 1; i < populationsize; i++)
                     bestParents.Add(firstlist[i]);
@@ -204,8 +199,14 @@ namespace sms.Pages.TimeTable
             return new Chromosome[] { parent1, parent2 };
 
             //Chromosome parent1, parent2;
-            //parent1 = firstlist[random.Next((int)(populationsize * 0.1))];
-            //parent2 = firstlist[random.Next((int)(populationsize * 0.1))];
+            //int rnd1, rnd2;
+            //do
+            //{
+            //    rnd1 = random.Next((int)(populationsize * 0.1));
+            //    rnd2 = random.Next((int)(populationsize * 0.1));
+            //} while (rnd1 == rnd2);
+            //parent1 = firstlist[rnd1];
+            //parent2 = firstlist[rnd2];
             //return new Chromosome[] { parent1, parent2 };
         }
 
@@ -213,36 +214,30 @@ namespace sms.Pages.TimeTable
         //Схрещування двох хромосом
         public Chromosome Crossover(Chromosome[] parents)
         {
-            //_logger.LogInformation($"Father Fitness: {parents[0].fitness,7:N5}");
-            //_logger.LogInformation($"Mother Fitness: {parents[1].fitness,7:N5}");
             Chromosome child = new Chromosome(totalNumberOfLessons);
             int crossoverPoint = random.Next((int)(numberOfGrades * 0.3), (int)(numberOfGrades * 0.7));
-            //_logger.LogInformation($"Crossover Point: {crossoverPoint, 6}");
 
             for (int i = 0; i < crossoverPoint; i++)
             {
                 child.genes[i] = parents[0].genes[i];
             }
-            for (int i = crossoverPoint; i < numberOfGrades; i ++)
+            for (int i = crossoverPoint; i < numberOfGrades; i++)
             {
                 child.genes[i] = parents[1].genes[i];
             }
             child.GetFitness();
-            //_logger.LogInformation($"Son Fitness: {child.fitness,10:N5}");
-
             return child;
-            //return parents[0];
 
+            //Chromosome father = parents[0];
+            //Chromosome mother = parents[1];
             //int randomint = random.Next(numberOfGrades);
             //Gene temp = father.genes[randomint];
             //father.genes[randomint] = mother.genes[randomint];
             //mother.genes[randomint] = temp;
-            //double fatherFitness = father.GetFitness();
-            //double motherFitness = mother.GetFitness();
-            //_logger.LogInformation($"Father fitness: {fatherFitness,7:N5}");
-            //_logger.LogInformation($"Mother fitness: {motherFitness,7:N5}");
+            //father.GetFitness();
+            //mother.GetFitness();
 
-            //if (fatherFitness > motherFitness)
+            //if (father.fitness > mother.fitness)
             //    return father;
             //else
             //    return mother;
@@ -251,15 +246,12 @@ namespace sms.Pages.TimeTable
         //Мутація одного гену
         public void OneGeneMutation(Chromosome c)
         {
-            //_logger.LogInformation($"Fitness before mutation: {c.fitness,7:N5}");
 
             int geneno = random.Next(numberOfGrades);
             c.genes[geneno] = new Gene(allGradeIds[geneno], cachedCurricula, cachedGrades);
             c.GetFitness();
-            //_logger.LogInformation($"Fitness after  mutation: {c.fitness,7:N5}");
 
             //double newfitness = 0, oldfitness = c.GetFitness();
-            //_logger.LogInformation($"Old fitness: {oldfitness,7:N5}");
 
             //int i = 0;
             //int geneno;
@@ -268,14 +260,12 @@ namespace sms.Pages.TimeTable
             //{
             //    geneno = random.Next(numberOfGrades);
 
-            //    c.genes[geneno] = new Gene(_logger, allGradeIds[geneno], cachedCurricula, cachedGrades);
+            //    c.genes[geneno] = new Gene(allGradeIds[geneno], cachedCurricula, cachedGrades);
             //    newfitness = c.GetFitness();
 
             //    i++;
-            //    if (i >= 50) break;
+            //    if (i >= 500) break;
             //}
-            //_logger.LogInformation($"New fitness: {newfitness,7:N5}, i: {i,6}");
-
         }
         //Shift Mutation operation
         //Мутація зсувом угору
