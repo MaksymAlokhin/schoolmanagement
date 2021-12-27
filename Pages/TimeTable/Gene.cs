@@ -12,7 +12,6 @@ namespace sms.Pages.TimeTable
     public class Gene
     {
         //private readonly sms.Data.ApplicationDbContext _context;
-        private readonly ILogger<IndexModel> _logger;
         Random random;
         public List<Curriculum> geneCurricula;
         public List<Lesson> geneLessons;
@@ -21,21 +20,27 @@ namespace sms.Pages.TimeTable
         List<Grade> _cachedGrades;
 
 
-        public Gene(ILogger<IndexModel> logger, int grade, List<Curriculum> cachedCurricula, List<Grade> cachedGrades)
+        public Gene(int grade, List<Curriculum> cachedCurricula, List<Grade> cachedGrades)
         {
-            _logger = logger;
             _cachedCurricula = cachedCurricula;
             _cachedGrades = cachedGrades;
             random = new Random();
             geneLessons = new List<Lesson>();
             geneGrade = _cachedGrades.Where(g => g.Id == grade).FirstOrDefault();
             geneCurricula = _cachedCurricula.Where(c => c.GradeId == grade).ToList();
-            for (int slot = 1; slot <= 8; slot++)
+            List<int> curriculaCounter = new List<int>();
+            foreach (Curriculum curriculum in geneCurricula)
             {
-                for (int day = 1; day <= 5; day++)
+                curriculaCounter.Add(curriculum.Quantity);
+            }
+
+            for (int slot = 1; slot < 9; slot++)
+            {
+                for (int day = 1; day < 6; day++)
                 {
                     if (geneCurricula.Count == 0)
                         break;
+
                     int index = random.Next(geneCurricula.Count);
                     geneLessons.Add(
                             new Lesson
@@ -47,10 +52,17 @@ namespace sms.Pages.TimeTable
                                 SubjectId = geneCurricula[index].SubjectId,
                                 TeacherId = geneCurricula[index].TeacherId
                             });
-                    if (--geneCurricula[index].Quantity == 0)
+                    if (--curriculaCounter[index] == 0)
+                    {
                         geneCurricula.Remove(geneCurricula[index]);
+                        curriculaCounter.RemoveAt(index);
+                    }
                 }
             }
+        }
+        public Gene()
+        {
+            geneLessons = new List<Lesson>();
         }
     }
 }

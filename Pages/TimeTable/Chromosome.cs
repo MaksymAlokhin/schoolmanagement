@@ -13,7 +13,6 @@ namespace sms.Pages.TimeTable
 {
     public class Chromosome : IComparable
     {
-        private readonly ILogger<IndexModel> _logger;
         List<int> _allGradeIds;
         double _totalNumberOfLessons;
         public List<Curriculum> _cachedCurricula;
@@ -21,16 +20,14 @@ namespace sms.Pages.TimeTable
         
         public List<Gene> genes;
 
-        public string jsonString;
         public double fitness;
         int antiScore;
 
         Random random;
 
         public Chromosome(List<int> allGradeIds, double totalNumberOfLessons, 
-            List<Curriculum> cachedCurricula, List<Grade> cachedGrades, ILogger<IndexModel> logger)
+            List<Curriculum> cachedCurricula, List<Grade> cachedGrades)
         {
-            _logger = logger;
             random = new Random();
             _allGradeIds = allGradeIds;
             _totalNumberOfLessons = totalNumberOfLessons;
@@ -40,11 +37,19 @@ namespace sms.Pages.TimeTable
             genes = new List<Gene>();
             foreach (int i in _allGradeIds)
             {
-                genes.Add(new Gene(logger, i , _cachedCurricula, _cachedGrades));
+                genes.Add(new Gene(i , _cachedCurricula, _cachedGrades));
             }
             fitness = GetFitness();
-            jsonString = GetJsonString();
             //lessons.Clear();
+        }
+        public Chromosome(double totalNumberOfLessons) 
+        {
+            genes = new List<Gene>();
+            for(int i = 0; i < 40; i++)
+            {
+                genes.Add(new Gene());
+            }
+            _totalNumberOfLessons = totalNumberOfLessons;
         }
         public int CompareTo(object obj)
         {
@@ -55,18 +60,6 @@ namespace sms.Pages.TimeTable
                 return -1;
             else
                 return 0;
-        }
-        public string GetJsonString()
-        {
-            StringBuilder sb = new StringBuilder();
-            foreach (Gene gene in genes)
-            {
-                foreach (Lesson lesson in gene.geneLessons)
-                {
-                    sb.Append(JsonSerializer.Serialize(lesson));
-                }
-            }
-            return sb.ToString();
         }
         public double GetFitness()
         {
