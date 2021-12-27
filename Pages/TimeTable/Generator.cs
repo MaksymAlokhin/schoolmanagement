@@ -26,7 +26,7 @@ namespace sms.Pages.TimeTable
             _logger = logger;
             random = new Random();
             curricula = _context.Curricula.AsNoTracking().ToList();
-            allGradesIds = _context.Grades.Select(g => g.Id).ToList();
+            allGradesIds = _context.Grades.AsNoTracking().Select(g => g.Id).ToList();
             allTeachersIds = curricula
                 .GroupBy(c => c.TeacherId)
                 .Select(g => new
@@ -204,7 +204,7 @@ namespace sms.Pages.TimeTable
                                                     && l.GradeId == lonelyLesson.GradeId))
                                 {
                                     lonelyLesson.Slot--;
-                                    _logger.LogInformation("Gap removed at day {1}, slot {2}, grade {3}", day, slot - 1, grade);
+                                    _logger.LogInformation("Gap removed  at day {1}, slot {2}, grade {3}", day, slot - 1, grade);
 
                                     //Recursion
                                     //Рекурсія
@@ -312,7 +312,7 @@ namespace sms.Pages.TimeTable
                                             {
                                                 lonelyLesson.Day = conflictSpot.Day;
                                                 lonelyLesson.Slot = lesson.Slot;
-                                                _logger.LogInformation("Gap removed at day {1}, slot {2}, grade {3}", day, slot - 1, grade);
+                                                _logger.LogInformation("Gap removed  at day {1}, slot {2}, grade {3}", day, slot - 1, grade);
 
                                                 //Recursion
                                                 //Рекурсія
@@ -332,7 +332,7 @@ namespace sms.Pages.TimeTable
                                     {
                                         lonelyLesson.Day = daySlotCombo.Item1; //day
                                         lonelyLesson.Slot = daySlotCombo.Item2; //slot
-                                        _logger.LogInformation("Gap removed at day {1}, slot {2}, grade {3}", day, slot - 1, grade);
+                                        _logger.LogInformation("Gap removed  at day {1}, slot {2}, grade {3}", day, slot - 1, grade);
 
                                         //Recursion
                                         //Рекурсія

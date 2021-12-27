@@ -6,38 +6,44 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Text.Json;
+using System.Text;
 
 namespace sms.Pages.TimeTable
 {
     public class Chromosome : IComparable
     {
-        private readonly sms.Data.ApplicationDbContext _context;
         private readonly ILogger<IndexModel> _logger;
+        List<int> _allGradeIds;
+        double _totalNumberOfLessons;
+        public List<Curriculum> _cachedCurricula;
+        public List<Grade> _cachedGrades;
+        
+        public List<Gene> genes;
 
-        public static double crossoverrate = 1.0;
-        public static double mutationrate = 0.1;
+        public string jsonString;
         public double fitness;
         int antiScore;
-        public List<Gene> genes;
-        public List<Lesson> lessons;
-        Random random;
-        double totalNumberOfLessons;
-        public List<int> allGradeIds;
 
-        public Chromosome(ApplicationDbContext context, ILogger<IndexModel> logger)
+        Random random;
+
+        public Chromosome(List<int> allGradeIds, double totalNumberOfLessons, 
+            List<Curriculum> cachedCurricula, List<Grade> cachedGrades, ILogger<IndexModel> logger)
         {
-            _context = context;
             _logger = logger;
             random = new Random();
-            totalNumberOfLessons = _context.Curricula.Sum(c => c.Quantity);
-            allGradeIds = _context.Grades.Select(g => g.Id).ToList();
+            _allGradeIds = allGradeIds;
+            _totalNumberOfLessons = totalNumberOfLessons;
+            _cachedCurricula = cachedCurricula;
+            _cachedGrades = cachedGrades;
 
             genes = new List<Gene>();
-            foreach (int i in allGradeIds)
+            foreach (int i in _allGradeIds)
             {
-                genes.Add(new Gene(context, logger, i));
+                genes.Add(new Gene(logger, i , _cachedCurricula, _cachedGrades));
             }
             fitness = GetFitness();
+            jsonString = GetJsonString();
             //lessons.Clear();
         }
         public int CompareTo(object obj)
@@ -50,25 +56,66 @@ namespace sms.Pages.TimeTable
             else
                 return 0;
         }
-        public double GetFitness()
+        public string GetJsonString()
         {
-            lessons = new List<Lesson>();
+            StringBuilder sb = new StringBuilder();
             foreach (Gene gene in genes)
             {
-                lessons.AddRange(gene.geneLessons);
+                foreach (Lesson lesson in gene.geneLessons)
+                {
+                    sb.Append(JsonSerializer.Serialize(lesson));
+                }
             }
+            return sb.ToString();
+        }
+        public double GetFitness()
+        {
+            //lessons = new List<Lesson>();
+            //foreach (Gene gene in genes)
+            //{
+            //    lessons.AddRange(gene.geneLessons);
+            //}
 
             antiScore = 0;
             //Find teacher clashes
             //Знаходження співпадіння вчителів
-            antiScore += lessons.GroupBy(g => new { g.Day, g.Slot, g.TeacherId })
-                .Where(g => g.Count() > 1)
-                .Select(g => g.Count() - 1).Sum(g => g);
-            //Find grade clashes
-            //Знаходження співпадіння класів
-            antiScore += lessons.GroupBy(g => new { g.Day, g.Slot, g.GradeId })
-                .Where(g => g.Count() > 1)
-                .Select(g => g.Count() - 1).Sum(g => g);
+            HashSet<int>[] teacherIdsArrayOfHashSet = new HashSet<int>[40];
+            for (int i = 0; i < teacherIdsArrayOfHashSet.Length; i++)
+                teacherIdsArrayOfHashSet[i] = new HashSet<int>();
+
+            HashSet<int>[] gradeIdsArrayOfHashSet = new HashSet<int>[40];
+            for (int i = 0; i < gradeIdsArrayOfHashSet.Length; i++)
+                gradeIdsArrayOfHashSet[i] = new HashSet<int>();
+
+            foreach (Gene gene in genes)
+            {
+                foreach (Lesson lesson in gene.geneLessons)
+                {
+                    int slot = (lesson.Day - 1) * 8 + lesson.Slot - 1;
+
+                    if (teacherIdsArrayOfHashSet[slot].Contains(lesson.TeacherId))
+                        antiScore++;
+                    else teacherIdsArrayOfHashSet[slot].Add(lesson.TeacherId);
+
+                    if (gradeIdsArrayOfHashSet[slot].Contains(lesson.GradeId))
+                        antiScore++;
+                    else gradeIdsArrayOfHashSet[slot].Add(lesson.GradeId);
+                }
+            }
+
+            double result = 1 - (antiScore / _totalNumberOfLessons);
+            fitness = result;
+            return result;
+
+            //antiScore += lessons.GroupBy(g => new { g.Day, g.Slot, g.TeacherId })
+            //    .Where(g => g.Count() > 1)
+            //    .Select(g => g.Count() - 1).Sum(g => g);
+            ////Find grade clashes
+            ////Знаходження співпадіння класів
+            //antiScore += lessons.GroupBy(g => new { g.Day, g.Slot, g.GradeId })
+            //    .Where(g => g.Count() > 1)
+            //    .Select(g => g.Count() - 1).Sum(g => g);
+
             ////Find gaps in timetable
             ////Знаходження "вікон" у розкладі класів
             //foreach (int grade in allGradeIds)
@@ -139,10 +186,9 @@ namespace sms.Pages.TimeTable
             //        }
             //    }
             //}
-            double result = 1 - (antiScore / totalNumberOfLessons);
+
+
             //_logger.LogInformation($"Fitness: {result,7:N5}");
-            //fitness = result;
-            return result;
             //return random.NextDouble();
         }
     }

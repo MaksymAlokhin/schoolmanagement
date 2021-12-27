@@ -82,7 +82,6 @@ namespace sms.Pages.TimeTable
             //Generate timetable
             //Генерація розкладу
             Scheduler scheduler = new Scheduler(_context, _logger);
-            List<Lesson> newLessons = Scheduler.finalson.lessons;
 
             //Delete all rows from Lessons table
             //Видалення усіх рядків з таблиці уроків
@@ -90,7 +89,10 @@ namespace sms.Pages.TimeTable
 
             //Save generated lessons to DB
             //Збереження згенерованих уроків у БД
-            _context.Lessons.AddRange(newLessons);
+            foreach (Gene gene in scheduler.finalson.genes)
+            {
+                _context.Lessons.AddRange(gene.geneLessons);
+            }
             _context.SaveChanges();
 
             //Get data from DB

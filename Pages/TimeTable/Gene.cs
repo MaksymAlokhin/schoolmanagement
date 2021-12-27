@@ -11,22 +11,25 @@ namespace sms.Pages.TimeTable
 {
     public class Gene
     {
-        private readonly sms.Data.ApplicationDbContext _context;
+        //private readonly sms.Data.ApplicationDbContext _context;
         private readonly ILogger<IndexModel> _logger;
         Random random;
         public List<Curriculum> geneCurricula;
         public List<Lesson> geneLessons;
         public Grade geneGrade;
+        List<Curriculum> _cachedCurricula;
+        List<Grade> _cachedGrades;
 
-        public Gene(ApplicationDbContext context, ILogger<IndexModel> logger, int grade)
+
+        public Gene(ILogger<IndexModel> logger, int grade, List<Curriculum> cachedCurricula, List<Grade> cachedGrades)
         {
-            _context = context;
             _logger = logger;
+            _cachedCurricula = cachedCurricula;
+            _cachedGrades = cachedGrades;
             random = new Random();
             geneLessons = new List<Lesson>();
-            geneGrade = _context.Grades.Find(grade);
-            geneCurricula = _context.Curricula.Where(c => c.GradeId == grade).AsNoTracking().ToList();
-            //Shuffle(geneCurricula);
+            geneGrade = _cachedGrades.Where(g => g.Id == grade).FirstOrDefault();
+            geneCurricula = _cachedCurricula.Where(c => c.GradeId == grade).ToList();
             for (int slot = 1; slot <= 8; slot++)
             {
                 for (int day = 1; day <= 5; day++)
