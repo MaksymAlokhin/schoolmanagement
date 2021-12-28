@@ -89,10 +89,39 @@ namespace sms.Pages.TimeTable
 
             //Save generated lessons to DB
             //Збереження згенерованих уроків у БД
+            List<Lesson> newLessons = new List<Lesson>();
             foreach (Gene gene in scheduler.finalson.genes)
             {
-                _context.Lessons.AddRange(gene.geneLessons);
+                int length = gene.slotno.Length;
+                int slotno = 0;
+                for (int slot = 1; slot < 9; slot++)
+                {
+                    for (int day = 1; day < 6; day++)
+                    {
+                        if (slotno >= length) break;
+                        if (Table.TableSlots[gene.slotno[slotno]] != null)
+                        {
+                            Slot slt = Table.TableSlots[gene.slotno[slotno]];
+                            Grade grade = _context.Grades
+                                    .Where(g => g.Id == slt.GradeId)
+                                    .FirstOrDefault();
+
+                            newLessons.Add(
+                                new Lesson
+                                {
+                                    Day = day,
+                                    Slot = slot,
+                                    Room = grade.Room == null ? "" : grade.Room,
+                                    GradeId = slt.GradeId,
+                                    SubjectId = slt.SubjectId,
+                                    TeacherId = slt.TeacherId
+                                });
+                        }
+                        slotno++;
+                    }
+                }
             }
+            _context.Lessons.AddRange(newLessons);
             _context.SaveChanges();
 
             //Get data from DB

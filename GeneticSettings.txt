@@ -1,3 +1,6 @@
-500
-750
-0.9
+maxgenerations
+1000
+populationsize
+1000
+mutationrate
+0.5
