@@ -1,6 +1,10 @@
 maxgenerations
-500
+5000
 populationsize
-200
+100
 mutationrate
-0.3
+0.01
+crossoverrate
+0.9
+eliteIndividuals
+2

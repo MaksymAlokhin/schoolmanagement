@@ -19,20 +19,21 @@ namespace sms.Pages.TimeTable
         public List<Grade> _cachedGrades;
         public static List<int> totalGradeSlots;
         public static int totalSlots = 40;
-        public static int nostgrp;
+        public int _numberOfGrades;
 
-        public Table(List<int> allGradeIds, List<Curriculum> cachedCurricula, List<Grade> cachedGrades)
+        public Table(List<int> allGradeIds, List<Curriculum> cachedCurricula, 
+            List<Grade> cachedGrades, int numberOfGrades)
         {
 			_allGradeIds = allGradeIds;
 			_cachedCurricula = cachedCurricula;
             _cachedGrades = cachedGrades;
-            nostgrp = _allGradeIds.Count();
+            _numberOfGrades = numberOfGrades;
 
             int k = 0;
 
 			// creating as many slots as the no of blocks in overall timetable
 			//Створення слотів розкладу
-			TableSlots = new Slot[totalSlots * nostgrp];
+			TableSlots = new Slot[totalSlots * _numberOfGrades];
             totalGradeSlots = new List<int>();
             // looping for every student group
             //Перебір усіх класів

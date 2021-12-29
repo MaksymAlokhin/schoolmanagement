@@ -17,7 +17,7 @@
     @if (ViewContext.HttpContext.User.IsInRole("Адміністратор"))
     {
         <div class="col-sm-auto">
-            <a asp-page-handler="Generate" class="btn btn-secondary" role="button" aria-pressed="true">Згенерувати розклад</a>
+            <a asp-page-handler="Generate" class="btn btn-secondary" role="button" aria-pressed="true">Генерація аналітичним методом</a>
         </div>
         <div class="col-sm-auto">
             <a asp-page-handler="Genetic" class="btn btn-secondary" role="button" aria-pressed="true">Генерація генетичним методом</a>

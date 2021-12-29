@@ -21,32 +21,36 @@ namespace sms.Pages.TimeTable
         public Gene[] genes;
 
         List<int> _allGradeIds;
+        int _numberOfGrades;
         double _totalNumberOfLessons;
         public List<Curriculum> _cachedCurricula;
         public List<Grade> _cachedGrades;
         Random random;
 
         public Chromosome(List<int> allGradeIds, double totalNumberOfLessons,
-            List<Curriculum> cachedCurricula, List<Grade> cachedGrades, Random random)
+            List<Curriculum> cachedCurricula, List<Grade> cachedGrades, Random random, int numberOfGrades)
         {
             _allGradeIds = allGradeIds;
             _totalNumberOfLessons = totalNumberOfLessons;
             _cachedCurricula = cachedCurricula;
             _cachedGrades = cachedGrades;
             this.random = random;
+            _numberOfGrades = numberOfGrades;
 
-            genes = new Gene[Table.nostgrp];
+            genes = new Gene[_numberOfGrades];
 
-            for (int i = 0; i < Table.nostgrp; i++)
+            for (int i = 0; i < _numberOfGrades; i++)
             {
                 genes[i] = new Gene(i, _cachedCurricula, _cachedGrades, random);
             }
             fitness = GetFitness();
+            //ShuffleConflicts();
         }
-        public Chromosome(double totalNumberOfLessons, Random random)
+        public Chromosome(double totalNumberOfLessons, Random random, int numberOfGrades)
         {
+            _numberOfGrades = numberOfGrades;
             _totalNumberOfLessons = totalNumberOfLessons;
-            genes = new Gene[Table.nostgrp];
+            genes = new Gene[_numberOfGrades];
             this.random = random;
         }
         public int CompareTo(object obj)
@@ -68,7 +72,7 @@ namespace sms.Pages.TimeTable
             {
                 HashSet<int> teacherlist = new HashSet<int>();
 
-                for (int j = 0; j < Table.nostgrp; j++)
+                for (int j = 0; j < _numberOfGrades; j++)
                 {
                     Slot slot;
                     if (genes[j].slotno.Length <= i)
@@ -91,7 +95,7 @@ namespace sms.Pages.TimeTable
             return result;
             #endregion
         }
-        public void ShuffleConflicts()
+        public void FindConflicts()
         {
             //Find conflicts
             //Знаходження конфліктів вчителів
@@ -102,7 +106,7 @@ namespace sms.Pages.TimeTable
             {
                 HashSet<int> teacherlist = new HashSet<int>();
 
-                for (int j = 0; j < Table.nostgrp; j++)
+                for (int j = 0; j < _numberOfGrades; j++)
                 {
                     Slot slot;
                     if (genes[j].slotno.Length <= i)
@@ -126,8 +130,32 @@ namespace sms.Pages.TimeTable
                     else teacherlist.Add(slot.TeacherId);
                 }
             }
+            if (random.NextDouble() < 0.8)
+                SwapConflictWithRandomSlot(conflictSpots);
+            else
+                SwapConflictWithAnotherConflict(conflictSpots);
             #endregion
-            #region Shuffle conflicts
+        }
+        //SwapConflictWithRandomSlot
+        //Обмін місцями конфліктів з випадковими слотами
+        public void SwapConflictWithRandomSlot (Dictionary<int, List<int>> conflictSpots)
+        {
+            foreach (KeyValuePair<int, List<int>> pair in conflictSpots)
+            {
+                int rnd = 0;
+                foreach (int value in pair.Value)
+                {
+                    rnd = random.Next(genes[pair.Key].slotno.Length);
+                    int temp = genes[pair.Key].slotno[value];
+                    genes[pair.Key].slotno[value] = genes[pair.Key].slotno[rnd];
+                    genes[pair.Key].slotno[rnd] = temp;
+                }
+            }
+        }
+        //SwapConflictWithAnotherConflict
+        //Обмін місцями конфліктів зі слотами, що містять інші конфлікти
+        public void SwapConflictWithAnotherConflict(Dictionary<int, List<int>> conflictSpots)
+        {
             foreach (KeyValuePair<int, List<int>> pair in conflictSpots)
             {
                 int[] conflictValues = new int[pair.Value.Count()];
@@ -143,45 +171,7 @@ namespace sms.Pages.TimeTable
                     genes[pair.Key].slotno[value] = conflictValues[k++];
                 }
             }
-            #endregion
         }
-
-        //public double GetFitness()
-        //{
-        //    antiScore = 0;
-        //    //Find teacher clashes
-        //    //Знаходження співпадіння вчителів
-        //    for (int i = 0; i < Table.totalSlots; i++)
-        //    {
-        //        HashSet<int> teacherlist = new HashSet<int>();
-
-        //        for (int j = 0; j < Table.nostgrp; j++)
-        //        {
-        //            Slot slot;
-        //            if (genes[j].slotno.Length <= i)
-        //            {
-        //                continue;
-        //            }
-
-        //            if (Table.TableSlots[genes[j].slotno[i]] != null)
-        //                slot = Table.TableSlots[genes[j].slotno[i]];
-        //            else slot = null;
-
-        //            if (slot != null)
-        //            {
-        //                if (teacherlist.Contains(slot.TeacherId))
-        //                {
-        //                    antiScore++;
-        //                }
-        //                else teacherlist.Add(slot.TeacherId);
-        //            }
-        //        }
-        //    }
-
-        //    double result = 1 - (antiScore / _totalNumberOfLessons);
-        //    fitness = result;
-        //    return result;
-        //}
     }
 }
 
