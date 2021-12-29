@@ -1,6 +1,6 @@
 maxgenerations
-1000
+500
 populationsize
-1000
+200
 mutationrate
-0.5
+0.3

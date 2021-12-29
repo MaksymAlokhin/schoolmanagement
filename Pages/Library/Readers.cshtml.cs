@@ -153,7 +153,7 @@ namespace sms.Pages.Library
                 }
             }
 
-            return RedirectToPage("./Details", new
+            return RedirectToPage("./Readers", new
             {
                 id = $"{id}",
                 sortOrder = $"{sortOrder}",

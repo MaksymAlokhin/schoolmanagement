@@ -139,6 +139,11 @@ namespace sms.Pages.TimeTable
                     //}
                     if (random.NextDouble() < mutationrate) OneGeneMutation(son);
                     //if (random.NextDouble() < mutationrate) SwapMutation(son);
+                    son.GetFitness();
+
+                    //_logger.LogInformation($"Before ShuffleConflicts: {son.GetFitness(),7:N5}");
+                    son.ShuffleConflicts();
+                    //_logger.LogInformation($"After  ShuffleConflicts: {son.GetFitness(),7:N5}");
 
                     if (son.fitness == 1)
                         break;
@@ -209,7 +214,7 @@ namespace sms.Pages.TimeTable
         //Схрещування двох хромосом
         public Chromosome Crossover(Chromosome[] parents)
         {
-            Chromosome child = new Chromosome(totalNumberOfLessons);
+            Chromosome child = new Chromosome(totalNumberOfLessons, random);
             int crossoverPoint = random.Next((int)(numberOfGrades * 0.3), (int)(numberOfGrades * 0.7));
 
             for (int i = 0; i < crossoverPoint; i++)

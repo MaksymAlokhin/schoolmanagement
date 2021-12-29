@@ -6,22 +6,29 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Pages\Users\**" />
+    <Content Remove="Pages\Users\**" />
+    <EmbeddedResource Remove="Pages\Users\**" />
+    <None Remove="Pages\Users\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ChartJSCore" Version="1.5.8" />
+    <PackageReference Include="FontAwesome" Version="4.7.0" />
     <PackageReference Include="HtmlSanitizer" Version="6.0.437" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="5.0.8" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="5.0.8" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.8" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="5.0.8" />
-    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="3.10.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.8">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
+    <PackageReference Include="TinyMCE" Version="5.10.2" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Pages\Users\" />
     <Folder Include="wwwroot\images\avatars\" />
   </ItemGroup>
 

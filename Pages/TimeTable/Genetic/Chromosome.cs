@@ -24,6 +24,7 @@ namespace sms.Pages.TimeTable
         double _totalNumberOfLessons;
         public List<Curriculum> _cachedCurricula;
         public List<Grade> _cachedGrades;
+        Random random;
 
         public Chromosome(List<int> allGradeIds, double totalNumberOfLessons,
             List<Curriculum> cachedCurricula, List<Grade> cachedGrades, Random random)
@@ -32,7 +33,7 @@ namespace sms.Pages.TimeTable
             _totalNumberOfLessons = totalNumberOfLessons;
             _cachedCurricula = cachedCurricula;
             _cachedGrades = cachedGrades;
-
+            this.random = random;
 
             genes = new Gene[Table.nostgrp];
 
@@ -42,10 +43,11 @@ namespace sms.Pages.TimeTable
             }
             fitness = GetFitness();
         }
-        public Chromosome(double totalNumberOfLessons)
+        public Chromosome(double totalNumberOfLessons, Random random)
         {
             _totalNumberOfLessons = totalNumberOfLessons;
             genes = new Gene[Table.nostgrp];
+            this.random = random;
         }
         public int CompareTo(object obj)
         {
@@ -59,7 +61,7 @@ namespace sms.Pages.TimeTable
         }
         public double GetFitness()
         {
-            antiScore = 0;
+            #region Calculate fitness
             //Find teacher clashes
             //Знаходження співпадіння вчителів
             for (int i = 0; i < Table.totalSlots; i++)
@@ -73,26 +75,113 @@ namespace sms.Pages.TimeTable
                     {
                         continue;
                     }
-                        
-                    if (Table.TableSlots[genes[j].slotno[i]] != null)
-                        slot = Table.TableSlots[genes[j].slotno[i]];
-                    else slot = null;
 
-                    if (slot != null)
+                    slot = Table.TableSlots[genes[j].slotno[i]];
+
+                    if (teacherlist.Contains(slot.TeacherId))
                     {
-                        if (teacherlist.Contains(slot.TeacherId))
-                        {
-                            antiScore++;
-                        }
-                        else teacherlist.Add(slot.TeacherId);
+                        antiScore++;
                     }
+                    else teacherlist.Add(slot.TeacherId);
                 }
             }
 
             double result = 1 - (antiScore / _totalNumberOfLessons);
             fitness = result;
             return result;
+            #endregion
         }
+        public void ShuffleConflicts()
+        {
+            //Find conflicts
+            //Знаходження конфліктів вчителів
+            #region Find conflicts
+            antiScore = 0;
+            Dictionary<int, List<int>> conflictSpots = new Dictionary<int, List<int>>(); //grade, spots
+            for (int i = 0; i < Table.totalSlots; i++)
+            {
+                HashSet<int> teacherlist = new HashSet<int>();
+
+                for (int j = 0; j < Table.nostgrp; j++)
+                {
+                    Slot slot;
+                    if (genes[j].slotno.Length <= i)
+                    {
+                        continue;
+                    }
+
+                    slot = Table.TableSlots[genes[j].slotno[i]];
+
+                    if (teacherlist.Contains(slot.TeacherId))
+                    {
+                        if (conflictSpots.ContainsKey(j))
+                        {
+                            conflictSpots[j].Add(i);
+                        }
+                        else
+                        {
+                            conflictSpots.Add(j, new List<int> { i });
+                        }
+                    }
+                    else teacherlist.Add(slot.TeacherId);
+                }
+            }
+            #endregion
+            #region Shuffle conflicts
+            foreach (KeyValuePair<int, List<int>> pair in conflictSpots)
+            {
+                int[] conflictValues = new int[pair.Value.Count()];
+                int k = 0;
+                foreach (int value in pair.Value)
+                {
+                    conflictValues[k++] = genes[pair.Key].slotno[value];
+                }
+                k = 0;
+                random.Shuffle(conflictValues);
+                foreach (int value in pair.Value)
+                {
+                    genes[pair.Key].slotno[value] = conflictValues[k++];
+                }
+            }
+            #endregion
+        }
+
+        //public double GetFitness()
+        //{
+        //    antiScore = 0;
+        //    //Find teacher clashes
+        //    //Знаходження співпадіння вчителів
+        //    for (int i = 0; i < Table.totalSlots; i++)
+        //    {
+        //        HashSet<int> teacherlist = new HashSet<int>();
+
+        //        for (int j = 0; j < Table.nostgrp; j++)
+        //        {
+        //            Slot slot;
+        //            if (genes[j].slotno.Length <= i)
+        //            {
+        //                continue;
+        //            }
+
+        //            if (Table.TableSlots[genes[j].slotno[i]] != null)
+        //                slot = Table.TableSlots[genes[j].slotno[i]];
+        //            else slot = null;
+
+        //            if (slot != null)
+        //            {
+        //                if (teacherlist.Contains(slot.TeacherId))
+        //                {
+        //                    antiScore++;
+        //                }
+        //                else teacherlist.Add(slot.TeacherId);
+        //            }
+        //        }
+        //    }
+
+        //    double result = 1 - (antiScore / _totalNumberOfLessons);
+        //    fitness = result;
+        //    return result;
+        //}
     }
 }
 
