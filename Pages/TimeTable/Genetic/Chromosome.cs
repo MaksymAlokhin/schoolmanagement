@@ -43,7 +43,7 @@ namespace sms.Pages.TimeTable
             {
                 genes[i] = new Gene(i, _cachedCurricula, _cachedGrades, random);
             }
-            fitness = GetFitness();
+            GetFitness();
             //ShuffleConflicts();
         }
         public Chromosome(double totalNumberOfLessons, Random random, int numberOfGrades)
