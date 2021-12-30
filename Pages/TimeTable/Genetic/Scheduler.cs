@@ -109,6 +109,8 @@ namespace sms.Pages.TimeTable
                 newlistfitness = 0;
                 int i = 0;
 
+                //Best chromosomes added as it is - Elitism
+                //Відбір найкращих хромосом
                 for (i = 0; i < populationsize / 10; i++)
                 {
                     newlist.Add(firstlist[i]);
