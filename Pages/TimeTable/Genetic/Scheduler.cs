@@ -36,7 +36,6 @@ namespace sms.Pages.TimeTable
         Random random;
         int numberOfGrades;
         int crossoverPoint;
-        int eliteIndividuals;
         public Scheduler(ApplicationDbContext context,
                           ILogger<IndexModel> logger)
         {
@@ -49,14 +48,11 @@ namespace sms.Pages.TimeTable
                 mutationrate = 0.01;
             if (!double.TryParse(settings[7], out crossoverrate))
                 crossoverrate = 0.9;
-            if (!int.TryParse(settings[9], out eliteIndividuals))
-                eliteIndividuals = 2;
 
             if (maxgenerations < 1) maxgenerations = 1000;
             if (populationsize < 10) populationsize = 100;
             if (mutationrate > 1.0 || mutationrate < 0.0) mutationrate = 0.01;
             if (crossoverrate > 1.0 || crossoverrate < 0.0) crossoverrate = 0.9;
-            if (eliteIndividuals < 1) eliteIndividuals = 2;
 
             _context = context;
             cachedCurricula = _context.Curricula.AsNoTracking().ToList();
@@ -112,14 +108,6 @@ namespace sms.Pages.TimeTable
                 newlist = new List<Chromosome>();
                 newlistfitness = 0;
                 int i = 0;
-
-                //Best chromosomes added as it is - Elitism
-                //Відбір найкращих хромосом
-                //for (i = 0; i < eliteIndividuals; i++)
-                //{
-                //    newlist.Add(firstlist[i]);
-                //    newlistfitness += firstlist[i].fitness;
-                //}
 
                 for (i = 0; i < populationsize / 10; i++)
                 {
