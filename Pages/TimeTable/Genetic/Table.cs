@@ -17,8 +17,10 @@ namespace sms.Pages.TimeTable
 		List<int> _allGradeIds;
 		public List<Curriculum> _cachedCurricula;
         public List<Grade> _cachedGrades;
-        public static List<int> totalGradeSlots;
-        public static int totalSlots = 40;
+        public static List<int> maxLessonsEachGradeHas;
+        public static int maxLessonsPerWeek = 40;
+        public static int daysPerWeek = 5;
+        public static int lessonsPerDay = 8;
         public int _numberOfGrades;
 
         public Table(List<int> allGradeIds, List<Curriculum> cachedCurricula, 
@@ -33,18 +35,18 @@ namespace sms.Pages.TimeTable
 
 			// creating as many slots as the no of blocks in overall timetable
 			//Створення слотів розкладу
-			TableSlots = new Slot[totalSlots * _numberOfGrades];
-            totalGradeSlots = new List<int>();
+			TableSlots = new Slot[maxLessonsPerWeek * _numberOfGrades]; //40 lessons * 22 grades = 880 lessons
+            maxLessonsEachGradeHas = new List<int>();
             // looping for every student group
             //Перебір усіх класів
 
             foreach (int i in _allGradeIds)
             {
-                List<Curriculum> gradeCurricula = _cachedCurricula.Where(c => c.GradeId == i).ToList();
+                List<Curriculum> currentGradeCurricula = _cachedCurricula.Where(c => c.GradeId == i).ToList();
                 Grade geneGrade = _cachedGrades.Where(g => g.Id == i).FirstOrDefault();
                 // for every slot in a week for a student group make a lesson
                 // Для кожного слоту на тижні для кожного класу створюємо клас
-                foreach (Curriculum curriculum in gradeCurricula)
+                foreach (Curriculum curriculum in currentGradeCurricula)
                 {
                     for (int l = 0; l < curriculum.Quantity; l++)
                     {
@@ -57,9 +59,9 @@ namespace sms.Pages.TimeTable
                             };
                     }
                 }
-                int gradeslots = gradeCurricula.Sum(c => c.Quantity);
-                totalGradeSlots.Add(gradeslots);
-                int emptySlots = totalSlots - gradeslots;
+                int maxLessonsCurrentGradeHas = currentGradeCurricula.Sum(c => c.Quantity);
+                maxLessonsEachGradeHas.Add(maxLessonsCurrentGradeHas);
+                int emptySlots = maxLessonsPerWeek - maxLessonsCurrentGradeHas;
                 for (int j = 0; j < emptySlots; j++)
                     TableSlots[k++] = null;
             }

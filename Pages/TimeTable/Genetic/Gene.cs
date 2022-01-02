@@ -26,9 +26,9 @@ namespace sms.Pages.TimeTable
                 Наприклад, якщо індекс 2, то номери слотів будуть коливатись
                 між 2*уроків*днів до 3*уроків*днів
              */
-            slotno = new int[Table.totalGradeSlots[i]];
-            int slotsStart = i * Table.totalSlots;
-            for (int j = 0; j < Table.totalGradeSlots[i]; j++)
+            slotno = new int[Table.maxLessonsEachGradeHas[i]];
+            int slotsStart = i * Table.maxLessonsPerWeek;
+            for (int j = 0; j < Table.maxLessonsEachGradeHas[i]; j++)
             {
                 slotno[j] = slotsStart + j;
             }

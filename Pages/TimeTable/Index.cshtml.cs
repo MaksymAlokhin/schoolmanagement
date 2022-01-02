@@ -83,13 +83,11 @@ namespace sms.Pages.TimeTable
             //Генерація розкладу
             Scheduler scheduler = new Scheduler(_context, _logger);
 
-            //Delete all rows from Lessons table
-            //Видалення усіх рядків з таблиці уроків
-            _context.Database.ExecuteSqlRaw("TRUNCATE TABLE [Lessons]");
-
             //Save generated lessons to DB
             //Збереження згенерованих уроків у БД
             List<Lesson> newLessons = new List<Lesson>();
+            var test = scheduler.finalson.fitness;
+            var test2 = scheduler.finalson.GetFitness();
             foreach (Gene gene in scheduler.finalson.genes)
             {
                 int length = gene.slotno.Length;
@@ -121,6 +119,11 @@ namespace sms.Pages.TimeTable
                     }
                 }
             }
+
+            //Delete all rows from Lessons table
+            //Видалення усіх рядків з таблиці уроків
+            _context.Database.ExecuteSqlRaw("TRUNCATE TABLE [Lessons]");
+
             _context.Lessons.AddRange(newLessons);
             _context.SaveChanges();
 

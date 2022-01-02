@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace sms.Pages.TimeTable
@@ -14,16 +15,13 @@ namespace sms.Pages.TimeTable
     //Генератор розкладу за генетичним алгоритмом
     public class Scheduler
     {
+        Settings settings;
+
         public List<Curriculum> cachedCurricula;
         public List<Grade> cachedGrades;
         public List<Teacher> cachedTeachers;
         public List<int> allGradeIds;
         public double totalNumberOfLessons;
-
-        int maxgenerations;
-        int populationsize;
-        double mutationrate;
-        double crossoverrate;
 
         private readonly ApplicationDbContext _context;
         private readonly ILogger<IndexModel> _logger;
@@ -36,23 +34,13 @@ namespace sms.Pages.TimeTable
         Random random;
         int numberOfGrades;
         int crossoverPoint;
-        public Scheduler(ApplicationDbContext context,
-                          ILogger<IndexModel> logger)
+        public Scheduler(ApplicationDbContext context, ILogger<IndexModel> logger)
         {
-            string[] settings = File.ReadAllLines(@"GeneticSettings.txt");
-            if (!int.TryParse(settings[1], out maxgenerations))
-                maxgenerations = 1000;
-            if (!int.TryParse(settings[3], out populationsize))
-                populationsize = 100;
-            if (!double.TryParse(settings[5], out mutationrate))
-                mutationrate = 0.01;
-            if (!double.TryParse(settings[7], out crossoverrate))
-                crossoverrate = 0.9;
-
-            if (maxgenerations < 1) maxgenerations = 1000;
-            if (populationsize < 10) populationsize = 100;
-            if (mutationrate > 1.0 || mutationrate < 0.0) mutationrate = 0.01;
-            if (crossoverrate > 1.0 || crossoverrate < 0.0) crossoverrate = 0.9;
+            using (StreamReader r = new StreamReader("GeneticSettings.json"))
+            {
+                string json = r.ReadToEnd();
+                settings = JsonSerializer.Deserialize<Settings>(json);
+            }
 
             _context = context;
             cachedCurricula = _context.Curricula.AsNoTracking().ToList();
@@ -84,10 +72,10 @@ namespace sms.Pages.TimeTable
             firstlist = new List<Chromosome>();
             firstlistfitness = 0;
 
-            for (int i = 0; i < populationsize; i++)
+            for (int i = 0; i < settings.populationsize; i++)
             {
                 Chromosome c;
-                firstlist.Add(c = new Chromosome(allGradeIds, totalNumberOfLessons,
+                firstlist.Add(c = new Chromosome(totalNumberOfLessons,
                     cachedCurricula, cachedGrades, random, numberOfGrades));
                 firstlistfitness += c.fitness;
             }
@@ -103,23 +91,26 @@ namespace sms.Pages.TimeTable
 
             //looping max no of generations times or until suitable chromosome found
             //Підбір хромосоми
-            while (nogenerations < maxgenerations)
+            while (nogenerations < settings.maxgenerations)
             {
                 newlist = new List<Chromosome>();
                 newlistfitness = 0;
-                int i = 0;
+                int i;
 
                 //Best chromosomes added as it is - Elitism
                 //Відбір найкращих хромосом
-                for (i = 0; i < populationsize / 10; i++)
+                for (i = 0; i < settings.populationsize / 10; i++)
                 {
                     newlist.Add(firstlist[i]);
                     newlistfitness += firstlist[i].fitness;
+                    var t1 = firstlist[i].fitness;
+                    var t2 = firstlist[i].GetFitness();
+                    if (t1 != t2) throw new Exception("Elitism");
                 }
 
                 //adding other members after performing crossover and mutation
                 //Додавання населення
-                while (i < populationsize)
+                while (i < settings.populationsize)
                 {
 
                     //crossover
@@ -129,18 +120,20 @@ namespace sms.Pages.TimeTable
                     //mother = TournamentSelection();
                     //father = TournamentSelection();
 
-                    if (random.NextDouble() < crossoverrate)
+                    if (random.NextDouble() < settings.crossoverrate)
                         son = Crossover(mother, father);
                     else
                         son = Clone(father);
 
-                    if (random.NextDouble() < mutationrate)
+                    if (random.NextDouble() < settings.mutationrate)
                         UniformMutation(son);
-                    
+
                     son.FindConflicts();
                     son.GetFitness();
-                    if (son.fitness == 1)
+                    if (son.fitness == 1.0 && son.teachersGapScore > settings.teachersGapsThreshold)
                         break;
+                    //if (son.fitness == 1)
+                    //    break;
 
                     newlist.Add(son);
                     newlistfitness += son.fitness;
@@ -149,7 +142,7 @@ namespace sms.Pages.TimeTable
 
                 //if chromosome with fitness 1 found
                 //Якщо знайшли бездоганну хромосому
-                if (i < populationsize)
+                if (i < settings.populationsize)
                 {
                     _logger.LogInformation($"Suitable Timetable has been generated in the {i}th Chromosome " +
                         $"of {nogenerations + 2} generation with fitness of 1.");
@@ -159,13 +152,18 @@ namespace sms.Pages.TimeTable
 
                 //if chromosome with required fitness not found in this generation
                 //Якщо бездоганну хромосому не знайшли
+                newlistfitness = 0;
+                for (int f = 0; f < settings.populationsize; f++)
+                {
+                    newlistfitness += newlist[f].GetFitness();
+                }
 
                 firstlist = newlist;
                 firstlistfitness = newlistfitness;
                 firstlist.Sort();
                 finalson = firstlist[0];
 
-                _logger.LogInformation($"Generation: {nogenerations + 2,6} Fitness: {firstlistfitness,7:N5} Finalson: {finalson.fitness,7:N5}");
+                _logger.LogInformation($"Generation: {nogenerations + 1,6} | Fitness: {firstlistfitness,9:N5} | Finalson: {finalson.fitness,7:N5} | Gaps: {finalson.teachersGapScore,7:N5}");
 
                 nogenerations++;
             }
@@ -179,15 +177,15 @@ namespace sms.Pages.TimeTable
             int rnd = random.Next(1, 101);
             if (rnd > 90 && rnd < 101) // 10% chance to take worst 60%+
             {
-                parent = firstlist[random.Next((int)(populationsize * 0.6), populationsize)];
+                parent = firstlist[random.Next((int)(settings.populationsize * 0.6), settings.populationsize)];
             }
             if (rnd > 70 && rnd < 91) // 20% chance to take middle 30-60%
             {
-                parent = firstlist[random.Next((int)(populationsize * 0.3), (int)(populationsize * 0.6))];
+                parent = firstlist[random.Next((int)(settings.populationsize * 0.3), (int)(settings.populationsize * 0.6))];
             }
             if (rnd > 0 && rnd < 71) // 70% chance to take the best 30%
             {
-                parent = firstlist[random.Next(0, (int)(populationsize * 0.3))];
+                parent = firstlist[random.Next(0, (int)(settings.populationsize * 0.3))];
             }
             return parent;
         }
@@ -199,7 +197,7 @@ namespace sms.Pages.TimeTable
             Chromosome[] pool = new Chromosome[poolSize];
             for (int i = 0; i < poolSize; i++)
             {
-                pool[i] = firstlist[random.Next(populationsize)];
+                pool[i] = firstlist[random.Next(settings.populationsize)];
             }
             Array.Sort(pool);
             return pool[0];
@@ -244,12 +242,20 @@ namespace sms.Pages.TimeTable
             int slot1, slot2;
             do
             {
-                slot1 = random.Next(Table.totalGradeSlots[grade]);
-                slot2 = random.Next(Table.totalGradeSlots[grade]);
+                slot1 = random.Next(Table.maxLessonsEachGradeHas[grade]);
+                slot2 = random.Next(Table.maxLessonsEachGradeHas[grade]);
             } while (slot1 == slot2);
             int temp = c.genes[grade].slotno[slot1];
             c.genes[grade].slotno[slot1] = c.genes[grade].slotno[slot2];
             c.genes[grade].slotno[slot2] = temp;
         }
+    }
+    public class Settings
+    {
+        public int maxgenerations { get; set; }
+        public int populationsize { get; set; }
+        public double mutationrate { get; set; }
+        public double crossoverrate { get; set; }
+        public double teachersGapsThreshold { get; set; }
     }
 }
