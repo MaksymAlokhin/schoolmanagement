@@ -27,11 +27,14 @@ namespace sms.Pages.TimeTable
                 між 2*уроків*днів до 3*уроків*днів
              */
             slotno = new int[Table.maxLessonsEachGradeHas[i]];
+            //slotno = new int[Table.maxLessonsPerWeek];
             int slotsStart = i * Table.maxLessonsPerWeek;
             for (int j = 0; j < Table.maxLessonsEachGradeHas[i]; j++)
             {
                 slotno[j] = slotsStart + j;
             }
+            //for (int j = Table.maxLessonsEachGradeHas[i]; j < Table.maxLessonsPerWeek; j++)
+            //    slotno[j] = -1;
             random.Shuffle(slotno);
         }
     }

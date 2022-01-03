@@ -86,9 +86,9 @@ namespace sms.Pages.TimeTable
             //Save generated lessons to DB
             //Збереження згенерованих уроків у БД
             List<Lesson> newLessons = new List<Lesson>();
-            var test = scheduler.finalson.fitness;
-            var test2 = scheduler.finalson.GetFitness();
-            foreach (Gene gene in scheduler.finalson.genes)
+            var test = scheduler.finalSon.fitness;
+            var test2 = scheduler.finalSon.GetFitness();
+            foreach (Gene gene in scheduler.finalSon.genes)
             {
                 int length = gene.slotno.Length;
                 int slotno = 0;
@@ -97,24 +97,27 @@ namespace sms.Pages.TimeTable
                     for (int day = 1; day < 6; day++)
                     {
                         if (slotno >= length) break;
-                        if (Table.TableSlots[gene.slotno[slotno]] != null)
-                        {
-                            Slot slt = Table.TableSlots[gene.slotno[slotno]];
-                            Grade grade = _context.Grades
-                                    .Where(g => g.Id == slt.GradeId)
-                                    .FirstOrDefault();
+                        //if (gene.slotno[slotno] != -1)
+                        //{
+                            if (Table.TableSlots[gene.slotno[slotno]] != null)
+                            {
+                                Slot slt = Table.TableSlots[gene.slotno[slotno]];
+                                Grade grade = _context.Grades
+                                        .Where(g => g.Id == slt.GradeId)
+                                        .FirstOrDefault();
 
-                            newLessons.Add(
-                                new Lesson
-                                {
-                                    Day = day,
-                                    Slot = slot,
-                                    Room = grade.Room == null ? "" : grade.Room,
-                                    GradeId = slt.GradeId,
-                                    SubjectId = slt.SubjectId,
-                                    TeacherId = slt.TeacherId
-                                });
-                        }
+                                newLessons.Add(
+                                    new Lesson
+                                    {
+                                        Day = day,
+                                        Slot = slot,
+                                        Room = grade.Room == null ? "" : grade.Room,
+                                        GradeId = slt.GradeId,
+                                        SubjectId = slt.SubjectId,
+                                        TeacherId = slt.TeacherId
+                                    });
+                            }
+                        //}
                         slotno++;
                     }
                 }

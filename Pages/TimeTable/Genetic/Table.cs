@@ -45,7 +45,7 @@ namespace sms.Pages.TimeTable
                 List<Curriculum> currentGradeCurricula = _cachedCurricula.Where(c => c.GradeId == i).ToList();
                 Grade geneGrade = _cachedGrades.Where(g => g.Id == i).FirstOrDefault();
                 // for every slot in a week for a student group make a lesson
-                // Для кожного слоту на тижні для кожного класу створюємо клас
+                // Для кожного слоту на тижні для кожного класу створюємо урок
                 foreach (Curriculum curriculum in currentGradeCurricula)
                 {
                     for (int l = 0; l < curriculum.Quantity; l++)
