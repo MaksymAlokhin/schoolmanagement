@@ -14,7 +14,6 @@
 
   <ItemGroup>
     <PackageReference Include="ChartJSCore" Version="1.5.8" />
-    <PackageReference Include="FontAwesome" Version="4.7.0" />
     <PackageReference Include="HtmlSanitizer" Version="6.0.437" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="5.0.8" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="5.0.8" />
@@ -25,7 +24,6 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="TinyMCE" Version="5.10.2" />
   </ItemGroup>
 
   <ItemGroup>
