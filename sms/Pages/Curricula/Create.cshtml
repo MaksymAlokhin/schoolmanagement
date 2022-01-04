@@ -31,7 +31,7 @@
         <div class="col-sm-6">
             <div class="form-group">
                 <label asp-for="Curriculum.Teacher.FullName" class="control-label"></label>
-                <select asp-for="Curriculum.TeacherId" class="form-control" asp-items="ViewBag.TeacherId">
+                <select asp-for="Curriculum.TeacherId" class="form-control" asp-items="Model.TeachersSelectList">
                     <option value="0">Оберіть вчителя</option>
                 </select>
             </div>

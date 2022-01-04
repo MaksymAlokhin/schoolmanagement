@@ -73,7 +73,7 @@ namespace sms.Pages.Curricula
 
             return RedirectToPage("./Index", new
             {
-                gradeId = $"{Curriculum.GradeId}",
+                gradeId = $"{Curriculum?.GradeId}",
                 pageIndex = $"{pageIndex}",
                 sortOrder = $"{sortOrder}",
                 currentFilter = $"{currentFilter}"

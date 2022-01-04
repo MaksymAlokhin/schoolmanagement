@@ -21,6 +21,7 @@ namespace sms.Pages.Curricula
         public int? PageIndex { get; set; }
         public string CurrentFilter { get; set; }
         public string CurrentSort { get; set; }
+        public SelectList TeachersSelectList { get; set; }
 
         public EditModel(sms.Data.ApplicationDbContext context)
         {
@@ -80,7 +81,8 @@ namespace sms.Pages.Curricula
 
             //Teachers dropdown
             //Випадачний список вчителів
-            ViewData["TeacherId"] = new SelectList(_context.Teachers.OrderBy(t => t.LastName).ThenBy(t => t.FirstName), "Id", "FullName");
+            var TeachersQuery = _context.Teachers.OrderBy(t => t.LastName).ThenBy(t => t.FirstName).AsNoTracking();
+            TeachersSelectList = new SelectList(TeachersQuery, "Id", "FullName"); //list, id, value
             return Page();
         }
 
@@ -115,7 +117,7 @@ namespace sms.Pages.Curricula
             }
             return RedirectToPage("./Index", new
             {
-                gradeId = $"{Curriculum.GradeId}",
+                gradeId = $"{Curriculum?.GradeId}",
                 pageIndex = $"{pageIndex}",
                 sortOrder = $"{sortOrder}",
                 currentFilter = $"{currentFilter}"
@@ -126,7 +128,7 @@ namespace sms.Pages.Curricula
         {
             return _context.Curricula.Any(e => e.Id == id);
         }
-        
+
         //Load list of subjects from DB
         //Отримання даних про предмети для випадаючого списку
         public JsonResult OnGetSubjects(string teacherId)

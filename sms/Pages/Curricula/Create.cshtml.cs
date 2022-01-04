@@ -18,6 +18,7 @@ namespace sms.Pages.Curricula
         private readonly sms.Data.ApplicationDbContext _context;
         public List<SelectListItem> GradesList { get; set; }
         public List<SelectListItem> SubjectsSL { get; set; }
+        public SelectList TeachersSelectList { get; set; }
 
         public CreateModel(sms.Data.ApplicationDbContext context)
         {
@@ -54,7 +55,8 @@ namespace sms.Pages.Curricula
 
             //Teachers dropdown
             //Випадаючий список вчителів
-            ViewData["TeacherId"] = new SelectList(_context.Teachers.OrderBy(t => t.LastName).ThenBy(t => t.FirstName), "Id", "FullName");
+            var TeachersQuery = _context.Teachers.OrderBy(t => t.LastName).ThenBy(t => t.FirstName).AsNoTracking();
+            TeachersSelectList = new SelectList(TeachersQuery, "Id", "FullName"); //list, id, value
             return Page();
         }
 
@@ -74,7 +76,7 @@ namespace sms.Pages.Curricula
             _context.Curricula.Add(Curriculum);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index", new { gradeId = $"{Curriculum.GradeId}" });
+            return RedirectToPage("./Index", new { gradeId = $"{Curriculum?.GradeId}" });
         }
 
         //Subjects dropdown
