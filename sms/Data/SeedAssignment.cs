@@ -3,22 +3,33 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using static sms.Data.SeedGrade;
-using static sms.Data.SeedSubject;
-using static sms.Data.SeedTeacher;
 
 namespace sms.Data
 {
     public class SeedAssignment
     {
-        public static List<Assignment> data = new List<Assignment>
+        public List<Assignment> data;
+        SeedGrade grades;
+        SeedSubject subjects;
+        SeedTeacher teachers;
+        public SeedAssignment(SeedGrade _grades, SeedSubject _subjects, SeedTeacher _teachers)
         {
-            new Assignment
+            grades = _grades;
+            subjects = _subjects;
+            teachers = _teachers;
+            CreateAssignments();
+        }
+        void CreateAssignments()
+        {
+            #region Create assignments
+            data = new List<Assignment>
+            {
+                new Assignment
             {
                 DateOfPost = new DateTime(2021, 8, 9, 21, 51, 46),
-                Grade = a5,
-                Subject = ukrainian,
-                Teacher = havro,
+                Grade = grades.a5,
+                Subject = subjects.ukrainian,
+                Teacher = teachers.havro,
                 Post = @"<p style=""text-align: center"" align=""center""><span lang=""UK"" style=""font-size: 16pt; line-height: 107%; font-family: &quot;Times New Roman&quot;, &quot;serif&quot;"">Контрольна робота для 5 класу на тему: «Будова слова. Написання префіксів та суфіксів»</span></p>
 <p style=""text-align: center"" align=""center""><span lang=""UK"" style=""font-size: 14pt; line-height: 107%; font-family: &quot;Times New Roman&quot;, &quot;serif&quot;"">І варіант</span></p>
 <p style=""margin-left: 39.25pt; text-indent: -18pt""><span lang=""UK"" style=""font-size: 14pt; line-height: 107%; font-family: &quot;Times New Roman&quot;, &quot;serif&quot;""><span>1.<span style=""font: 7pt &quot;Times New Roman&quot;"">&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span lang=""UK"" style=""font-size: 14pt; line-height: 107%; font-family: &quot;Times New Roman&quot;, &quot;serif&quot;"">Доберіть спільнокореневі слова до слова <strong>хмара</strong></span></p>
@@ -42,12 +53,12 @@ namespace sms.Data
 <p style=""text-indent: -18pt""><span lang=""UK"" style=""font-size: 14pt; line-height: 107%; font-family: &quot;Times New Roman&quot;, &quot;serif&quot;""><span>8.<span style=""font: 7pt &quot;Times New Roman&quot;"">&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span lang=""UK"" style=""font-size: 14pt; line-height: 107%; font-family: &quot;Times New Roman&quot;, &quot;serif&quot;"">Запишіть 3 слова, які не змінюються</span></p>
 <p style=""text-indent: -18pt""><span lang=""UK"" style=""font-size: 14pt; line-height: 107%; font-family: &quot;Times New Roman&quot;, &quot;serif&quot;""><span>9.<span style=""font: 7pt &quot;Times New Roman&quot;"">&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span lang=""UK"" style=""font-size: 14pt; line-height: 107%; font-family: &quot;Times New Roman&quot;, &quot;serif&quot;"">Складіть 2 речення, де є слова з суфіксами пестливості</span></p>"
             },
-            new Assignment
+                new Assignment
             {
                 DateOfPost = new DateTime(2021, 8, 9, 22, 36, 55),
-                Grade = a5,
-                Subject = ukrainian,
-                Teacher = havro,
+                Grade = grades.a5,
+                Subject = subjects.ukrainian,
+                Teacher = teachers.havro,
                 Post = @"<p style=""text-align: center"" align=""center""><strong><span lang=""UK"" style=""font-size: 14pt; line-height: 115%; font-family: &quot;Times New Roman&quot;, &quot;serif&quot;"">Квест «Подорож країною Лексикологією» 5 клас</span></strong></p>
 <p><strong><span lang=""UK"" style=""font-size: 14pt; line-height: 115%; font-family: &quot;Times New Roman&quot;, &quot;serif&quot;"">Учитель: </span></strong><span lang=""UK"" style=""font-size: 14pt; line-height: 115%; font-family: &quot;Times New Roman&quot;, &quot;serif&quot;"">Любі діти! Нам слід попрощатися з наукою Лексикологією, яку ми вивчали певний період. Але наука поставила нам умову: нам слід пройти квест і довести, що готові&nbsp; до вивчення іншої науки. Для цього клас ділимо на дві групи. Та група, яка пройде тест з більшою кількістю балів, отримає диплом «Кращий гід країни Лексикологія».</span></p>
 <p><strong><span lang=""UK"" style=""font-size: 14pt; line-height: 115%; font-family: &quot;Times New Roman&quot;, &quot;serif&quot;"">Завдання 1</span></strong><span lang=""UK"" style=""font-size: 14pt; line-height: 115%; font-family: &quot;Times New Roman&quot;, &quot;serif&quot;"">. «Визнач і зміни».</span></p>
@@ -77,12 +88,12 @@ namespace sms.Data
 <p><span lang=""UK"" style=""font-size: 14pt; line-height: 115%; font-family: &quot;Times New Roman&quot;, &quot;serif&quot;"">&nbsp;</span></p>
 <p><span lang=""UK"" style=""font-size: 14pt; line-height: 115%; font-family: &quot;Times New Roman&quot;, &quot;serif&quot;"">&nbsp;</span></p>"
             },
-            new Assignment
+                new Assignment
             {
                 DateOfPost = new DateTime(2021, 8, 9, 22, 39, 11),
-                Grade = a5,
-                Subject = english,
-                Teacher = martynenko,
+                Grade = grades.a5,
+                Subject = subjects.english,
+                Teacher = teachers.martynenko,
                 Post = @"<h2 style=""margin: 1em 0 0.25em; padding: 0; overflow: hidden; border-bottom: 1px solid rgba(162, 169, 177, 1); font-weight: normal; font-family: &quot;Linux Libertine&quot;, Georgia, Times, serif; line-height: 1.3; background-color: rgba(255, 255, 255, 1)"">Запам'ятай правила транслітерації:</h2>
 <table style=""font-size: 14px; background-color: rgba(248, 249, 250, 1); color: rgba(32, 33, 34, 1); margin: 1em 0; border: 1px solid rgba(162, 169, 177, 1); font-family: sans-serif"">
 <tbody>
@@ -288,12 +299,12 @@ namespace sms.Data
 </table>
 <p style=""margin: 0.5em 0; color: rgba(32, 33, 34, 1); font-family: sans-serif; font-size: 14px; background-color: rgba(255, 255, 255, 1)""><strong><big>Примітки</big>:</strong><br><strong>1.</strong>&nbsp;Буквосполучення «зг» відтворюється латиницею як «zgh» (наприклад, Згорани&nbsp;— Zghorany, Розгон&nbsp;— Rozghon) на відміну від «zh»&nbsp;— відповідника української літери «ж».<br><strong>2.</strong>&nbsp;М'який знак і апостроф латиницею не відтворюються.<br><strong>3.</strong>&nbsp;Транслітерація прізвищ та імен осіб і географічних назв здійснюється шляхом відтворення кожної літери латиницею.</p>"
             },
-            new Assignment
+                new Assignment
             {
                 DateOfPost = new DateTime(2021, 8, 16, 15, 01, 48),
-                Grade = a1,
-                Subject = english,
-                Teacher = vasylieva,
+                Grade = grades.a1,
+                Subject = subjects.english,
+                Teacher = teachers.vasylieva,
                 Post = @"<p style=""margin-bottom: 0.0001pt; line-height: normal""><strong><span lang=""UK"" style=""font-size: 14pt; font-family: &quot;'serif'','serif';mso-fareast-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman&quot;; color: rgba(255, 0, 0, 1)"">Тема:</span></strong><strong><span lang=""UK"" style=""font-size: 14pt; font-family: &quot;'serif'','serif';mso-fareast-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman&quot;; color: rgba(0, 0, 0, 1)"">&nbsp;</span></strong><strong><span lang=""RU"" style=""font-size: 14pt; font-family: &quot;'serif'','serif';mso-fareast-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman&quot;; color: rgba(0, 0, 0, 1)"">Toys.</span></strong></p>
 <p style=""margin-bottom: 0.0001pt; line-height: normal""><strong><span lang=""UK"" style=""font-size: 14pt; font-family: &quot;'serif'','serif';mso-fareast-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman&quot;; color: rgba(255, 0, 0, 1)"">Підтема:&nbsp;</span></strong><strong><span lang=""UK"" style=""font-size: 14pt; font-family: &quot;'serif'','serif';mso-fareast-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman&quot;; color: rgba(0, 0, 0, 1)"">Подорож до іграшкового магазину. Узагальнення вивченого по темі.</span></strong></p>
 <p style=""margin-bottom: 0.0001pt; line-height: normal""><strong><span lang=""UK"" style=""font-size: 14pt; font-family: &quot;'serif'','serif';mso-fareast-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman&quot;; color: rgba(255, 0, 0, 1)"">Мета:</span></strong><strong><span lang=""UK"" style=""font-size: 14pt; font-family: &quot;'serif'','serif';mso-fareast-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman&quot;; color: rgba(0, 0, 0, 1)"">&nbsp;виявити рівень знань і вмінь учнів за темою «</span></strong><strong><span lang=""RU"" style=""font-size: 14pt; font-family: &quot;'serif'','serif';mso-fareast-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman&quot;; color: rgba(0, 0, 0, 1)"">Toys.</span></strong><strong><span lang=""UK"" style=""font-size: 14pt; font-family: &quot;'serif'','serif';mso-fareast-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman&quot;; color: rgba(0, 0, 0, 1)"">»</span></strong></p>
@@ -373,6 +384,8 @@ namespace sms.Data
 <p style=""margin-bottom: 0.0001pt; text-align: justify; line-height: normal""><strong><span lang=""RU"" style=""font-size: 14pt; font-family: &quot;'times new roman'','serif';mso-fareast-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman&quot;; color: rgba(255, 0, 0, 1)"">III&nbsp;</span></strong><strong><span lang=""UK"" style=""font-size: 14pt; font-family: &quot;'times new roman'','serif';mso-fareast-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman&quot;; color: rgba(255, 0, 0, 1)"">Заключна частина уроку.</span></strong></p>
 <p style=""margin-bottom: 0.0001pt; line-height: normal""><strong><span lang=""RU"" style=""font-size: 14pt; font-family: &quot;'times new roman'','serif';mso-fareast-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman&quot;; color: rgba(0, 0, 0, 1)"">T</span></strong><strong><span lang=""UK"" style=""font-size: 14pt; font-family: &quot;'times new roman'','serif';mso-fareast-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman&quot;; color: rgba(0, 0, 0, 1)"">:&nbsp;</span></strong><span lang=""UK"" style=""font-size: 14pt; font-family: &quot;'times new roman'','serif';mso-fareast-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman&quot;; color: rgba(0, 0, 0, 1)"">Very well. You work very hard today.&nbsp;</span><span lang=""RU"" style=""font-size: 14pt; font-family: &quot;'times new roman'','serif';mso-fareast-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman&quot;; color: rgba(0, 0, 0, 1)"">Д</span><span lang=""UK"" style=""font-size: 14pt; font-family: &quot;'times new roman'','serif';mso-fareast-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman&quot;; color: rgba(0, 0, 0, 1)"">авайте ще раз пригадаємо шлях, яким ми подорожували. T</span><span style=""font-size: 14pt; font-family: &quot;'times new roman'','serif';mso-fareast-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman&quot;; color: rgba(0, 0, 0, 1)"">hank you for the lesson. So, children say “Good-bye” to our guests.</span></p>"
             }
-        };
+            };
+            #endregion
+        }
     }
 }

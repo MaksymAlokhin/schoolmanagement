@@ -9,6 +9,49 @@ namespace sms.Data
     public class SeedSubject
     {
         public List<Subject> data;
+        #region Subject declarations
+        public Subject biology;
+        public Subject nature;
+        public Subject geography;
+        public Subject chemistry;
+        public Subject physics;
+        public Subject astronomy;
+        public Subject history;
+        public Subject whistory;
+        public Subject uhistory;
+        public Subject jurisprudence;
+        public Subject civileduc;
+        public Subject maths;
+        public Subject algebra;
+        public Subject geometry;
+        public Subject it;
+        public Subject finearts;
+        public Subject arts;
+        public Subject music;
+        public Subject english;
+        public Subject french;
+        public Subject ukrainian;
+        public Subject ukrlit;
+        public Subject wliterature;
+        public Subject pt;
+        public Subject civildef;
+        public Subject design;
+        public Subject individual;
+        public Subject litreading;
+        public Subject maths_primary;
+        public Subject literacy;
+        public Subject finearts_primary;
+        public Subject health;
+        public Subject health_primary;
+        public Subject writing;
+        public Subject nature_primary;
+        public Subject crafts;
+        public Subject crafts_primary;
+        public Subject iexplore;
+        public Subject ukrainian_primary;
+        public Subject iandworld;
+        public Subject reading;
+        #endregion
         public SeedSubject()
         {
             CreateSubjects();
@@ -16,48 +59,49 @@ namespace sms.Data
         void CreateSubjects()
         {
             #region Create subjects
-            Subject biology = new Subject { Name = "Біологія" };
-            Subject nature = new Subject { Name = "Природознавство" };
-            Subject geography = new Subject { Name = "Географія" };
-            Subject chemistry = new Subject { Name = "Хімія" };
-            Subject physics = new Subject { Name = "Фізика" };
-            Subject astronomy = new Subject { Name = "Астрономія" };
-            Subject history = new Subject { Name = "Історія" };
-            Subject whistory = new Subject { Name = "Всесвітня Історія" };
-            Subject uhistory = new Subject { Name = "Історія України" };
-            Subject jurisprudence = new Subject { Name = "Правознавство" };
-            Subject civileduc = new Subject { Name = "Громадянська освіта" };
-            Subject maths = new Subject { Name = "Математика" };
-            Subject algebra = new Subject { Name = "Алгебра" };
-            Subject geometry = new Subject { Name = "Геометрія" };
-            Subject it = new Subject { Name = "Інформатика" };
-            Subject finearts = new Subject { Name = "Образотворче мистецтво" };
-            Subject arts = new Subject { Name = "Мистецтво" };
-            Subject music = new Subject { Name = "Музичне мистецтво" };
-            Subject english = new Subject { Name = "Англійська мова" };
-            Subject french = new Subject { Name = "Французька мова" };
-            Subject ukrainian = new Subject { Name = "Українська мова" };
-            Subject ukrlit = new Subject { Name = "Українська література" };
-            Subject wliterature = new Subject { Name = "Зарубіжна література" };
-            Subject pt = new Subject { Name = "Фізична культура" };
-            Subject civildef = new Subject { Name = "Захист України" };
-            Subject design = new Subject { Name = "Дизайн і технології" };
-            Subject individual = new Subject { Name = "Індивідуальні заняття" };
-            Subject litreading = new Subject { Name = "Літературне читання" };
-            Subject maths_primary = new Subject { Name = "Математика (поч.шк.)" };
-            Subject literacy = new Subject { Name = "Навчання грамоти" };
-            Subject finearts_primary = new Subject { Name = "Образотворче мистецтво (поч.шк.)" };
-            Subject health = new Subject { Name = "Основи здоров'я" };
-            Subject health_primary = new Subject { Name = "Основи здоров'я (поч.шк.)" };
-            Subject writing = new Subject { Name = "Письмо" };
-            Subject nature_primary = new Subject { Name = "Природознавство (поч.шк.)" };
-            Subject crafts = new Subject { Name = "Труд. навч. / Технол." };
-            Subject crafts_primary = new Subject { Name = "Трудове навчання (поч.шк.)" };
-            Subject iexplore = new Subject { Name = "Я досліджую світ" };
-            Subject ukrainian_primary = new Subject { Name = "Українська мова (поч.шк.)" };
-            Subject iandworld = new Subject { Name = "Я у світі" };
-            Subject reading = new Subject { Name = "Читання" };
+            biology = new Subject { Name = "Біологія" };
+            nature = new Subject { Name = "Природознавство" };
+            geography = new Subject { Name = "Географія" };
+            chemistry = new Subject { Name = "Хімія" };
+            physics = new Subject { Name = "Фізика" };
+            astronomy = new Subject { Name = "Астрономія" };
+            history = new Subject { Name = "Історія" };
+            whistory = new Subject { Name = "Всесвітня Історія" };
+            uhistory = new Subject { Name = "Історія України" };
+            jurisprudence = new Subject { Name = "Правознавство" };
+            civileduc = new Subject { Name = "Громадянська освіта" };
+            maths = new Subject { Name = "Математика" };
+            algebra = new Subject { Name = "Алгебра" };
+            geometry = new Subject { Name = "Геометрія" };
+            it = new Subject { Name = "Інформатика" };
+            finearts = new Subject { Name = "Образотворче мистецтво" };
+            arts = new Subject { Name = "Мистецтво" };
+            music = new Subject { Name = "Музичне мистецтво" };
+            english = new Subject { Name = "Англійська мова" };
+            french = new Subject { Name = "Французька мова" };
+            ukrainian = new Subject { Name = "Українська мова" };
+            ukrlit = new Subject { Name = "Українська література" };
+            wliterature = new Subject { Name = "Зарубіжна література" };
+            pt = new Subject { Name = "Фізична культура" };
+            civildef = new Subject { Name = "Захист України" };
+            design = new Subject { Name = "Дизайн і технології" };
+            individual = new Subject { Name = "Індивідуальні заняття" };
+            litreading = new Subject { Name = "Літературне читання" };
+            maths_primary = new Subject { Name = "Математика (поч.шк.)" };
+            literacy = new Subject { Name = "Навчання грамоти" };
+            finearts_primary = new Subject { Name = "Образотворче мистецтво (поч.шк.)" };
+            health = new Subject { Name = "Основи здоров'я" };
+            health_primary = new Subject { Name = "Основи здоров'я (поч.шк.)" };
+            writing = new Subject { Name = "Письмо" };
+            nature_primary = new Subject { Name = "Природознавство (поч.шк.)" };
+            crafts = new Subject { Name = "Труд. навч. / Технол." };
+            crafts_primary = new Subject { Name = "Трудове навчання (поч.шк.)" };
+            iexplore = new Subject { Name = "Я досліджую світ" };
+            ukrainian_primary = new Subject { Name = "Українська мова (поч.шк.)" };
+            iandworld = new Subject { Name = "Я у світі" };
+            reading = new Subject { Name = "Читання" };
             #endregion
+            #region Add subjects
             data = new List<Subject>();
             data.Add(biology);
             data.Add(nature);
@@ -100,6 +144,7 @@ namespace sms.Data
             data.Add(ukrainian_primary);
             data.Add(iandworld);
             data.Add(reading);
+            #endregion
         }
     }
 }

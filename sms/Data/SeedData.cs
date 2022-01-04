@@ -102,13 +102,13 @@ namespace sms.Data
         public static void SeedDB(ApplicationDbContext context)
         {
             var students = new SeedStudent();
-            var grades = new SeedGrade();
+            var grades = new SeedGrade(students);
             var subjects = new SeedSubject();
             var teachers = new SeedTeacher(subjects);
-            var lessons = new SeedLesson();
-            var curricula = new SeedCurriculum();
-            var gradebooks = new SeedGradebook();
-            var assignments = new SeedAssignment();
+            var lessons = new SeedLesson(grades, subjects, teachers);
+            var curricula = new SeedCurriculum(grades, subjects, teachers);
+            var gradebooks = new SeedGradebook(students, subjects, teachers);
+            var assignments = new SeedAssignment(grades, subjects, teachers);
             var books = new SeedBook();
             var inventories = new SeedInventory();
 

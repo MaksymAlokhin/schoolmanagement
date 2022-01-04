@@ -7,6 +7,141 @@ namespace sms.Data
     public class SeedStudent
     {
         public List<Student> data;
+        #region Student declarations
+        public Student s001;
+        public Student s002;
+        public Student s003;
+        public Student s004;
+        public Student s005;
+        public Student s006;
+        public Student s007;
+        public Student s008;
+        public Student s009;
+        public Student s010;
+        public Student s011;
+        public Student s012;
+        public Student s013;
+        public Student s014;
+        public Student s015;
+        public Student s016;
+        public Student s017;
+        public Student s018;
+        public Student s019;
+        public Student s020;
+        public Student s021;
+        public Student s022;
+        public Student s023;
+        public Student s024;
+        public Student s025;
+        public Student s026;
+        public Student s027;
+        public Student s028;
+        public Student s029;
+        public Student s030;
+        public Student s031;
+        public Student s032;
+        public Student s033;
+        public Student s034;
+        public Student s035;
+        public Student s036;
+        public Student s037;
+        public Student s038;
+        public Student s039;
+        public Student s040;
+        public Student s041;
+        public Student s042;
+        public Student s043;
+        public Student s044;
+        public Student s045;
+        public Student s046;
+        public Student s047;
+        public Student s048;
+        public Student s049;
+        public Student s050;
+        public Student s051;
+        public Student s052;
+        public Student s053;
+        public Student s054;
+        public Student s055;
+        public Student s056;
+        public Student s057;
+        public Student s058;
+        public Student s059;
+        public Student s060;
+        public Student s061;
+        public Student s062;
+        public Student s063;
+        public Student s064;
+        public Student s065;
+        public Student s066;
+        public Student s067;
+        public Student s068;
+        public Student s069;
+        public Student s070;
+        public Student s071;
+        public Student s072;
+        public Student s073;
+        public Student s074;
+        public Student s075;
+        public Student s076;
+        public Student s077;
+        public Student s078;
+        public Student s079;
+        public Student s080;
+        public Student s081;
+        public Student s082;
+        public Student s083;
+        public Student s084;
+        public Student s085;
+        public Student s086;
+        public Student s087;
+        public Student s088;
+        public Student s089;
+        public Student s090;
+        public Student s091;
+        public Student s092;
+        public Student s093;
+        public Student s094;
+        public Student s095;
+        public Student s096;
+        public Student s097;
+        public Student s098;
+        public Student s099;
+        public Student s100;
+        public Student s101;
+        public Student s102;
+        public Student s103;
+        public Student s104;
+        public Student s105;
+        public Student s106;
+        public Student s107;
+        public Student s108;
+        public Student s109;
+        public Student s110;
+        public Student s111;
+        public Student s112;
+        public Student s113;
+        public Student s114;
+        public Student s115;
+        public Student s116;
+        public Student s117;
+        public Student s118;
+        public Student s119;
+        public Student s120;
+        public Student s121;
+        public Student s122;
+        public Student s123;
+        public Student s124;
+        public Student s125;
+        public Student s126;
+        public Student s127;
+        public Student s128;
+        public Student s129;
+        public Student s130;
+        public Student s131;
+        public Student s132;
+
+        #endregion
         public SeedStudent()
         {
             CreateStudents();
@@ -15,7 +150,7 @@ namespace sms.Data
         {
             #region Create students
             #region 1-A    
-            Student s001 = new Student
+            s001 = new Student
             {
                 LastName = "Белявський",
                 FirstName = "Олег",
@@ -25,7 +160,7 @@ namespace sms.Data
                 Gender = "Чоловіча",
                 ProfilePicture = "boy_001.jpg"
             };
-            Student s002 = new Student
+            s002 = new Student
             {
                 LastName = "Березникова",
                 FirstName = "Мілена",
@@ -35,7 +170,7 @@ namespace sms.Data
                 Gender = "Жіноча",
                 ProfilePicture = "girl_001.jpg"
             };
-            Student s003 = new Student
+            s003 = new Student
             {
                 LastName = "Білоус",
                 FirstName = "Владислав",
@@ -45,7 +180,7 @@ namespace sms.Data
                 Gender = "Чоловіча",
                 ProfilePicture = "boy_002.jpg"
             };
-            Student s004 = new Student
+            s004 = new Student
             {
                 LastName = "Вовк",
                 FirstName = "Марія",
@@ -55,7 +190,7 @@ namespace sms.Data
                 Gender = "Жіноча",
                 ProfilePicture = "girl_002.jpg"
             };
-            Student s005 = new Student
+            s005 = new Student
             {
                 LastName = "Гришаєнко",
                 FirstName = "Юрій",
@@ -65,7 +200,7 @@ namespace sms.Data
                 Gender = "Чоловіча",
                 ProfilePicture = "boy_003.jpg"
             };
-            Student s006 = new Student
+            s006 = new Student
             {
                 LastName = "Губань",
                 FirstName = "Єлизавета",
@@ -77,7 +212,7 @@ namespace sms.Data
             };
             #endregion
             #region 1-Б
-            Student s007 = new Student
+            s007 = new Student
             {
                 LastName = "Гуриненко",
                 FirstName = "Даніїл",
@@ -87,7 +222,7 @@ namespace sms.Data
                 Gender = "Чоловіча",
                 ProfilePicture = "boy_004.jpg"
             };
-            Student s008 = new Student
+            s008 = new Student
             {
                 LastName = "Дзюбенко",
                 FirstName = "Олексій",
@@ -97,7 +232,7 @@ namespace sms.Data
                 Gender = "Чоловіча",
                 ProfilePicture = "boy_005.jpg"
             };
-            Student s009 = new Student
+            s009 = new Student
             {
                 LastName = "Довга",
                 FirstName = "Діана",
@@ -107,7 +242,7 @@ namespace sms.Data
                 Gender = "Жіноча",
                 ProfilePicture = "girl_004.jpg"
             };
-            Student s010 = new Student
+            s010 = new Student
             {
                 LastName = "Духно",
                 FirstName = "Крістіна",
@@ -117,7 +252,7 @@ namespace sms.Data
                 Gender = "Жіноча",
                 ProfilePicture = "girl_005.jpg"
             };
-            Student s011 = new Student
+            s011 = new Student
             {
                 LastName = "Деченко",
                 FirstName = "Злата",
@@ -127,7 +262,7 @@ namespace sms.Data
                 Gender = "Жіноча",
                 ProfilePicture = "girl_006.jpg"
             };
-            Student s012 = new Student
+            s012 = new Student
             {
                 LastName = "Зеновський",
                 FirstName = "Максим",
@@ -139,7 +274,7 @@ namespace sms.Data
             };
             #endregion
             #region 2-А
-            Student s013 = new Student
+            s013 = new Student
             {
                 LastName = "Злобін",
                 FirstName = "Данило",
@@ -149,7 +284,7 @@ namespace sms.Data
                 Gender = "Чоловіча",
                 ProfilePicture = "boy_007.jpg"
             };
-            Student s014 = new Student
+            s014 = new Student
             {
                 LastName = "Івашко",
                 FirstName = "Денис",
@@ -159,7 +294,7 @@ namespace sms.Data
                 Gender = "Чоловіча",
                 ProfilePicture = "boy_008.jpg"
             };
-            Student s015 = new Student
+            s015 = new Student
             {
                 LastName = "Анжияк",
                 FirstName = "Аліна",
@@ -169,7 +304,7 @@ namespace sms.Data
                 Gender = "Жіноча",
                 ProfilePicture = "girl_007.jpg"
             };
-            Student s016 = new Student
+            s016 = new Student
             {
                 LastName = "Глембоцький",
                 FirstName = "Матвій",
@@ -179,7 +314,7 @@ namespace sms.Data
                 Gender = "Чоловіча",
                 ProfilePicture = "boy_009.jpg"
             };
-            Student s017 = new Student
+            s017 = new Student
             {
                 LastName = "Данилюк",
                 FirstName = "Кіра",
@@ -189,7 +324,7 @@ namespace sms.Data
                 Gender = "Жіноча",
                 ProfilePicture = "girl_008.jpg"
             };
-            Student s018 = new Student
+            s018 = new Student
             {
                 LastName = "Заболотна",
                 FirstName = "Катерина",
@@ -201,7 +336,7 @@ namespace sms.Data
             };
             #endregion
             #region 2-Б
-            Student s019 = new Student
+            s019 = new Student
             {
                 LastName = "Короп",
                 FirstName = "Варвара",
@@ -211,7 +346,7 @@ namespace sms.Data
                 Gender = "Жіноча",
                 ProfilePicture = "girl_010.jpg"
             };
-            Student s020 = new Student
+            s020 = new Student
             {
                 LastName = "Косенко",
                 FirstName = "Поліна",
@@ -221,7 +356,7 @@ namespace sms.Data
                 Gender = "Жіноча",
                 ProfilePicture = "girl_011.jpg"
             };
-            Student s021 = new Student
+            s021 = new Student
             {
                 LastName = "Кривошапка",
                 FirstName = "Іван",
@@ -231,7 +366,7 @@ namespace sms.Data
                 Gender = "Чоловіча",
                 ProfilePicture = "boy_010.jpg"
             };
-            Student s022 = new Student
+            s022 = new Student
             {
                 LastName = "Мартиновський",
                 FirstName = "Глєб",
@@ -241,7 +376,7 @@ namespace sms.Data
                 Gender = "Чоловіча",
                 ProfilePicture = "boy_011.jpg"
             };
-            Student s023 = new Student
+            s023 = new Student
             {
                 LastName = "Марчук",
                 FirstName = "Євгенія",
@@ -251,7 +386,7 @@ namespace sms.Data
                 Gender = "Жіноча",
                 ProfilePicture = "girl_012.jpg"
             };
-            Student s024 = new Student
+            s024 = new Student
             {
                 LastName = "Маслюченко",
                 FirstName = "Іван",
@@ -263,7 +398,7 @@ namespace sms.Data
             };
             #endregion
             #region 3-А
-            Student s025 = new Student
+            s025 = new Student
             {
                 LastName = "Мельникова",
                 FirstName = "Аліса",
@@ -273,7 +408,7 @@ namespace sms.Data
                 Gender = "Жіноча",
                 ProfilePicture = "girl_013.jpg"
             };
-            Student s026 = new Student
+            s026 = new Student
             {
                 LastName = "Петруша",
                 FirstName = "Іван",
@@ -283,7 +418,7 @@ namespace sms.Data
                 Gender = "Чоловіча",
                 ProfilePicture = "boy_013.jpg"
             };
-            Student s027 = new Student
+            s027 = new Student
             {
                 LastName = "Сарикобак",
                 FirstName = "Самір",
@@ -293,7 +428,7 @@ namespace sms.Data
                 Gender = "Чоловіча",
                 ProfilePicture = "boy_014.jpg"
             };
-            Student s028 = new Student
+            s028 = new Student
             {
                 LastName = "Тимченко",
                 FirstName = "Ярослав",
@@ -303,7 +438,7 @@ namespace sms.Data
                 Gender = "Чоловіча",
                 ProfilePicture = "boy_015.jpg"
             };
-            Student s029 = new Student
+            s029 = new Student
             {
                 LastName = "Фощан",
                 FirstName = "Даяна",
@@ -313,7 +448,7 @@ namespace sms.Data
                 Gender = "Жіноча",
                 ProfilePicture = "girl_014.jpg"
             };
-            Student s030 = new Student
+            s030 = new Student
             {
                 LastName = "Шевчук",
                 FirstName = "Олександра",
@@ -325,7 +460,7 @@ namespace sms.Data
             };
             #endregion
             #region 3-Б
-            Student s031 = new Student
+            s031 = new Student
             {
                 LastName = "Байбара",
                 FirstName = "Лука",
@@ -335,7 +470,7 @@ namespace sms.Data
                 Gender = "Чоловіча",
                 ProfilePicture = "boy_016.jpg"
             };
-            Student s032 = new Student
+            s032 = new Student
             {
                 LastName = "Білан",
                 FirstName = "Катерина",
@@ -345,7 +480,7 @@ namespace sms.Data
                 Gender = "Жіноча",
                 ProfilePicture = "girl_016.jpg"
             };
-            Student s033 = new Student
+            s033 = new Student
             {
                 LastName = "Гарус",
                 FirstName = "Данило",
@@ -355,7 +490,7 @@ namespace sms.Data
                 Gender = "Чоловіча",
                 ProfilePicture = "boy_017.jpg"
             };
-            Student s034 = new Student
+            s034 = new Student
             {
                 LastName = "Городовицький",
                 FirstName = "Михайло",
@@ -365,7 +500,7 @@ namespace sms.Data
                 Gender = "Чоловіча",
                 ProfilePicture = "boy_018.jpg"
             };
-            Student s035 = new Student
+            s035 = new Student
             {
                 LastName = "Дацька",
                 FirstName = "Вікторія",
@@ -375,7 +510,7 @@ namespace sms.Data
                 Gender = "Жіноча",
                 ProfilePicture = "girl_017.jpg"
             };
-            Student s036 = new Student
+            s036 = new Student
             {
                 LastName = "Жугін",
                 FirstName = "Ілля",
@@ -387,7 +522,7 @@ namespace sms.Data
             };
             #endregion
             #region 4-А
-            Student s037 = new Student
+            s037 = new Student
             {
                 LastName = "Іванова",
                 FirstName = "Аліна",
@@ -397,7 +532,7 @@ namespace sms.Data
                 Gender = "Жіноча",
                 ProfilePicture = "girl_018.jpg"
             };
-            Student s038 = new Student
+            s038 = new Student
             {
                 LastName = "Ільницька",
                 FirstName = "Дар'я",
@@ -407,7 +542,7 @@ namespace sms.Data
                 Gender = "Жіноча",
                 ProfilePicture = "girl_019.jpg"
             };
-            Student s039 = new Student
+            s039 = new Student
             {
                 LastName = "Кас'ян",
                 FirstName = "Ілля",
@@ -417,7 +552,7 @@ namespace sms.Data
                 Gender = "Чоловіча",
                 ProfilePicture = "boy_020.jpg"
             };
-            Student s040 = new Student
+            s040 = new Student
             {
                 LastName = "Козлова",
                 FirstName = "Злата",
@@ -427,7 +562,7 @@ namespace sms.Data
                 Gender = "Жіноча",
                 ProfilePicture = "girl_020.jpg"
             };
-            Student s041 = new Student
+            s041 = new Student
             {
                 LastName = "Колотущенко",
                 FirstName = "Дмитро",
@@ -437,7 +572,7 @@ namespace sms.Data
                 Gender = "Чоловіча",
                 ProfilePicture = "boy_021.jpg"
             };
-            Student s042 = new Student
+            s042 = new Student
             {
                 LastName = "Ковальчук",
                 FirstName = "Богдан",
@@ -449,7 +584,7 @@ namespace sms.Data
             };
             #endregion
             #region 4-Б
-            Student s043 = new Student
+            s043 = new Student
             {
                 LastName = "Кошиченко",
                 FirstName = "Ярослав",
@@ -459,7 +594,7 @@ namespace sms.Data
                 Gender = "Чоловіча",
                 ProfilePicture = "boy_023.jpg"
             };
-            Student s044 = new Student
+            s044 = new Student
             {
                 LastName = "Кравцов",
                 FirstName = "Данило",
@@ -469,7 +604,7 @@ namespace sms.Data
                 Gender = "Чоловіча",
                 ProfilePicture = "boy_024.jpg"
             };
-            Student s045 = new Student
+            s045 = new Student
             {
                 LastName = "Крупицький",
                 FirstName = "Олександр",
@@ -479,7 +614,7 @@ namespace sms.Data
                 Gender = "Чоловіча",
                 ProfilePicture = "boy_025.jpg"
             };
-            Student s046 = new Student
+            s046 = new Student
             {
                 LastName = "Кученко",
                 FirstName = "Данило",
@@ -489,7 +624,7 @@ namespace sms.Data
                 Gender = "Чоловіча",
                 ProfilePicture = "boy_026.jpg"
             };
-            Student s047 = new Student
+            s047 = new Student
             {
                 LastName = "Башленко",
                 FirstName = "Данило",
@@ -499,7 +634,7 @@ namespace sms.Data
                 Gender = "Чоловіча",
                 ProfilePicture = "boy_027.jpg"
             };
-            Student s048 = new Student
+            s048 = new Student
             {
                 LastName = "Бездітний",
                 FirstName = "Назар",
@@ -511,7 +646,7 @@ namespace sms.Data
             };
             #endregion
             #region 5-А
-            Student s049 = new Student
+            s049 = new Student
             {
                 LastName = "Белінська",
                 FirstName = "Аріна",
@@ -521,7 +656,7 @@ namespace sms.Data
                 Gender = "Жіноча",
                 ProfilePicture = "girl_021.jpg"
             };
-            Student s050 = new Student
+            s050 = new Student
             {
                 LastName = "Бурковська",
                 FirstName = "Аліна",
@@ -531,7 +666,7 @@ namespace sms.Data
                 Gender = "Жіноча",
                 ProfilePicture = "girl_022.jpg"
             };
-            Student s051 = new Student
+            s051 = new Student
             {
                 LastName = "Волошин",
                 FirstName = "Іван",
@@ -541,7 +676,7 @@ namespace sms.Data
                 Gender = "Чоловіча",
                 ProfilePicture = "boy_029.jpg"
             };
-            Student s052 = new Student
+            s052 = new Student
             {
                 LastName = "Ворощук",
                 FirstName = "Анастасія",
@@ -551,7 +686,7 @@ namespace sms.Data
                 Gender = "Жіноча",
                 ProfilePicture = "girl_023.jpg"
             };
-            Student s053 = new Student
+            s053 = new Student
             {
                 LastName = "Гузій",
                 FirstName = "Владеліна",
@@ -561,7 +696,7 @@ namespace sms.Data
                 Gender = "Жіноча",
                 ProfilePicture = "girl_024.jpg"
             };
-            Student s054 = new Student
+            s054 = new Student
             {
                 LastName = "Друзь",
                 FirstName = "Анастасія",
@@ -573,7 +708,7 @@ namespace sms.Data
             };
             #endregion
             #region 5-Б
-            Student s055 = new Student
+            s055 = new Student
             {
                 LastName = "Єгоров",
                 FirstName = "Євген",
@@ -583,7 +718,7 @@ namespace sms.Data
                 Gender = "Чоловіча",
                 ProfilePicture = "boy_030.jpg"
             };
-            Student s056 = new Student
+            s056 = new Student
             {
                 LastName = "Замирайло",
                 FirstName = "Марк",
@@ -593,7 +728,7 @@ namespace sms.Data
                 Gender = "Чоловіча",
                 ProfilePicture = "boy_031.jpg"
             };
-            Student s057 = new Student
+            s057 = new Student
             {
                 LastName = "Карпець",
                 FirstName = "Дем'ян",
@@ -603,7 +738,7 @@ namespace sms.Data
                 Gender = "Чоловіча",
                 ProfilePicture = "boy_032.jpg"
             };
-            Student s058 = new Student
+            s058 = new Student
             {
                 LastName = "Качапут",
                 FirstName = "Дарина",
@@ -613,7 +748,7 @@ namespace sms.Data
                 Gender = "Жіноча",
                 ProfilePicture = "girl_026.jpg"
             };
-            Student s059 = new Student
+            s059 = new Student
             {
                 LastName = "Махмудова",
                 FirstName = "Ельвіра",
@@ -623,7 +758,7 @@ namespace sms.Data
                 Gender = "Жіноча",
                 ProfilePicture = "girl_027.jpg"
             };
-            Student s060 = new Student
+            s060 = new Student
             {
                 LastName = "Мітрощенко",
                 FirstName = "Олександра",
@@ -635,7 +770,7 @@ namespace sms.Data
             };
             #endregion
             #region 6-А
-            Student s061 = new Student
+            s061 = new Student
             {
                 LastName = "Мозоль",
                 FirstName = "Максим",
@@ -645,7 +780,7 @@ namespace sms.Data
                 Gender = "Чоловіча",
                 ProfilePicture = "boy_033.jpg"
             };
-            Student s062 = new Student
+            s062 = new Student
             {
                 LastName = "Наконечний",
                 FirstName = "Олександр",
@@ -655,7 +790,7 @@ namespace sms.Data
                 Gender = "Чоловіча",
                 ProfilePicture = "boy_034.jpg"
             };
-            Student s063 = new Student
+            s063 = new Student
             {
                 LastName = "Лянга",
                 FirstName = "Вадим",
@@ -665,7 +800,7 @@ namespace sms.Data
                 Gender = "Чоловіча",
                 ProfilePicture = "boy_035.jpg"
             };
-            Student s064 = new Student
+            s064 = new Student
             {
                 LastName = "Ляхіна",
                 FirstName = "Маргарита",
@@ -675,7 +810,7 @@ namespace sms.Data
                 Gender = "Жіноча",
                 ProfilePicture = "girl_029.jpg"
             };
-            Student s065 = new Student
+            s065 = new Student
             {
                 LastName = "Наталій",
                 FirstName = "Милан",
@@ -685,7 +820,7 @@ namespace sms.Data
                 Gender = "Чоловіча",
                 ProfilePicture = "boy_036.jpg"
             };
-            Student s066 = new Student
+            s066 = new Student
             {
                 LastName = "Поканевич",
                 FirstName = "Олексій",
@@ -697,7 +832,7 @@ namespace sms.Data
             };
             #endregion
             #region 6-Б
-            Student s067 = new Student
+            s067 = new Student
             {
                 LastName = "Рукавчук",
                 FirstName = "Надія",
@@ -707,7 +842,7 @@ namespace sms.Data
                 Gender = "Жіноча",
                 ProfilePicture = "girl_030.jpg"
             };
-            Student s068 = new Student
+            s068 = new Student
             {
                 LastName = "Свинченко",
                 FirstName = "Катерина",
@@ -717,7 +852,7 @@ namespace sms.Data
                 Gender = "Жіноча",
                 ProfilePicture = "girl_031.jpg"
             };
-            Student s069 = new Student
+            s069 = new Student
             {
                 LastName = "Сегеда",
                 FirstName = "Ксенія",
@@ -727,7 +862,7 @@ namespace sms.Data
                 Gender = "Жіноча",
                 ProfilePicture = "girl_032.jpg"
             };
-            Student s070 = new Student
+            s070 = new Student
             {
                 LastName = "Семенюта",
                 FirstName = "Михайло",
@@ -737,7 +872,7 @@ namespace sms.Data
                 Gender = "Чоловіча",
                 ProfilePicture = "boy_038.jpg"
             };
-            Student s071 = new Student
+            s071 = new Student
             {
                 LastName = "Скрипников",
                 FirstName = "Платон",
@@ -747,7 +882,7 @@ namespace sms.Data
                 Gender = "Чоловіча",
                 ProfilePicture = "boy_039.jpg"
             };
-            Student s072 = new Student
+            s072 = new Student
             {
                 LastName = "Тіщенко",
                 FirstName = "Таїсія",
@@ -759,7 +894,7 @@ namespace sms.Data
             };
             #endregion
             #region 7-А
-            Student s073 = new Student
+            s073 = new Student
             {
                 LastName = "Трофименко",
                 FirstName = "Кіра",
@@ -769,7 +904,7 @@ namespace sms.Data
                 Gender = "Жіноча",
                 ProfilePicture = "girl_034.jpg"
             };
-            Student s074 = new Student
+            s074 = new Student
             {
                 LastName = "Фещенко",
                 FirstName = "Анастасія",
@@ -779,7 +914,7 @@ namespace sms.Data
                 Gender = "Жіноча",
                 ProfilePicture = "girl_035.jpg"
             };
-            Student s075 = new Student
+            s075 = new Student
             {
                 LastName = "Хамід",
                 FirstName = "Рустам",
@@ -789,7 +924,7 @@ namespace sms.Data
                 Gender = "Чоловіча",
                 ProfilePicture = "boy_040.jpg"
             };
-            Student s076 = new Student
+            s076 = new Student
             {
                 LastName = "Харсіка",
                 FirstName = "Марія",
@@ -799,7 +934,7 @@ namespace sms.Data
                 Gender = "Жіноча",
                 ProfilePicture = "girl_036.jpg"
             };
-            Student s077 = new Student
+            s077 = new Student
             {
                 LastName = "Цесаренко",
                 FirstName = "Дар'я",
@@ -809,7 +944,7 @@ namespace sms.Data
                 Gender = "Жіноча",
                 ProfilePicture = "girl_037.jpg"
             };
-            Student s078 = new Student
+            s078 = new Student
             {
                 LastName = "Лойко",
                 FirstName = "Олександр",
@@ -821,7 +956,7 @@ namespace sms.Data
             };
             #endregion
             #region 7-Б
-            Student s079 = new Student
+            s079 = new Student
             {
                 LastName = "Медвідь",
                 FirstName = "Олександр",
@@ -831,7 +966,7 @@ namespace sms.Data
                 Gender = "Чоловіча",
                 ProfilePicture = "boy_042.jpg"
             };
-            Student s080 = new Student
+            s080 = new Student
             {
                 LastName = "Миронюк",
                 FirstName = "Гліб",
@@ -841,7 +976,7 @@ namespace sms.Data
                 Gender = "Чоловіча",
                 ProfilePicture = "boy_043.jpg"
             };
-            Student s081 = new Student
+            s081 = new Student
             {
                 LastName = "Нещерет",
                 FirstName = "Ілля",
@@ -851,7 +986,7 @@ namespace sms.Data
                 Gender = "Чоловіча",
                 ProfilePicture = "boy_044.jpg"
             };
-            Student s082 = new Student
+            s082 = new Student
             {
                 LastName = "Роєнко",
                 FirstName = "Олександр",
@@ -861,7 +996,7 @@ namespace sms.Data
                 Gender = "Чоловіча",
                 ProfilePicture = "boy_045.jpg"
             };
-            Student s083 = new Student
+            s083 = new Student
             {
                 LastName = "Свинченко",
                 FirstName = "Анастасія",
@@ -871,7 +1006,7 @@ namespace sms.Data
                 Gender = "Жіноча",
                 ProfilePicture = "girl_038.jpg"
             };
-            Student s084 = new Student
+            s084 = new Student
             {
                 LastName = "Святовець",
                 FirstName = "Катерина",
@@ -883,7 +1018,7 @@ namespace sms.Data
             };
             #endregion
             #region 8-А
-            Student s085 = new Student
+            s085 = new Student
             {
                 LastName = "Сісєва",
                 FirstName = "Софія",
@@ -893,7 +1028,7 @@ namespace sms.Data
                 Gender = "Жіноча",
                 ProfilePicture = "girl_040.jpg"
             };
-            Student s086 = new Student
+            s086 = new Student
             {
                 LastName = "Смілянець",
                 FirstName = "Платон",
@@ -903,7 +1038,7 @@ namespace sms.Data
                 Gender = "Чоловіча",
                 ProfilePicture = "boy_046.jpg"
             };
-            Student s087 = new Student
+            s087 = new Student
             {
                 LastName = "Соловйова",
                 FirstName = "Поліна",
@@ -913,7 +1048,7 @@ namespace sms.Data
                 Gender = "Жіноча",
                 ProfilePicture = "girl_041.jpg"
             };
-            Student s088 = new Student
+            s088 = new Student
             {
                 LastName = "Тарасова",
                 FirstName = "Софія",
@@ -923,7 +1058,7 @@ namespace sms.Data
                 Gender = "Жіноча",
                 ProfilePicture = "girl_042.jpg"
             };
-            Student s089 = new Student
+            s089 = new Student
             {
                 LastName = "Хурцідзе",
                 FirstName = "Ліа",
@@ -933,7 +1068,7 @@ namespace sms.Data
                 Gender = "Жіноча",
                 ProfilePicture = "girl_043.jpg"
             };
-            Student s090 = new Student
+            s090 = new Student
             {
                 LastName = "Шарай",
                 FirstName = "Матвій",
@@ -945,7 +1080,7 @@ namespace sms.Data
             };
             #endregion
             #region 8-Б
-            Student s091 = new Student
+            s091 = new Student
             {
                 LastName = "Андронік",
                 FirstName = "Юнія",
@@ -955,7 +1090,7 @@ namespace sms.Data
                 Gender = "Жіноча",
                 ProfilePicture = "girl_044.jpg"
             };
-            Student s092 = new Student
+            s092 = new Student
             {
                 LastName = "Арендар",
                 FirstName = "Іван",
@@ -965,7 +1100,7 @@ namespace sms.Data
                 Gender = "Чоловіча",
                 ProfilePicture = "boy_048.jpg"
             };
-            Student s093 = new Student
+            s093 = new Student
             {
                 LastName = "Бистра",
                 FirstName = "Анастасія",
@@ -975,7 +1110,7 @@ namespace sms.Data
                 Gender = "Жіноча",
                 ProfilePicture = "girl_045.jpg"
             };
-            Student s094 = new Student
+            s094 = new Student
             {
                 LastName = "Бондаренко",
                 FirstName = "Олександра",
@@ -985,7 +1120,7 @@ namespace sms.Data
                 Gender = "Чоловіча",
                 ProfilePicture = "boy_049.jpg"
             };
-            Student s095 = new Student
+            s095 = new Student
             {
                 LastName = "Бойко",
                 FirstName = "Тимур",
@@ -995,7 +1130,7 @@ namespace sms.Data
                 Gender = "Чоловіча",
                 ProfilePicture = "boy_050.jpg"
             };
-            Student s096 = new Student
+            s096 = new Student
             {
                 LastName = "Глізнуца",
                 FirstName = "Даніл",
@@ -1007,7 +1142,7 @@ namespace sms.Data
             };
             #endregion
             #region 9-А
-            Student s097 = new Student
+            s097 = new Student
             {
                 LastName = "Гончаренко",
                 FirstName = "Дар'я",
@@ -1017,7 +1152,7 @@ namespace sms.Data
                 Gender = "Жіноча",
                 ProfilePicture = "girl_046.jpg"
             };
-            Student s098 = new Student
+            s098 = new Student
             {
                 LastName = "Громак",
                 FirstName = "Владислав",
@@ -1027,7 +1162,7 @@ namespace sms.Data
                 Gender = "Чоловіча",
                 ProfilePicture = "boy_052.jpg"
             };
-            Student s099 = new Student
+            s099 = new Student
             {
                 LastName = "Гуриненко",
                 FirstName = "Іван",
@@ -1037,7 +1172,7 @@ namespace sms.Data
                 Gender = "Чоловіча",
                 ProfilePicture = "boy_053.jpg"
             };
-            Student s100 = new Student
+            s100 = new Student
             {
                 LastName = "Лясовий",
                 FirstName = "Єгор",
@@ -1047,7 +1182,7 @@ namespace sms.Data
                 Gender = "Чоловіча",
                 ProfilePicture = "boy_054.jpg"
             };
-            Student s101 = new Student
+            s101 = new Student
             {
                 LastName = "Маланяк",
                 FirstName = "Вікторія",
@@ -1057,7 +1192,7 @@ namespace sms.Data
                 Gender = "Жіноча",
                 ProfilePicture = "girl_047.jpg"
             };
-            Student s102 = new Student
+            s102 = new Student
             {
                 LastName = "Момонт",
                 FirstName = "Артур",
@@ -1069,7 +1204,7 @@ namespace sms.Data
             };
             #endregion
             #region 9-Б
-            Student s103 = new Student
+            s103 = new Student
             {
                 LastName = "Мирончук",
                 FirstName = "Уляна",
@@ -1079,7 +1214,7 @@ namespace sms.Data
                 Gender = "Жіноча",
                 ProfilePicture = "girl_048.jpg"
             };
-            Student s104 = new Student
+            s104 = new Student
             {
                 LastName = "Плюта",
                 FirstName = "Марк",
@@ -1089,7 +1224,7 @@ namespace sms.Data
                 Gender = "Чоловіча",
                 ProfilePicture = "boy_056.jpg"
             };
-            Student s105 = new Student
+            s105 = new Student
             {
                 LastName = "Трухін",
                 FirstName = "Артем",
@@ -1099,7 +1234,7 @@ namespace sms.Data
                 Gender = "Чоловіча",
                 ProfilePicture = "boy_057.jpg"
             };
-            Student s106 = new Student
+            s106 = new Student
             {
                 LastName = "Тертична",
                 FirstName = "Анна",
@@ -1109,7 +1244,7 @@ namespace sms.Data
                 Gender = "Жіноча",
                 ProfilePicture = "girl_049.jpg"
             };
-            Student s107 = new Student
+            s107 = new Student
             {
                 LastName = "Степанчук",
                 FirstName = "Матвій",
@@ -1119,7 +1254,7 @@ namespace sms.Data
                 Gender = "Чоловіча",
                 ProfilePicture = "boy_058.jpg"
             };
-            Student s108 = new Student
+            s108 = new Student
             {
                 LastName = "Яковенко",
                 FirstName = "Євгеній",
@@ -1131,7 +1266,7 @@ namespace sms.Data
             };
             #endregion
             #region 10-А
-            Student s109 = new Student
+            s109 = new Student
             {
                 LastName = "Янковський",
                 FirstName = "Денис",
@@ -1141,7 +1276,7 @@ namespace sms.Data
                 Gender = "Чоловіча",
                 ProfilePicture = "boy_060.jpg"
             };
-            Student s110 = new Student
+            s110 = new Student
             {
                 LastName = "Яренко",
                 FirstName = "Марк",
@@ -1151,7 +1286,7 @@ namespace sms.Data
                 Gender = "Чоловіча",
                 ProfilePicture = "boy_061.jpg"
             };
-            Student s111 = new Student
+            s111 = new Student
             {
                 LastName = "Бережнова",
                 FirstName = "Надія",
@@ -1161,7 +1296,7 @@ namespace sms.Data
                 Gender = "Жіноча",
                 ProfilePicture = "girl_050.jpg"
             };
-            Student s112 = new Student
+            s112 = new Student
             {
                 LastName = "Броницька",
                 FirstName = "Яна",
@@ -1171,7 +1306,7 @@ namespace sms.Data
                 Gender = "Жіноча",
                 ProfilePicture = "girl_051.jpg"
             };
-            Student s113 = new Student
+            s113 = new Student
             {
                 LastName = "Дзюманенко",
                 FirstName = "Юлія",
@@ -1181,7 +1316,7 @@ namespace sms.Data
                 Gender = "Жіноча",
                 ProfilePicture = "girl_052.jpg"
             };
-            Student s114 = new Student
+            s114 = new Student
             {
                 LastName = "Ільчук",
                 FirstName = "Єгор",
@@ -1193,7 +1328,7 @@ namespace sms.Data
             };
             #endregion
             #region 10-Б
-            Student s115 = new Student
+            s115 = new Student
             {
                 LastName = "Касьян",
                 FirstName = "Ірина",
@@ -1203,7 +1338,7 @@ namespace sms.Data
                 Gender = "Жіноча",
                 ProfilePicture = "girl_053.jpg"
             };
-            Student s116 = new Student
+            s116 = new Student
             {
                 LastName = "Качинський",
                 FirstName = "Валентин",
@@ -1213,7 +1348,7 @@ namespace sms.Data
                 Gender = "Чоловіча",
                 ProfilePicture = "boy_063.jpg"
             };
-            Student s117 = new Student
+            s117 = new Student
             {
                 LastName = "Клокун",
                 FirstName = "Аліна",
@@ -1223,7 +1358,7 @@ namespace sms.Data
                 Gender = "Жіноча",
                 ProfilePicture = "girl_054.jpg"
             };
-            Student s118 = new Student
+            s118 = new Student
             {
                 LastName = "Коломійцева",
                 FirstName = "Інна",
@@ -1233,7 +1368,7 @@ namespace sms.Data
                 Gender = "Жіноча",
                 ProfilePicture = "girl_055.jpg"
             };
-            Student s119 = new Student
+            s119 = new Student
             {
                 LastName = "Костюченко",
                 FirstName = "Дар'я",
@@ -1243,7 +1378,7 @@ namespace sms.Data
                 Gender = "Жіноча",
                 ProfilePicture = "girl_056.jpg"
             };
-            Student s120 = new Student
+            s120 = new Student
             {
                 LastName = "Куделя",
                 FirstName = "Арсеній",
@@ -1255,7 +1390,7 @@ namespace sms.Data
             };
             #endregion
             #region 11-А
-            Student s121 = new Student
+            s121 = new Student
             {
                 LastName = "Моголівець",
                 FirstName = "Вероніка",
@@ -1265,7 +1400,7 @@ namespace sms.Data
                 Gender = "Жіноча",
                 ProfilePicture = "girl_057.jpg"
             };
-            Student s122 = new Student
+            s122 = new Student
             {
                 LastName = "Оборська",
                 FirstName = "Поліна",
@@ -1275,7 +1410,7 @@ namespace sms.Data
                 Gender = "Жіноча",
                 ProfilePicture = "girl_058.jpg"
             };
-            Student s123 = new Student
+            s123 = new Student
             {
                 LastName = "Опанасенко",
                 FirstName = "Ірина",
@@ -1285,7 +1420,7 @@ namespace sms.Data
                 Gender = "Жіноча",
                 ProfilePicture = "girl_059.jpg"
             };
-            Student s124 = new Student
+            s124 = new Student
             {
                 LastName = "Помінчук",
                 FirstName = "Дарина",
@@ -1295,7 +1430,7 @@ namespace sms.Data
                 Gender = "Жіноча",
                 ProfilePicture = "girl_060.jpg"
             };
-            Student s125 = new Student
+            s125 = new Student
             {
                 LastName = "Чепинога",
                 FirstName = "Катерина",
@@ -1305,7 +1440,7 @@ namespace sms.Data
                 Gender = "Жіноча",
                 ProfilePicture = "girl_061.jpg"
             };
-            Student s126 = new Student
+            s126 = new Student
             {
                 LastName = "Єгорова",
                 FirstName = "Єлизавета",
@@ -1317,7 +1452,7 @@ namespace sms.Data
             };
             #endregion
             #region 11-Б
-            Student s127 = new Student
+            s127 = new Student
             {
                 LastName = "Огійко",
                 FirstName = "Катерина",
@@ -1327,7 +1462,7 @@ namespace sms.Data
                 Gender = "Жіноча",
                 ProfilePicture = "girl_063.jpg"
             };
-            Student s128 = new Student
+            s128 = new Student
             {
                 LastName = "Онищук",
                 FirstName = "Ілля",
@@ -1337,7 +1472,7 @@ namespace sms.Data
                 Gender = "Чоловіча",
                 ProfilePicture = "boy_065.jpg"
             };
-            Student s129 = new Student
+            s129 = new Student
             {
                 LastName = "Пастушенко",
                 FirstName = "Софія",
@@ -1347,7 +1482,7 @@ namespace sms.Data
                 Gender = "Жіноча",
                 ProfilePicture = "girl_064.jpg"
             };
-            Student s130 = new Student
+            s130 = new Student
             {
                 LastName = "Пишняк",
                 FirstName = "Максим",
@@ -1357,7 +1492,7 @@ namespace sms.Data
                 Gender = "Чоловіча",
                 ProfilePicture = "boy_066.jpg"
             };
-            Student s131 = new Student
+            s131 = new Student
             {
                 LastName = "Полякова",
                 FirstName = "Вікторія",
@@ -1367,7 +1502,7 @@ namespace sms.Data
                 Gender = "Жіноча",
                 ProfilePicture = "girl_065.jpg"
             };
-            Student s132 = new Student
+            s132 = new Student
             {
                 LastName = "Рибак",
                 FirstName = "Роман",
@@ -1379,6 +1514,7 @@ namespace sms.Data
             };
             #endregion
             #endregion
+            #region Add students
             data = new List<Student>();
             data.Add(s001);
             data.Add(s002);
@@ -1512,6 +1648,8 @@ namespace sms.Data
             data.Add(s130);
             data.Add(s131);
             data.Add(s132);
+
+            #endregion
         }
     }
 }

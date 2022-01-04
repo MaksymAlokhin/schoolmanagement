@@ -3,14 +3,58 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using sms.Models;
-using sms.Data;
 
 namespace sms.Data
 {
     public class SeedTeacher
     {
-        public List<Teacher> data;
         SeedSubject subjects;
+        #region Teacher declarations
+        public Teacher lisichkina;
+        public Teacher vasylieva;
+        public Teacher kurach;
+        public Teacher martynenko;
+        public Teacher boyarska;
+        public Teacher dybka;
+        public Teacher ponomarenko;
+        public Teacher synko;
+        public Teacher kholodiuk;
+        public Teacher kyrianov;
+        public Teacher shafran;
+        public Teacher bulachok;
+        public Teacher smychnikova;
+        public Teacher manko;
+        public Teacher shulga;
+        public Teacher zviahelskyi;
+        public Teacher havro;
+        public Teacher symonenko_op;
+        public Teacher kyrylusha;
+        public Teacher verbova_nv;
+        public Teacher verbova_vo;
+        public Teacher melnychuk;
+        public Teacher slavov;
+        public Teacher tverdokhlibova;
+        public Teacher shevchenko;
+        public Teacher honcharuk;
+        public Teacher moskalenko;
+        public Teacher bondarenko;
+        public Teacher vlasiuk;
+        public Teacher horlova;
+        public Teacher yeroshkina;
+        public Teacher zadorozhnia;
+        public Teacher hnots;
+        public Teacher lavrychenko;
+        public Teacher lonska;
+        public Teacher mandro;
+        public Teacher nanivska;
+        public Teacher nimchenko;
+        public Teacher plotnik;
+        public Teacher symonenko_ov;
+        public Teacher sovenko;
+        public Teacher sulyma;
+
+        #endregion
+        public List<Teacher> data;
         public SeedTeacher(SeedSubject _subjects)
         {
             subjects = _subjects;
@@ -18,8 +62,8 @@ namespace sms.Data
         }
         void CreateTeachers()
         {
-            #region Create Teachers
-            Teacher lisichkina = new Teacher
+            #region Create teachers
+            lisichkina = new Teacher
             {
                 LastName = "Лісічкіна",
                 FirstName = "Світлана",
@@ -27,11 +71,11 @@ namespace sms.Data
                 ProfilePicture = "female_001.jpg",
                 Subjects = new List<Subject>
                {
-                subjects.data.Find(f => f.Name == "Англійська мова")
+                subjects.english
                }
             };
 
-            Teacher boyarska = new Teacher
+            boyarska = new Teacher
             {
                 LastName = "Боярська",
                 FirstName = "Олена",
@@ -39,12 +83,12 @@ namespace sms.Data
                 ProfilePicture = "female_002.jpg",
                 Subjects = new List<Subject>
                {
-                subjects.data.Find(f => f.Name == "Біологія"),
-                subjects.data.Find(f => f.Name == "Природознавство")
+                subjects.biology,
+                subjects.nature
                }
             };
 
-            Teacher dybka = new Teacher
+            dybka = new Teacher
             {
                 LastName = "Дибка",
                 FirstName = "Оксана",
@@ -52,12 +96,12 @@ namespace sms.Data
                 ProfilePicture = "female_003.jpg",
                 Subjects = new List<Subject>
             {
-                subjects.data.Find(f => f.Name == "Біологія"),
-                subjects.data.Find(f => f.Name == "Природознавство")
+                subjects.biology,
+                subjects.nature
                }
             };
 
-            Teacher ponomarenko = new Teacher
+            ponomarenko = new Teacher
             {
                 LastName = "Пономаренко",
                 FirstName = "Ольга",
@@ -65,10 +109,10 @@ namespace sms.Data
                 ProfilePicture = "female_004.jpg",
                 Subjects = new List<Subject>
                {
-                   subjects.data.Find(f => f.Name == "Географія")
+                   subjects.geography
                }
             };
-            Teacher shevchenko = new Teacher
+            shevchenko = new Teacher
             {
                 LastName = "Шевченко",
                 FirstName = "Раїса",
@@ -76,10 +120,10 @@ namespace sms.Data
                 ProfilePicture = "female_005.jpg",
                 Subjects = new List<Subject>
                {
-                   subjects.data.Find(f => f.Name == "Хімія")
+                   subjects.chemistry
                }
             };
-            Teacher honcharuk = new Teacher
+            honcharuk = new Teacher
             {
                 LastName = "Гончарук",
                 FirstName = "Андрій",
@@ -87,10 +131,10 @@ namespace sms.Data
                 ProfilePicture = "male_001.jpg",
                 Subjects = new List<Subject>
                {
-                   subjects.data.Find(f => f.Name == "Труд. навч. / Технол.")
+                   subjects.crafts
                }
             };
-            Teacher moskalenko = new Teacher
+            moskalenko = new Teacher
             {
                 LastName = "Москаленко",
                 FirstName = "Наталія",
@@ -98,10 +142,10 @@ namespace sms.Data
                 ProfilePicture = "female_006.jpg",
                 Subjects = new List<Subject>
                {
-                   subjects.data.Find(f => f.Name == "Основи здоров'я")
+                   subjects.health
                }
             };
-            Teacher bulachok = new Teacher
+            bulachok = new Teacher
             {
                 LastName = "Булачок",
                 FirstName = "Віта",
@@ -109,14 +153,14 @@ namespace sms.Data
                 ProfilePicture = "female_007.jpg",
                 Subjects = new List<Subject>
                {
-                   subjects.data.Find(f => f.Name == "Історія"),
-                   subjects.data.Find(f => f.Name == "Всесвітня Історія"),
-                   subjects.data.Find(f => f.Name == "Історія України"),
-                   subjects.data.Find(f => f.Name == "Правознавство"),
-                   subjects.data.Find(f => f.Name == "Громадянська освіта")
+                   subjects.history,
+                   subjects.whistory,
+                   subjects.uhistory,
+                   subjects.jurisprudence,
+                   subjects.civileduc
                }
             };
-            Teacher smychnikova = new Teacher
+            smychnikova = new Teacher
             {
                 LastName = "Смичнікова",
                 FirstName = "Наталія",
@@ -124,13 +168,13 @@ namespace sms.Data
                 ProfilePicture = "female_008.jpg",
                 Subjects = new List<Subject>
                {
-                   subjects.data.Find(f => f.Name == "Математика"),
-                   subjects.data.Find(f => f.Name == "Алгебра"),
-                   subjects.data.Find(f => f.Name == "Геометрія")
+                   subjects.maths,
+                   subjects.algebra,
+                   subjects.geometry
 
                }
             };
-            Teacher kholodiuk = new Teacher
+            kholodiuk = new Teacher
             {
                 LastName = "Холодюк",
                 FirstName = "Тамара",
@@ -138,12 +182,12 @@ namespace sms.Data
                 ProfilePicture = "female_009.jpg",
                 Subjects = new List<Subject>
                {
-                   subjects.data.Find(f => f.Name == "Інформатика"),
-                   subjects.data.Find(f => f.Name == "Мистецтво"),
-                   subjects.data.Find(f => f.Name == "Образотворче мистецтво")
+                   subjects.it,
+                   subjects.arts,
+                   subjects.finearts
                }
             };
-            Teacher zviahelskyi = new Teacher
+            zviahelskyi = new Teacher
             {
                 LastName = "Звягельський",
                 FirstName = "Олег",
@@ -151,10 +195,10 @@ namespace sms.Data
                 ProfilePicture = "male_002.jpg",
                 Subjects = new List<Subject>
                {
-                   subjects.data.Find(f => f.Name == "Музичне мистецтво")
+                   subjects.music
                }
             };
-            Teacher verbova_vo = new Teacher
+            verbova_vo = new Teacher
             {
                 LastName = "Вербова",
                 FirstName = "Валентина",
@@ -162,11 +206,11 @@ namespace sms.Data
                 ProfilePicture = "female_010.jpg",
                 Subjects = new List<Subject>
                {
-                   subjects.data.Find(f => f.Name == "Фізика"),
-                   subjects.data.Find(f => f.Name == "Астрономія")
+                   subjects.physics,
+                   subjects.astronomy
                }
             };
-            Teacher kyrianov = new Teacher
+            kyrianov = new Teacher
             {
                 LastName = "Кир'янов",
                 FirstName = "Дмитро",
@@ -174,10 +218,10 @@ namespace sms.Data
                 ProfilePicture = "male_003.jpg",
                 Subjects = new List<Subject>
                {
-                   subjects.data.Find(f => f.Name == "Інформатика")
+                   subjects.it
                }
             };
-            Teacher manko = new Teacher
+            manko = new Teacher
             {
                 LastName = "Манько",
                 FirstName = "Наталія",
@@ -185,12 +229,12 @@ namespace sms.Data
                 ProfilePicture = "female_011.jpg",
                 Subjects = new List<Subject>
                {
-                subjects.data.Find(f => f.Name == "Математика"),
-                subjects.data.Find(f => f.Name == "Алгебра"),
-                subjects.data.Find(f => f.Name == "Геометрія")
+                subjects.maths,
+                subjects.algebra,
+                subjects.geometry
                }
             };
-            Teacher shulga = new Teacher
+            shulga = new Teacher
             {
                 LastName = "Шульга",
                 FirstName = "Ірина",
@@ -198,12 +242,12 @@ namespace sms.Data
                 ProfilePicture = "female_012.jpg",
                 Subjects = new List<Subject>
                {
-                subjects.data.Find(f => f.Name == "Математика"),
-                subjects.data.Find(f => f.Name == "Алгебра"),
-                subjects.data.Find(f => f.Name == "Геометрія")
+                subjects.maths,
+                subjects.algebra,
+                subjects.geometry
                }
             };
-            Teacher shafran = new Teacher
+            shafran = new Teacher
             {
                 LastName = "Шафран",
                 FirstName = "Світлана",
@@ -211,10 +255,10 @@ namespace sms.Data
                 ProfilePicture = "female_013.jpg",
                 Subjects = new List<Subject>
                {
-                   subjects.data.Find(f => f.Name == "Інформатика")
+                   subjects.it
                }
             };
-            Teacher vasylieva = new Teacher
+            vasylieva = new Teacher
             {
                 LastName = "Васильєва",
                 FirstName = "Лідія",
@@ -222,10 +266,10 @@ namespace sms.Data
                 ProfilePicture = "female_014.jpg",
                 Subjects = new List<Subject>
                {
-                   subjects.data.Find(f => f.Name == "Англійська мова")
+                   subjects.english
                }
             };
-            Teacher kurach = new Teacher
+            kurach = new Teacher
             {
                 LastName = "Курач",
                 FirstName = "Ольга",
@@ -233,11 +277,11 @@ namespace sms.Data
                 ProfilePicture = "female_015.jpg",
                 Subjects = new List<Subject>
                {
-                   subjects.data.Find(f => f.Name == "Англійська мова"),
-                   subjects.data.Find(f => f.Name == "Французька мова")
+                   subjects.english,
+                   subjects.french
                }
             };
-            Teacher martynenko = new Teacher
+            martynenko = new Teacher
             {
                 LastName = "Мартиненко",
                 FirstName = "Галина",
@@ -245,11 +289,11 @@ namespace sms.Data
                 ProfilePicture = "female_016.jpg",
                 Subjects = new List<Subject>
                {
-                   subjects.data.Find(f => f.Name == "Англійська мова"),
-                   subjects.data.Find(f => f.Name == "Французька мова")
+                   subjects.english,
+                   subjects.french
                }
             };
-            Teacher havro = new Teacher
+            havro = new Teacher
             {
                 LastName = "Гавро",
                 FirstName = "Галина",
@@ -257,11 +301,11 @@ namespace sms.Data
                 ProfilePicture = "female_017.jpg",
                 Subjects = new List<Subject>
                {
-                   subjects.data.Find(f => f.Name == "Українська мова"),
-                   subjects.data.Find(f => f.Name == "Українська література")
+                   subjects.ukrainian,
+                   subjects.ukrlit
                }
             };
-            Teacher symonenko_op = new Teacher
+            symonenko_op = new Teacher
             {
                 LastName = "Симоненко",
                 FirstName = "Ольга",
@@ -269,11 +313,11 @@ namespace sms.Data
                 ProfilePicture = "female_018.jpg",
                 Subjects = new List<Subject>
                {
-                   subjects.data.Find(f => f.Name == "Українська мова"),
-                   subjects.data.Find(f => f.Name == "Українська література")
+                   subjects.ukrainian,
+                   subjects.ukrlit
                }
             };
-            Teacher kyrylusha = new Teacher
+            kyrylusha = new Teacher
             {
                 LastName = "Кирилуша",
                 FirstName = "Світлана",
@@ -281,11 +325,11 @@ namespace sms.Data
                 ProfilePicture = "female_019.jpg",
                 Subjects = new List<Subject>
                {
-                   subjects.data.Find(f => f.Name == "Українська мова"),
-                   subjects.data.Find(f => f.Name == "Українська література")
+                   subjects.ukrainian,
+                   subjects.ukrlit
                }
             };
-            Teacher verbova_nv = new Teacher
+            verbova_nv = new Teacher
             {
                 LastName = "Вербова",
                 FirstName = "Наталя",
@@ -293,11 +337,11 @@ namespace sms.Data
                 ProfilePicture = "female_020.jpg",
                 Subjects = new List<Subject>
                {
-                   subjects.data.Find(f => f.Name == "Українська мова"),
-                   subjects.data.Find(f => f.Name == "Українська література")
+                   subjects.ukrainian,
+                   subjects.ukrlit
                }
             };
-            Teacher synko = new Teacher
+            synko = new Teacher
             {
                 LastName = "Синько",
                 FirstName = "Олена",
@@ -305,10 +349,10 @@ namespace sms.Data
                 ProfilePicture = "female_021.jpg",
                 Subjects = new List<Subject>
                 {
-                    subjects.data.Find(f => f.Name == "Зарубіжна література")
+                    subjects.wliterature
                 }
             };
-            Teacher melnychuk = new Teacher
+            melnychuk = new Teacher
             {
                 LastName = "Мельничук",
                 FirstName = "Євген",
@@ -316,11 +360,11 @@ namespace sms.Data
                 ProfilePicture = "male_004.jpg",
                 Subjects = new List<Subject>
                {
-                   subjects.data.Find(f => f.Name == "Фізична культура"),
-                   subjects.data.Find(f => f.Name == "Захист України")
+                   subjects.pt,
+                   subjects.civildef
                }
             };
-            Teacher slavov = new Teacher
+            slavov = new Teacher
             {
                 LastName = "Славов",
                 FirstName = "Володимир",
@@ -328,11 +372,11 @@ namespace sms.Data
                 ProfilePicture = "male_005.jpg",
                 Subjects = new List<Subject>
                {
-                   subjects.data.Find(f => f.Name == "Фізична культура"),
-                   subjects.data.Find(f => f.Name == "Захист України")
+                   subjects.pt,
+                   subjects.civildef
                }
             };
-            Teacher tverdokhlibova = new Teacher
+            tverdokhlibova = new Teacher
             {
                 LastName = "Твердохлібова",
                 FirstName = "Тетяна",
@@ -340,11 +384,11 @@ namespace sms.Data
                 ProfilePicture = "female_022.jpg",
                 Subjects = new List<Subject>
                {
-                   subjects.data.Find(f => f.Name == "Фізична культура"),
-                   subjects.data.Find(f => f.Name == "Захист України")
+                   subjects.pt,
+                   subjects.civildef
                }
             };
-            Teacher bondarenko = new Teacher
+            bondarenko = new Teacher
             {
                 LastName = "Бондаренко",
                 FirstName = "Тетяна",
@@ -352,23 +396,23 @@ namespace sms.Data
                 ProfilePicture = "female_023.jpg",
                 Subjects = new List<Subject>
                {
-                   subjects.data.Find(f => f.Name == "Дизайн і технології"),
-                   subjects.data.Find(f => f.Name == "Індивідуальні заняття"),
-                   subjects.data.Find(f => f.Name == "Літературне читання"),
-                   subjects.data.Find(f => f.Name == "Математика (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Навчання грамоти"),
-                   subjects.data.Find(f => f.Name == "Образотворче мистецтво (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Основи здоров'я (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Письмо"),
-                   subjects.data.Find(f => f.Name == "Природознавство (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Трудове навчання (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Українська мова (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Я досліджую світ"),
-                   subjects.data.Find(f => f.Name == "Я у світі"),
-                   subjects.data.Find(f => f.Name == "Читання")
+                   subjects.design,
+                   subjects.individual,
+                   subjects.litreading,
+                   subjects.maths_primary,
+                   subjects.literacy,
+                   subjects.finearts_primary,
+                   subjects.health_primary,
+                   subjects.writing,
+                   subjects.nature_primary,
+                   subjects.crafts_primary,
+                   subjects.ukrainian_primary,
+                   subjects.iexplore,
+                   subjects.iandworld,
+                   subjects.reading
                }
             };
-            Teacher vlasiuk = new Teacher
+            vlasiuk = new Teacher
             {
                 LastName = "Власюк",
                 FirstName = "Таліна",
@@ -376,23 +420,23 @@ namespace sms.Data
                 ProfilePicture = "female_024.jpg",
                 Subjects = new List<Subject>
                {
-                   subjects.data.Find(f => f.Name == "Дизайн і технології"),
-                   subjects.data.Find(f => f.Name == "Індивідуальні заняття"),
-                   subjects.data.Find(f => f.Name == "Літературне читання"),
-                   subjects.data.Find(f => f.Name == "Математика (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Навчання грамоти"),
-                   subjects.data.Find(f => f.Name == "Образотворче мистецтво (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Основи здоров'я (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Письмо"),
-                   subjects.data.Find(f => f.Name == "Природознавство (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Трудове навчання (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Українська мова (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Я досліджую світ"),
-                   subjects.data.Find(f => f.Name == "Я у світі"),
-                   subjects.data.Find(f => f.Name == "Читання")
-                }
+                   subjects.design,
+                   subjects.individual,
+                   subjects.litreading,
+                   subjects.maths_primary,
+                   subjects.literacy,
+                   subjects.finearts_primary,
+                   subjects.health_primary,
+                   subjects.writing,
+                   subjects.nature_primary,
+                   subjects.crafts_primary,
+                   subjects.ukrainian_primary,
+                   subjects.iexplore,
+                   subjects.iandworld,
+                   subjects.reading
+            }
             };
-            Teacher horlova = new Teacher
+            horlova = new Teacher
             {
                 LastName = "Горлова",
                 FirstName = "Ірина",
@@ -400,23 +444,23 @@ namespace sms.Data
                 ProfilePicture = "female_025.jpg",
                 Subjects = new List<Subject>
                {
-                   subjects.data.Find(f => f.Name == "Дизайн і технології"),
-                   subjects.data.Find(f => f.Name == "Індивідуальні заняття"),
-                   subjects.data.Find(f => f.Name == "Літературне читання"),
-                   subjects.data.Find(f => f.Name == "Математика (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Навчання грамоти"),
-                   subjects.data.Find(f => f.Name == "Образотворче мистецтво (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Основи здоров'я (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Письмо"),
-                   subjects.data.Find(f => f.Name == "Природознавство (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Трудове навчання (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Українська мова (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Я досліджую світ"),
-                   subjects.data.Find(f => f.Name == "Я у світі"),
-                   subjects.data.Find(f => f.Name == "Читання")
-                }
+                   subjects.design,
+                   subjects.individual,
+                   subjects.litreading,
+                   subjects.maths_primary,
+                   subjects.literacy,
+                   subjects.finearts_primary,
+                   subjects.health_primary,
+                   subjects.writing,
+                   subjects.nature_primary,
+                   subjects.crafts_primary,
+                   subjects.ukrainian_primary,
+                   subjects.iexplore,
+                   subjects.iandworld,
+                   subjects.reading
+            }
             };
-            Teacher yeroshkina = new Teacher
+            yeroshkina = new Teacher
             {
                 LastName = "Єрошкіна",
                 FirstName = "Любов",
@@ -424,23 +468,23 @@ namespace sms.Data
                 ProfilePicture = "female_026.jpg",
                 Subjects = new List<Subject>
                {
-                   subjects.data.Find(f => f.Name == "Дизайн і технології"),
-                   subjects.data.Find(f => f.Name == "Індивідуальні заняття"),
-                   subjects.data.Find(f => f.Name == "Літературне читання"),
-                   subjects.data.Find(f => f.Name == "Математика (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Навчання грамоти"),
-                   subjects.data.Find(f => f.Name == "Образотворче мистецтво (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Основи здоров'я (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Письмо"),
-                   subjects.data.Find(f => f.Name == "Природознавство (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Трудове навчання (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Українська мова (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Я досліджую світ"),
-                   subjects.data.Find(f => f.Name == "Я у світі"),
-                   subjects.data.Find(f => f.Name == "Читання")
-                }
+                   subjects.design,
+                   subjects.individual,
+                   subjects.litreading,
+                   subjects.maths_primary,
+                   subjects.literacy,
+                   subjects.finearts_primary,
+                   subjects.health_primary,
+                   subjects.writing,
+                   subjects.nature_primary,
+                   subjects.crafts_primary,
+                   subjects.ukrainian_primary,
+                   subjects.iexplore,
+                   subjects.iandworld,
+                   subjects.reading
+            }
             };
-            Teacher zadorozhnia = new Teacher
+            zadorozhnia = new Teacher
             {
                 LastName = "Задорожня",
                 FirstName = "Наталія",
@@ -448,23 +492,23 @@ namespace sms.Data
                 ProfilePicture = "female_027.jpg",
                 Subjects = new List<Subject>
                {
-                   subjects.data.Find(f => f.Name == "Дизайн і технології"),
-                   subjects.data.Find(f => f.Name == "Індивідуальні заняття"),
-                   subjects.data.Find(f => f.Name == "Літературне читання"),
-                   subjects.data.Find(f => f.Name == "Математика (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Навчання грамоти"),
-                   subjects.data.Find(f => f.Name == "Образотворче мистецтво (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Основи здоров'я (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Письмо"),
-                   subjects.data.Find(f => f.Name == "Природознавство (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Трудове навчання (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Українська мова (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Я досліджую світ"),
-                   subjects.data.Find(f => f.Name == "Я у світі"),
-                   subjects.data.Find(f => f.Name == "Читання")
-                }
+                   subjects.design,
+                   subjects.individual,
+                   subjects.litreading,
+                   subjects.maths_primary,
+                   subjects.literacy,
+                   subjects.finearts_primary,
+                   subjects.health_primary,
+                   subjects.writing,
+                   subjects.nature_primary,
+                   subjects.crafts_primary,
+                   subjects.ukrainian_primary,
+                   subjects.iexplore,
+                   subjects.iandworld,
+                   subjects.reading
+            }
             };
-            Teacher hnots = new Teacher
+            hnots = new Teacher
             {
                 LastName = "Гноць",
                 FirstName = "Марія",
@@ -472,23 +516,23 @@ namespace sms.Data
                 ProfilePicture = "female_028.jpg",
                 Subjects = new List<Subject>
                {
-                   subjects.data.Find(f => f.Name == "Дизайн і технології"),
-                   subjects.data.Find(f => f.Name == "Індивідуальні заняття"),
-                   subjects.data.Find(f => f.Name == "Літературне читання"),
-                   subjects.data.Find(f => f.Name == "Математика (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Навчання грамоти"),
-                   subjects.data.Find(f => f.Name == "Образотворче мистецтво (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Основи здоров'я (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Письмо"),
-                   subjects.data.Find(f => f.Name == "Природознавство (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Трудове навчання (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Українська мова (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Я досліджую світ"),
-                   subjects.data.Find(f => f.Name == "Я у світі"),
-                   subjects.data.Find(f => f.Name == "Читання")
-                }
+                   subjects.design,
+                   subjects.individual,
+                   subjects.litreading,
+                   subjects.maths_primary,
+                   subjects.literacy,
+                   subjects.finearts_primary,
+                   subjects.health_primary,
+                   subjects.writing,
+                   subjects.nature_primary,
+                   subjects.crafts_primary,
+                   subjects.ukrainian_primary,
+                   subjects.iexplore,
+                   subjects.iandworld,
+                   subjects.reading
+            }
             };
-            Teacher lavrychenko = new Teacher
+            lavrychenko = new Teacher
             {
                 LastName = "Лавриченко",
                 FirstName = "Олена",
@@ -496,23 +540,23 @@ namespace sms.Data
                 ProfilePicture = "female_029.jpg",
                 Subjects = new List<Subject>
                {
-                   subjects.data.Find(f => f.Name == "Дизайн і технології"),
-                   subjects.data.Find(f => f.Name == "Індивідуальні заняття"),
-                   subjects.data.Find(f => f.Name == "Літературне читання"),
-                   subjects.data.Find(f => f.Name == "Математика (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Навчання грамоти"),
-                   subjects.data.Find(f => f.Name == "Образотворче мистецтво (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Основи здоров'я (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Письмо"),
-                   subjects.data.Find(f => f.Name == "Природознавство (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Трудове навчання (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Українська мова (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Я досліджую світ"),
-                   subjects.data.Find(f => f.Name == "Я у світі"),
-                   subjects.data.Find(f => f.Name == "Читання")
-                }
+                   subjects.design,
+                   subjects.individual,
+                   subjects.litreading,
+                   subjects.maths_primary,
+                   subjects.literacy,
+                   subjects.finearts_primary,
+                   subjects.health_primary,
+                   subjects.writing,
+                   subjects.nature_primary,
+                   subjects.crafts_primary,
+                   subjects.ukrainian_primary,
+                   subjects.iexplore,
+                   subjects.iandworld,
+                   subjects.reading
+            }
             };
-            Teacher lonska = new Teacher
+            lonska = new Teacher
             {
                 LastName = "Лонська",
                 FirstName = "Раїса",
@@ -520,23 +564,23 @@ namespace sms.Data
                 ProfilePicture = "female_030.jpg",
                 Subjects = new List<Subject>
                {
-                   subjects.data.Find(f => f.Name == "Дизайн і технології"),
-                   subjects.data.Find(f => f.Name == "Індивідуальні заняття"),
-                   subjects.data.Find(f => f.Name == "Літературне читання"),
-                   subjects.data.Find(f => f.Name == "Математика (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Навчання грамоти"),
-                   subjects.data.Find(f => f.Name == "Образотворче мистецтво (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Основи здоров'я (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Письмо"),
-                   subjects.data.Find(f => f.Name == "Природознавство (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Трудове навчання (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Українська мова (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Я досліджую світ"),
-                   subjects.data.Find(f => f.Name == "Я у світі"),
-                   subjects.data.Find(f => f.Name == "Читання")
-                }
+                   subjects.design,
+                   subjects.individual,
+                   subjects.litreading,
+                   subjects.maths_primary,
+                   subjects.literacy,
+                   subjects.finearts_primary,
+                   subjects.health_primary,
+                   subjects.writing,
+                   subjects.nature_primary,
+                   subjects.crafts_primary,
+                   subjects.ukrainian_primary,
+                   subjects.iexplore,
+                   subjects.iandworld,
+                   subjects.reading
+            }
             };
-            Teacher mandro = new Teacher
+            mandro = new Teacher
             {
                 LastName = "Мандро",
                 FirstName = "Ольга",
@@ -544,23 +588,23 @@ namespace sms.Data
                 ProfilePicture = "female_031.jpg",
                 Subjects = new List<Subject>
                {
-                   subjects.data.Find(f => f.Name == "Дизайн і технології"),
-                   subjects.data.Find(f => f.Name == "Індивідуальні заняття"),
-                   subjects.data.Find(f => f.Name == "Літературне читання"),
-                   subjects.data.Find(f => f.Name == "Математика (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Навчання грамоти"),
-                   subjects.data.Find(f => f.Name == "Образотворче мистецтво (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Основи здоров'я (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Письмо"),
-                   subjects.data.Find(f => f.Name == "Природознавство (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Трудове навчання (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Українська мова (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Я досліджую світ"),
-                   subjects.data.Find(f => f.Name == "Я у світі"),
-                   subjects.data.Find(f => f.Name == "Читання")
-                }
+                   subjects.design,
+                   subjects.individual,
+                   subjects.litreading,
+                   subjects.maths_primary,
+                   subjects.literacy,
+                   subjects.finearts_primary,
+                   subjects.health_primary,
+                   subjects.writing,
+                   subjects.nature_primary,
+                   subjects.crafts_primary,
+                   subjects.ukrainian_primary,
+                   subjects.iexplore,
+                   subjects.iandworld,
+                   subjects.reading
+            }
             };
-            Teacher nanivska = new Teacher
+            nanivska = new Teacher
             {
                 LastName = "Нанівська",
                 FirstName = "Зеновія",
@@ -568,23 +612,23 @@ namespace sms.Data
                 ProfilePicture = "female_032.jpg",
                 Subjects = new List<Subject>
                {
-                   subjects.data.Find(f => f.Name == "Дизайн і технології"),
-                   subjects.data.Find(f => f.Name == "Індивідуальні заняття"),
-                   subjects.data.Find(f => f.Name == "Літературне читання"),
-                   subjects.data.Find(f => f.Name == "Математика (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Навчання грамоти"),
-                   subjects.data.Find(f => f.Name == "Образотворче мистецтво (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Основи здоров'я (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Письмо"),
-                   subjects.data.Find(f => f.Name == "Природознавство (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Трудове навчання (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Українська мова (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Я досліджую світ"),
-                   subjects.data.Find(f => f.Name == "Я у світі"),
-                   subjects.data.Find(f => f.Name == "Читання")
-                }
+                   subjects.design,
+                   subjects.individual,
+                   subjects.litreading,
+                   subjects.maths_primary,
+                   subjects.literacy,
+                   subjects.finearts_primary,
+                   subjects.health_primary,
+                   subjects.writing,
+                   subjects.nature_primary,
+                   subjects.crafts_primary,
+                   subjects.ukrainian_primary,
+                   subjects.iexplore,
+                   subjects.iandworld,
+                   subjects.reading
+            }
             };
-            Teacher nimchenko = new Teacher
+            nimchenko = new Teacher
             {
                 LastName = "Німченко",
                 FirstName = "Наталія",
@@ -592,23 +636,23 @@ namespace sms.Data
                 ProfilePicture = "female_033.jpg",
                 Subjects = new List<Subject>
                {
-                   subjects.data.Find(f => f.Name == "Дизайн і технології"),
-                   subjects.data.Find(f => f.Name == "Індивідуальні заняття"),
-                   subjects.data.Find(f => f.Name == "Літературне читання"),
-                   subjects.data.Find(f => f.Name == "Математика (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Навчання грамоти"),
-                   subjects.data.Find(f => f.Name == "Образотворче мистецтво (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Основи здоров'я (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Письмо"),
-                   subjects.data.Find(f => f.Name == "Природознавство (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Трудове навчання (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Українська мова (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Я досліджую світ"),
-                   subjects.data.Find(f => f.Name == "Я у світі"),
-                   subjects.data.Find(f => f.Name == "Читання")
-                }
+                   subjects.design,
+                   subjects.individual,
+                   subjects.litreading,
+                   subjects.maths_primary,
+                   subjects.literacy,
+                   subjects.finearts_primary,
+                   subjects.health_primary,
+                   subjects.writing,
+                   subjects.nature_primary,
+                   subjects.crafts_primary,
+                   subjects.ukrainian_primary,
+                   subjects.iexplore,
+                   subjects.iandworld,
+                   subjects.reading
+            }
             };
-            Teacher plotnik = new Teacher
+            plotnik = new Teacher
             {
                 LastName = "Плотнік",
                 FirstName = "Руслана",
@@ -616,23 +660,23 @@ namespace sms.Data
                 ProfilePicture = "female_034.jpg",
                 Subjects = new List<Subject>
                {
-                   subjects.data.Find(f => f.Name == "Дизайн і технології"),
-                   subjects.data.Find(f => f.Name == "Індивідуальні заняття"),
-                   subjects.data.Find(f => f.Name == "Літературне читання"),
-                   subjects.data.Find(f => f.Name == "Математика (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Навчання грамоти"),
-                   subjects.data.Find(f => f.Name == "Образотворче мистецтво (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Основи здоров'я (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Письмо"),
-                   subjects.data.Find(f => f.Name == "Природознавство (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Трудове навчання (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Українська мова (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Я досліджую світ"),
-                   subjects.data.Find(f => f.Name == "Я у світі"),
-                   subjects.data.Find(f => f.Name == "Читання")
-                }
+                   subjects.design,
+                   subjects.individual,
+                   subjects.litreading,
+                   subjects.maths_primary,
+                   subjects.literacy,
+                   subjects.finearts_primary,
+                   subjects.health_primary,
+                   subjects.writing,
+                   subjects.nature_primary,
+                   subjects.crafts_primary,
+                   subjects.ukrainian_primary,
+                   subjects.iexplore,
+                   subjects.iandworld,
+                   subjects.reading
+            }
             };
-            Teacher symonenko_ov = new Teacher
+            symonenko_ov = new Teacher
             {
                 LastName = "Симоненко",
                 FirstName = "Ольга",
@@ -640,23 +684,23 @@ namespace sms.Data
                 ProfilePicture = "female_035.jpg",
                 Subjects = new List<Subject>
                {
-                   subjects.data.Find(f => f.Name == "Дизайн і технології"),
-                   subjects.data.Find(f => f.Name == "Індивідуальні заняття"),
-                   subjects.data.Find(f => f.Name == "Літературне читання"),
-                   subjects.data.Find(f => f.Name == "Математика (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Навчання грамоти"),
-                   subjects.data.Find(f => f.Name == "Образотворче мистецтво (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Основи здоров'я (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Письмо"),
-                   subjects.data.Find(f => f.Name == "Природознавство (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Трудове навчання (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Українська мова (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Я досліджую світ"),
-                   subjects.data.Find(f => f.Name == "Я у світі"),
-                   subjects.data.Find(f => f.Name == "Читання")
-                }
+                   subjects.design,
+                   subjects.individual,
+                   subjects.litreading,
+                   subjects.maths_primary,
+                   subjects.literacy,
+                   subjects.finearts_primary,
+                   subjects.health_primary,
+                   subjects.writing,
+                   subjects.nature_primary,
+                   subjects.crafts_primary,
+                   subjects.ukrainian_primary,
+                   subjects.iexplore,
+                   subjects.iandworld,
+                   subjects.reading
+            }
             };
-            Teacher sovenko = new Teacher
+            sovenko = new Teacher
             {
                 LastName = "Совенко",
                 FirstName = "Наталія",
@@ -664,23 +708,23 @@ namespace sms.Data
                 ProfilePicture = "female_036.jpg",
                 Subjects = new List<Subject>
                {
-                   subjects.data.Find(f => f.Name == "Дизайн і технології"),
-                   subjects.data.Find(f => f.Name == "Індивідуальні заняття"),
-                   subjects.data.Find(f => f.Name == "Літературне читання"),
-                   subjects.data.Find(f => f.Name == "Математика (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Навчання грамоти"),
-                   subjects.data.Find(f => f.Name == "Образотворче мистецтво (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Основи здоров'я (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Письмо"),
-                   subjects.data.Find(f => f.Name == "Природознавство (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Трудове навчання (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Українська мова (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Я досліджую світ"),
-                   subjects.data.Find(f => f.Name == "Я у світі"),
-                   subjects.data.Find(f => f.Name == "Читання")
-                }
+                   subjects.design,
+                   subjects.individual,
+                   subjects.litreading,
+                   subjects.maths_primary,
+                   subjects.literacy,
+                   subjects.finearts_primary,
+                   subjects.health_primary,
+                   subjects.writing,
+                   subjects.nature_primary,
+                   subjects.crafts_primary,
+                   subjects.ukrainian_primary,
+                   subjects.iexplore,
+                   subjects.iandworld,
+                   subjects.reading
+            }
             };
-            Teacher sulyma = new Teacher
+            sulyma = new Teacher
             {
                 LastName = "Сулима",
                 FirstName = "Ганна",
@@ -688,23 +732,24 @@ namespace sms.Data
                 ProfilePicture = "female_037.jpg",
                 Subjects = new List<Subject>
                {
-                   subjects.data.Find(f => f.Name == "Дизайн і технології"),
-                   subjects.data.Find(f => f.Name == "Індивідуальні заняття"),
-                   subjects.data.Find(f => f.Name == "Літературне читання"),
-                   subjects.data.Find(f => f.Name == "Математика (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Навчання грамоти"),
-                   subjects.data.Find(f => f.Name == "Образотворче мистецтво (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Основи здоров'я (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Письмо"),
-                   subjects.data.Find(f => f.Name == "Природознавство (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Трудове навчання (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Українська мова (поч.шк.)"),
-                   subjects.data.Find(f => f.Name == "Я досліджую світ"),
-                   subjects.data.Find(f => f.Name == "Я у світі"),
-                   subjects.data.Find(f => f.Name == "Читання")
-                }
+                   subjects.design,
+                   subjects.individual,
+                   subjects.litreading,
+                   subjects.maths_primary,
+                   subjects.literacy,
+                   subjects.finearts_primary,
+                   subjects.health_primary,
+                   subjects.writing,
+                   subjects.nature_primary,
+                   subjects.crafts_primary,
+                   subjects.ukrainian_primary,
+                   subjects.iexplore,
+                   subjects.iandworld,
+                   subjects.reading
+            }
             };
             #endregion
+            #region Add teachers
             data = new List<Teacher>();
             data.Add(lisichkina);
             data.Add(vasylieva);
@@ -748,6 +793,7 @@ namespace sms.Data
             data.Add(symonenko_ov);
             data.Add(sovenko);
             data.Add(sulyma);
+            #endregion
         }
     }
 }

@@ -61,7 +61,7 @@ namespace sms.Pages.Register
             new SelectListItem { Value = "12", Text = "Грудень" }
         };
 
-        public void OnGetAsync(string sortOrder, int gradeId = 0, int year = 0, int month = 9, int studentId = 0, int? pageIndex = 1)
+        public void OnGetAsync(string sortOrder, int gradeId = 0, int year = 2021, int month = 9, int studentId = 0, int? pageIndex = 1)
         {
             CurrentSort = sortOrder; 
             selectedGrade = gradeId;

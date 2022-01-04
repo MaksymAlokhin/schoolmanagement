@@ -3,2214 +3,2227 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using sms.Models;
-using static sms.Data.SeedGrade;
-using static sms.Data.SeedSubject;
-using static sms.Data.SeedTeacher;
 
 namespace sms.Data
 {
     public class SeedCurriculum
     {
-        public static List<Curriculum> data = new List<Curriculum>
+        public List<Curriculum> data;
+        SeedGrade grades;
+        SeedSubject subjects;
+        SeedTeacher teachers;
+        public SeedCurriculum(SeedGrade _grades, SeedSubject _subjects, SeedTeacher _teachers)
         {
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = a1,
-                Subject = english,
-                Teacher = vasylieva
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a1,
-                Subject = it,
-                Teacher = kyrianov
-            },
-            new Curriculum
-            {
-                Quantity = 4,
-                Grade = a1,
-                Subject = maths_primary,
-                Teacher = bondarenko
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a1,
-                Subject = music,
-                Teacher = zviahelskyi
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a1,
-                Subject = finearts_primary,
-                Teacher = bondarenko
-            },
-            new Curriculum
-            {
-                Quantity = 8,
-                Grade = a1,
-                Subject = ukrainian_primary,
-                Teacher = bondarenko
-            },
-            new Curriculum
-            {
-                Quantity = 3,
-                Grade = a1,
-                Subject = pt,
-                Teacher = melnychuk
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = a1,
-                Subject = iexplore,
-                Teacher = bondarenko
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = b1,
-                Subject = english,
-                Teacher = kurach
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b1,
-                Subject = it,
-                Teacher = shafran
-            },
-            new Curriculum
-            {
-                Quantity = 4,
-                Grade = b1,
-                Subject = maths_primary,
-                Teacher = vlasiuk
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b1,
-                Subject = music,
-                Teacher = zviahelskyi
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b1,
-                Subject = finearts_primary,
-                Teacher = vlasiuk
-            },
-            new Curriculum
-            {
-                Quantity = 8,
-                Grade = b1,
-                Subject = ukrainian_primary,
-                Teacher = vlasiuk
-            },
-            new Curriculum
-            {
-                Quantity = 3,
-                Grade = b1,
-                Subject = pt,
-                Teacher = slavov
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = b1,
-                Subject = iexplore,
-                Teacher = vlasiuk
-            },
-            new Curriculum
-            {
-                Quantity = 3,
-                Grade = a2,
-                Subject = english,
-                Teacher = martynenko
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a2,
-                Subject = it,
-                Teacher = kyrianov
-            },
-            new Curriculum
-            {
-                Quantity = 3,
-                Grade = a2,
-                Subject = maths_primary,
-                Teacher = horlova
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a2,
-                Subject = music,
-                Teacher = zviahelskyi
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a2,
-                Subject = finearts_primary,
-                Teacher = horlova
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a2,
-                Subject = crafts_primary,
-                Teacher = horlova
-            },
-            new Curriculum
-            {
-                Quantity = 4,
-                Grade = a2,
-                Subject = ukrainian_primary,
-                Teacher = horlova
-            },
-            new Curriculum
-            {
-                Quantity = 3,
-                Grade = a2,
-                Subject = pt,
-                Teacher = tverdokhlibova
-            },
-            new Curriculum
-            {
-                Quantity = 4,
-                Grade = a2,
-                Subject = reading,
-                Teacher = horlova
-            },
-            new Curriculum
-            {
-                Quantity = 3,
-                Grade = a2,
-                Subject = iexplore,
-                Teacher = horlova
-            },
-            new Curriculum
-            {
-                Quantity = 3,
-                Grade = b2,
-                Subject = english,
-                Teacher = vasylieva
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b2,
-                Subject = it,
-                Teacher = shafran
-            },
-            new Curriculum
-            {
-                Quantity = 3,
-                Grade = b2,
-                Subject = maths_primary,
-                Teacher = yeroshkina
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b2,
-                Subject = music,
-                Teacher = zviahelskyi
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b2,
-                Subject = finearts_primary,
-                Teacher = yeroshkina
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b2,
-                Subject = crafts_primary,
-                Teacher = yeroshkina
-            },
-            new Curriculum
-            {
-                Quantity = 4,
-                Grade = b2,
-                Subject = ukrainian_primary,
-                Teacher = yeroshkina
-            },
-            new Curriculum
-            {
-                Quantity = 3,
-                Grade = b2,
-                Subject = pt,
-                Teacher = melnychuk
-            },
-            new Curriculum
-            {
-                Quantity = 4,
-                Grade = b2,
-                Subject = reading,
-                Teacher = yeroshkina
-            },
-            new Curriculum
-            {
-                Quantity = 3,
-                Grade = b2,
-                Subject = iexplore,
-                Teacher = yeroshkina
-            },
-            new Curriculum
-            {
-                Quantity = 3,
-                Grade = a3,
-                Subject = english,
-                Teacher = kurach
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a3,
-                Subject = design,
-                Teacher = zadorozhnia
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a3,
-                Subject = it,
-                Teacher = kyrianov
-            },
-            new Curriculum
-            {
-                Quantity = 5,
-                Grade = a3,
-                Subject = maths_primary,
-                Teacher = zadorozhnia
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a3,
-                Subject = music,
-                Teacher = zviahelskyi
-            },
-            new Curriculum
-            {
-                Quantity = 4,
-                Grade = a3,
-                Subject = ukrainian_primary,
-                Teacher = zadorozhnia
-            },
-            new Curriculum
-            {
-                Quantity = 3,
-                Grade = a3,
-                Subject = pt,
-                Teacher = melnychuk
-            },
-            new Curriculum
-            {
-                Quantity = 4,
-                Grade = a3,
-                Subject = reading,
-                Teacher = zadorozhnia
-            },
-            new Curriculum
-            {
-                Quantity = 3,
-                Grade = a3,
-                Subject = iexplore,
-                Teacher = zadorozhnia
-            },
-            new Curriculum
-            {
-                Quantity = 3,
-                Grade = b3,
-                Subject = english,
-                Teacher = martynenko
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b3,
-                Subject = design,
-                Teacher = hnots
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b3,
-                Subject = it,
-                Teacher = shafran
-            },
-            new Curriculum
-            {
-                Quantity = 5,
-                Grade = b3,
-                Subject = maths_primary,
-                Teacher = hnots
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b3,
-                Subject = music,
-                Teacher = zviahelskyi
-            },
-            new Curriculum
-            {
-                Quantity = 4,
-                Grade = b3,
-                Subject = ukrainian_primary,
-                Teacher = hnots
-            },
-            new Curriculum
-            {
-                Quantity = 3,
-                Grade = b3,
-                Subject = pt,
-                Teacher = slavov
-            },
-            new Curriculum
-            {
-                Quantity = 4,
-                Grade = b3,
-                Subject = reading,
-                Teacher = hnots
-            },
-            new Curriculum
-            {
-                Quantity = 3,
-                Grade = b3,
-                Subject = iexplore,
-                Teacher = hnots
-            },
-            new Curriculum
-            {
-                Quantity = 3,
-                Grade = a4,
-                Subject = english,
-                Teacher = vasylieva
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a4,
-                Subject = it,
-                Teacher = kyrianov
-            },
-            new Curriculum
-            {
-                Quantity = 3,
-                Grade = a4,
-                Subject = litreading,
-                Teacher = lavrychenko
-            },
-            new Curriculum
-            {
-                Quantity = 4,
-                Grade = a4,
-                Subject = maths_primary,
-                Teacher = lavrychenko
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a4,
-                Subject = music,
-                Teacher = zviahelskyi
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a4,
-                Subject = finearts_primary,
-                Teacher = lavrychenko
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a4,
-                Subject = health_primary,
-                Teacher = lavrychenko
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = a4,
-                Subject = nature_primary,
-                Teacher = lavrychenko
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a4,
-                Subject = crafts_primary,
-                Teacher = lavrychenko
-            },
-            new Curriculum
-            {
-                Quantity = 4,
-                Grade = a4,
-                Subject = ukrainian_primary,
-                Teacher = lavrychenko
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = a4,
-                Subject = pt,
-                Teacher = slavov
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = b4,
-                Subject = english,
-                Teacher = kurach
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b4,
-                Subject = it,
-                Teacher = shafran
-            },
-            new Curriculum
-            {
-                Quantity = 3,
-                Grade = b4,
-                Subject = litreading,
-                Teacher = lonska
-            },
-            new Curriculum
-            {
-                Quantity = 4,
-                Grade = b4,
-                Subject = maths_primary,
-                Teacher = lonska
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b4,
-                Subject = music,
-                Teacher = zviahelskyi
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b4,
-                Subject = finearts_primary,
-                Teacher = lonska
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b4,
-                Subject = health_primary,
-                Teacher = lonska
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = b4,
-                Subject = nature_primary,
-                Teacher = lonska
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b4,
-                Subject = crafts_primary,
-                Teacher = lonska
-            },
-            new Curriculum
-            {
-                Quantity = 4,
-                Grade = b4,
-                Subject = ukrainian_primary,
-                Teacher = lonska
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = b4,
-                Subject = pt,
-                Teacher = tverdokhlibova
-            },
-            new Curriculum
-            {
-                Quantity = 3,
-                Grade = a5,
-                Subject = english,
-                Teacher = martynenko
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = a5,
-                Subject = wliterature,
-                Teacher = synko
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a5,
-                Subject = it,
-                Teacher = kholodiuk
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a5,
-                Subject = history,
-                Teacher = bulachok
-            },
-            new Curriculum
-            {
-                Quantity = 4,
-                Grade = a5,
-                Subject = maths,
-                Teacher = smychnikova
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a5,
-                Subject = music,
-                Teacher = zviahelskyi
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a5,
-                Subject = finearts,
-                Teacher = kholodiuk
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a5,
-                Subject = health,
-                Teacher = moskalenko
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = a5,
-                Subject = nature,
-                Teacher = boyarska
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a5,
-                Subject = crafts,
-                Teacher = honcharuk
-            },
-            new Curriculum
-            {
-                Quantity = 3,
-                Grade = a5,
-                Subject = ukrlit,
-                Teacher = havro
-            },
-            new Curriculum
-            {
-                Quantity = 3,
-                Grade = a5,
-                Subject = ukrainian,
-                Teacher = havro
-            },
-            new Curriculum
-            {
-                Quantity = 3,
-                Grade = a5,
-                Subject = pt,
-                Teacher = tverdokhlibova
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a5,
-                Subject = french,
-                Teacher = kurach
-            },
-            new Curriculum
-            {
-                Quantity = 3,
-                Grade = b5,
-                Subject = english,
-                Teacher = vasylieva
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = b5,
-                Subject = wliterature,
-                Teacher = synko
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b5,
-                Subject = it,
-                Teacher = kyrianov
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b5,
-                Subject = history,
-                Teacher = bulachok
-            },
-            new Curriculum
-            {
-                Quantity = 4,
-                Grade = b5,
-                Subject = maths,
-                Teacher = manko
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b5,
-                Subject = music,
-                Teacher = zviahelskyi
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b5,
-                Subject = finearts,
-                Teacher = kholodiuk
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b5,
-                Subject = health,
-                Teacher = moskalenko
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = b5,
-                Subject = nature,
-                Teacher = dybka
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b5,
-                Subject = crafts,
-                Teacher = honcharuk
-            },
-            new Curriculum
-            {
-                Quantity = 3,
-                Grade = b5,
-                Subject = ukrlit,
-                Teacher = symonenko_op
-            },
-            new Curriculum
-            {
-                Quantity = 3,
-                Grade = b5,
-                Subject = ukrainian,
-                Teacher = symonenko_op
-            },
-            new Curriculum
-            {
-                Quantity = 3,
-                Grade = b5,
-                Subject = pt,
-                Teacher = melnychuk
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b5,
-                Subject = french,
-                Teacher = martynenko
-            },
-            new Curriculum
-            {
-                Quantity = 3,
-                Grade = a6,
-                Subject = english,
-                Teacher = vasylieva
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = a6,
-                Subject = biology,
-                Teacher = boyarska
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = a6,
-                Subject = geography,
-                Teacher = ponomarenko
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = a6,
-                Subject = wliterature,
-                Teacher = synko
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a6,
-                Subject = it,
-                Teacher = shafran
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = a6,
-                Subject = history,
-                Teacher = bulachok
-            },
-            new Curriculum
-            {
-                Quantity = 4,
-                Grade = a6,
-                Subject = maths,
-                Teacher = shulga
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a6,
-                Subject = music,
-                Teacher = zviahelskyi
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a6,
-                Subject = finearts,
-                Teacher = kholodiuk
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a6,
-                Subject = health,
-                Teacher = moskalenko
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = a6,
-                Subject = crafts,
-                Teacher = honcharuk
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = a6,
-                Subject = ukrlit,
-                Teacher = kyrylusha
-            },
-            new Curriculum
-            {
-                Quantity = 3,
-                Grade = a6,
-                Subject = ukrainian,
-                Teacher = kyrylusha
-            },
-            new Curriculum
-            {
-                Quantity = 3,
-                Grade = a6,
-                Subject = pt,
-                Teacher = slavov
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a6,
-                Subject = french,
-                Teacher = martynenko
-            },
-            new Curriculum
-            {
-                Quantity = 3,
-                Grade = b6,
-                Subject = english,
-                Teacher = kurach
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = b6,
-                Subject = biology,
-                Teacher = dybka
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = b6,
-                Subject = geography,
-                Teacher = ponomarenko
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = b6,
-                Subject = wliterature,
-                Teacher = synko
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b6,
-                Subject = it,
-                Teacher = kholodiuk
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = b6,
-                Subject = history,
-                Teacher = bulachok
-            },
-            new Curriculum
-            {
-                Quantity = 4,
-                Grade = b6,
-                Subject = maths,
-                Teacher = smychnikova
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b6,
-                Subject = music,
-                Teacher = zviahelskyi
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b6,
-                Subject = finearts,
-                Teacher = kholodiuk
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b6,
-                Subject = health,
-                Teacher = moskalenko
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = b6,
-                Subject = crafts,
-                Teacher = honcharuk
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = b6,
-                Subject = ukrlit,
-                Teacher = verbova_nv
-            },
-            new Curriculum
-            {
-                Quantity = 3,
-                Grade = b6,
-                Subject = ukrainian,
-                Teacher = verbova_nv
-            },
-            new Curriculum
-            {
-                Quantity = 3,
-                Grade = b6,
-                Subject = pt,
-                Teacher = tverdokhlibova
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b6,
-                Subject = french,
-                Teacher = kurach
-            },
-            new Curriculum
-            {
-                Quantity = 3,
-                Grade = a7,
-                Subject = algebra,
-                Teacher = manko
-            },
-            new Curriculum
-            {
-                Quantity = 3,
-                Grade = a7,
-                Subject = english,
-                Teacher = vasylieva
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = a7,
-                Subject = biology,
-                Teacher = boyarska
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a7,
-                Subject = whistory,
-                Teacher = bulachok
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = a7,
-                Subject = geography,
-                Teacher = ponomarenko
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = a7,
-                Subject = geometry,
-                Teacher = manko
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = a7,
-                Subject = wliterature,
-                Teacher = synko
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a7,
-                Subject = it,
-                Teacher = kholodiuk
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a7,
-                Subject = uhistory,
-                Teacher = bulachok
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a7,
-                Subject = music,
-                Teacher = zviahelskyi
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a7,
-                Subject = finearts,
-                Teacher = kholodiuk
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a7,
-                Subject = health,
-                Teacher = moskalenko
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a7,
-                Subject = crafts,
-                Teacher = honcharuk
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = a7,
-                Subject = ukrlit,
-                Teacher = havro
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = a7,
-                Subject = ukrainian,
-                Teacher = havro
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a7,
-                Subject = physics,
-                Teacher = verbova_vo
-            },
-            new Curriculum
-            {
-                Quantity = 3,
-                Grade = a7,
-                Subject = pt,
-                Teacher = melnychuk
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a7,
-                Subject = french,
-                Teacher = kurach
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a7,
-                Subject = chemistry,
-                Teacher = shevchenko
-            },
-            new Curriculum
-            {
-                Quantity = 3,
-                Grade = b7,
-                Subject = algebra,
-                Teacher = shulga
-            },
-            new Curriculum
-            {
-                Quantity = 3,
-                Grade = b7,
-                Subject = english,
-                Teacher = vasylieva
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = b7,
-                Subject = biology,
-                Teacher = dybka
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b7,
-                Subject = whistory,
-                Teacher = bulachok
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = b7,
-                Subject = geography,
-                Teacher = ponomarenko
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = b7,
-                Subject = geometry,
-                Teacher = shulga
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = b7,
-                Subject = wliterature,
-                Teacher = synko
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b7,
-                Subject = it,
-                Teacher = kyrianov
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b7,
-                Subject = uhistory,
-                Teacher = bulachok
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b7,
-                Subject = music,
-                Teacher = zviahelskyi
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b7,
-                Subject = finearts,
-                Teacher = kholodiuk
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b7,
-                Subject = health,
-                Teacher = moskalenko
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b7,
-                Subject = crafts,
-                Teacher = honcharuk
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = b7,
-                Subject = ukrlit,
-                Teacher = symonenko_op
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = b7,
-                Subject = ukrainian,
-                Teacher = symonenko_op
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b7,
-                Subject = physics,
-                Teacher = verbova_vo
-            },
-            new Curriculum
-            {
-                Quantity = 3,
-                Grade = b7,
-                Subject = pt,
-                Teacher = slavov
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b7,
-                Subject = french,
-                Teacher = martynenko
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b7,
-                Subject = chemistry,
-                Teacher = shevchenko
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = a8,
-                Subject = algebra,
-                Teacher = smychnikova
-            },
-            new Curriculum
-            {
-                Quantity = 3,
-                Grade = a8,
-                Subject = english,
-                Teacher = martynenko
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = a8,
-                Subject = biology,
-                Teacher = boyarska
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a8,
-                Subject = whistory,
-                Teacher = bulachok
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = a8,
-                Subject = geography,
-                Teacher = ponomarenko
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = a8,
-                Subject = geometry,
-                Teacher = smychnikova
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = a8,
-                Subject = wliterature,
-                Teacher = synko
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = a8,
-                Subject = it,
-                Teacher = kholodiuk
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a8,
-                Subject = uhistory,
-                Teacher = bulachok
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a8,
-                Subject = arts,
-                Teacher = kholodiuk
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a8,
-                Subject = health,
-                Teacher = moskalenko
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a8,
-                Subject = crafts,
-                Teacher = honcharuk
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = a8,
-                Subject = ukrlit,
-                Teacher = kyrylusha
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = a8,
-                Subject = ukrainian,
-                Teacher = kyrylusha
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = a8,
-                Subject = physics,
-                Teacher = verbova_vo
-            },
-            new Curriculum
-            {
-                Quantity = 3,
-                Grade = a8,
-                Subject = pt,
-                Teacher = tverdokhlibova
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a8,
-                Subject = french,
-                Teacher = kurach
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = a8,
-                Subject = chemistry,
-                Teacher = shevchenko
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = b8,
-                Subject = algebra,
-                Teacher = manko
-            },
-            new Curriculum
-            {
-                Quantity = 3,
-                Grade = b8,
-                Subject = english,
-                Teacher = vasylieva
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = b8,
-                Subject = biology,
-                Teacher = dybka
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b8,
-                Subject = whistory,
-                Teacher = bulachok
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = b8,
-                Subject = geography,
-                Teacher = ponomarenko
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = b8,
-                Subject = geometry,
-                Teacher = manko
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = b8,
-                Subject = wliterature,
-                Teacher = synko
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = b8,
-                Subject = it,
-                Teacher = shafran
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b8,
-                Subject = uhistory,
-                Teacher = bulachok
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b8,
-                Subject = arts,
-                Teacher = kholodiuk
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b8,
-                Subject = health,
-                Teacher = moskalenko
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b8,
-                Subject = crafts,
-                Teacher = honcharuk
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = b8,
-                Subject = ukrlit,
-                Teacher = verbova_nv
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = b8,
-                Subject = ukrainian,
-                Teacher = verbova_nv
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = b8,
-                Subject = physics,
-                Teacher = verbova_vo
-            },
-            new Curriculum
-            {
-                Quantity = 3,
-                Grade = b8,
-                Subject = pt,
-                Teacher = melnychuk
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b8,
-                Subject = french,
-                Teacher = martynenko
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = b8,
-                Subject = chemistry,
-                Teacher = shevchenko
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = a9,
-                Subject = algebra,
-                Teacher = shulga
-            },
-            new Curriculum
-            {
-                Quantity = 3,
-                Grade = a9,
-                Subject = english,
-                Teacher = lisichkina
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = a9,
-                Subject = biology,
-                Teacher = boyarska
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a9,
-                Subject = whistory,
-                Teacher = bulachok
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a9,
-                Subject = geography,
-                Teacher = ponomarenko
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = a9,
-                Subject = geometry,
-                Teacher = shulga
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a9,
-                Subject = wliterature,
-                Teacher = synko
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = a9,
-                Subject = it,
-                Teacher = kholodiuk
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a9,
-                Subject = uhistory,
-                Teacher = bulachok
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a9,
-                Subject = arts,
-                Teacher = kholodiuk
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a9,
-                Subject = health,
-                Teacher = moskalenko
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a9,
-                Subject = jurisprudence,
-                Teacher = bulachok
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a9,
-                Subject = crafts,
-                Teacher = honcharuk
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = a9,
-                Subject = ukrlit,
-                Teacher = havro
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = a9,
-                Subject = ukrainian,
-                Teacher = havro
-            },
-            new Curriculum
-            {
-                Quantity = 3,
-                Grade = a9,
-                Subject = physics,
-                Teacher = verbova_vo
-            },
-            new Curriculum
-            {
-                Quantity = 3,
-                Grade = a9,
-                Subject = pt,
-                Teacher = slavov
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a9,
-                Subject = french,
-                Teacher = kurach
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = a9,
-                Subject = chemistry,
-                Teacher = shevchenko
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = b9,
-                Subject = algebra,
-                Teacher = smychnikova
-            },
-            new Curriculum
-            {
-                Quantity = 3,
-                Grade = b9,
-                Subject = english,
-                Teacher = lisichkina
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = b9,
-                Subject = biology,
-                Teacher = dybka
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b9,
-                Subject = whistory,
-                Teacher = bulachok
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b9,
-                Subject = geography,
-                Teacher = ponomarenko
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = b9,
-                Subject = geometry,
-                Teacher = smychnikova
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b9,
-                Subject = wliterature,
-                Teacher = synko
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = b9,
-                Subject = it,
-                Teacher = kyrianov
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b9,
-                Subject = uhistory,
-                Teacher = bulachok
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b9,
-                Subject = arts,
-                Teacher = kholodiuk
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b9,
-                Subject = health,
-                Teacher = moskalenko
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b9,
-                Subject = jurisprudence,
-                Teacher = bulachok
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b9,
-                Subject = crafts,
-                Teacher = honcharuk
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = b9,
-                Subject = ukrlit,
-                Teacher = symonenko_op
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = b9,
-                Subject = ukrainian,
-                Teacher = symonenko_op
-            },
-            new Curriculum
-            {
-                Quantity = 3,
-                Grade = b9,
-                Subject = physics,
-                Teacher = verbova_vo
-            },
-            new Curriculum
-            {
-                Quantity = 3,
-                Grade = b9,
-                Subject = pt,
-                Teacher = tverdokhlibova
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b9,
-                Subject = french,
-                Teacher = martynenko
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = b9,
-                Subject = chemistry,
-                Teacher = shevchenko
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = a10,
-                Subject = algebra,
-                Teacher = manko
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = a10,
-                Subject = english,
-                Teacher = lisichkina
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = a10,
-                Subject = biology,
-                Teacher = boyarska
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a10,
-                Subject = whistory,
-                Teacher = bulachok
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a10,
-                Subject = geography,
-                Teacher = ponomarenko
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a10,
-                Subject = geometry,
-                Teacher = manko
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = a10,
-                Subject = civileduc,
-                Teacher = bulachok
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a10,
-                Subject = wliterature,
-                Teacher = synko
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = a10,
-                Subject = it,
-                Teacher = kholodiuk
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a10,
-                Subject = uhistory,
-                Teacher = bulachok
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a10,
-                Subject = arts,
-                Teacher = kholodiuk
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = a10,
-                Subject = ukrlit,
-                Teacher = kyrylusha
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = a10,
-                Subject = ukrainian,
-                Teacher = kyrylusha
-            },
-            new Curriculum
-            {
-                Quantity = 3,
-                Grade = a10,
-                Subject = physics,
-                Teacher = verbova_vo
-            },
-            new Curriculum
-            {
-                Quantity = 3,
-                Grade = a10,
-                Subject = pt,
-                Teacher = melnychuk
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a10,
-                Subject = french,
-                Teacher = kurach
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = a10,
-                Subject = chemistry,
-                Teacher = shevchenko
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = b10,
-                Subject = algebra,
-                Teacher = shulga
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = b10,
-                Subject = english,
-                Teacher = lisichkina
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = b10,
-                Subject = biology,
-                Teacher = dybka
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b10,
-                Subject = whistory,
-                Teacher = bulachok
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b10,
-                Subject = geography,
-                Teacher = ponomarenko
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b10,
-                Subject = geometry,
-                Teacher = shulga
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = b10,
-                Subject = civileduc,
-                Teacher = bulachok
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b10,
-                Subject = wliterature,
-                Teacher = synko
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = b10,
-                Subject = it,
-                Teacher = shafran
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b10,
-                Subject = uhistory,
-                Teacher = bulachok
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b10,
-                Subject = arts,
-                Teacher = kholodiuk
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = b10,
-                Subject = ukrlit,
-                Teacher = verbova_nv
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = b10,
-                Subject = ukrainian,
-                Teacher = verbova_nv
-            },
-            new Curriculum
-            {
-                Quantity = 3,
-                Grade = b10,
-                Subject = physics,
-                Teacher = verbova_vo
-            },
-            new Curriculum
-            {
-                Quantity = 3,
-                Grade = b10,
-                Subject = pt,
-                Teacher = slavov
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b10,
-                Subject = french,
-                Teacher = martynenko
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = b10,
-                Subject = chemistry,
-                Teacher = shevchenko
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = a11,
-                Subject = algebra,
-                Teacher = smychnikova
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = a11,
-                Subject = english,
-                Teacher = lisichkina
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a11,
-                Subject = astronomy,
-                Teacher = verbova_vo
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = a11,
-                Subject = biology,
-                Teacher = boyarska
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a11,
-                Subject = geography,
-                Teacher = ponomarenko
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a11,
-                Subject = geometry,
-                Teacher = smychnikova
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a11,
-                Subject = wliterature,
-                Teacher = synko
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a11,
-                Subject = civildef,
-                Teacher = tverdokhlibova
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a11,
-                Subject = it,
-                Teacher = kyrianov
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a11,
-                Subject = uhistory,
-                Teacher = bulachok
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = a11,
-                Subject = arts,
-                Teacher = kholodiuk
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = a11,
-                Subject = ukrlit,
-                Teacher = havro
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = a11,
-                Subject = ukrainian,
-                Teacher = havro
-            },
-            new Curriculum
-            {
-                Quantity = 3,
-                Grade = a11,
-                Subject = physics,
-                Teacher = verbova_vo
-            },
-            new Curriculum
-            {
-                Quantity = 3,
-                Grade = a11,
-                Subject = pt,
-                Teacher = melnychuk
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = a11,
-                Subject = french,
-                Teacher = kurach
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = a11,
-                Subject = chemistry,
-                Teacher = shevchenko
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = b11,
-                Subject = algebra,
-                Teacher = manko
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = b11,
-                Subject = english,
-                Teacher = lisichkina
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b11,
-                Subject = astronomy,
-                Teacher = verbova_vo
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = b11,
-                Subject = biology,
-                Teacher = dybka
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b11,
-                Subject = geography,
-                Teacher = ponomarenko
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b11,
-                Subject = geometry,
-                Teacher = manko
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b11,
-                Subject = wliterature,
-                Teacher = synko
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b11,
-                Subject = civildef,
-                Teacher = tverdokhlibova
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b11,
-                Subject = it,
-                Teacher = shafran
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b11,
-                Subject = uhistory,
-                Teacher = bulachok
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = b11,
-                Subject = arts,
-                Teacher = kholodiuk
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = b11,
-                Subject = ukrlit,
-                Teacher = symonenko_op
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = b11,
-                Subject = ukrainian,
-                Teacher = symonenko_op
-            },
-            new Curriculum
-            {
-                Quantity = 3,
-                Grade = b11,
-                Subject = physics,
-                Teacher = verbova_vo
-            },
-            new Curriculum
-            {
-                Quantity = 3,
-                Grade = b11,
-                Subject = pt,
-                Teacher = slavov
-            },
-            new Curriculum
-            {
-                Quantity = 1,
-                Grade = b11,
-                Subject = french,
-                Teacher = martynenko
-            },
-            new Curriculum
-            {
-                Quantity = 2,
-                Grade = b11,
-                Subject = chemistry,
-                Teacher = shevchenko
-            }
-        };
+            grades = _grades;
+            subjects = _subjects;
+            teachers = _teachers;
+            CreateCurricula();
+        }
+        void CreateCurricula()
+        {
+            #region Create curricula
+            data = new List<Curriculum>
+            {
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.a1,
+                    Subject = subjects.english,
+                    Teacher = teachers.vasylieva
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a1,
+                    Subject = subjects.it,
+                    Teacher = teachers.kyrianov
+                },
+                new Curriculum
+                {
+                    Quantity = 4,
+                    Grade = grades.a1,
+                    Subject = subjects.maths_primary,
+                    Teacher = teachers.bondarenko
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a1,
+                    Subject = subjects.music,
+                    Teacher = teachers.zviahelskyi
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a1,
+                    Subject = subjects.finearts_primary,
+                    Teacher = teachers.bondarenko
+                },
+                new Curriculum
+                {
+                    Quantity = 8,
+                    Grade = grades.a1,
+                    Subject = subjects.ukrainian_primary,
+                    Teacher = teachers.bondarenko
+                },
+                new Curriculum
+                {
+                    Quantity = 3,
+                    Grade = grades.a1,
+                    Subject = subjects.pt,
+                    Teacher = teachers.melnychuk
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.a1,
+                    Subject = subjects.iexplore,
+                    Teacher = teachers.bondarenko
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.b1,
+                    Subject = subjects.english,
+                    Teacher = teachers.kurach
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b1,
+                    Subject = subjects.it,
+                    Teacher = teachers.shafran
+                },
+                new Curriculum
+                {
+                    Quantity = 4,
+                    Grade = grades.b1,
+                    Subject = subjects.maths_primary,
+                    Teacher = teachers.vlasiuk
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b1,
+                    Subject = subjects.music,
+                    Teacher = teachers.zviahelskyi
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b1,
+                    Subject = subjects.finearts_primary,
+                    Teacher = teachers.vlasiuk
+                },
+                new Curriculum
+                {
+                    Quantity = 8,
+                    Grade = grades.b1,
+                    Subject = subjects.ukrainian_primary,
+                    Teacher = teachers.vlasiuk
+                },
+                new Curriculum
+                {
+                    Quantity = 3,
+                    Grade = grades.b1,
+                    Subject = subjects.pt,
+                    Teacher = teachers.slavov
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.b1,
+                    Subject = subjects.iexplore,
+                    Teacher = teachers.vlasiuk
+                },
+                new Curriculum
+                {
+                    Quantity = 3,
+                    Grade = grades.a2,
+                    Subject = subjects.english,
+                    Teacher = teachers.martynenko
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a2,
+                    Subject = subjects.it,
+                    Teacher = teachers.kyrianov
+                },
+                new Curriculum
+                {
+                    Quantity = 3,
+                    Grade = grades.a2,
+                    Subject = subjects.maths_primary,
+                    Teacher = teachers.horlova
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a2,
+                    Subject = subjects.music,
+                    Teacher = teachers.zviahelskyi
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a2,
+                    Subject = subjects.finearts_primary,
+                    Teacher = teachers.horlova
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a2,
+                    Subject = subjects.crafts_primary,
+                    Teacher = teachers.horlova
+                },
+                new Curriculum
+                {
+                    Quantity = 4,
+                    Grade = grades.a2,
+                    Subject = subjects.ukrainian_primary,
+                    Teacher = teachers.horlova
+                },
+                new Curriculum
+                {
+                    Quantity = 3,
+                    Grade = grades.a2,
+                    Subject = subjects.pt,
+                    Teacher = teachers.tverdokhlibova
+                },
+                new Curriculum
+                {
+                    Quantity = 4,
+                    Grade = grades.a2,
+                    Subject = subjects.reading,
+                    Teacher = teachers.horlova
+                },
+                new Curriculum
+                {
+                    Quantity = 3,
+                    Grade = grades.a2,
+                    Subject = subjects.iexplore,
+                    Teacher = teachers.horlova
+                },
+                new Curriculum
+                {
+                    Quantity = 3,
+                    Grade = grades.b2,
+                    Subject = subjects.english,
+                    Teacher = teachers.vasylieva
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b2,
+                    Subject = subjects.it,
+                    Teacher = teachers.shafran
+                },
+                new Curriculum
+                {
+                    Quantity = 3,
+                    Grade = grades.b2,
+                    Subject = subjects.maths_primary,
+                    Teacher = teachers.yeroshkina
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b2,
+                    Subject = subjects.music,
+                    Teacher = teachers.zviahelskyi
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b2,
+                    Subject = subjects.finearts_primary,
+                    Teacher = teachers.yeroshkina
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b2,
+                    Subject = subjects.crafts_primary,
+                    Teacher = teachers.yeroshkina
+                },
+                new Curriculum
+                {
+                    Quantity = 4,
+                    Grade = grades.b2,
+                    Subject = subjects.ukrainian_primary,
+                    Teacher = teachers.yeroshkina
+                },
+                new Curriculum
+                {
+                    Quantity = 3,
+                    Grade = grades.b2,
+                    Subject = subjects.pt,
+                    Teacher = teachers.melnychuk
+                },
+                new Curriculum
+                {
+                    Quantity = 4,
+                    Grade = grades.b2,
+                    Subject = subjects.reading,
+                    Teacher = teachers.yeroshkina
+                },
+                new Curriculum
+                {
+                    Quantity = 3,
+                    Grade = grades.b2,
+                    Subject = subjects.iexplore,
+                    Teacher = teachers.yeroshkina
+                },
+                new Curriculum
+                {
+                    Quantity = 3,
+                    Grade = grades.a3,
+                    Subject = subjects.english,
+                    Teacher = teachers.kurach
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a3,
+                    Subject = subjects.design,
+                    Teacher = teachers.zadorozhnia
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a3,
+                    Subject = subjects.it,
+                    Teacher = teachers.kyrianov
+                },
+                new Curriculum
+                {
+                    Quantity = 5,
+                    Grade = grades.a3,
+                    Subject = subjects.maths_primary,
+                    Teacher = teachers.zadorozhnia
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a3,
+                    Subject = subjects.music,
+                    Teacher = teachers.zviahelskyi
+                },
+                new Curriculum
+                {
+                    Quantity = 4,
+                    Grade = grades.a3,
+                    Subject = subjects.ukrainian_primary,
+                    Teacher = teachers.zadorozhnia
+                },
+                new Curriculum
+                {
+                    Quantity = 3,
+                    Grade = grades.a3,
+                    Subject = subjects.pt,
+                    Teacher = teachers.melnychuk
+                },
+                new Curriculum
+                {
+                    Quantity = 4,
+                    Grade = grades.a3,
+                    Subject = subjects.reading,
+                    Teacher = teachers.zadorozhnia
+                },
+                new Curriculum
+                {
+                    Quantity = 3,
+                    Grade = grades.a3,
+                    Subject = subjects.iexplore,
+                    Teacher = teachers.zadorozhnia
+                },
+                new Curriculum
+                {
+                    Quantity = 3,
+                    Grade = grades.b3,
+                    Subject = subjects.english,
+                    Teacher = teachers.martynenko
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b3,
+                    Subject = subjects.design,
+                    Teacher = teachers.hnots
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b3,
+                    Subject = subjects.it,
+                    Teacher = teachers.shafran
+                },
+                new Curriculum
+                {
+                    Quantity = 5,
+                    Grade = grades.b3,
+                    Subject = subjects.maths_primary,
+                    Teacher = teachers.hnots
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b3,
+                    Subject = subjects.music,
+                    Teacher = teachers.zviahelskyi
+                },
+                new Curriculum
+                {
+                    Quantity = 4,
+                    Grade = grades.b3,
+                    Subject = subjects.ukrainian_primary,
+                    Teacher = teachers.hnots
+                },
+                new Curriculum
+                {
+                    Quantity = 3,
+                    Grade = grades.b3,
+                    Subject = subjects.pt,
+                    Teacher = teachers.slavov
+                },
+                new Curriculum
+                {
+                    Quantity = 4,
+                    Grade = grades.b3,
+                    Subject = subjects.reading,
+                    Teacher = teachers.hnots
+                },
+                new Curriculum
+                {
+                    Quantity = 3,
+                    Grade = grades.b3,
+                    Subject = subjects.iexplore,
+                    Teacher = teachers.hnots
+                },
+                new Curriculum
+                {
+                    Quantity = 3,
+                    Grade = grades.a4,
+                    Subject = subjects.english,
+                    Teacher = teachers.vasylieva
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a4,
+                    Subject = subjects.it,
+                    Teacher = teachers.kyrianov
+                },
+                new Curriculum
+                {
+                    Quantity = 3,
+                    Grade = grades.a4,
+                    Subject = subjects.litreading,
+                    Teacher = teachers.lavrychenko
+                },
+                new Curriculum
+                {
+                    Quantity = 4,
+                    Grade = grades.a4,
+                    Subject = subjects.maths_primary,
+                    Teacher = teachers.lavrychenko
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a4,
+                    Subject = subjects.music,
+                    Teacher = teachers.zviahelskyi
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a4,
+                    Subject = subjects.finearts_primary,
+                    Teacher = teachers.lavrychenko
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a4,
+                    Subject = subjects.health_primary,
+                    Teacher = teachers.lavrychenko
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.a4,
+                    Subject = subjects.nature_primary,
+                    Teacher = teachers.lavrychenko
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a4,
+                    Subject = subjects.crafts_primary,
+                    Teacher = teachers.lavrychenko
+                },
+                new Curriculum
+                {
+                    Quantity = 4,
+                    Grade = grades.a4,
+                    Subject = subjects.ukrainian_primary,
+                    Teacher = teachers.lavrychenko
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.a4,
+                    Subject = subjects.pt,
+                    Teacher = teachers.slavov
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.b4,
+                    Subject = subjects.english,
+                    Teacher = teachers.kurach
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b4,
+                    Subject = subjects.it,
+                    Teacher = teachers.shafran
+                },
+                new Curriculum
+                {
+                    Quantity = 3,
+                    Grade = grades.b4,
+                    Subject = subjects.litreading,
+                    Teacher = teachers.lonska
+                },
+                new Curriculum
+                {
+                    Quantity = 4,
+                    Grade = grades.b4,
+                    Subject = subjects.maths_primary,
+                    Teacher = teachers.lonska
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b4,
+                    Subject = subjects.music,
+                    Teacher = teachers.zviahelskyi
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b4,
+                    Subject = subjects.finearts_primary,
+                    Teacher = teachers.lonska
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b4,
+                    Subject = subjects.health_primary,
+                    Teacher = teachers.lonska
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.b4,
+                    Subject = subjects.nature_primary,
+                    Teacher = teachers.lonska
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b4,
+                    Subject = subjects.crafts_primary,
+                    Teacher = teachers.lonska
+                },
+                new Curriculum
+                {
+                    Quantity = 4,
+                    Grade = grades.b4,
+                    Subject = subjects.ukrainian_primary,
+                    Teacher = teachers.lonska
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.b4,
+                    Subject = subjects.pt,
+                    Teacher = teachers.tverdokhlibova
+                },
+                new Curriculum
+                {
+                    Quantity = 3,
+                    Grade = grades.a5,
+                    Subject = subjects.english,
+                    Teacher = teachers.martynenko
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.a5,
+                    Subject = subjects.wliterature,
+                    Teacher = teachers.synko
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a5,
+                    Subject = subjects.it,
+                    Teacher = teachers.kholodiuk
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a5,
+                    Subject = subjects.history,
+                    Teacher = teachers.bulachok
+                },
+                new Curriculum
+                {
+                    Quantity = 4,
+                    Grade = grades.a5,
+                    Subject = subjects.maths,
+                    Teacher = teachers.smychnikova
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a5,
+                    Subject = subjects.music,
+                    Teacher = teachers.zviahelskyi
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a5,
+                    Subject = subjects.finearts,
+                    Teacher = teachers.kholodiuk
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a5,
+                    Subject = subjects.health,
+                    Teacher = teachers.moskalenko
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.a5,
+                    Subject = subjects.nature,
+                    Teacher = teachers.boyarska
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a5,
+                    Subject = subjects.crafts,
+                    Teacher = teachers.honcharuk
+                },
+                new Curriculum
+                {
+                    Quantity = 3,
+                    Grade = grades.a5,
+                    Subject = subjects.ukrlit,
+                    Teacher = teachers.havro
+                },
+                new Curriculum
+                {
+                    Quantity = 3,
+                    Grade = grades.a5,
+                    Subject = subjects.ukrainian,
+                    Teacher = teachers.havro
+                },
+                new Curriculum
+                {
+                    Quantity = 3,
+                    Grade = grades.a5,
+                    Subject = subjects.pt,
+                    Teacher = teachers.tverdokhlibova
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a5,
+                    Subject = subjects.french,
+                    Teacher = teachers.kurach
+                },
+                new Curriculum
+                {
+                    Quantity = 3,
+                    Grade = grades.b5,
+                    Subject = subjects.english,
+                    Teacher = teachers.vasylieva
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.b5,
+                    Subject = subjects.wliterature,
+                    Teacher = teachers.synko
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b5,
+                    Subject = subjects.it,
+                    Teacher = teachers.kyrianov
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b5,
+                    Subject = subjects.history,
+                    Teacher = teachers.bulachok
+                },
+                new Curriculum
+                {
+                    Quantity = 4,
+                    Grade = grades.b5,
+                    Subject = subjects.maths,
+                    Teacher = teachers.manko
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b5,
+                    Subject = subjects.music,
+                    Teacher = teachers.zviahelskyi
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b5,
+                    Subject = subjects.finearts,
+                    Teacher = teachers.kholodiuk
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b5,
+                    Subject = subjects.health,
+                    Teacher = teachers.moskalenko
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.b5,
+                    Subject = subjects.nature,
+                    Teacher = teachers.dybka
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b5,
+                    Subject = subjects.crafts,
+                    Teacher = teachers.honcharuk
+                },
+                new Curriculum
+                {
+                    Quantity = 3,
+                    Grade = grades.b5,
+                    Subject = subjects.ukrlit,
+                    Teacher = teachers.symonenko_op
+                },
+                new Curriculum
+                {
+                    Quantity = 3,
+                    Grade = grades.b5,
+                    Subject = subjects.ukrainian,
+                    Teacher = teachers.symonenko_op
+                },
+                new Curriculum
+                {
+                    Quantity = 3,
+                    Grade = grades.b5,
+                    Subject = subjects.pt,
+                    Teacher = teachers.melnychuk
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b5,
+                    Subject = subjects.french,
+                    Teacher = teachers.martynenko
+                },
+                new Curriculum
+                {
+                    Quantity = 3,
+                    Grade = grades.a6,
+                    Subject = subjects.english,
+                    Teacher = teachers.vasylieva
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.a6,
+                    Subject = subjects.biology,
+                    Teacher = teachers.boyarska
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.a6,
+                    Subject = subjects.geography,
+                    Teacher = teachers.ponomarenko
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.a6,
+                    Subject = subjects.wliterature,
+                    Teacher = teachers.synko
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a6,
+                    Subject = subjects.it,
+                    Teacher = teachers.shafran
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.a6,
+                    Subject = subjects.history,
+                    Teacher = teachers.bulachok
+                },
+                new Curriculum
+                {
+                    Quantity = 4,
+                    Grade = grades.a6,
+                    Subject = subjects.maths,
+                    Teacher = teachers.shulga
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a6,
+                    Subject = subjects.music,
+                    Teacher = teachers.zviahelskyi
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a6,
+                    Subject = subjects.finearts,
+                    Teacher = teachers.kholodiuk
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a6,
+                    Subject = subjects.health,
+                    Teacher = teachers.moskalenko
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.a6,
+                    Subject = subjects.crafts,
+                    Teacher = teachers.honcharuk
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.a6,
+                    Subject = subjects.ukrlit,
+                    Teacher = teachers.kyrylusha
+                },
+                new Curriculum
+                {
+                    Quantity = 3,
+                    Grade = grades.a6,
+                    Subject = subjects.ukrainian,
+                    Teacher = teachers.kyrylusha
+                },
+                new Curriculum
+                {
+                    Quantity = 3,
+                    Grade = grades.a6,
+                    Subject = subjects.pt,
+                    Teacher = teachers.slavov
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a6,
+                    Subject = subjects.french,
+                    Teacher = teachers.martynenko
+                },
+                new Curriculum
+                {
+                    Quantity = 3,
+                    Grade = grades.b6,
+                    Subject = subjects.english,
+                    Teacher = teachers.kurach
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.b6,
+                    Subject = subjects.biology,
+                    Teacher = teachers.dybka
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.b6,
+                    Subject = subjects.geography,
+                    Teacher = teachers.ponomarenko
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.b6,
+                    Subject = subjects.wliterature,
+                    Teacher = teachers.synko
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b6,
+                    Subject = subjects.it,
+                    Teacher = teachers.kholodiuk
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.b6,
+                    Subject = subjects.history,
+                    Teacher = teachers.bulachok
+                },
+                new Curriculum
+                {
+                    Quantity = 4,
+                    Grade = grades.b6,
+                    Subject = subjects.maths,
+                    Teacher = teachers.smychnikova
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b6,
+                    Subject = subjects.music,
+                    Teacher = teachers.zviahelskyi
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b6,
+                    Subject = subjects.finearts,
+                    Teacher = teachers.kholodiuk
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b6,
+                    Subject = subjects.health,
+                    Teacher = teachers.moskalenko
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.b6,
+                    Subject = subjects.crafts,
+                    Teacher = teachers.honcharuk
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.b6,
+                    Subject = subjects.ukrlit,
+                    Teacher = teachers.verbova_nv
+                },
+                new Curriculum
+                {
+                    Quantity = 3,
+                    Grade = grades.b6,
+                    Subject = subjects.ukrainian,
+                    Teacher = teachers.verbova_nv
+                },
+                new Curriculum
+                {
+                    Quantity = 3,
+                    Grade = grades.b6,
+                    Subject = subjects.pt,
+                    Teacher = teachers.tverdokhlibova
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b6,
+                    Subject = subjects.french,
+                    Teacher = teachers.kurach
+                },
+                new Curriculum
+                {
+                    Quantity = 3,
+                    Grade = grades.a7,
+                    Subject = subjects.algebra,
+                    Teacher = teachers.manko
+                },
+                new Curriculum
+                {
+                    Quantity = 3,
+                    Grade = grades.a7,
+                    Subject = subjects.english,
+                    Teacher = teachers.vasylieva
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.a7,
+                    Subject = subjects.biology,
+                    Teacher = teachers.boyarska
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a7,
+                    Subject = subjects.whistory,
+                    Teacher = teachers.bulachok
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.a7,
+                    Subject = subjects.geography,
+                    Teacher = teachers.ponomarenko
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.a7,
+                    Subject = subjects.geometry,
+                    Teacher = teachers.manko
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.a7,
+                    Subject = subjects.wliterature,
+                    Teacher = teachers.synko
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a7,
+                    Subject = subjects.it,
+                    Teacher = teachers.kholodiuk
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a7,
+                    Subject = subjects.uhistory,
+                    Teacher = teachers.bulachok
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a7,
+                    Subject = subjects.music,
+                    Teacher = teachers.zviahelskyi
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a7,
+                    Subject = subjects.finearts,
+                    Teacher = teachers.kholodiuk
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a7,
+                    Subject = subjects.health,
+                    Teacher = teachers.moskalenko
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a7,
+                    Subject = subjects.crafts,
+                    Teacher = teachers.honcharuk
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.a7,
+                    Subject = subjects.ukrlit,
+                    Teacher = teachers.havro
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.a7,
+                    Subject = subjects.ukrainian,
+                    Teacher = teachers.havro
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a7,
+                    Subject = subjects.physics,
+                    Teacher = teachers.verbova_vo
+                },
+                new Curriculum
+                {
+                    Quantity = 3,
+                    Grade = grades.a7,
+                    Subject = subjects.pt,
+                    Teacher = teachers.melnychuk
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a7,
+                    Subject = subjects.french,
+                    Teacher = teachers.kurach
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a7,
+                    Subject = subjects.chemistry,
+                    Teacher = teachers.shevchenko
+                },
+                new Curriculum
+                {
+                    Quantity = 3,
+                    Grade = grades.b7,
+                    Subject = subjects.algebra,
+                    Teacher = teachers.shulga
+                },
+                new Curriculum
+                {
+                    Quantity = 3,
+                    Grade = grades.b7,
+                    Subject = subjects.english,
+                    Teacher = teachers.vasylieva
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.b7,
+                    Subject = subjects.biology,
+                    Teacher = teachers.dybka
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b7,
+                    Subject = subjects.whistory,
+                    Teacher = teachers.bulachok
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.b7,
+                    Subject = subjects.geography,
+                    Teacher = teachers.ponomarenko
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.b7,
+                    Subject = subjects.geometry,
+                    Teacher = teachers.shulga
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.b7,
+                    Subject = subjects.wliterature,
+                    Teacher = teachers.synko
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b7,
+                    Subject = subjects.it,
+                    Teacher = teachers.kyrianov
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b7,
+                    Subject = subjects.uhistory,
+                    Teacher = teachers.bulachok
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b7,
+                    Subject = subjects.music,
+                    Teacher = teachers.zviahelskyi
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b7,
+                    Subject = subjects.finearts,
+                    Teacher = teachers.kholodiuk
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b7,
+                    Subject = subjects.health,
+                    Teacher = teachers.moskalenko
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b7,
+                    Subject = subjects.crafts,
+                    Teacher = teachers.honcharuk
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.b7,
+                    Subject = subjects.ukrlit,
+                    Teacher = teachers.symonenko_op
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.b7,
+                    Subject = subjects.ukrainian,
+                    Teacher = teachers.symonenko_op
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b7,
+                    Subject = subjects.physics,
+                    Teacher = teachers.verbova_vo
+                },
+                new Curriculum
+                {
+                    Quantity = 3,
+                    Grade = grades.b7,
+                    Subject = subjects.pt,
+                    Teacher = teachers.slavov
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b7,
+                    Subject = subjects.french,
+                    Teacher = teachers.martynenko
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b7,
+                    Subject = subjects.chemistry,
+                    Teacher = teachers.shevchenko
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.a8,
+                    Subject = subjects.algebra,
+                    Teacher = teachers.smychnikova
+                },
+                new Curriculum
+                {
+                    Quantity = 3,
+                    Grade = grades.a8,
+                    Subject = subjects.english,
+                    Teacher = teachers.martynenko
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.a8,
+                    Subject = subjects.biology,
+                    Teacher = teachers.boyarska
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a8,
+                    Subject = subjects.whistory,
+                    Teacher = teachers.bulachok
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.a8,
+                    Subject = subjects.geography,
+                    Teacher = teachers.ponomarenko
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.a8,
+                    Subject = subjects.geometry,
+                    Teacher = teachers.smychnikova
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.a8,
+                    Subject = subjects.wliterature,
+                    Teacher = teachers.synko
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.a8,
+                    Subject = subjects.it,
+                    Teacher = teachers.kholodiuk
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a8,
+                    Subject = subjects.uhistory,
+                    Teacher = teachers.bulachok
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a8,
+                    Subject = subjects.arts,
+                    Teacher = teachers.kholodiuk
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a8,
+                    Subject = subjects.health,
+                    Teacher = teachers.moskalenko
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a8,
+                    Subject = subjects.crafts,
+                    Teacher = teachers.honcharuk
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.a8,
+                    Subject = subjects.ukrlit,
+                    Teacher = teachers.kyrylusha
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.a8,
+                    Subject = subjects.ukrainian,
+                    Teacher = teachers.kyrylusha
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.a8,
+                    Subject = subjects.physics,
+                    Teacher = teachers.verbova_vo
+                },
+                new Curriculum
+                {
+                    Quantity = 3,
+                    Grade = grades.a8,
+                    Subject = subjects.pt,
+                    Teacher = teachers.tverdokhlibova
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a8,
+                    Subject = subjects.french,
+                    Teacher = teachers.kurach
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.a8,
+                    Subject = subjects.chemistry,
+                    Teacher = teachers.shevchenko
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.b8,
+                    Subject = subjects.algebra,
+                    Teacher = teachers.manko
+                },
+                new Curriculum
+                {
+                    Quantity = 3,
+                    Grade = grades.b8,
+                    Subject = subjects.english,
+                    Teacher = teachers.vasylieva
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.b8,
+                    Subject = subjects.biology,
+                    Teacher = teachers.dybka
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b8,
+                    Subject = subjects.whistory,
+                    Teacher = teachers.bulachok
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.b8,
+                    Subject = subjects.geography,
+                    Teacher = teachers.ponomarenko
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.b8,
+                    Subject = subjects.geometry,
+                    Teacher = teachers.manko
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.b8,
+                    Subject = subjects.wliterature,
+                    Teacher = teachers.synko
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.b8,
+                    Subject = subjects.it,
+                    Teacher = teachers.shafran
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b8,
+                    Subject = subjects.uhistory,
+                    Teacher = teachers.bulachok
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b8,
+                    Subject = subjects.arts,
+                    Teacher = teachers.kholodiuk
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b8,
+                    Subject = subjects.health,
+                    Teacher = teachers.moskalenko
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b8,
+                    Subject = subjects.crafts,
+                    Teacher = teachers.honcharuk
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.b8,
+                    Subject = subjects.ukrlit,
+                    Teacher = teachers.verbova_nv
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.b8,
+                    Subject = subjects.ukrainian,
+                    Teacher = teachers.verbova_nv
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.b8,
+                    Subject = subjects.physics,
+                    Teacher = teachers.verbova_vo
+                },
+                new Curriculum
+                {
+                    Quantity = 3,
+                    Grade = grades.b8,
+                    Subject = subjects.pt,
+                    Teacher = teachers.melnychuk
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b8,
+                    Subject = subjects.french,
+                    Teacher = teachers.martynenko
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.b8,
+                    Subject = subjects.chemistry,
+                    Teacher = teachers.shevchenko
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.a9,
+                    Subject = subjects.algebra,
+                    Teacher = teachers.shulga
+                },
+                new Curriculum
+                {
+                    Quantity = 3,
+                    Grade = grades.a9,
+                    Subject = subjects.english,
+                    Teacher = teachers.lisichkina
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.a9,
+                    Subject = subjects.biology,
+                    Teacher = teachers.boyarska
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a9,
+                    Subject = subjects.whistory,
+                    Teacher = teachers.bulachok
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a9,
+                    Subject = subjects.geography,
+                    Teacher = teachers.ponomarenko
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.a9,
+                    Subject = subjects.geometry,
+                    Teacher = teachers.shulga
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a9,
+                    Subject = subjects.wliterature,
+                    Teacher = teachers.synko
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.a9,
+                    Subject = subjects.it,
+                    Teacher = teachers.kholodiuk
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a9,
+                    Subject = subjects.uhistory,
+                    Teacher = teachers.bulachok
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a9,
+                    Subject = subjects.arts,
+                    Teacher = teachers.kholodiuk
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a9,
+                    Subject = subjects.health,
+                    Teacher = teachers.moskalenko
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a9,
+                    Subject = subjects.jurisprudence,
+                    Teacher = teachers.bulachok
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a9,
+                    Subject = subjects.crafts,
+                    Teacher = teachers.honcharuk
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.a9,
+                    Subject = subjects.ukrlit,
+                    Teacher = teachers.havro
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.a9,
+                    Subject = subjects.ukrainian,
+                    Teacher = teachers.havro
+                },
+                new Curriculum
+                {
+                    Quantity = 3,
+                    Grade = grades.a9,
+                    Subject = subjects.physics,
+                    Teacher = teachers.verbova_vo
+                },
+                new Curriculum
+                {
+                    Quantity = 3,
+                    Grade = grades.a9,
+                    Subject = subjects.pt,
+                    Teacher = teachers.slavov
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a9,
+                    Subject = subjects.french,
+                    Teacher = teachers.kurach
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.a9,
+                    Subject = subjects.chemistry,
+                    Teacher = teachers.shevchenko
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.b9,
+                    Subject = subjects.algebra,
+                    Teacher = teachers.smychnikova
+                },
+                new Curriculum
+                {
+                    Quantity = 3,
+                    Grade = grades.b9,
+                    Subject = subjects.english,
+                    Teacher = teachers.lisichkina
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.b9,
+                    Subject = subjects.biology,
+                    Teacher = teachers.dybka
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b9,
+                    Subject = subjects.whistory,
+                    Teacher = teachers.bulachok
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b9,
+                    Subject = subjects.geography,
+                    Teacher = teachers.ponomarenko
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.b9,
+                    Subject = subjects.geometry,
+                    Teacher = teachers.smychnikova
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b9,
+                    Subject = subjects.wliterature,
+                    Teacher = teachers.synko
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.b9,
+                    Subject = subjects.it,
+                    Teacher = teachers.kyrianov
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b9,
+                    Subject = subjects.uhistory,
+                    Teacher = teachers.bulachok
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b9,
+                    Subject = subjects.arts,
+                    Teacher = teachers.kholodiuk
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b9,
+                    Subject = subjects.health,
+                    Teacher = teachers.moskalenko
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b9,
+                    Subject = subjects.jurisprudence,
+                    Teacher = teachers.bulachok
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b9,
+                    Subject = subjects.crafts,
+                    Teacher = teachers.honcharuk
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.b9,
+                    Subject = subjects.ukrlit,
+                    Teacher = teachers.symonenko_op
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.b9,
+                    Subject = subjects.ukrainian,
+                    Teacher = teachers.symonenko_op
+                },
+                new Curriculum
+                {
+                    Quantity = 3,
+                    Grade = grades.b9,
+                    Subject = subjects.physics,
+                    Teacher = teachers.verbova_vo
+                },
+                new Curriculum
+                {
+                    Quantity = 3,
+                    Grade = grades.b9,
+                    Subject = subjects.pt,
+                    Teacher = teachers.tverdokhlibova
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b9,
+                    Subject = subjects.french,
+                    Teacher = teachers.martynenko
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.b9,
+                    Subject = subjects.chemistry,
+                    Teacher = teachers.shevchenko
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.a10,
+                    Subject = subjects.algebra,
+                    Teacher = teachers.manko
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.a10,
+                    Subject = subjects.english,
+                    Teacher = teachers.lisichkina
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.a10,
+                    Subject = subjects.biology,
+                    Teacher = teachers.boyarska
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a10,
+                    Subject = subjects.whistory,
+                    Teacher = teachers.bulachok
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a10,
+                    Subject = subjects.geography,
+                    Teacher = teachers.ponomarenko
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a10,
+                    Subject = subjects.geometry,
+                    Teacher = teachers.manko
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.a10,
+                    Subject = subjects.civileduc,
+                    Teacher = teachers.bulachok
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a10,
+                    Subject = subjects.wliterature,
+                    Teacher = teachers.synko
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.a10,
+                    Subject = subjects.it,
+                    Teacher = teachers.kholodiuk
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a10,
+                    Subject = subjects.uhistory,
+                    Teacher = teachers.bulachok
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a10,
+                    Subject = subjects.arts,
+                    Teacher = teachers.kholodiuk
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.a10,
+                    Subject = subjects.ukrlit,
+                    Teacher = teachers.kyrylusha
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.a10,
+                    Subject = subjects.ukrainian,
+                    Teacher = teachers.kyrylusha
+                },
+                new Curriculum
+                {
+                    Quantity = 3,
+                    Grade = grades.a10,
+                    Subject = subjects.physics,
+                    Teacher = teachers.verbova_vo
+                },
+                new Curriculum
+                {
+                    Quantity = 3,
+                    Grade = grades.a10,
+                    Subject = subjects.pt,
+                    Teacher = teachers.melnychuk
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a10,
+                    Subject = subjects.french,
+                    Teacher = teachers.kurach
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.a10,
+                    Subject = subjects.chemistry,
+                    Teacher = teachers.shevchenko
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.b10,
+                    Subject = subjects.algebra,
+                    Teacher = teachers.shulga
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.b10,
+                    Subject = subjects.english,
+                    Teacher = teachers.lisichkina
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.b10,
+                    Subject = subjects.biology,
+                    Teacher = teachers.dybka
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b10,
+                    Subject = subjects.whistory,
+                    Teacher = teachers.bulachok
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b10,
+                    Subject = subjects.geography,
+                    Teacher = teachers.ponomarenko
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b10,
+                    Subject = subjects.geometry,
+                    Teacher = teachers.shulga
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.b10,
+                    Subject = subjects.civileduc,
+                    Teacher = teachers.bulachok
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b10,
+                    Subject = subjects.wliterature,
+                    Teacher = teachers.synko
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.b10,
+                    Subject = subjects.it,
+                    Teacher = teachers.shafran
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b10,
+                    Subject = subjects.uhistory,
+                    Teacher = teachers.bulachok
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b10,
+                    Subject = subjects.arts,
+                    Teacher = teachers.kholodiuk
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.b10,
+                    Subject = subjects.ukrlit,
+                    Teacher = teachers.verbova_nv
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.b10,
+                    Subject = subjects.ukrainian,
+                    Teacher = teachers.verbova_nv
+                },
+                new Curriculum
+                {
+                    Quantity = 3,
+                    Grade = grades.b10,
+                    Subject = subjects.physics,
+                    Teacher = teachers.verbova_vo
+                },
+                new Curriculum
+                {
+                    Quantity = 3,
+                    Grade = grades.b10,
+                    Subject = subjects.pt,
+                    Teacher = teachers.slavov
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b10,
+                    Subject = subjects.french,
+                    Teacher = teachers.martynenko
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.b10,
+                    Subject = subjects.chemistry,
+                    Teacher = teachers.shevchenko
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.a11,
+                    Subject = subjects.algebra,
+                    Teacher = teachers.smychnikova
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.a11,
+                    Subject = subjects.english,
+                    Teacher = teachers.lisichkina
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a11,
+                    Subject = subjects.astronomy,
+                    Teacher = teachers.verbova_vo
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.a11,
+                    Subject = subjects.biology,
+                    Teacher = teachers.boyarska
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a11,
+                    Subject = subjects.geography,
+                    Teacher = teachers.ponomarenko
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a11,
+                    Subject = subjects.geometry,
+                    Teacher = teachers.smychnikova
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a11,
+                    Subject = subjects.wliterature,
+                    Teacher = teachers.synko
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a11,
+                    Subject = subjects.civildef,
+                    Teacher = teachers.tverdokhlibova
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a11,
+                    Subject = subjects.it,
+                    Teacher = teachers.kyrianov
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a11,
+                    Subject = subjects.uhistory,
+                    Teacher = teachers.bulachok
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.a11,
+                    Subject = subjects.arts,
+                    Teacher = teachers.kholodiuk
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.a11,
+                    Subject = subjects.ukrlit,
+                    Teacher = teachers.havro
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.a11,
+                    Subject = subjects.ukrainian,
+                    Teacher = teachers.havro
+                },
+                new Curriculum
+                {
+                    Quantity = 3,
+                    Grade = grades.a11,
+                    Subject = subjects.physics,
+                    Teacher = teachers.verbova_vo
+                },
+                new Curriculum
+                {
+                    Quantity = 3,
+                    Grade = grades.a11,
+                    Subject = subjects.pt,
+                    Teacher = teachers.melnychuk
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.a11,
+                    Subject = subjects.french,
+                    Teacher = teachers.kurach
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.a11,
+                    Subject = subjects.chemistry,
+                    Teacher = teachers.shevchenko
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.b11,
+                    Subject = subjects.algebra,
+                    Teacher = teachers.manko
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.b11,
+                    Subject = subjects.english,
+                    Teacher = teachers.lisichkina
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b11,
+                    Subject = subjects.astronomy,
+                    Teacher = teachers.verbova_vo
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.b11,
+                    Subject = subjects.biology,
+                    Teacher = teachers.dybka
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b11,
+                    Subject = subjects.geography,
+                    Teacher = teachers.ponomarenko
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b11,
+                    Subject = subjects.geometry,
+                    Teacher = teachers.manko
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b11,
+                    Subject = subjects.wliterature,
+                    Teacher = teachers.synko
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b11,
+                    Subject = subjects.civildef,
+                    Teacher = teachers.tverdokhlibova
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b11,
+                    Subject = subjects.it,
+                    Teacher = teachers.shafran
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b11,
+                    Subject = subjects.uhistory,
+                    Teacher = teachers.bulachok
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.b11,
+                    Subject = subjects.arts,
+                    Teacher = teachers.kholodiuk
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.b11,
+                    Subject = subjects.ukrlit,
+                    Teacher = teachers.symonenko_op
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.b11,
+                    Subject = subjects.ukrainian,
+                    Teacher = teachers.symonenko_op
+                },
+                new Curriculum
+                {
+                    Quantity = 3,
+                    Grade = grades.b11,
+                    Subject = subjects.physics,
+                    Teacher = teachers.verbova_vo
+                },
+                new Curriculum
+                {
+                    Quantity = 3,
+                    Grade = grades.b11,
+                    Subject = subjects.pt,
+                    Teacher = teachers.slavov
+                },
+                new Curriculum
+                {
+                    Quantity = 1,
+                    Grade = grades.b11,
+                    Subject = subjects.french,
+                    Teacher = teachers.martynenko
+                },
+                new Curriculum
+                {
+                    Quantity = 2,
+                    Grade = grades.b11,
+                    Subject = subjects.chemistry,
+                    Teacher = teachers.shevchenko
+                }
+            };
+            #endregion
+        }
     }
 }

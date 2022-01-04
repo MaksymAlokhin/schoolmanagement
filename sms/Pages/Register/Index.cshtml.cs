@@ -80,7 +80,7 @@ namespace sms.Pages.Register
             Configuration = configuration;
         }
 
-        public async Task OnGetAsync(int? pageIndex, int gradeId = 0, int subjectId = 0, int year = 0, int month = 9)
+        public async Task OnGetAsync(int? pageIndex, int gradeId = 0, int subjectId = 0, int year = 2021, int month = 9)
         {
             selectedGrade = gradeId;
             selectedSubject = subjectId;

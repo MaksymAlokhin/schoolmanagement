@@ -3,177 +3,268 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using sms.Models;
-using sms.Data.SeedStudent;
 
 namespace sms.Data
 {
-    class SeedGrade
+    public class SeedGrade
     {
         public List<Grade> data;
-        public SeedGrade()
+        SeedStudent students;
+        #region Grade declarations
+        public Grade a1;
+        public Grade b1;
+        public Grade a2;
+        public Grade b2;
+        public Grade a3;
+        public Grade b3;
+        public Grade a4;
+        public Grade b4;
+        public Grade a5;
+        public Grade b5;
+        public Grade a6;
+        public Grade b6;
+        public Grade a7;
+        public Grade b7;
+        public Grade a8;
+        public Grade b8;
+        public Grade a9;
+        public Grade b9;
+        public Grade a10;
+        public Grade b10;
+        public Grade a11;
+        public Grade b11;
+        #endregion
+
+        public SeedGrade(SeedStudent _students)
         {
+            students = _students;
             CreateGrades();
         }
         void CreateGrades()
         {
-            var students = new SeedStudent();
             #region Create grades
-            Grade a1 = new Grade
+            a1 = new Grade
             {
                 Number = 1,
                 Letter = "А",
                 Room = "105",
-                Students = new List<Student> { students.data .s001, s002, s003, s004, s005, s006 }
+                Students = new List<Student>
+                {
+                    students.s001, students.s002, students.s003, students.s004, students.s005, students.s006
+                }
             };
-            Grade b1 = new Grade
+            b1 = new Grade
             {
                 Number = 1,
                 Letter = "Б",
                 Room = "106",
-                Students = new List<Student> { s007, s008, s009, s010, s011, s012 }
+                Students = new List<Student>
+                {
+                    students.s007, students.s008, students.s009, students.s010, students.s011, students.s012
+                }
             };
-            Grade a2 = new Grade
+            a2 = new Grade
             {
                 Number = 2,
                 Letter = "А",
                 Room = "107",
-                Students = new List<Student> { s013, s014, s015, s016, s017, s018 }
+                Students = new List<Student>
+                {
+                    students.s013, students.s014, students.s015, students.s016, students.s017, students.s018
+                }
             };
-            Grade b2 = new Grade
+            b2 = new Grade
             {
                 Number = 2,
                 Letter = "Б",
                 Room = "108",
-                Students = new List<Student> { s019, s020, s021, s022, s023, s024 }
+                Students = new List<Student>
+                {
+                    students.s019, students.s020, students.s021, students.s022, students.s023, students.s024
+                }
             };
-            Grade a3 = new Grade
+            a3 = new Grade
             {
                 Number = 3,
                 Letter = "А",
                 Room = "109",
-                Students = new List<Student> { s025, s026, s027, s028, s029, s030 }
+                Students = new List<Student>
+                {
+                    students.s025, students.s026, students.s027, students.s028, students.s029, students.s030
+                }
             };
-            Grade b3 = new Grade
+            b3 = new Grade
             {
                 Number = 3,
                 Letter = "Б",
                 Room = "110",
-                Students = new List<Student> { s031, s032, s033, s034, s035, s036 }
+                Students = new List<Student>
+                {
+                    students.s031, students.s032, students.s033, students.s034, students.s035, students.s036
+                }
             };
-            Grade a4 = new Grade
+            a4 = new Grade
             {
                 Number = 4,
                 Letter = "А",
                 Room = "111",
-                Students = new List<Student> { s037, s038, s039, s040, s041, s042 }
+                Students = new List<Student>
+                {
+                    students.s037, students.s038, students.s039, students.s040, students.s041, students.s042
+                }
             };
-            Grade b4 = new Grade
+            b4 = new Grade
             {
                 Number = 4,
                 Letter = "Б",
                 Room = "112",
-                Students = new List<Student> { s043, s044, s045, s046, s047, s048 }
+                Students = new List<Student>
+                {
+                    students.s043, students.s044, students.s045, students.s046, students.s047, students.s048
+                }
             };
-            Grade a5 = new Grade
+            a5 = new Grade
             {
                 Number = 5,
                 Letter = "А",
                 Room = "205",
-                Students = new List<Student> { s049, s050, s051, s052, s053, s054 }
+                Students = new List<Student>
+                {
+                    students.s049, students.s050, students.s051, students.s052, students.s053, students.s054
+                }
             };
-            Grade b5 = new Grade
+            b5 = new Grade
             {
                 Number = 5,
                 Letter = "Б",
                 Room = "206",
-                Students = new List<Student> { s055, s056, s057, s058, s059, s060 }
+                Students = new List<Student>
+                {
+                    students.s055, students.s056, students.s057, students.s058, students.s059, students.s060
+                }
             };
-            Grade a6 = new Grade
+            a6 = new Grade
             {
                 Number = 6,
                 Letter = "А",
                 Room = "207",
-                Students = new List<Student> { s061, s062, s063, s064, s065, s066 }
+                Students = new List<Student>
+                {
+                    students.s061, students.s062, students.s063, students.s064, students.s065, students.s066
+                }
             };
-            Grade b6 = new Grade
+            b6 = new Grade
             {
                 Number = 6,
                 Letter = "Б",
                 Room = "208",
-                Students = new List<Student> { s067, s068, s069, s070, s071, s072 }
+                Students = new List<Student>
+                {
+                    students.s067, students.s068, students.s069, students.s070, students.s071, students.s072
+                }
             };
-            Grade a7 = new Grade
+            a7 = new Grade
             {
                 Number = 7,
                 Letter = "А",
                 Room = "209",
-                Students = new List<Student> { s073, s074, s075, s076, s077, s078 }
+                Students = new List<Student>
+                {
+                    students.s073, students.s074, students.s075, students.s076, students.s077, students.s078
+                }
             };
-            Grade b7 = new Grade
+            b7 = new Grade
             {
                 Number = 7,
                 Letter = "Б",
                 Room = "210",
-                Students = new List<Student> { s079, s080, s081, s082, s083, s084 }
+                Students = new List<Student>
+                {
+                    students.s079, students.s080, students.s081, students.s082, students.s083, students.s084
+                }
             };
-            Grade a8 = new Grade
+            a8 = new Grade
             {
                 Number = 8,
                 Letter = "А",
                 Room = "211",
-                Students = new List<Student> { s085, s086, s087, s088, s089, s090 }
+                Students = new List<Student>
+                {
+                    students.s085, students.s086, students.s087, students.s088, students.s089, students.s090
+                }
             };
-            Grade b8 = new Grade
+            b8 = new Grade
             {
                 Number = 8,
                 Letter = "Б",
                 Room = "212",
-                Students = new List<Student> { s091, s092, s093, s094, s095, s096 }
+                Students = new List<Student>
+                {
+                    students.s091, students.s092, students.s093, students.s094, students.s095, students.s096
+                }
             };
-            Grade a9 = new Grade
+            a9 = new Grade
             {
                 Number = 9,
                 Letter = "А",
                 Room = "305",
-                Students = new List<Student> { s097, s098, s099, s100, s101, s102 }
+                Students = new List<Student>
+                {
+                    students.s097, students.s098, students.s099, students.s100, students.s101, students.s102
+                }
             };
-            Grade b9 = new Grade
+            b9 = new Grade
             {
                 Number = 9,
                 Letter = "Б",
                 Room = "306",
-                Students = new List<Student> { s103, s104, s105, s106, s107, s108 }
+                Students = new List<Student>
+                {
+                    students.s103, students.s104, students.s105, students.s106, students.s107, students.s108
+                }
             };
-            Grade a10 = new Grade
+            a10 = new Grade
             {
                 Number = 10,
                 Letter = "А",
                 Room = "307",
-                Students = new List<Student> { s109, s110, s111, s112, s113, s114 }
+                Students = new List<Student>
+                {
+                    students.s109, students.s110, students.s111, students.s112, students.s113, students.s114
+                }
             };
-            Grade b10 = new Grade
+            b10 = new Grade
             {
                 Number = 10,
                 Letter = "Б",
                 Room = "308",
-                Students = new List<Student> { s115, s116, s117, s118, s119, s120 }
+                Students = new List<Student>
+                {
+                    students.s115, students.s116, students.s117, students.s118, students.s119, students.s120
+                }
             };
-            Grade a11 = new Grade
+            a11 = new Grade
             {
                 Number = 11,
                 Letter = "А",
                 Room = "309",
-                Students = new List<Student> { s121, s122, s123, s124, s125, s126 }
+                Students = new List<Student>
+                {
+                    students.s121, students.s122, students.s123, students.s124, students.s125, students.s126
+                }
             };
-            Grade b11 = new Grade
+            b11 = new Grade
             {
                 Number = 11,
                 Letter = "Б",
                 Room = "310",
-                Students = new List<Student> { s127, s128, s129, s130, s131, s132 }
+                Students = new List<Student>
+                {
+                    students.s127, students.s128, students.s129, students.s130, students.s131, students.s132
+                }
             };
             #endregion
-
+            #region Add grades
             data = new List<Grade>();
             data.Add(a1);
             data.Add(b1);
@@ -197,6 +288,7 @@ namespace sms.Data
             data.Add(b10);
             data.Add(a11);
             data.Add(b11);
+            #endregion
         }
     }
 }
