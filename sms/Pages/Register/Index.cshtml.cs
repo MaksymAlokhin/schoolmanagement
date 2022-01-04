@@ -136,7 +136,7 @@ namespace sms.Pages.Register
             weekdays.Sort();
             #endregion
 
-            //var pageSize = Configuration.GetValue("PageSize", 10);
+            //var pageSize = Configuration.GetValue("PageSize", 7);
             var pageSize = 15;
             pages = PaginatedList<int>.CreateFromList(weekdays, pageIndex ?? 1, pageSize);
 

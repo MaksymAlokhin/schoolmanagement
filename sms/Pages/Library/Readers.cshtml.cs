@@ -111,7 +111,7 @@ namespace sms.Pages.Library
 
             //Pagination
             //Розподіл на сторінки
-            var pageSize = Configuration.GetValue("PageSize", 10);
+            var pageSize = Configuration.GetValue("PageSize", 7);
             readers = PaginatedList<Reader>.CreateFromList(
                 readersList, pageIndex ?? 1, pageSize);
 

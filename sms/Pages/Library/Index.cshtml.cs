@@ -123,7 +123,7 @@ namespace sms.Pages.Library
 
             //Pagination
             //Розподіл на сторінки
-            var pageSize = Configuration.GetValue("PageSize", 10);
+            var pageSize = Configuration.GetValue("PageSize", 7);
             Book = await PaginatedList<Book>.CreateAsync(
                 booksIQ.AsNoTracking(), pageIndex ?? 1, pageSize);
         }

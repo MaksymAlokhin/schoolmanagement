@@ -152,9 +152,7 @@ namespace sms.Data
             {
                 context.AddRange(inventories.data);
             }
-
             context.SaveChanges();
         }
-
     }
 }

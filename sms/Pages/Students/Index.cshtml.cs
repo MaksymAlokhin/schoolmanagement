@@ -86,7 +86,7 @@ namespace sms.Pages.Students
 
             //Pagination
             //Розподіл на сторінки
-            var pageSize = Configuration.GetValue("PageSize", 10);
+            var pageSize = Configuration.GetValue("PageSize", 7);
             Student = await PaginatedList<Student>.CreateAsync(
                 studentsIQ.AsNoTracking(), pageIndex ?? 1, pageSize);
         }

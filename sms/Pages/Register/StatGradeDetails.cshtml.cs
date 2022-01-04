@@ -97,7 +97,7 @@ namespace sms.Pages.Register
                     break;
             }
 
-            var pageSize = Configuration.GetValue("PageSize", 10);
+            var pageSize = Configuration.GetValue("PageSize", 7);
             subjects = await PaginatedList<StatGradeDetails>.CreateAsync(
                 subjectsIQ.AsNoTracking(), pageIndex ?? 1, pageSize);
 

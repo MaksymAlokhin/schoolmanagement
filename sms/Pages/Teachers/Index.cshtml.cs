@@ -69,7 +69,7 @@ namespace sms.Pages.Teachers
 
             //Pagination
             //Розподіл на сторінки
-            var pageSize = Configuration.GetValue("PageSize", 10);
+            var pageSize = Configuration.GetValue("PageSize", 7);
             Teacher = await PaginatedList<Teacher>.CreateAsync(
                 teachersIQ.AsNoTracking(), pageIndex ?? 1, pageSize);
         }

@@ -95,7 +95,7 @@ namespace sms.Pages.Curricula
 
             //Pagination
             //Розподіл на сторінки
-            var pageSize = Configuration.GetValue("PageSize", 10);
+            var pageSize = Configuration.GetValue("PageSize", 7);
             Curriculum = await PaginatedList<Curriculum>.CreateAsync(
                 curriculaIQ.Where(с => с.GradeId == gradeId).AsNoTracking(), pageIndex ?? 1, pageSize);
         }

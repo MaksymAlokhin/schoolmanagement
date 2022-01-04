@@ -148,7 +148,7 @@ namespace sms.Pages.Register
                     break;
             }
 
-            var pageSize = Configuration.GetValue("PageSize", 10);
+            var pageSize = Configuration.GetValue("PageSize", 7);
             subjects = PaginatedList<StatStudent>.CreateFromList(
                 SubjectsIQ.ToList(), pageIndex ?? 1, pageSize);
 

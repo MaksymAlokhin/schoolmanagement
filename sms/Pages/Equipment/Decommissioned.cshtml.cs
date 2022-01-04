@@ -101,7 +101,7 @@ namespace sms.Pages.Equipment
 
             //Pagination
             //Розподіл на сторінки
-            var pageSize = Configuration.GetValue("PageSize", 10);
+            var pageSize = Configuration.GetValue("PageSize", 7);
             Inventory = await PaginatedList<Inventory>.CreateAsync(
                 inventoryIQ.AsNoTracking(), pageIndex ?? 1, pageSize);
         }

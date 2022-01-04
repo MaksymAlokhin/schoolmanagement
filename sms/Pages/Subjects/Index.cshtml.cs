@@ -66,7 +66,7 @@ namespace sms.Pages.Subjects
 
             //Pagination
             //Розподіл на сторінки
-            var pageSize = Configuration.GetValue("PageSize", 10);
+            var pageSize = Configuration.GetValue("PageSize", 7);
             Subject = await PaginatedList<Subject>.CreateAsync(
                 subjectsIQ.AsNoTracking(), pageIndex ?? 1, pageSize);
         }
