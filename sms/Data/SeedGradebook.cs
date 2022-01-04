@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using sms.Models;
-using static sms.Data.GradesSeedData;
-using static sms.Data.SubjectsSeedData;
-using static sms.Data.TeachersSeedData;
-using static sms.Data.StudentsSeedData;
+using static sms.Data.SeedGrade;
+using static sms.Data.SeedSubject;
+using static sms.Data.SeedTeacher;
+using static sms.Data.SeedStudent;
 
 namespace sms.Data
 {
-    public class GradebooksSeedData
+    public class SeedGradebook
     {
         public static List<Gradebook> data = new List<Gradebook>
         {

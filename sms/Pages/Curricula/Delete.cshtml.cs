@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using sms.Data;
 using sms.Models;
 
-namespace sms.Pages.Dictionary.Curricula
+namespace sms.Pages.Curricula
 {
     [Authorize(Roles = "Адміністратор")]
     public class DeleteModel : PageModel

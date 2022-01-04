@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace sms.Data
 {
-    public class BooksSeedData
+    public class SeedBook
     {
         public static List<Book> data = new List<Book>
         {

@@ -39,7 +39,7 @@ namespace sms.Data
 
                 var newID = await EnsureUser(serviceProvider, testUserPw, "newuser@sms.com");
 
-                SeedDB(context, adminID);
+                SeedDB(context);
             }
         }
 
@@ -99,47 +99,58 @@ namespace sms.Data
             }
             return IR;
         }
-        public static void SeedDB(ApplicationDbContext context, string adminID)
+        public static void SeedDB(ApplicationDbContext context)
         {
+            var students = new SeedStudent();
+            var grades = new SeedGrade();
+            var subjects = new SeedSubject();
+            var teachers = new SeedTeacher(subjects);
+            var lessons = new SeedLesson();
+            var curricula = new SeedCurriculum();
+            var gradebooks = new SeedGradebook();
+            var assignments = new SeedAssignment();
+            var books = new SeedBook();
+            var inventories = new SeedInventory();
+
             if (!context.Students.Any())
             {
-                context.AddRange(StudentsSeedData.data);
+                context.AddRange(students.data);
             }
             if (!context.Grades.Any())
             {
-                context.AddRange(GradesSeedData.data);
+                context.AddRange(grades.data);
             }
             if (!context.Teachers.Any())
             {
-                context.AddRange(TeachersSeedData.data);
+                context.AddRange(teachers.data);
             }
             if (!context.Subjects.Any())
             {
-                context.AddRange(SubjectsSeedData.data);
+                context.AddRange(subjects.data);
             }
             if (!context.Lessons.Any())
             {
-                context.AddRange(LessonsSeedData.data);
+                context.AddRange(lessons.data);
             }
             if (!context.Curricula.Any())
             {
-                context.AddRange(CurriculaSeedData.data);
+                context.AddRange(curricula.data);
             }
             if (!context.Gradebooks.Any())
             {
-                context.AddRange(GradebooksSeedData.data);
+                context.AddRange(gradebooks.data);
             }
             if (!context.Assignments.Any())
             {
-                context.AddRange(AssignmentsSeedData.data);
+                context.AddRange(assignments.data);
             }
             if (!context.Books.Any())
             {
-                context.AddRange(BooksSeedData.data);
+                context.AddRange(books.data);
             }
             if (!context.Inventories.Any())
             {
-                context.AddRange(InventoriesSeedData.data);
+                context.AddRange(inventories.data);
             }
 
             context.SaveChanges();

@@ -11,7 +11,7 @@ using sms.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Authorization;
 
-namespace sms.Pages.Dictionary.Curricula
+namespace sms.Pages.Curricula
 {
     [Authorize(Roles = "Адміністратор")]
     public class IndexModel : PageModel
