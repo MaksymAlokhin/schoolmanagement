@@ -36,8 +36,8 @@ namespace sms.Pages.Library
         [BindProperty]
         public Book Book { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(string sortOrder, string currentFilter,
-            string searchString, int id, int? gradeId, int? pageIndex)
+        public async Task<IActionResult> OnGetAsync(int id, string sortOrder, string currentFilter,
+            string searchString, int? gradeId, int? pageIndex)
         {
             CurrentSort = sortOrder;
             NameSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
@@ -140,8 +140,8 @@ namespace sms.Pages.Library
 
             return Page();
         }
-        public async Task<IActionResult> OnPostAsync(int studentId, string sortOrder, 
-            string currentFilter, int id, int gradeId, int? pageIndex)
+        public async Task<IActionResult> OnPostAsync(int id, int studentId, string sortOrder, 
+            string currentFilter, int gradeId, int? pageIndex)
         {
             var student = await _context.Students.Include(m => m.Books).FirstOrDefaultAsync(m => m.Id == studentId);
             Book = await _context.Books.Include(m => m.Students).FirstOrDefaultAsync(m => m.Id == id);

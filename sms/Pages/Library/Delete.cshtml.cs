@@ -27,8 +27,8 @@ namespace sms.Pages.Library
         [BindProperty]
         public Book Book { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(string sortOrder,
-            string currentFilter, int? pageIndex, int? id)
+        public async Task<IActionResult> OnGetAsync(int? id, string sortOrder,
+            string currentFilter, int? pageIndex)
         {
             PageIndex = pageIndex;
             CurrentSort = sortOrder;
@@ -50,8 +50,8 @@ namespace sms.Pages.Library
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync(string sortOrder,
-            string currentFilter, int? pageIndex, int? id)
+        public async Task<IActionResult> OnPostAsync(int? id, string sortOrder,
+            string currentFilter, int? pageIndex)
         {
             if (id == null)
             {

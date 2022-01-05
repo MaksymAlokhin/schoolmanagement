@@ -32,8 +32,8 @@ namespace sms.Pages.Library
         [BindProperty]
         public Book Book { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(string sortOrder, 
-            string currentFilter, string searchString, int id, int? pageIndex)
+        public async Task<IActionResult> OnGetAsync(int id, string sortOrder, 
+            string currentFilter, string searchString, int? pageIndex)
         {
             CurrentSort = sortOrder;
             NameSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";

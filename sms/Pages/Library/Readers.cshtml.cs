@@ -18,7 +18,7 @@ namespace sms.Pages.Library
     {
         private readonly sms.Data.ApplicationDbContext _context;
         private readonly IConfiguration Configuration;
-        public PaginatedList<Reader> readers { get; set; }
+        public PaginatedList<Reader> Reader { get; set; }
         public IList<Reader> readersList { get; set; } = new List<Reader>();
         public string NameSort { get; set; }
         public string PositionSort { get; set; }
@@ -34,8 +34,8 @@ namespace sms.Pages.Library
         [BindProperty]
         public Book Book { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(string sortOrder, 
-            string currentFilter, string searchString, int id, int? pageIndex)
+        public async Task<IActionResult> OnGetAsync(int id, string sortOrder, 
+            string currentFilter, string searchString, int? pageIndex)
         {
             CurrentSort = sortOrder; 
             NameSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
@@ -112,13 +112,13 @@ namespace sms.Pages.Library
             //Pagination
             //Розподіл на сторінки
             var pageSize = Configuration.GetValue("PageSize", 7);
-            readers = PaginatedList<Reader>.CreateFromList(
+            Reader = PaginatedList<Reader>.CreateFromList(
                 readersList, pageIndex ?? 1, pageSize);
 
             return Page();
         }
-        public async Task<IActionResult> OnPostAsync(int id, string sortOrder, 
-            string currentFilter, int? studentId, int? teacherId, int? pageIndex)
+        public async Task<IActionResult> OnPostAsync(int id, int? studentId, int? teacherId, string sortOrder, 
+            string currentFilter, int? pageIndex)
         {            
             Book = await _context.Books
                 .Include(m => m.Teachers)

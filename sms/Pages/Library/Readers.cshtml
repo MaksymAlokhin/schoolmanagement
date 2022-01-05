@@ -48,35 +48,35 @@
         </thead>
         <tbody>
             @{int i = 0;
-                for (var reader = 0; reader < Model.readers.Count; reader++)
+                for (var reader = 0; reader < Model.Reader.Count; reader++)
                 {
                     <tr>
                         <th scope="row">
-                            @Model.readers.SeqNum[i]
+                            @Model.Reader.SeqNum[i]
                         </th>
                         <td>
-                            @Model.readers[reader].Name
+                            @Model.Reader[reader].Name
                         </td>
                         <td>
-                            @Model.readers[reader].Type
-                            @if (!string.IsNullOrEmpty(@Model.readers[reader].Grade))
+                            @Model.Reader[reader].Type
+                            @if (!string.IsNullOrEmpty(@Model.Reader[reader].Grade))
                             {
-                                @:, @Model.readers[reader].Grade
+                                @:, @Model.Reader[reader].Grade
                             }
                         </td>
                         <td style="text-align:center">
                             <form method="post">
                                 <input type="hidden" name="id" asp-for="@Model.Book.Id" />
-                                <input type="hidden" name="pageIndex" asp-for="@Model.readers.PageIndex" />
+                                <input type="hidden" name="pageIndex" asp-for="@Model.Reader.PageIndex" />
                                 <input type="hidden" name="sortOrder" asp-for="@Model.CurrentSort" />
                                 <input type="hidden" name="currentFilter" asp-for="@Model.CurrentFilter" />
-                                @if (Model.readers[reader].Type == Type.Персонал)
+                                @if (Model.Reader[reader].Type == Type.Персонал)
                                 {
-                                    <input type="hidden" name="teacherId" asp-for="@Model.readers[reader].Id" />
+                                    <input type="hidden" name="teacherId" asp-for="@Model.Reader[reader].Id" />
                                 }
                                 else
                                 {
-                                    <input type="hidden" name="studentId" asp-for="@Model.readers[reader].Id" />
+                                    <input type="hidden" name="studentId" asp-for="@Model.Reader[reader].Id" />
                                 }
                                 <input type="submit" value="Повернути" class="btn btn-success btn-sm" />
                             </form>
@@ -90,8 +90,8 @@
 </div>
 
 @{
-    var prevDisabled = !Model.readers.HasPreviousPage ? "disabled" : "";
-    var nextDisabled = !Model.readers.HasNextPage ? "disabled" : "";
+    var prevDisabled = !Model.Reader.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.Reader.HasNextPage ? "disabled" : "";
 }
 
 <a asp-page="./Readers"
@@ -104,7 +104,7 @@
 </a>
 <a asp-page="./Readers"
    asp-route-sortOrder="@Model.CurrentSort"
-   asp-route-pageIndex="@(Model.readers.PageIndex - 1)"
+   asp-route-pageIndex="@(Model.Reader.PageIndex - 1)"
    asp-route-currentFilter="@Model.CurrentFilter"
    asp-route-id="@Model.Book.Id"
    class="btn btn-primary @prevDisabled">
@@ -112,7 +112,7 @@
 </a>
 <a asp-page="./Readers"
    asp-route-sortOrder="@Model.CurrentSort"
-   asp-route-pageIndex="@(Model.readers.PageIndex + 1)"
+   asp-route-pageIndex="@(Model.Reader.PageIndex + 1)"
    asp-route-currentFilter="@Model.CurrentFilter"
    asp-route-id="@Model.Book.Id"
    class="btn btn-primary @nextDisabled">
@@ -120,7 +120,7 @@
 </a>
 <a asp-page="./Readers"
    asp-route-sortOrder="@Model.CurrentSort"
-   asp-route-pageIndex="@(Model.readers.TotalPages)"
+   asp-route-pageIndex="@(Model.Reader.TotalPages)"
    asp-route-currentFilter="@Model.CurrentFilter"
    asp-route-id="@Model.Book.Id"
    class="btn btn-primary @nextDisabled">

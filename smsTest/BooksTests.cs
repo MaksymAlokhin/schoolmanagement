@@ -13,6 +13,7 @@ using System.Text.Json;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using sms;
+using sms.Pages.Library;
 
 namespace smsTest
 {
@@ -208,15 +209,15 @@ namespace smsTest
             // Arrange
             var config = new ConfigurationBuilder().Build();
             var pageModel = new sms.Pages.Library.DeleteModel(context);
-            var testId = 1;
+            var bookId = 1;
 
             // Act
-            var result = await pageModel.OnGetAsync(null, null, null, testId);
+            var result = await pageModel.OnGetAsync(bookId, null, null, null);
 
             // Assert
             Assert.IsType<PageResult>(result);
             var model = Assert.IsAssignableFrom<Book>(pageModel.Book);
-            Assert.Equal(testId, model.Id);
+            Assert.Equal(bookId, model.Id);
             Assert.Equal("Карп'юк О.Д.", model.Author);
             Assert.Equal("Карп'юк О.Д.", model.Author);
             Assert.Equal("Англійська мова", model.Name);
@@ -231,11 +232,11 @@ namespace smsTest
             // Arrange
             var config = new ConfigurationBuilder().Build();
             var pageModel = new sms.Pages.Library.DeleteModel(context);
-            var testId = 1;
-            var expectedBooks = context.Books.Where(c => c.Id != testId).ToList();
+            var bookId = 1;
+            var expectedBooks = context.Books.Where(c => c.Id != bookId).ToList();
 
             // Act
-            var result = await pageModel.OnPostAsync(null, null, null, testId);
+            var result = await pageModel.OnPostAsync(bookId, null, null, null);
 
             // Assert
             var actualBooks = await context.Books.AsNoTracking().ToListAsync();
@@ -250,11 +251,11 @@ namespace smsTest
             // Arrange
             var config = new ConfigurationBuilder().Build();
             var pageModel = new sms.Pages.Library.DeleteModel(context);
-            var testId = 320;
+            var bookId = 320;
             var expectedBooks = context.Books;
 
             // Act
-            var result = await pageModel.OnPostAsync(null, null, null, testId);
+            var result = await pageModel.OnPostAsync(bookId, null, null, null);
 
             // Assert
             var actualBooks = await context.Books.AsNoTracking().ToListAsync();
@@ -269,15 +270,15 @@ namespace smsTest
             // Arrange
             var config = new ConfigurationBuilder().Build();
             var pageModel = new sms.Pages.Library.EditModel(context);
-            int testId = 1;
+            int bookId = 1;
 
             // Act
-            var result = await pageModel.OnGetAsync(null, null, null, testId);
+            var result = await pageModel.OnGetAsync(bookId, null, null, null);
 
             // Assert
             Assert.IsType<PageResult>(result);
             var model = Assert.IsAssignableFrom<Book>(pageModel.Book);
-            Assert.Equal(testId, model.Id);
+            Assert.Equal(bookId, model.Id);
             Assert.Equal("Карп'юк О.Д.", model.Author);
             Assert.Equal("Англійська мова", model.Name);
             Assert.Equal("Астон", model.PublishingHouse);
@@ -291,8 +292,8 @@ namespace smsTest
             // Arrange
             var config = new ConfigurationBuilder().Build();
             var pageModel = new sms.Pages.Library.EditModel(context);
-            int testId = 1;
-            var expectedBook = context.Books.FirstOrDefault(m => m.Id == testId);
+            int bookId = 1;
+            var expectedBook = context.Books.FirstOrDefault(m => m.Id == bookId);
             pageModel.Book = expectedBook;
             pageModel.Book.Name = "Англійська мова";
 
@@ -310,8 +311,8 @@ namespace smsTest
             // Arrange
             var config = new ConfigurationBuilder().Build();
             var pageModel = new sms.Pages.Library.EditModel(context);
-            int testId = 1;
-            var expectedBook = context.Books.FirstOrDefault(m => m.Id == testId);
+            int bookId = 1;
+            var expectedBook = context.Books.FirstOrDefault(m => m.Id == bookId);
             pageModel.Book = expectedBook;
             pageModel.Book.Name = "Англійська мова";
 
@@ -329,11 +330,11 @@ namespace smsTest
             // Arrange
             var config = new ConfigurationBuilder().Build();
             var pageModel = new sms.Pages.Library.LendStudentModel(context, config);
-            int testId = 1;
+            int bookId = 1;
             var expectedList = context.Students;
 
             // Act
-            await pageModel.OnGetAsync(null, null, null, testId, null, null);
+            await pageModel.OnGetAsync(bookId, null, null, null, null, null);
 
             // Assert
             var actualList = Assert.IsAssignableFrom<PaginatedList<Student>>(pageModel.Student);
@@ -355,11 +356,11 @@ namespace smsTest
             // Arrange
             var config = new ConfigurationBuilder().Build();
             var pageModel = new sms.Pages.Library.LendStudentModel(context, config);
-            int testId = 1;
+            int bookId = 1;
             var expectedList = context.Students;
 
             // Act
-            await pageModel.OnGetAsync("name_desc", null, null, testId, null, null);
+            await pageModel.OnGetAsync(bookId, "name_desc", null, null, null, null);
 
             // Assert
             var actualList = Assert.IsAssignableFrom<PaginatedList<Student>>(pageModel.Student);
@@ -385,7 +386,7 @@ namespace smsTest
             // Arrange
             var config = new ConfigurationBuilder().Build();
             var pageModel = new sms.Pages.Library.LendStudentModel(context, config);
-            int testId = 1;
+            int bookId = 1;
             IQueryable<Student> expectedList = context.Students
                 .Include(m => m.Books)
                 .Include(m => m.Grade);
@@ -397,7 +398,7 @@ namespace smsTest
             }
 
             // Act
-            await pageModel.OnGetAsync(null, null, searchString, testId, null, null);
+            await pageModel.OnGetAsync(bookId, null, null, searchString, null, null);
 
             // Assert
             var actualList = Assert.IsAssignableFrom<PaginatedList<Student>>(pageModel.Student);
@@ -426,7 +427,7 @@ namespace smsTest
             // Arrange
             var config = new ConfigurationBuilder().Build();
             var pageModel = new sms.Pages.Library.LendStudentModel(context, config);
-            int testId = 1;
+            int bookId = 1;
             List<Student> expectedList = new List<Student>();
             if (pageIndex > 0 && pageIndex <= Math.Ceiling((double)context.Books.Count() / (double)PageSize))
             {
@@ -449,7 +450,7 @@ namespace smsTest
             }
 
             // Act
-            await pageModel.OnGetAsync(null, null, null, testId, null, pageIndex);
+            await pageModel.OnGetAsync(bookId, null, null, null, null, pageIndex);
 
             // Assert
             var actualList = Assert.IsAssignableFrom<PaginatedList<Student>>(pageModel.Student);
@@ -469,16 +470,16 @@ namespace smsTest
             int bookId = 1;
             int studentId = 1;
             int gradeId = 1;
-            int expectedQty = 53;
             var book = context.Books.Find(1);
+            int expectedQty = book.Qty;
 
             // Act
-            await pageModel.OnPostAsync(studentId, null, null, bookId, gradeId, null);
+            await pageModel.OnPostAsync(bookId, studentId, null, null, gradeId, null);
 
             // Assert
             var actualQuantity = context.Books.Find(1).Qty;
             Assert.True(context.Students.Find(1).Books.Contains(book));
-            Assert.Equal(expectedQty, actualQuantity);
+            Assert.Equal(expectedQty - 1, actualQuantity);
         }
         [Fact]
         public async Task Books_LendStudentModel_OnPostAsync_BookIsRemovedFromStudent()
@@ -489,19 +490,18 @@ namespace smsTest
             int bookId = 1;
             int studentId = 1;
             int gradeId = 1;
-            int expectedQty = 53;
             var book = context.Books.Find(1);
+            int expectedQty = book.Qty;
 
             // Act
-            await pageModel.OnPostAsync(studentId, null, null, bookId, gradeId, null);
+            await pageModel.OnPostAsync(bookId, studentId, null, null, gradeId, null);
 
             // Assert
             var actualQuantity = context.Books.Find(1).Qty;
             Assert.True(context.Students.Find(1).Books.Contains(book));
-            Assert.Equal(expectedQty, actualQuantity);
+            Assert.Equal(expectedQty - 1, actualQuantity);
 
-            await pageModel.OnPostAsync(studentId, null, null, bookId, gradeId, null);
-            expectedQty = 54;
+            await pageModel.OnPostAsync(bookId, studentId, null, null, gradeId, null);
             actualQuantity = context.Books.Find(1).Qty;
             Assert.False(context.Students.Find(1).Books.Contains(book));
             Assert.Equal(expectedQty, actualQuantity);
@@ -513,11 +513,11 @@ namespace smsTest
             // Arrange
             var config = new ConfigurationBuilder().Build();
             var pageModel = new sms.Pages.Library.LendTeacherModel(context, config);
-            int testId = 1;
+            int bookId = 1;
             var expectedList = context.Teachers;
 
             // Act
-            await pageModel.OnGetAsync(null, null, null, testId, null);
+            await pageModel.OnGetAsync(bookId, null, null, null, null);
 
             // Assert
             var actualList = Assert.IsAssignableFrom<PaginatedList<Teacher>>(pageModel.Teacher);
@@ -539,11 +539,11 @@ namespace smsTest
             // Arrange
             var config = new ConfigurationBuilder().Build();
             var pageModel = new sms.Pages.Library.LendTeacherModel(context, config);
-            int testId = 1;
+            int bookId = 1;
             var expectedList = context.Teachers;
 
             // Act
-            await pageModel.OnGetAsync("name_desc", null, null, testId, null);
+            await pageModel.OnGetAsync(bookId, "name_desc", null, null, null);
 
             // Assert
             var actualList = Assert.IsAssignableFrom<PaginatedList<Teacher>>(pageModel.Teacher);
@@ -569,7 +569,7 @@ namespace smsTest
             // Arrange
             var config = new ConfigurationBuilder().Build();
             var pageModel = new sms.Pages.Library.LendTeacherModel(context, config);
-            int testId = 1;
+            int bookId = 1;
             IQueryable<Teacher> expectedList = context.Teachers.Include(m => m.Books);
             if (!String.IsNullOrEmpty(searchString))
             {
@@ -579,7 +579,7 @@ namespace smsTest
             }
 
             // Act
-            await pageModel.OnGetAsync(null, null, searchString, testId, null);
+            await pageModel.OnGetAsync(bookId, null, null, searchString, null);
 
             // Assert
             var actualList = Assert.IsAssignableFrom<PaginatedList<Teacher>>(pageModel.Teacher);
@@ -608,7 +608,7 @@ namespace smsTest
             // Arrange
             var config = new ConfigurationBuilder().Build();
             var pageModel = new sms.Pages.Library.LendTeacherModel(context, config);
-            int testId = 1;
+            int bookId = 1;
             List<Teacher> expectedList = new List<Teacher>();
             if (pageIndex > 0 && pageIndex <= Math.Ceiling((double)context.Books.Count() / (double)PageSize))
             {
@@ -631,7 +631,7 @@ namespace smsTest
             }
 
             // Act
-            await pageModel.OnGetAsync(null, null, null, testId, pageIndex);
+            await pageModel.OnGetAsync(bookId, null, null, null, pageIndex);
 
             // Assert
             var actualList = Assert.IsAssignableFrom<PaginatedList<Teacher>>(pageModel.Teacher);
@@ -650,8 +650,8 @@ namespace smsTest
             var pageModel = new sms.Pages.Library.LendTeacherModel(context, config);
             int bookId = 1;
             int teacherId = 1;
-            int expectedQty = 53;
             var book = context.Books.Find(1);
+            int expectedQty = book.Qty - 1;
 
             // Act
             await pageModel.OnPostAsync(bookId, teacherId, null, null, null);
@@ -669,8 +669,8 @@ namespace smsTest
             var pageModel = new sms.Pages.Library.LendTeacherModel(context, config);
             int bookId = 1;
             int teacherId = 1;
-            int expectedQty = 53;
             var book = context.Books.Find(1);
+            int expectedQty = book.Qty;
 
             // Act
             await pageModel.OnPostAsync(bookId, teacherId, null, null, null);
@@ -678,12 +678,241 @@ namespace smsTest
             // Assert
             var actualQuantity = context.Books.Find(1).Qty;
             Assert.True(context.Teachers.Find(1).Books.Contains(book));
-            Assert.Equal(expectedQty, actualQuantity);
+            Assert.Equal(expectedQty - 1, actualQuantity);
 
             await pageModel.OnPostAsync(bookId, teacherId, null, null, null);
-            expectedQty = 54;
             actualQuantity = context.Books.Find(1).Qty;
             Assert.False(context.Teachers.Find(1).Books.Contains(book));
+            Assert.Equal(expectedQty, actualQuantity);
+        }
+        //*****************
+        [Fact]
+        public async Task Books_ReadersModel_OnGetAsync_ReadersAreReturned()
+        {
+            // Arrange
+            var config = new ConfigurationBuilder().Build();
+            var pageModel = new sms.Pages.Library.ReadersModel(context, config);
+            int bookId = 1;
+            int gradeId = 1;
+            //Add book to students
+            var lendStudentModel = new sms.Pages.Library.LendStudentModel(context, config);
+            await lendStudentModel.OnPostAsync(bookId, 1, null, null, gradeId, null);
+            await lendStudentModel.OnPostAsync(bookId, 2, null, null, gradeId, null);
+
+            //Add book to teachers
+            var lendTeacherModel = new sms.Pages.Library.LendTeacherModel(context, config);
+            await lendTeacherModel.OnPostAsync(bookId, 1, null, null, null);
+            await lendTeacherModel.OnPostAsync(bookId, 2, null, null, null);
+
+            //Create expected list
+            var students = await context.Students.Include(s => s.Books).Include(s => s.Grade).Where(s => s.Books.Any(b => b.Id == bookId)).ToListAsync();
+            var teachers = await context.Teachers.Include(s => s.Books).Where(s => s.Books.Any(b => b.Id == bookId)).ToListAsync();
+            IList<Reader> expectedList = new List<Reader>();
+            foreach (var student in students)
+                expectedList.Add(new Reader { Id = student.Id, Name = student.FullName, Type = sms.Pages.Library.Type.Учень, Grade = student.Grade.FullName });
+            foreach (var teacher in teachers)
+                expectedList.Add(new Reader { Id = teacher.Id, Name = teacher.FullName, Type = sms.Pages.Library.Type.Персонал, Grade = "" });
+
+            // Act
+            await pageModel.OnGetAsync(bookId, null, null, null, null);
+
+            // Assert
+            var actualList = Assert.IsAssignableFrom<PaginatedList<Reader>>(pageModel.Reader);
+            Assert.Equal(
+                expectedList
+                        .OrderBy(s => s.Name)
+                        .Take(PageSize).Select(m => m.Name),
+                actualList
+                        .OrderBy(s => s.Name)
+                        .Select(m => m.Name)
+                );
+        }
+        [Fact]
+        public async Task Books_ReadersModel_OnGetAsync_ReadersAreReturnedInDescendingOrder()
+        {
+            // Arrange
+            var config = new ConfigurationBuilder().Build();
+            var pageModel = new sms.Pages.Library.ReadersModel(context, config);
+            int bookId = 1;
+            int gradeId = 1;
+            //Add book to students
+            var lendStudentModel = new sms.Pages.Library.LendStudentModel(context, config);
+            await lendStudentModel.OnPostAsync(bookId, 1, null, null, gradeId, null);
+            await lendStudentModel.OnPostAsync(bookId, 2, null, null, gradeId, null);
+
+            //Add book to teachers
+            var lendTeacherModel = new sms.Pages.Library.LendTeacherModel(context, config);
+            await lendTeacherModel.OnPostAsync(bookId, 1, null, null, null);
+            await lendTeacherModel.OnPostAsync(bookId, 2, null, null, null);
+
+            //Create expected list
+            var students = await context.Students.Include(s => s.Books).Include(s => s.Grade).Where(s => s.Books.Any(b => b.Id == bookId)).ToListAsync();
+            var teachers = await context.Teachers.Include(s => s.Books).Where(s => s.Books.Any(b => b.Id == bookId)).ToListAsync();
+            IList<Reader> expectedList = new List<Reader>();
+            foreach (var student in students)
+                expectedList.Add(new Reader { Id = student.Id, Name = student.FullName, Type = sms.Pages.Library.Type.Учень, Grade = student.Grade.FullName });
+            foreach (var teacher in teachers)
+                expectedList.Add(new Reader { Id = teacher.Id, Name = teacher.FullName, Type = sms.Pages.Library.Type.Персонал, Grade = "" });
+
+            // Act
+            await pageModel.OnGetAsync(bookId, null, null, null, null);
+
+            // Assert
+            var actualList = Assert.IsAssignableFrom<PaginatedList<Reader>>(pageModel.Reader);
+            Assert.Equal(
+                expectedList
+                        .OrderByDescending(s => s.Name)
+                        .Take(PageSize).Select(m => m.Name),
+                actualList
+                        .OrderByDescending(s => s.Name)
+                        .Select(m => m.Name)
+                );
+        }
+        [Theory]
+        [InlineData("")]
+        [InlineData("Бе")]
+        [InlineData("ди")]
+        [InlineData("нь")]
+        public async Task Books_ReadersModel_OnGetAsync_FilteredListOfReadersIsReturned(string searchString)
+        {
+            // Arrange
+            var config = new ConfigurationBuilder().Build();
+            var pageModel = new sms.Pages.Library.ReadersModel(context, config);
+            int bookId = 1;
+            int gradeId = 1;
+            //Add book to students
+            var lendStudentModel = new sms.Pages.Library.LendStudentModel(context, config);
+            await lendStudentModel.OnPostAsync(bookId, 1, null, null, gradeId, null);
+            await lendStudentModel.OnPostAsync(bookId, 2, null, null, gradeId, null);
+
+            //Add book to teachers
+            var lendTeacherModel = new sms.Pages.Library.LendTeacherModel(context, config);
+            await lendTeacherModel.OnPostAsync(bookId, 1, null, null, null);
+            await lendTeacherModel.OnPostAsync(bookId, 2, null, null, null);
+
+            //Create expected list
+            var students = await context.Students.Include(s => s.Books).Include(s => s.Grade).Where(s => s.Books.Any(b => b.Id == bookId)).ToListAsync();
+            var teachers = await context.Teachers.Include(s => s.Books).Where(s => s.Books.Any(b => b.Id == bookId)).ToListAsync();
+            IList<Reader> expectedList = new List<Reader>();
+            foreach (var student in students)
+                expectedList.Add(new Reader { Id = student.Id, Name = student.FullName, Type = sms.Pages.Library.Type.Учень, Grade = student.Grade.FullName });
+            foreach (var teacher in teachers)
+                expectedList.Add(new Reader { Id = teacher.Id, Name = teacher.FullName, Type = sms.Pages.Library.Type.Персонал, Grade = "" });
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                expectedList = expectedList.Where(s => s.Name.ToLowerInvariant().Contains(searchString.ToLowerInvariant())
+                                       || s.Grade.ToLowerInvariant().Contains(searchString.ToLowerInvariant())
+                                       || s.Type.ToString().ToLowerInvariant().ToString().Contains(searchString.ToLowerInvariant()))
+                                    .ToList();
+            }
+
+            // Act
+            await pageModel.OnGetAsync(bookId, null, null, searchString, null);
+
+            // Assert
+            var actualList = Assert.IsAssignableFrom<PaginatedList<Reader>>(pageModel.Reader);
+            Assert.Equal(
+                expectedList
+                        .OrderBy(s => s.Name)
+                        .Take(PageSize).Select(m => m.Name),
+                actualList
+                        .OrderBy(s => s.Name)
+                        .Select(m => m.Name)
+                );
+        }
+        [Theory]
+        [InlineData(0)]
+        [InlineData(1)]
+        [InlineData(2)]
+        [InlineData(3)]
+        [InlineData(int.MinValue)]
+        [InlineData(int.MaxValue)]
+        public async Task Books_ReadersModel_OnGetAsync_PaginationWorkingAsExpected(int pageIndex)
+        {
+            // Arrange
+            var config = new ConfigurationBuilder().Build();
+            var pageModel = new sms.Pages.Library.ReadersModel(context, config);
+            int bookId = 1;
+            int gradeId = 1;
+            //Add book to students
+            var lendStudentModel = new sms.Pages.Library.LendStudentModel(context, config);
+            await lendStudentModel.OnPostAsync(bookId, 1, null, null, gradeId, null);
+            await lendStudentModel.OnPostAsync(bookId, 2, null, null, gradeId, null);
+
+            //Add book to teachers
+            var lendTeacherModel = new sms.Pages.Library.LendTeacherModel(context, config);
+            await lendTeacherModel.OnPostAsync(bookId, 1, null, null, null);
+            await lendTeacherModel.OnPostAsync(bookId, 2, null, null, null);
+
+            //Create expected list
+            var students = await context.Students.Include(s => s.Books).Include(s => s.Grade).Where(s => s.Books.Any(b => b.Id == bookId)).ToListAsync();
+            var teachers = await context.Teachers.Include(s => s.Books).Where(s => s.Books.Any(b => b.Id == bookId)).ToListAsync();
+            IList<Reader> expectedList = new List<Reader>();
+            foreach (var student in students)
+                expectedList.Add(new Reader { Id = student.Id, Name = student.FullName, Type = sms.Pages.Library.Type.Учень, Grade = student.Grade.FullName });
+            foreach (var teacher in teachers)
+                expectedList.Add(new Reader { Id = teacher.Id, Name = teacher.FullName, Type = sms.Pages.Library.Type.Персонал, Grade = "" });
+            if (pageIndex > 0 && pageIndex <= Math.Ceiling((double)expectedList.Count() / (double)PageSize))
+            {
+                expectedList = expectedList
+                    .OrderBy(s => s.Name)
+                    .Skip((pageIndex - 1) * PageSize)
+                    .Take(PageSize)
+                    .ToList();
+            }
+            else
+            {
+                expectedList = expectedList
+                    .OrderBy(s => s.Name)
+                    .Take(PageSize)
+                    .ToList(); ;
+            }
+
+            // Act
+            await pageModel.OnGetAsync(bookId, null, null, null, pageIndex);
+
+            // Assert
+            var actualList = Assert.IsAssignableFrom<PaginatedList<Reader>>(pageModel.Reader);
+            Assert.Equal(
+                expectedList
+                        .OrderBy(s => s.Name)
+                        .Take(PageSize).Select(m => m.Name),
+                actualList
+                        .OrderBy(s => s.Name)
+                        .Select(m => m.Name)
+                );
+        }
+        [Fact]
+        public async Task Books_ReadersModel_OnPostAsync_BookIsRemovedFromReader()
+        {
+            // Arrange
+            var config = new ConfigurationBuilder().Build();
+            var pageModel = new sms.Pages.Library.ReadersModel(context, config);
+            int bookId = 1;
+            int gradeId = 1;
+            int teacherId = 1;
+            int studentId = 1;
+            var book = context.Books.Find(1);
+            int expectedQty = book.Qty;
+
+            //Add book to student
+            var lendStudentModel = new sms.Pages.Library.LendStudentModel(context, config);
+            await lendStudentModel.OnPostAsync(bookId, studentId, null, null, gradeId, null);
+
+            //Add book to teacher
+            var lendTeacherModel = new sms.Pages.Library.LendTeacherModel(context, config);
+            await lendTeacherModel.OnPostAsync(bookId, teacherId, null, null, null);
+            
+
+            // Act
+            //Take books away
+            await pageModel.OnPostAsync(bookId, null, teacherId, null, null, null);
+            await pageModel.OnPostAsync(bookId, studentId, null, null, null, null);
+
+            // Assert
+            var actualQuantity = context.Books.Find(1).Qty;
+            Assert.False(context.Teachers.Find(teacherId).Books.Contains(book));
+            Assert.False(context.Students.Find(studentId).Books.Contains(book));
             Assert.Equal(expectedQty, actualQuantity);
         }
     }
