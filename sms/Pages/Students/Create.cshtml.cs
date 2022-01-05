@@ -52,27 +52,42 @@ namespace sms.Pages.Students
         public Student Student { get; set; }
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
-        public async Task<IActionResult> OnPostAsync(int? id, string Gender)
+        public async Task<IActionResult> OnPostAsync(string Gender)
         {
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
             //Create student and fill data
             //Створення учня і заповнення даними
             var newStudent = new Student();
 
-            if (await TryUpdateModelAsync<Student>(
-                                            newStudent,
-                                            "Student",
-                                            i => i.LastName, i => i.FirstName, i => i.Patronymic,
-                                            i => i.DateOfBirth, i => i.Address, i => i.GradeId))
-            {
-                if (Gender == "Не вказано") newStudent.Gender = null;
-                else newStudent.Gender = Gender;
+            //Refactored because TryUpdateModelAsync fails while unit testing:
+            //https://github.com/dotnet/AspNetCore.Docs/issues/14009
+            //if (await TryUpdateModelAsync<Student>(
+            //                                newStudent,
+            //                                "Student",
+            //                                i => i.LastName, i => i.FirstName, i => i.Patronymic,
+            //                                i => i.DateOfBirth, i => i.Address, i => i.GradeId))
+            
+            newStudent.LastName = Student.LastName;
+            newStudent.FirstName = Student.FirstName;
+            newStudent.Patronymic = Student.Patronymic;
+            newStudent.DateOfBirth = Student.DateOfBirth;
+            newStudent.Address = Student.Address;
+            newStudent.GradeId = Student.GradeId;
 
-                if (FormFile != null)
+            if (Gender == "Не вказано") newStudent.Gender = null;
+            else newStudent.Gender = Gender;
+
+            if (FormFile != null)
+            {
+                //Check permitted extensions for photo
+                //Перевірка фото на тип файлу
+                var ext = Path.GetExtension(FormFile.FileName).ToLowerInvariant();
+                if (!string.IsNullOrEmpty(ext) || permittedExtensions.Contains(ext))
                 {
-                    //Check permitted extensions for photo
-                    //Перевірка фото на тип файлу
-                    var ext = Path.GetExtension(FormFile.FileName).ToLowerInvariant();
-                    if (!string.IsNullOrEmpty(ext) || permittedExtensions.Contains(ext))
+                    if (webHostEnvironment != null)
                     {
                         //Get random filename for server storage
                         //Формування випадкового імені файлу для збереження на сервері
@@ -94,13 +109,12 @@ namespace sms.Pages.Students
                         newStudent.ProfilePicture = trustedFileNameForFileStorage;
                     }
                 }
-
-                //Save new student to DB
-                //Збереження нового учня у БД
-                _context.Students.Add(newStudent);
-                await _context.SaveChangesAsync();
-                return RedirectToPage("./Index");
             }
+
+            //Save new student to DB
+            //Збереження нового учня у БД
+            _context.Students.Add(newStudent);
+            await _context.SaveChangesAsync();
             return RedirectToPage("./Index");
         }
     }

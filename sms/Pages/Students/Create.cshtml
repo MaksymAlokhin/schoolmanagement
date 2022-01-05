@@ -13,7 +13,7 @@
 <div class="row">
     <div class="col-md-4">
         <div id="photo" class="img-fluid mw-100 h-auto">
-            @if (!string.IsNullOrEmpty(@Model.Student.ProfilePicture))
+            @if (!string.IsNullOrEmpty(@Model.Student?.ProfilePicture))
             {
                 <img id="upload" src="~/images/avatars/@Model.Student.ProfilePicture" />
             }

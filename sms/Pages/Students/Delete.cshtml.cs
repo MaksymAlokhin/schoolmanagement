@@ -71,12 +71,24 @@ namespace sms.Pages.Students
 
             //Delete photo file
             //Видалення файлу фото
-            string uploadsFolder = Path.Combine(webHostEnvironment.WebRootPath, @"images/avatars"); //webHost adds 'wwwroot'
-            var oldFile = Student.ProfilePicture;
-            var fileToDelete = string.Empty;
-            if (!string.IsNullOrEmpty(oldFile))
+            if (webHostEnvironment != null)
             {
-                fileToDelete = Path.Combine(uploadsFolder, oldFile);
+                bool isProduction = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production";
+                if (isProduction)
+                {
+                    string uploadsFolder = Path.Combine(webHostEnvironment.WebRootPath, @"images/avatars"); //webHost adds 'wwwroot'
+                    var oldFile = Student.ProfilePicture;
+                    var fileToDelete = string.Empty;
+                    if (!string.IsNullOrEmpty(oldFile))
+                    {
+                        fileToDelete = Path.Combine(uploadsFolder, oldFile);
+                    }
+                    if (System.IO.File.Exists(fileToDelete))
+                    {
+                        System.IO.File.Delete(fileToDelete);
+                    }
+                }
+
             }
 
             //Delete student from DB
@@ -85,11 +97,6 @@ namespace sms.Pages.Students
             {
                 _context.Students.Remove(Student);
                 await _context.SaveChangesAsync();
-
-                if (System.IO.File.Exists(fileToDelete))
-                {
-                    System.IO.File.Delete(fileToDelete);
-                }
             }
 
             return RedirectToPage("./Index", new

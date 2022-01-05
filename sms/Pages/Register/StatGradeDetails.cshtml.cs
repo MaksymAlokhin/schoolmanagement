@@ -34,7 +34,7 @@ namespace sms.Pages.Register
         public string MarkSort { get; set; }
         public string CurrentSort { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(string sortOrder, int gradeId, int year = 0, int semester = 1, int? pageIndex = 1)
+        public async Task<IActionResult> OnGetAsync(string sortOrder, int gradeId, int year = 2021, int semester = 1, int? pageIndex = 1)
         {
             CurrentSort = sortOrder; 
             if (year == 0) selectedYear = DateTime.Now.Year;

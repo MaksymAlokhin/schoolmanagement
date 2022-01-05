@@ -66,14 +66,25 @@ namespace sms.Pages.Teachers
             //Знаходження запису у БД
             Teacher = await _context.Teachers.FindAsync(id);
 
-            //Delete photo file
-            //Видалення файлу фото
-            string uploadsFolder = Path.Combine(webHostEnvironment.WebRootPath, @"images/avatars"); //webHost adds 'wwwroot'
-            var oldFile = Teacher.ProfilePicture;
-            var fileToDelete = string.Empty;
-            if (!string.IsNullOrEmpty(oldFile))
+            if (webHostEnvironment != null)
             {
-                fileToDelete = Path.Combine(uploadsFolder, oldFile);
+                bool isProduction = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production";
+                if (isProduction)
+                {
+                    //Delete photo file
+                    //Видалення файлу фото
+                    string uploadsFolder = Path.Combine(webHostEnvironment.WebRootPath, @"images/avatars"); //webHost adds 'wwwroot'
+                    var oldFile = Teacher.ProfilePicture;
+                    var fileToDelete = string.Empty;
+                    if (!string.IsNullOrEmpty(oldFile))
+                    {
+                        fileToDelete = Path.Combine(uploadsFolder, oldFile);
+                    }
+                    if (System.IO.File.Exists(fileToDelete))
+                    {
+                        System.IO.File.Delete(fileToDelete);
+                    }
+                }
             }
 
             //Delete teacher from DB
@@ -82,11 +93,6 @@ namespace sms.Pages.Teachers
             {
                 _context.Teachers.Remove(Teacher);
                 await _context.SaveChangesAsync();
-
-                if (System.IO.File.Exists(fileToDelete))
-                {
-                    System.IO.File.Delete(fileToDelete);
-                }
             }
 
             return RedirectToPage("./Index", new

@@ -46,7 +46,7 @@ namespace sms.Pages.Register
         public int selectedYear;
         public int selectedSemester;
 
-        public void OnGetAsync(string sortOrder, int year = 2021, int semester = 1, int? pageIndex = 1)
+        public async Task OnGetAsync(string sortOrder, int year = 2021, int semester = 1, int? pageIndex = 1)
         {
             CurrentSort = sortOrder; 
             YearList = new SelectList(YearSL, "Value", "Text", $"{DateTime.Now.Year}");
@@ -76,9 +76,11 @@ namespace sms.Pages.Register
 
             //Generate data for academic performance table by grade
             //Генерація даних для таблиці успішності по класам
-            var gradesIQ = _context.Gradebooks
+            var gradeBooks = await _context.Gradebooks
                 .Include(s => s.Student)
                 .Where(s => s.LessonDate >= startDate && s.LessonDate <= endDate && s.Mark != "0")
+                .ToListAsync();
+            var gradesIE = gradeBooks
                 .Select(s => new
                 {
                     Id = s.Student.GradeId,
@@ -98,8 +100,6 @@ namespace sms.Pages.Register
                     Letter = g.Key.Letter
                 });
 
-            var test = gradesIQ.ToList();
-
             NameSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             MarkSort = sortOrder == "mark" ? "mark_desc" : "mark";
 
@@ -108,22 +108,22 @@ namespace sms.Pages.Register
             switch (sortOrder)
             {
                 case "name_desc":
-                    gradesIQ = gradesIQ.OrderByDescending(s => s.Number).ThenByDescending(s => s.Letter);
+                    gradesIE = gradesIE.OrderByDescending(s => s.Number).ThenByDescending(s => s.Letter);
                     break;
                 case "mark":
-                    gradesIQ = gradesIQ.OrderBy(s => s.Avg);
+                    gradesIE = gradesIE.OrderBy(s => s.Avg);
                     break;
                 case "mark_desc":
-                    gradesIQ = gradesIQ.OrderByDescending(s => s.Avg);
+                    gradesIE = gradesIE.OrderByDescending(s => s.Avg);
                     break;
                 default:
-                    gradesIQ = gradesIQ.OrderBy(s => s.Number).ThenBy(s => s.Number);
+                    gradesIE = gradesIE.OrderBy(s => s.Number).ThenBy(s => s.Letter);
                     break;
             }
 
             var pageSize = Configuration.GetValue("PageSize", 7);
             grades = PaginatedList<StatGrade>.CreateFromList(
-                gradesIQ.ToList(), pageIndex ?? 1, pageSize);
+                gradesIE.ToList(), pageIndex ?? 1, pageSize);
         }
         //Generate data for academic performance chart
         //Генерація даних для діаграми успішності по класам

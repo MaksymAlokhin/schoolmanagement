@@ -69,8 +69,8 @@ namespace sms.Pages.Remote
 
             return RedirectToPage("./Index", new
             {
-                gradeId = $"{Assignment.GradeId}",
-                subjectId = $"{Assignment.SubjectId}",
+                gradeId = $"{Assignment?.GradeId}",
+                subjectId = $"{Assignment?.SubjectId}",
                 pageIndex = $"{pageIndex}",
                 sortOrder = $"{sortOrder}"
             });

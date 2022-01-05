@@ -95,15 +95,20 @@ namespace sms.Pages.Teachers
             //Знаходження запису у БД і оновлення полів
             var teacherToUpdate = _context.Teachers.Include(t => t.Subjects).Single(t => t.Id == id);
 
-            if (await TryUpdateModelAsync<Teacher>(
-                            teacherToUpdate,
-                            "Teacher",
-                            i => i.LastName, i => i.FirstName, i => i.Patronymic))
-            {
-                //Populate list of subjects for the selected teacher
-                //Заповнення списку предметів обраного вчителя
-                UpdateTeacherSubjects(selectedSubjects, teacherToUpdate);
-            }
+            //Refactored because TryUpdateModelAsync fails while unit testing:
+            //https://github.com/dotnet/AspNetCore.Docs/issues/14009
+            //if (await TryUpdateModelAsync<Teacher>(
+            //                teacherToUpdate,
+            //                "Teacher",
+            //                i => i.LastName, i => i.FirstName, i => i.Patronymic))
+
+            teacherToUpdate.LastName = Teacher.LastName;
+            teacherToUpdate.FirstName = Teacher.FirstName;
+            teacherToUpdate.Patronymic = Teacher.Patronymic;
+
+            //Populate list of subjects for the selected teacher
+            //Заповнення списку предметів обраного вчителя
+            UpdateTeacherSubjects(selectedSubjects, teacherToUpdate);
 
             if (FormFile != null)
             {
@@ -112,38 +117,45 @@ namespace sms.Pages.Teachers
                 var ext = Path.GetExtension(FormFile.FileName).ToLowerInvariant();
                 if (!string.IsNullOrEmpty(ext) || permittedExtensions.Contains(ext))
                 {
-                    //Get random filename for server storage
-                    //Формування випадкового імені файлу для збереження на сервері
-                    string uploadsFolder = Path.Combine(webHostEnvironment.WebRootPath, @"images\avatars"); //webHost adds 'wwwroot'
-                    var trustedFileNameForFileStorage = Path.GetRandomFileName();
-                    trustedFileNameForFileStorage = trustedFileNameForFileStorage.Substring(0, 8)
-                        + trustedFileNameForFileStorage.Substring(9) + ext;
-                    var filePath = Path.Combine(uploadsFolder, trustedFileNameForFileStorage);
-
-                    //Copy data to a new file
-                    //Копіювання даних у новий файл
-                    using (var fileStream = System.IO.File.Create(filePath))
+                    if (webHostEnvironment != null)
                     {
-                        await FormFile.CopyToAsync(fileStream);
+                        //Get random filename for server storage
+                        //Формування випадкового імені файлу для збереження на сервері
+                        string uploadsFolder = Path.Combine(webHostEnvironment.WebRootPath, @"images\avatars"); //webHost adds 'wwwroot'
+                        var trustedFileNameForFileStorage = Path.GetRandomFileName();
+                        trustedFileNameForFileStorage = trustedFileNameForFileStorage.Substring(0, 8)
+                            + trustedFileNameForFileStorage.Substring(9) + ext;
+                        var filePath = Path.Combine(uploadsFolder, trustedFileNameForFileStorage);
+
+                        //Copy data to a new file
+                        //Копіювання даних у новий файл
+                        using (var fileStream = System.IO.File.Create(filePath))
+                        {
+                            await FormFile.CopyToAsync(fileStream);
+                        }
+
+                        bool isProduction = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production";
+                        if (isProduction)
+                        {
+                            //Delete old photo file
+                            //Видалення старого файлу з фото
+                            var oldFile = teacherToUpdate.ProfilePicture;
+                            var fileToDelete = string.Empty;
+                            if (!string.IsNullOrEmpty(oldFile))
+                            {
+                                fileToDelete = Path.Combine(uploadsFolder, oldFile);
+                            }
+
+                            if (System.IO.File.Exists(fileToDelete))
+                            {
+                                System.IO.File.Delete(fileToDelete);
+                            }
+                        }
+
+                        //Update teacher's photo
+                        //Оновлення фото вчителя
+                        teacherToUpdate.ProfilePicture = trustedFileNameForFileStorage;
                     }
-
-                    //Delete old photo file
-                    //Видалення старого файлу з фото
-                    //var oldFile = teacherToUpdate.ProfilePicture;
-                    //var fileToDelete = string.Empty;
-                    //if (!string.IsNullOrEmpty(oldFile))
-                    //{
-                    //    fileToDelete = Path.Combine(uploadsFolder, oldFile);
-                    //}
-
-                    //if (System.IO.File.Exists(fileToDelete))
-                    //{
-                    //    System.IO.File.Delete(fileToDelete);
-                    //}
-
-                    //Update teacher's photo
-                    //Оновлення фото вчителя
-                    teacherToUpdate.ProfilePicture = trustedFileNameForFileStorage;
                 }
             }
 

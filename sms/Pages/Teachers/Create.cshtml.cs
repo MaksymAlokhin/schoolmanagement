@@ -47,27 +47,42 @@ namespace sms.Pages.Teachers
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync(int[] selectedSubjects)
         {
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
             //Create a record and fill it with data
             //Створення запису і заповнення даними
             var newTeacher = new Teacher();
             newTeacher.Subjects = new List<Subject>();
 
-            if (await TryUpdateModelAsync<Teacher>(
-                            newTeacher,
-                            "Teacher",
-                            i => i.LastName, i => i.FirstName, i => i.Patronymic))
+            //Refactored because TryUpdateModelAsync fails while unit testing:
+            //https://github.com/dotnet/AspNetCore.Docs/issues/14009
+            //if (await TryUpdateModelAsync<Teacher>(
+            //                newTeacher,
+            //                "Teacher",
+            //                i => i.LastName, i => i.FirstName, i => i.Patronymic))
+
+            newTeacher.LastName = Teacher.LastName;
+            newTeacher.FirstName = Teacher.FirstName;
+            newTeacher.Patronymic = Teacher.Patronymic;
+
+            if (selectedSubjects != null)
             {
-                foreach(var subj in selectedSubjects)
+                foreach (var subj in selectedSubjects)
                 {
                     newTeacher.Subjects.Add(_context.Subjects.Single(s => s.Id == subj));
                 }
+            }
 
-                if (FormFile != null)
+            if (FormFile != null)
+            {
+                //Check permitted extensions for photo
+                //Перевірка фото на тип файлу
+                var ext = Path.GetExtension(FormFile.FileName).ToLowerInvariant();
+                if (!string.IsNullOrEmpty(ext) || permittedExtensions.Contains(ext))
                 {
-                    //Check permitted extensions for photo
-                    //Перевірка фото на тип файлу
-                    var ext = Path.GetExtension(FormFile.FileName).ToLowerInvariant();
-                    if (!string.IsNullOrEmpty(ext) || permittedExtensions.Contains(ext))
+                    if (webHostEnvironment != null)
                     {
                         //Get random filename for server storage
                         //Формування випадкового імені файлу для збереження на сервері
@@ -89,13 +104,12 @@ namespace sms.Pages.Teachers
                         newTeacher.ProfilePicture = trustedFileNameForFileStorage;
                     }
                 }
-
-                //Save new teacher to DB
-                //Збереження нового вчителя у БД
-                _context.Teachers.Add(newTeacher);
-                await _context.SaveChangesAsync();
-                return RedirectToPage("./Index");
             }
+
+            //Save new teacher to DB
+            //Збереження нового вчителя у БД
+            _context.Teachers.Add(newTeacher);
+            await _context.SaveChangesAsync();
             return RedirectToPage("./Index");
         }
     }

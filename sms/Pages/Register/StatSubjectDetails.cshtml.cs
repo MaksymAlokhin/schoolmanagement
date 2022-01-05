@@ -105,8 +105,6 @@ namespace sms.Pages.Register
                     Letter = g.Key.Letter
                 });
 
-            var test = gradesIQ.ToList();
-
             NameSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             MarkSort = sortOrder == "mark" ? "mark_desc" : "mark";
 
@@ -124,7 +122,7 @@ namespace sms.Pages.Register
                     gradesIQ = gradesIQ.OrderByDescending(s => s.Avg);
                     break;
                 default:
-                    gradesIQ = gradesIQ.OrderBy(s => s.Number).ThenBy(s => s.Number);
+                    gradesIQ = gradesIQ.OrderBy(s => s.Number).ThenBy(s => s.Letter);
                     break;
             }
 

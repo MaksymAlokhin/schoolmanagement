@@ -80,25 +80,40 @@ namespace sms.Pages.Students
         public async Task<IActionResult> OnPostAsync(string sortOrder,
             string currentFilter, int? pageIndex, int? id, string Gender)
         {
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
             //Find item in DB and update it
             //Знаходження запису у БД і оновлення
             var studentToUpdate = _context.Students.Include(t => t.Grade).Single(s => s.Id == id);
 
-            if (await TryUpdateModelAsync<Student>(
-                            studentToUpdate,
-                            "Student",
-                            i => i.LastName, i => i.FirstName, i => i.Patronymic,
-                            i => i.DateOfBirth, i => i.Address, i => i.GradeId))
-            {
-                if (Gender == "Не вказано") studentToUpdate.Gender = null;
-                else studentToUpdate.Gender = Gender;
+            //Refactored because TryUpdateModelAsync fails while unit testing:
+            //https://github.com/dotnet/AspNetCore.Docs/issues/14009
+            //if (await TryUpdateModelAsync<Student>(
+            //                studentToUpdate,
+            //                "Student",
+            //                i => i.LastName, i => i.FirstName, i => i.Patronymic,
+            //                i => i.DateOfBirth, i => i.Address, i => i.GradeId))
 
-                if (FormFile != null)
+            studentToUpdate.LastName = Student.LastName;
+            studentToUpdate.FirstName = Student.FirstName;
+            studentToUpdate.Patronymic = Student.Patronymic;
+            studentToUpdate.DateOfBirth = Student.DateOfBirth;
+            studentToUpdate.Address = Student.Address;
+            studentToUpdate.GradeId = Student.GradeId;
+
+            if (Gender == "Не вказано") studentToUpdate.Gender = null;
+            else studentToUpdate.Gender = Gender;
+
+            if (FormFile != null)
+            {
+                //Check permitted extensions for photo
+                //Перевірка фото на тип файлу
+                var ext = Path.GetExtension(FormFile.FileName).ToLowerInvariant();
+                if (!string.IsNullOrEmpty(ext) || permittedExtensions.Contains(ext))
                 {
-                    //Check permitted extensions for photo
-                    //Перевірка фото на тип файлу
-                    var ext = Path.GetExtension(FormFile.FileName).ToLowerInvariant();
-                    if (!string.IsNullOrEmpty(ext) || permittedExtensions.Contains(ext))
+                    if (webHostEnvironment != null)
                     {
                         //Get random filename for server storage
                         //Формування випадкового імені файлу для збереження на сервері
@@ -115,18 +130,22 @@ namespace sms.Pages.Students
                             await FormFile.CopyToAsync(fileStream);
                         }
 
-                        //Delete old photo file
-                        //Видалення старого файлу з фото
-                        var oldFile = studentToUpdate.ProfilePicture;
-                        var fileToDelete = string.Empty;
-                        if (!string.IsNullOrEmpty(oldFile))
+                        bool isProduction = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production";
+                        if (isProduction)
                         {
-                            fileToDelete = Path.Combine(uploadsFolder, oldFile);
-                        }
+                            //Delete old photo file
+                            //Видалення старого файлу з фото
+                            var oldFile = studentToUpdate.ProfilePicture;
+                            var fileToDelete = string.Empty;
+                            if (!string.IsNullOrEmpty(oldFile))
+                            {
+                                fileToDelete = Path.Combine(uploadsFolder, oldFile);
+                            }
 
-                        if (System.IO.File.Exists(fileToDelete))
-                        {
-                            System.IO.File.Delete(fileToDelete);
+                            if (System.IO.File.Exists(fileToDelete))
+                            {
+                                System.IO.File.Delete(fileToDelete);
+                            }
                         }
 
                         //Update student photo
