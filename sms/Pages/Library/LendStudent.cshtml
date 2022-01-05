@@ -58,7 +58,7 @@
                        asp-route-id="@Model.Book.Id"
                        asp-route-currentFilter="@Model.CurrentFilter"
                        asp-route-gradeId="@Model.selectedGrade">
-                        @Html.DisplayNameFor(model => model.students[0].FullName)
+                        @Html.DisplayNameFor(model => model.Student[0].FullName)
                     </a>
                 </th>
                 <th scope="col">
@@ -67,7 +67,7 @@
                        asp-route-id="@Model.Book.Id"
                        asp-route-currentFilter="@Model.CurrentFilter"
                        asp-route-gradeId="@Model.selectedGrade">
-                        @Html.DisplayNameFor(model => model.students[0].Grade.FullName)
+                        @Html.DisplayNameFor(model => model.Student[0].Grade.FullName)
                     </a>
                 </th>
                 <th></th>
@@ -76,11 +76,11 @@
         <tbody>
             @{int i = 0;
 
-                foreach (var item in Model.students)
+                foreach (var item in Model.Student)
                 {
                     <tr>
                         <th scope="row">
-                            @Model.students.SeqNum[i]
+                            @Model.Student.SeqNum[i]
                         </th>
                         <td>
                             @Html.DisplayFor(modelItem => item.FullName)
@@ -93,7 +93,7 @@
                                 <input type="hidden" name="id" asp-for="@Model.Book.Id" />
                                 <input type="hidden" name="studentId" asp-for="@item.Id" />
                                 <input type="hidden" name="gradeId" asp-for="@Model.selectedGrade" />
-                                <input type="hidden" name="pageIndex" asp-for="@Model.students.PageIndex" />
+                                <input type="hidden" name="pageIndex" asp-for="@Model.Student.PageIndex" />
                                 <input type="hidden" name="sortOrder" asp-for="@Model.CurrentSort" />
                                 <input type="hidden" name="currentFilter" asp-for="@Model.CurrentFilter" />
                                 @if (@item.Books.Contains(Model.Book))
@@ -120,8 +120,8 @@
 </div>
 
 @{
-    var prevDisabled = !Model.students.HasPreviousPage ? "disabled" : "";
-    var nextDisabled = !Model.students.HasNextPage ? "disabled" : "";
+    var prevDisabled = !Model.Student.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.Student.HasNextPage ? "disabled" : "";
 }
 
 <a asp-page="./LendStudent"
@@ -135,7 +135,7 @@
 </a>
 <a asp-page="./LendStudent"
    asp-route-sortOrder="@Model.CurrentSort"
-   asp-route-pageIndex="@(Model.students.PageIndex - 1)"
+   asp-route-pageIndex="@(Model.Student.PageIndex - 1)"
    asp-route-currentFilter="@Model.CurrentFilter"
    asp-route-id="@Model.Book.Id"
    asp-route-gradeId="@Model.selectedGrade"
@@ -144,7 +144,7 @@
 </a>
 <a asp-page="./LendStudent"
    asp-route-sortOrder="@Model.CurrentSort"
-   asp-route-pageIndex="@(Model.students.PageIndex + 1)"
+   asp-route-pageIndex="@(Model.Student.PageIndex + 1)"
    asp-route-currentFilter="@Model.CurrentFilter"
    asp-route-id="@Model.Book.Id"
    asp-route-gradeId="@Model.selectedGrade"
@@ -153,7 +153,7 @@
 </a>
 <a asp-page="./LendStudent"
    asp-route-sortOrder="@Model.CurrentSort"
-   asp-route-pageIndex="@(Model.students.TotalPages)"
+   asp-route-pageIndex="@(Model.Student.TotalPages)"
    asp-route-currentFilter="@Model.CurrentFilter"
    asp-route-id="@Model.Book.Id"
    asp-route-gradeId="@Model.selectedGrade"

@@ -44,7 +44,7 @@
                        asp-route-sortOrder="@Model.NameSort"
                        asp-route-id="@Model.Book.Id"
                        asp-route-currentFilter="@Model.CurrentFilter">
-                        @Html.DisplayNameFor(model => model.teachers[0].FullName)
+                        @Html.DisplayNameFor(model => model.Teacher[0].FullName)
                     </a>
                 </th>
                 <th></th>
@@ -53,11 +53,11 @@
         <tbody>
             @{int i = 0;
 
-                foreach (var item in Model.teachers)
+                foreach (var item in Model.Teacher)
                 {
                     <tr>
                         <th scope="row">
-                            @Model.teachers.SeqNum[i]
+                            @Model.Teacher.SeqNum[i]
                         </th>
                         <td>
                             @Html.DisplayFor(modelItem => item.FullName)
@@ -66,7 +66,7 @@
                             <form method="post">
                                 <input type="hidden" name="id" asp-for="@Model.Book.Id" />
                                 <input type="hidden" name="teacherId" asp-for="@item.Id" />
-                                <input type="hidden" name="pageIndex" asp-for="@Model.teachers.PageIndex" />
+                                <input type="hidden" name="pageIndex" asp-for="@Model.Teacher.PageIndex" />
                                 <input type="hidden" name="sortOrder" asp-for="@Model.CurrentSort" />
                                 <input type="hidden" name="currentFilter" asp-for="@Model.CurrentFilter" />
                                 @if (@item.Books.Contains(Model.Book))
@@ -93,8 +93,8 @@
 </div>
 
 @{
-    var prevDisabled = !Model.teachers.HasPreviousPage ? "disabled" : "";
-    var nextDisabled = !Model.teachers.HasNextPage ? "disabled" : "";
+    var prevDisabled = !Model.Teacher.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.Teacher.HasNextPage ? "disabled" : "";
 }
 <a asp-page="./LendTeacher"
    asp-route-sortOrder="@Model.CurrentSort"
@@ -106,7 +106,7 @@
 </a>
 <a asp-page="./LendTeacher"
    asp-route-sortOrder="@Model.CurrentSort"
-   asp-route-pageIndex="@(Model.teachers.PageIndex - 1)"
+   asp-route-pageIndex="@(Model.Teacher.PageIndex - 1)"
    asp-route-currentFilter="@Model.CurrentFilter"
    asp-route-id="@Model.Book.Id"
    class="btn btn-primary @prevDisabled">
@@ -114,7 +114,7 @@
 </a>
 <a asp-page="./LendTeacher"
    asp-route-sortOrder="@Model.CurrentSort"
-   asp-route-pageIndex="@(Model.teachers.PageIndex + 1)"
+   asp-route-pageIndex="@(Model.Teacher.PageIndex + 1)"
    asp-route-currentFilter="@Model.CurrentFilter"
    asp-route-id="@Model.Book.Id"
    class="btn btn-primary @nextDisabled">
@@ -122,7 +122,7 @@
 </a>
 <a asp-page="./LendTeacher"
    asp-route-sortOrder="@Model.CurrentSort"
-   asp-route-pageIndex="@(Model.teachers.TotalPages)"
+   asp-route-pageIndex="@(Model.Teacher.TotalPages)"
    asp-route-currentFilter="@Model.CurrentFilter"
    asp-route-id="@Model.Book.Id"
    class="btn btn-primary @nextDisabled">

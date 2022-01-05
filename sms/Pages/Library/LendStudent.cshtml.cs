@@ -21,7 +21,7 @@ namespace sms.Pages.Library
         public List<SelectListItem> GradesSL;
         public int selectedGrade { get; set; }
         public List<SelectListItem> StudentsSL { get; set; }
-        public PaginatedList<Student> students { get; set; }
+        public PaginatedList<Student> Student { get; set; }
         public string NameSort { get; set; }
         public string GradeSort { get; set; }
         public string CurrentFilter { get; set; }
@@ -135,7 +135,7 @@ namespace sms.Pages.Library
             //Pagination
             //Розподіл на сторінки
             var pageSize = Configuration.GetValue("PageSize", 7);
-            students = PaginatedList<Student>.CreateFromList(
+            Student = PaginatedList<Student>.CreateFromList(
                 studentsIE.ToList(), pageIndex ?? 1, pageSize);
 
             return Page();

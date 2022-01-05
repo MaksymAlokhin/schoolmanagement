@@ -18,7 +18,7 @@ namespace sms.Pages.Library
     {
         private readonly sms.Data.ApplicationDbContext _context;
         private readonly IConfiguration Configuration;
-        public PaginatedList<Teacher> teachers { get; set; }
+        public PaginatedList<Teacher> Teacher { get; set; }
         public string NameSort { get; set; }
         public string CurrentFilter { get; set; }
         public string CurrentSort { get; set; }
@@ -85,8 +85,8 @@ namespace sms.Pages.Library
 
             //Pagination
             //Розподіл на сторінки
-            var pageSize = Configuration.GetValue("PageSize", 4);
-            teachers = await PaginatedList<Teacher>.CreateAsync(
+            var pageSize = Configuration.GetValue("PageSize", 7);
+            Teacher = await PaginatedList<Teacher>.CreateAsync(
                 teachersIQ, pageIndex ?? 1, pageSize);
 
             return Page();

@@ -93,10 +93,14 @@ namespace smsTest
             // Arrange
             var config = new ConfigurationBuilder().Build();
             var pageModel = new sms.Pages.Curricula.IndexModel(context, config);
-            var expectedCurricula = context.Curricula.Where(s => s.Teacher.LastName.Contains(searchString)
-                                       || s.Teacher.FirstName.Contains(searchString)
-                                       || s.Teacher.Patronymic.Contains(searchString)
-                                       || s.Subject.Name.Contains(searchString));
+            IQueryable<Curriculum> expectedCurricula = context.Curricula;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                expectedCurricula = expectedCurricula.Where(s => s.Teacher.LastName.Contains(searchString)
+                                           || s.Teacher.FirstName.Contains(searchString)
+                                           || s.Teacher.Patronymic.Contains(searchString)
+                                           || s.Subject.Name.Contains(searchString));
+            }
 
             // Act
             await pageModel.OnGetAsync(null, null, searchString, null, 1);
