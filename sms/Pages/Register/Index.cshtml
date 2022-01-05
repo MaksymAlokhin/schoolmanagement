@@ -44,7 +44,7 @@
         <tr>
             <th scope="col" style="text-align:center" class="col-auto">#</th>
             <th scope="col" style="text-align:center" class="col-auto">ПІБ Учня / Число</th>
-            @foreach (var day in @Model.pages)
+            @foreach (var day in @Model.weekdaysPaginated)
             {
                 <th scope="col" style="text-align:center" class="col-auto">
                     @day
@@ -58,11 +58,11 @@
             <tr>
                 <th scope="row" style="text-align:center">@(student+1)</th>
                 <th scope="row">@Model.students[student].FullName</th>
-                @foreach (var day in @Model.pages)
+                @foreach (var day in @Model.weekdaysPaginated)
                 {
                     <td style="text-align:center">
                         @{
-                            var mark = @Model.gradebook.Where(i => i.StudentId == Model.students[student].Id).Where(i => i.LessonDate == new DateTime(Model.selectedYear, Model.selectedMonth, day)).Select(i => i.Mark).ToList().FirstOrDefault();
+                            var mark = @Model.gradebooks.Where(i => i.StudentId == Model.students[student].Id).Where(i => i.LessonDate == new DateTime(Model.selectedYear, Model.selectedMonth, day)).Select(i => i.Mark).ToList().FirstOrDefault();
                         }
                         <form method="post">
                             <div class="form-group">
@@ -84,12 +84,12 @@
 </table>
 
 @{
-    var prevDisabled = !Model.pages.HasPreviousPage ? "disabled" : "";
-    var nextDisabled = !Model.pages.HasNextPage ? "disabled" : "";
+    var prevDisabled = !Model.weekdaysPaginated.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.weekdaysPaginated.HasNextPage ? "disabled" : "";
 }
 
 <a asp-page="./Index"
-   asp-route-pageIndex="@(Model.pages.PageIndex - 1)"
+   asp-route-pageIndex="@(Model.weekdaysPaginated.PageIndex - 1)"
    asp-route-gradeId="@Model.selectedGrade"
    asp-route-subjectId="@Model.selectedSubject"
    asp-route-year="@Model.selectedYear"
@@ -98,7 +98,7 @@
     <i class="fas fa-arrow-alt-circle-left fa-lg"></i>
 </a>
 <a asp-page="./Index"
-   asp-route-pageIndex="@(Model.pages.PageIndex + 1)"
+   asp-route-pageIndex="@(Model.weekdaysPaginated.PageIndex + 1)"
    asp-route-gradeId="@Model.selectedGrade"
    asp-route-subjectId="@Model.selectedSubject"
    asp-route-year="@Model.selectedYear"

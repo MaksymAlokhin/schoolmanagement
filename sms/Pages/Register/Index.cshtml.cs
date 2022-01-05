@@ -18,7 +18,7 @@ namespace sms.Pages.Register
     {
         private readonly sms.Data.ApplicationDbContext _context;
         private readonly IConfiguration Configuration;
-        public IList<Gradebook> gradebook { get; set; }
+        public IList<Gradebook> gradebooks { get; set; }
         public List<SelectListItem> GradesSL;
         public int selectedGrade;
         public int selectedSubject;
@@ -28,7 +28,7 @@ namespace sms.Pages.Register
         public List<SelectListItem> SubjectsSL { get; set; }
         public List<Student> students;
         public List<int> weekdays;
-        public PaginatedList<int> pages { get; set; }
+        public PaginatedList<int> weekdaysPaginated { get; set; }
         public int? selectedPage;
 
         public List<SelectListItem> YearSL { get; } = new List<SelectListItem>
@@ -118,7 +118,7 @@ namespace sms.Pages.Register
 
             }
 
-            //Get list of day with lessons
+            //Get list of days with lessons
             //Список дат з уроками з певного предмету
             #region get list of days that actually have lessons on them
             List<int> dayNumbers = await _context.Lessons
@@ -138,7 +138,7 @@ namespace sms.Pages.Register
 
             //var pageSize = Configuration.GetValue("PageSize", 7);
             var pageSize = 15;
-            pages = PaginatedList<int>.CreateFromList(weekdays, pageIndex ?? 1, pageSize);
+            weekdaysPaginated = PaginatedList<int>.CreateFromList(weekdays, pageIndex ?? 1, pageSize);
 
             //List of students
             //Список учнів
@@ -163,13 +163,13 @@ namespace sms.Pages.Register
 
             //Get mark from gradebook for a date
             //Отримання оцінки на певну дату
-            gradebook = await _context.Gradebooks
+            gradebooks = await _context.Gradebooks
                 .Include(g => g.Student)
                 .Where(g => g.LessonDate.Month == month && g.LessonDate.Year == year && g.SubjectId == subjectId && g.Student.GradeId == gradeId)
                 .ToListAsync();
         }
-        public async Task<IActionResult> OnPostAsync(int studentId, int day, 
-            string mark, int year, int month, int gradeId, int subjectId, int pageIndex)
+        public async Task<IActionResult> OnPostAsync(int year, int month, int day,
+             int gradeId, int studentId, int subjectId, string mark, int pageIndex)
         {
             var existingGradebook = _context.Gradebooks
                 .SingleOrDefault(g => g.LessonDate == new DateTime(year, month, day)
@@ -197,6 +197,8 @@ namespace sms.Pages.Register
                 {
                     _context.Remove(existingGradebook);
                 }
+                //Change record
+                //Коригування запису
                 else existingGradebook.Mark = mark;
             }
             await _context.SaveChangesAsync();
