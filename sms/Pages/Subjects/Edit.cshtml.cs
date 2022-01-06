@@ -81,14 +81,17 @@ namespace sms.Pages.Subjects
             //Знаходження запису, оновлення та збереження у БД
             var subjectToUpdate = _context.Subjects.Include(t => t.Teachers).Single(t => t.Id == id);
 
-            if (await TryUpdateModelAsync<Subject>(
-                            subjectToUpdate,
-                            "Subject", i => i.Name))
-            {
-                //Populate list of teachers for the selected subject
-                //Заповнення списку вчителів обраного предмету
-                UpdateSubjectTeachers(selectedTeachers, subjectToUpdate);
-            }
+            //Refactored because TryUpdateModelAsync fails while unit testing:
+            //https://github.com/dotnet/AspNetCore.Docs/issues/14009
+            //if (await TryUpdateModelAsync<Subject>(
+            //                subjectToUpdate,
+            //                "Subject", i => i.Name))
+
+            subjectToUpdate.Name = Subject.Name;
+
+            //Populate list of teachers for the selected subject
+            //Заповнення списку вчителів обраного предмету
+            UpdateSubjectTeachers(selectedTeachers, subjectToUpdate);
 
             try
             {

@@ -297,6 +297,8 @@ namespace smsTest
             Assert.IsType<RedirectToPageResult>(result);
             var model = Assert.IsAssignableFrom<Grade>(pageModel.Grade);
             Assert.Equal("ß", model.Letter);
+            var actualGrade = context.Grades.FirstOrDefault(m => m.Id == testId);
+            Assert.Equal("ß", actualGrade.Letter);
         }
         [Fact]
         public async Task Grade_EditModel_OnPostAsync_IfInvalidModel_ReturnPageResult()

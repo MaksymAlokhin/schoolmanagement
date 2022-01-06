@@ -304,6 +304,9 @@ namespace smsTest
             Assert.IsType<RedirectToPageResult>(result);
             var model = Assert.IsAssignableFrom<Inventory>(pageModel.Inventory);
             Assert.Equal(33, model.Quantity);
+            var actualInventory = context.Inventories.Where(i => !i.DecommissionDate.HasValue).FirstOrDefault(m => m.Id == testId);
+            Assert.Equal(33, actualInventory.Quantity);
+
         }
         [Fact]
         public async Task Inventory_EditModel_OnPostAsync_IfInvalidModel_ReturnPageResult()

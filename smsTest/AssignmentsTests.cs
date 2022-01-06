@@ -271,6 +271,9 @@ namespace smsTest
             Assert.IsType<RedirectToPageResult>(result);
             var model = Assert.IsAssignableFrom<Assignment>(pageModel.Assignment);
             Assert.Equal(new DateTime(2022, 1, 5), model.DateOfPost);
+            var actualAssignment = context.Assignments.FirstOrDefault(m => m.Id == testId);
+            Assert.Equal(new DateTime(2022, 1, 5), actualAssignment.DateOfPost);
+
         }
         [Fact]
         public async Task Assignment_EditModel_OnPostAsync_IfInvalidModel_ReturnPageResult()

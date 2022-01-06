@@ -309,6 +309,8 @@ namespace smsTest
             Assert.IsType<RedirectToPageResult>(result);
             var model = Assert.IsAssignableFrom<Curriculum>(pageModel.Curriculum);
             Assert.Equal(33, model.Quantity);
+            var actualCurriculum = context.Curricula.FirstOrDefault(m => m.Id == testId);
+            Assert.Equal(33, actualCurriculum.Quantity);
         }
         [Fact]
         public async Task Curriculum_EditModel_OnPostAsync_IfInvalidModel_ReturnPageResult()

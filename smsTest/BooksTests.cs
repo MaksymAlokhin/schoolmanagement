@@ -304,6 +304,8 @@ namespace smsTest
             Assert.IsType<RedirectToPageResult>(result);
             var model = Assert.IsAssignableFrom<Book>(pageModel.Book);
             Assert.Equal("Англійська мова", model.Name);
+            var actualBook = context.Books.FirstOrDefault(m => m.Id == bookId);
+            Assert.Equal("Англійська мова", actualBook.Name);
         }
         [Fact]
         public async Task Book_EditModel_OnPostAsync_IfInvalidModel_ReturnPageResult()

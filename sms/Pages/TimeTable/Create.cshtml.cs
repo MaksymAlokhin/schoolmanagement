@@ -58,7 +58,7 @@ namespace sms.Pages.TimeTable
             GradesList = new List<SelectListItem>();
             foreach (Grade grade in allGrades)
             {
-                if(!takenGrades.Contains(grade.Id))
+                if (!takenGrades.Contains(grade.Id))
                 {
                     GradesList.Add(new SelectListItem { Value = $"{grade.Id}", Text = $"{grade.FullName}" });
                 }
@@ -81,21 +81,34 @@ namespace sms.Pages.TimeTable
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
+
             //Create a new record and fill its properties
             //Створення нового запису і заповнення властивостей даними
             Lesson newLesson = new Lesson();
-            if (await TryUpdateModelAsync<Lesson>(
-                newLesson,
-                "Lesson",
-                i => i.Day, i => i.Slot, i=>i.TeacherId, 
-                i => i.Room, i => i.GradeId, i => i.SubjectId))
-            {
-                //Save new record to the DB
-                //Збереження нового запису у БД
-                _context.Lessons.Add(newLesson);
-                await _context.SaveChangesAsync();
-                return RedirectToPage("./Index", new { day = $"{Lesson.Day}" });
-            }
+
+            //Refactored because TryUpdateModelAsync fails while unit testing:
+            //https://github.com/dotnet/AspNetCore.Docs/issues/14009
+            //if (await TryUpdateModelAsync<Lesson>(
+            //    newLesson,
+            //    "Lesson",
+            //    i => i.Day, i => i.Slot, i=>i.TeacherId, 
+            //    i => i.Room, i => i.GradeId, i => i.SubjectId))
+
+            newLesson.Day = Lesson.Day;
+            newLesson.Slot = Lesson.Slot;
+            newLesson.TeacherId = Lesson.TeacherId;
+            newLesson.Room = Lesson.Room;
+            newLesson.GradeId = Lesson.GradeId;
+            newLesson.SubjectId = Lesson.SubjectId;
+
+            //Save new record to the DB
+            //Збереження нового запису у БД
+            _context.Lessons.Add(newLesson);
+            await _context.SaveChangesAsync();
             return RedirectToPage("./Index", new { day = $"{Lesson.Day}" });
         }
     }

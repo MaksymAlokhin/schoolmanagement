@@ -306,7 +306,8 @@ namespace smsTest
             Assert.IsType<RedirectToPageResult>(result);
             var model = Assert.IsAssignableFrom<Student>(pageModel.Student);
             Assert.Equal("Modified", model.LastName);
-            Assert.Equal("Modified", expectedStudent.LastName);
+            var actualStudent = context.Students.FirstOrDefault(m => m.Id == testId);
+            Assert.Equal("Modified", actualStudent.LastName);
         }
         [Fact]
         public async Task Student_EditModel_OnPostAsync_IfInvalidModel_ReturnPageResult()

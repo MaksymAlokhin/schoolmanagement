@@ -29,7 +29,7 @@ namespace sms.Pages.Subjects
                 .OrderBy(r => r.LastName)
                 .ThenBy(r => r.FirstName)
                 .ThenBy(r => r.Patronymic);
-            
+
             //Teachers dropdown
             //Випадаючий список вчителів
             TeacherNameSL = new SelectList(teachersQuery, "Id", "FullName"); //list, id, value
@@ -42,29 +42,36 @@ namespace sms.Pages.Subjects
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync(int[] selectedTeachers)
         {
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
+
             //Create record and fill properties with data
             //Створення запису і заповнення полів даними
             var newSubject = new Subject();
             newSubject.Teachers = new List<Teacher>();
 
-            if (await TryUpdateModelAsync<Subject>(
-                            newSubject,
-                            "Subject", i => i.Name))
-            {
-                if (selectedTeachers.Any())
-                {
-                    foreach (var teacher in selectedTeachers)
-                    {
-                        newSubject.Teachers.Add(_context.Teachers.Single(s => s.Id == teacher));
-                    }
-                }
+            //Refactored because TryUpdateModelAsync fails while unit testing:
+            //https://github.com/dotnet/AspNetCore.Docs/issues/14009
+            //if (await TryUpdateModelAsync<Subject>(
+            //                newSubject,
+            //                "Subject", i => i.Name))
 
-                //Save record to DB
-                //Збереження запису у БД
-                _context.Subjects.Add(newSubject);
-                await _context.SaveChangesAsync();
-                return RedirectToPage("./Index");
+            newSubject.Name = Subject.Name;
+
+            if (selectedTeachers != null && selectedTeachers.Any())
+            {
+                foreach (var teacher in selectedTeachers)
+                {
+                    newSubject.Teachers.Add(_context.Teachers.Single(s => s.Id == teacher));
+                }
             }
+
+            //Save record to DB
+            //Збереження запису у БД
+            _context.Subjects.Add(newSubject);
+            await _context.SaveChangesAsync();
             return RedirectToPage("./Index");
         }
     }
