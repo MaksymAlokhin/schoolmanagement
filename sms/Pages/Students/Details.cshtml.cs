@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using sms;
 using sms.Data;
+using sms.Models;
 
 namespace sms.Pages.Students
 {

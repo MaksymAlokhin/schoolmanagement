@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using sms;
 using sms.Data;
+using sms.Models;
 
 namespace sms.Pages.Students
 {

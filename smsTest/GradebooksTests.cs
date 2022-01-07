@@ -484,7 +484,7 @@ namespace smsTest
                     .Select(s => s.Avg));
         }
         [Fact]
-        public async Task Inventory_StatSubjectDetailsModel_OnGetAsync_StatisticsForSingleSubjectReturned()
+        public void Inventory_StatSubjectDetailsModel_OnGetAsync_StatisticsForSingleSubjectReturned()
         {
             // Arrange
             int year = 2021;

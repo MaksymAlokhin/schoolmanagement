@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace sms
+namespace sms.Models
 {
     public class Student
     {

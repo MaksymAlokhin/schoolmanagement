@@ -18,12 +18,10 @@ namespace smsTest
 {
     public class LessonsTests : IDisposable
     {
-        private int PageSize;
         public ApplicationDbContext context { get; private set; }
 
         public LessonsTests()
         {
-            PageSize = 7;
             var contextOptions = new DbContextOptionsBuilder<ApplicationDbContext>()
                     .UseInMemoryDatabase("LessonsTestDatabase")
                     .Options;

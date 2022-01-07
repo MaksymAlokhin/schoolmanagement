@@ -10,6 +10,7 @@ namespace sms.Models
     {
         public int Id { get; set; }
 
+        [Required]
         [Display(Name = "Найменування")]
         public string Name { get; set; }
 

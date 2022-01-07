@@ -82,6 +82,15 @@ namespace sms.Pages.Students
         {
             if (!ModelState.IsValid)
             {
+                //Grade dropdown
+                //Випадаючий список класу
+                GradesSL = new List<SelectListItem>();
+                var grades = _context.Grades.OrderBy(g => g.Number).ThenBy(g => g.Letter);
+                foreach (Grade g in grades)
+                {
+                    GradesSL.Add(new SelectListItem { Value = $"{g.Id}", Text = $"{g.FullName}" });
+                }
+
                 return Page();
             }
             //Find item in DB and update it
