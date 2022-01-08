@@ -1,4 +1,5 @@
-﻿School Management System<br />
+﻿[![.NET](https://github.com/gform/schoolmanagement/actions/workflows/dotnet.yml/badge.svg)](https://github.com/gform/schoolmanagement/actions/workflows/dotnet.yml)
+School Management System<br />
 ==============================
 Features:<br />
 ---------------

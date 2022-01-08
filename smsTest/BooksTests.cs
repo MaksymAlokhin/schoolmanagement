@@ -1,4 +1,4 @@
-using System;
+п»їusing System;
 using Xunit;
 using sms.Pages;
 using sms.Data;
@@ -84,9 +84,9 @@ namespace smsTest
         }
         [Theory]
         [InlineData("")]
-        [InlineData("Фі")]
-        [InlineData("од")]
-        [InlineData("лі")]
+        [InlineData("Р¤С–")]
+        [InlineData("РѕРґ")]
+        [InlineData("Р»С–")]
         public async Task Books_IndexModel_OnGetAsync_FilteredListOfBooksIsReturned(string searchString)
         {
             // Arrange
@@ -218,10 +218,10 @@ namespace smsTest
             Assert.IsType<PageResult>(result);
             var model = Assert.IsAssignableFrom<Book>(pageModel.Book);
             Assert.Equal(bookId, model.Id);
-            Assert.Equal("Карп'юк О.Д.", model.Author);
-            Assert.Equal("Карп'юк О.Д.", model.Author);
-            Assert.Equal("Англійська мова", model.Name);
-            Assert.Equal("Астон", model.PublishingHouse);
+            Assert.Equal("РљР°СЂРї'СЋРє Рћ.Р”.", model.Author);
+            Assert.Equal("РљР°СЂРї'СЋРє Рћ.Р”.", model.Author);
+            Assert.Equal("РђРЅРіР»С–Р№СЃСЊРєР° РјРѕРІР°", model.Name);
+            Assert.Equal("РђСЃС‚РѕРЅ", model.PublishingHouse);
             Assert.Equal(2018, model.Year);
             Assert.Equal(1, model.Grade);
             Assert.Equal(54, model.Qty);
@@ -279,9 +279,9 @@ namespace smsTest
             Assert.IsType<PageResult>(result);
             var model = Assert.IsAssignableFrom<Book>(pageModel.Book);
             Assert.Equal(bookId, model.Id);
-            Assert.Equal("Карп'юк О.Д.", model.Author);
-            Assert.Equal("Англійська мова", model.Name);
-            Assert.Equal("Астон", model.PublishingHouse);
+            Assert.Equal("РљР°СЂРї'СЋРє Рћ.Р”.", model.Author);
+            Assert.Equal("РђРЅРіР»С–Р№СЃСЊРєР° РјРѕРІР°", model.Name);
+            Assert.Equal("РђСЃС‚РѕРЅ", model.PublishingHouse);
             Assert.Equal(2018, model.Year);
             Assert.Equal(1, model.Grade);
             Assert.Equal(54, model.Qty);
@@ -295,7 +295,7 @@ namespace smsTest
             int bookId = 1;
             var expectedBook = context.Books.FirstOrDefault(m => m.Id == bookId);
             pageModel.Book = expectedBook;
-            pageModel.Book.Name = "Англійська мова";
+            pageModel.Book.Name = "РђРЅРіР»С–Р№СЃСЊРєР° РјРѕРІР°";
 
             // Act
             var result = await pageModel.OnPostAsync(null, null, null);
@@ -303,9 +303,9 @@ namespace smsTest
             // Assert
             Assert.IsType<RedirectToPageResult>(result);
             var model = Assert.IsAssignableFrom<Book>(pageModel.Book);
-            Assert.Equal("Англійська мова", model.Name);
+            Assert.Equal("РђРЅРіР»С–Р№СЃСЊРєР° РјРѕРІР°", model.Name);
             var actualBook = context.Books.FirstOrDefault(m => m.Id == bookId);
-            Assert.Equal("Англійська мова", actualBook.Name);
+            Assert.Equal("РђРЅРіР»С–Р№СЃСЊРєР° РјРѕРІР°", actualBook.Name);
         }
         [Fact]
         public async Task Books_EditModel_OnPostAsync_IfInvalidModel_ReturnPageResult()
@@ -316,7 +316,7 @@ namespace smsTest
             int bookId = 1;
             var expectedBook = context.Books.FirstOrDefault(m => m.Id == bookId);
             pageModel.Book = expectedBook;
-            pageModel.Book.Name = "Англійська мова";
+            pageModel.Book.Name = "РђРЅРіР»С–Р№СЃСЊРєР° РјРѕРІР°";
 
             // Act
             pageModel.ModelState.AddModelError("Error", "ModelState is invalid");
@@ -380,9 +380,9 @@ namespace smsTest
         }
         [Theory]
         [InlineData("")]
-        [InlineData("Бе")]
-        [InlineData("ди")]
-        [InlineData("нь")]
+        [InlineData("Р‘Рµ")]
+        [InlineData("РґРё")]
+        [InlineData("РЅСЊ")]
         public async Task Books_LendStudentModel_OnGetAsync_FilteredListOfStudentsIsReturned(string searchString)
         {
             // Arrange
@@ -563,9 +563,9 @@ namespace smsTest
         }
         [Theory]
         [InlineData("")]
-        [InlineData("Бе")]
-        [InlineData("ди")]
-        [InlineData("нь")]
+        [InlineData("Р‘Рµ")]
+        [InlineData("РґРё")]
+        [InlineData("РЅСЊ")]
         public async Task Books_LendTeacherModel_OnGetAsync_FilteredListOfTeachersIsReturned(string searchString)
         {
             // Arrange
@@ -711,9 +711,9 @@ namespace smsTest
             var teachers = await context.Teachers.Include(s => s.Books).Where(s => s.Books.Any(b => b.Id == bookId)).ToListAsync();
             IList<Reader> expectedList = new List<Reader>();
             foreach (var student in students)
-                expectedList.Add(new Reader { Id = student.Id, Name = student.FullName, Type = sms.Pages.Library.Type.Учень, Grade = student.Grade.FullName });
+                expectedList.Add(new Reader { Id = student.Id, Name = student.FullName, Type = sms.Pages.Library.Type.РЈС‡РµРЅСЊ, Grade = student.Grade.FullName });
             foreach (var teacher in teachers)
-                expectedList.Add(new Reader { Id = teacher.Id, Name = teacher.FullName, Type = sms.Pages.Library.Type.Персонал, Grade = "" });
+                expectedList.Add(new Reader { Id = teacher.Id, Name = teacher.FullName, Type = sms.Pages.Library.Type.РџРµСЂСЃРѕРЅР°Р», Grade = "" });
 
             // Act
             await pageModel.OnGetAsync(bookId, null, null, null, null);
@@ -752,9 +752,9 @@ namespace smsTest
             var teachers = await context.Teachers.Include(s => s.Books).Where(s => s.Books.Any(b => b.Id == bookId)).ToListAsync();
             IList<Reader> expectedList = new List<Reader>();
             foreach (var student in students)
-                expectedList.Add(new Reader { Id = student.Id, Name = student.FullName, Type = sms.Pages.Library.Type.Учень, Grade = student.Grade.FullName });
+                expectedList.Add(new Reader { Id = student.Id, Name = student.FullName, Type = sms.Pages.Library.Type.РЈС‡РµРЅСЊ, Grade = student.Grade.FullName });
             foreach (var teacher in teachers)
-                expectedList.Add(new Reader { Id = teacher.Id, Name = teacher.FullName, Type = sms.Pages.Library.Type.Персонал, Grade = "" });
+                expectedList.Add(new Reader { Id = teacher.Id, Name = teacher.FullName, Type = sms.Pages.Library.Type.РџРµСЂСЃРѕРЅР°Р», Grade = "" });
 
             // Act
             await pageModel.OnGetAsync(bookId, null, null, null, null);
@@ -772,9 +772,9 @@ namespace smsTest
         }
         [Theory]
         [InlineData("")]
-        [InlineData("Бе")]
-        [InlineData("ди")]
-        [InlineData("нь")]
+        [InlineData("Р‘Рµ")]
+        [InlineData("РґРё")]
+        [InlineData("РЅСЊ")]
         public async Task Books_ReadersModel_OnGetAsync_FilteredListOfReadersIsReturned(string searchString)
         {
             // Arrange
@@ -797,9 +797,9 @@ namespace smsTest
             var teachers = await context.Teachers.Include(s => s.Books).Where(s => s.Books.Any(b => b.Id == bookId)).ToListAsync();
             IList<Reader> expectedList = new List<Reader>();
             foreach (var student in students)
-                expectedList.Add(new Reader { Id = student.Id, Name = student.FullName, Type = sms.Pages.Library.Type.Учень, Grade = student.Grade.FullName });
+                expectedList.Add(new Reader { Id = student.Id, Name = student.FullName, Type = sms.Pages.Library.Type.РЈС‡РµРЅСЊ, Grade = student.Grade.FullName });
             foreach (var teacher in teachers)
-                expectedList.Add(new Reader { Id = teacher.Id, Name = teacher.FullName, Type = sms.Pages.Library.Type.Персонал, Grade = "" });
+                expectedList.Add(new Reader { Id = teacher.Id, Name = teacher.FullName, Type = sms.Pages.Library.Type.РџРµСЂСЃРѕРЅР°Р», Grade = "" });
             if (!String.IsNullOrEmpty(searchString))
             {
                 expectedList = expectedList.Where(s => s.Name.ToLowerInvariant().Contains(searchString.ToLowerInvariant())
@@ -851,9 +851,9 @@ namespace smsTest
             var teachers = await context.Teachers.Include(s => s.Books).Where(s => s.Books.Any(b => b.Id == bookId)).ToListAsync();
             IList<Reader> expectedList = new List<Reader>();
             foreach (var student in students)
-                expectedList.Add(new Reader { Id = student.Id, Name = student.FullName, Type = sms.Pages.Library.Type.Учень, Grade = student.Grade.FullName });
+                expectedList.Add(new Reader { Id = student.Id, Name = student.FullName, Type = sms.Pages.Library.Type.РЈС‡РµРЅСЊ, Grade = student.Grade.FullName });
             foreach (var teacher in teachers)
-                expectedList.Add(new Reader { Id = teacher.Id, Name = teacher.FullName, Type = sms.Pages.Library.Type.Персонал, Grade = "" });
+                expectedList.Add(new Reader { Id = teacher.Id, Name = teacher.FullName, Type = sms.Pages.Library.Type.РџРµСЂСЃРѕРЅР°Р», Grade = "" });
             if (pageIndex > 0 && pageIndex <= Math.Ceiling((double)expectedList.Count() / (double)PageSize))
             {
                 expectedList = expectedList
