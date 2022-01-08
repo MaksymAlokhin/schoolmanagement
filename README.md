@@ -13,9 +13,10 @@ Features:<br />
 
 Installation:<br />
 ---------------
-Written in ASP.NET Core with Entity Framework Core and SQL Server.<br />
-To create database, type in Package Manager Console (Visual Studio):<br />
-`Update-Database`<br /><br />
+Everything should work out of the box.<br />
+
+Click [here](https://schoolmanagementapp.azurewebsites.net/) to view live demo.<br />
+
 Users are:
 ```
 newuser@sms.com
