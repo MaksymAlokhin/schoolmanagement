@@ -36,5 +36,5 @@ jobs:
       uses: azure/webapps-deploy@v2
       with:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
-        publish-profile: ${{ secrets.ERP_SYSTEM_DEMO_WEBAPP_SECRET }}
+        publish-profile: ${{ secrets.SCHOOLMANAGEMENTAPP_WEBAPP_SECRET }}
         package: '${{ env.WORKING_DIRECTORY }}/website'
