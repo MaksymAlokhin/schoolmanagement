@@ -1,4 +1,4 @@
-using System;
+п»їusing System;
 using Xunit;
 using sms.Pages;
 using sms.Data;
@@ -81,9 +81,9 @@ namespace smsTest
         }
         [Theory]
         [InlineData("")]
-        [InlineData("ов")]
-        [InlineData("ам")]
-        [InlineData("ко")]
+        [InlineData("РѕРІ")]
+        [InlineData("Р°Рј")]
+        [InlineData("РєРѕ")]
         public async Task Teachers_IndexModel_OnGetAsync_FilteredListOfTeachersIsReturned(string searchString)
         {
             // Arrange
@@ -217,9 +217,9 @@ namespace smsTest
             Assert.IsType<PageResult>(result);
             var model = Assert.IsAssignableFrom<Teacher>(pageModel.Teacher);
             Assert.Equal(testId, model.Id);
-            Assert.Equal("Лісічкіна", model.LastName);
-            Assert.Equal("Світлана", model.FirstName);
-            Assert.Equal("Миколаївна", model.Patronymic);
+            Assert.Equal("Р›С–СЃС–С‡РєС–РЅР°", model.LastName);
+            Assert.Equal("РЎРІС–С‚Р»Р°РЅР°", model.FirstName);
+            Assert.Equal("РњРёРєРѕР»Р°С—РІРЅР°", model.Patronymic);
         }
         [Fact]
         public async Task Teachers_DeleteModel_OnPostAsync_TeacherIsDeleted_WhenTeacherIsFound()
@@ -274,9 +274,9 @@ namespace smsTest
             Assert.IsType<PageResult>(result);
             var model = Assert.IsAssignableFrom<Teacher>(pageModel.Teacher);
             Assert.Equal(testId, model.Id);
-            Assert.Equal("Лісічкіна", model.LastName);
-            Assert.Equal("Світлана", model.FirstName);
-            Assert.Equal("Миколаївна", model.Patronymic);
+            Assert.Equal("Р›С–СЃС–С‡РєС–РЅР°", model.LastName);
+            Assert.Equal("РЎРІС–С‚Р»Р°РЅР°", model.FirstName);
+            Assert.Equal("РњРёРєРѕР»Р°С—РІРЅР°", model.Patronymic);
         }
         [Fact]
         public async Task Teachers_EditModel_OnPostAsync_TeacherIsModified()
@@ -332,9 +332,9 @@ namespace smsTest
             Assert.IsType<PageResult>(result);
             var model = Assert.IsAssignableFrom<Teacher>(pageModel.Teacher);
             Assert.Equal(testId, model.Id);
-            Assert.Equal("Лісічкіна", model.LastName);
-            Assert.Equal("Світлана", model.FirstName);
-            Assert.Equal("Миколаївна", model.Patronymic);
+            Assert.Equal("Р›С–СЃС–С‡РєС–РЅР°", model.LastName);
+            Assert.Equal("РЎРІС–С‚Р»Р°РЅР°", model.FirstName);
+            Assert.Equal("РњРёРєРѕР»Р°С—РІРЅР°", model.Patronymic);
         }
 
         //DetailsModel

@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using Xunit;
 using sms.Pages;
 using sms.Data;
@@ -85,9 +85,9 @@ namespace smsTest
         }
         [Theory]
         [InlineData("")]
-        [InlineData("éñü")]
-        [InlineData("öò")]
-        [InlineData("ğà")]
+        [InlineData("Ğ¹ÑÑŒ")]
+        [InlineData("Ñ†Ñ‚")]
+        [InlineData("Ñ€Ğ°")]
         public async Task Curricula_IndexModel_OnGetAsync_FilteredListOfCurriculaIsReturned(string searchString)
         {
             // Arrange

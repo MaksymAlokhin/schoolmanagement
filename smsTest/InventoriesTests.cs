@@ -1,4 +1,4 @@
-using System;
+п»їusing System;
 using Xunit;
 using sms.Pages;
 using sms.Data;
@@ -83,9 +83,9 @@ namespace smsTest
         }
         [Theory]
         [InlineData("")]
-        [InlineData("йсь")]
-        [InlineData("цт")]
-        [InlineData("ра")]
+        [InlineData("Р№СЃСЊ")]
+        [InlineData("С†С‚")]
+        [InlineData("СЂР°")]
         public async Task Inventories_IndexModel_OnGetAsync_FilteredListOfInventoriesIsReturned(string searchString)
         {
             // Arrange
@@ -221,7 +221,7 @@ namespace smsTest
             Assert.IsType<PageResult>(result);
             var model = Assert.IsAssignableFrom<Inventory>(pageModel.Inventory);
             Assert.Equal(testId, model.Id);
-            Assert.Equal("Аксесуари та витратні матеріали до дошок: губка для витирання", model.Name);
+            Assert.Equal("РђРєСЃРµСЃСѓР°СЂРё С‚Р° РІРёС‚СЂР°С‚РЅС– РјР°С‚РµСЂС–Р°Р»Рё РґРѕ РґРѕС€РѕРє: РіСѓР±РєР° РґР»СЏ РІРёС‚РёСЂР°РЅРЅСЏ", model.Name);
             Assert.Equal(97060980, model.InventoryNumber);
             Assert.Equal(19, model.Quantity);
             Assert.Equal(2471.68M, model.Price);
@@ -280,7 +280,7 @@ namespace smsTest
             Assert.IsType<PageResult>(result);
             var model = Assert.IsAssignableFrom<Inventory>(pageModel.Inventory);
             Assert.Equal(testId, model.Id);
-            Assert.Equal("Аксесуари та витратні матеріали до дошок: губка для витирання", model.Name);
+            Assert.Equal("РђРєСЃРµСЃСѓР°СЂРё С‚Р° РІРёС‚СЂР°С‚РЅС– РјР°С‚РµСЂС–Р°Р»Рё РґРѕ РґРѕС€РѕРє: РіСѓР±РєР° РґР»СЏ РІРёС‚РёСЂР°РЅРЅСЏ", model.Name);
             Assert.Equal(97060980, model.InventoryNumber);
             Assert.Equal(19, model.Quantity);
             Assert.Equal(2471.68M, model.Price);
@@ -340,7 +340,7 @@ namespace smsTest
             Assert.IsType<PageResult>(result);
             var model = Assert.IsAssignableFrom<Inventory>(pageModel.Inventory);
             Assert.Equal(testId, model.Id);
-            Assert.Equal("Аксесуари та витратні матеріали до дошок: губка для витирання", model.Name);
+            Assert.Equal("РђРєСЃРµСЃСѓР°СЂРё С‚Р° РІРёС‚СЂР°С‚РЅС– РјР°С‚РµСЂС–Р°Р»Рё РґРѕ РґРѕС€РѕРє: РіСѓР±РєР° РґР»СЏ РІРёС‚РёСЂР°РЅРЅСЏ", model.Name);
             Assert.Equal(97060980, model.InventoryNumber);
             Assert.Equal(19, model.Quantity);
             Assert.Equal(2471.68M, model.Price);
@@ -429,9 +429,9 @@ namespace smsTest
         }
         [Theory]
         [InlineData("")]
-        [InlineData("йсь")]
-        [InlineData("цт")]
-        [InlineData("ра")]
+        [InlineData("Р№СЃСЊ")]
+        [InlineData("С†С‚")]
+        [InlineData("СЂР°")]
         public async Task Inventories_DecommissionedModel_OnGetAsync_FilteredListOfInventoriesIsReturned(string searchString)
         {
             // Arrange

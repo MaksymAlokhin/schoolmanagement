@@ -1,4 +1,4 @@
-using System;
+п»їusing System;
 using Xunit;
 using sms.Pages;
 using sms.Data;
@@ -81,9 +81,9 @@ namespace smsTest
         }
         [Theory]
         [InlineData("")]
-        [InlineData("ія")]
-        [InlineData("те")]
-        [InlineData("ра")]
+        [InlineData("С–СЏ")]
+        [InlineData("С‚Рµ")]
+        [InlineData("СЂР°")]
         public async Task Subjects_IndexModel_OnGetAsync_FilteredListOfSubjectsIsReturned(string searchString)
         {
             // Arrange
@@ -209,7 +209,7 @@ namespace smsTest
             Assert.IsType<PageResult>(result);
             var model = Assert.IsAssignableFrom<Subject>(pageModel.Subject);
             Assert.Equal(testId, model.Id);
-            Assert.Equal("Англійська мова", model.Name);
+            Assert.Equal("РђРЅРіР»С–Р№СЃСЊРєР° РјРѕРІР°", model.Name);
         }
         [Fact]
         public async Task Subjects_DeleteModel_OnPostAsync_SubjectIsDeleted_WhenSubjectIsFound()
@@ -264,7 +264,7 @@ namespace smsTest
             Assert.IsType<PageResult>(result);
             var model = Assert.IsAssignableFrom<Subject>(pageModel.Subject);
             Assert.Equal(testId, model.Id);
-            Assert.Equal("Англійська мова", model.Name);
+            Assert.Equal("РђРЅРіР»С–Р№СЃСЊРєР° РјРѕРІР°", model.Name);
         }
         [Fact]
         public async Task Subjects_EditModel_OnPostAsync_SubjectIsModified()
@@ -320,7 +320,7 @@ namespace smsTest
             Assert.IsType<PageResult>(result);
             var model = Assert.IsAssignableFrom<Subject>(pageModel.Subject);
             Assert.Equal(testId, model.Id);
-            Assert.Equal("Англійська мова", model.Name);
+            Assert.Equal("РђРЅРіР»С–Р№СЃСЊРєР° РјРѕРІР°", model.Name);
         }
 
         //DetailsModel

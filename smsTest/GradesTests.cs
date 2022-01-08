@@ -1,4 +1,4 @@
-using System;
+Ôªøusing System;
 using Xunit;
 using sms.Pages;
 using sms.Data;
@@ -84,8 +84,8 @@ namespace smsTest
         [Theory]
         [InlineData("")]
         [InlineData("1")]
-        [InlineData("¿")]
-        [InlineData("ﬂ")]
+        [InlineData("–ê")]
+        [InlineData("–Ø")]
         public async Task Grades_IndexModel_OnGetAsync_FilteredListOfGradesIsReturned(string searchString)
         {
             // Arrange
@@ -165,7 +165,7 @@ namespace smsTest
             {
                 Id = 23,
                 Number = 13,
-                Letter = "ﬂ",
+                Letter = "–Ø",
                 Room = "122"
             };
             pageModel.Grade = expectedGrades;
@@ -191,7 +191,7 @@ namespace smsTest
             {
                 Id = 23,
                 Number = 13,
-                Letter = "ﬂ",
+                Letter = "–Ø",
                 Room = "122"
             };
             pageModel.Grade = expectedGrades;
@@ -219,7 +219,7 @@ namespace smsTest
             var model = Assert.IsAssignableFrom<Grade>(pageModel.Grade);
             Assert.Equal(testId, model.Id);
             Assert.Equal(1, model.Number);
-            Assert.Equal("¿", model.Letter);
+            Assert.Equal("–ê", model.Letter);
             Assert.Equal("105", model.Room);
         }
         [Fact]
@@ -276,7 +276,7 @@ namespace smsTest
             var model = Assert.IsAssignableFrom<Grade>(pageModel.Grade);
             Assert.Equal(testId, model.Id);
             Assert.Equal(1, model.Number);
-            Assert.Equal("¿", model.Letter);
+            Assert.Equal("–ê", model.Letter);
             Assert.Equal("105", model.Room);
         }
         [Fact]
@@ -288,7 +288,7 @@ namespace smsTest
             int testId = 1;
             var expectedGrade = context.Grades.FirstOrDefault(m => m.Id == testId);
             pageModel.Grade = expectedGrade;
-            pageModel.Grade.Letter = "ﬂ";
+            pageModel.Grade.Letter = "–Ø";
 
             // Act
             var result = await pageModel.OnPostAsync(null, null, null);
@@ -296,9 +296,9 @@ namespace smsTest
             // Assert
             Assert.IsType<RedirectToPageResult>(result);
             var model = Assert.IsAssignableFrom<Grade>(pageModel.Grade);
-            Assert.Equal("ﬂ", model.Letter);
+            Assert.Equal("–Ø", model.Letter);
             var actualGrade = context.Grades.FirstOrDefault(m => m.Id == testId);
-            Assert.Equal("ﬂ", actualGrade.Letter);
+            Assert.Equal("–Ø", actualGrade.Letter);
         }
         [Fact]
         public async Task Grades_EditModel_OnPostAsync_IfInvalidModel_ReturnPageResult()
@@ -309,7 +309,7 @@ namespace smsTest
             int testId = 1;
             var expectedGrade = context.Grades.FirstOrDefault(m => m.Id == testId);
             pageModel.Grade = expectedGrade;
-            pageModel.Grade.Letter = "ﬂ";
+            pageModel.Grade.Letter = "–Ø";
 
             // Act
             pageModel.ModelState.AddModelError("Error", "ModelState is invalid");
@@ -334,7 +334,7 @@ namespace smsTest
             var model = Assert.IsAssignableFrom<Grade>(pageModel.Grade);
             Assert.Equal(testId, model.Id);
             Assert.Equal(1, model.Number);
-            Assert.Equal("¿", model.Letter);
+            Assert.Equal("–ê", model.Letter);
             Assert.Equal("105", model.Room);
         }
 
