@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace sms.Pages
 
         public void OnGet()
         {
-
+            Log.Information("Користувач {0} переглядає головну сторінку", HttpContext.User.Identity.Name);
         }
     }
 }

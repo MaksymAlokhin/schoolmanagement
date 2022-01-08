@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Serilog;
 using sms.Data;
 using sms.Models;
 
@@ -41,6 +42,8 @@ namespace sms.Pages.Grades
             //Збереження створеної сутності у БД
             _context.Grades.Add(Grade);
             await _context.SaveChangesAsync();
+
+            Log.Information("Користувач створив клас {0}", Grade.FullName);
 
             return RedirectToPage("./Index");
         }

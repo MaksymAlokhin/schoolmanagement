@@ -223,7 +223,7 @@ namespace smsTest
             Assert.Equal("105", model.Room);
         }
         [Fact]
-        public async Task Grade_DeleteModel_OnPostAsync_GradeIsDeleted_WhenGradeIsFound()
+        public async Task Grades_DeleteModel_OnPostAsync_GradeIsDeleted_WhenGradeIsFound()
         {
             // Arrange
             var config = new ConfigurationBuilder().Build();
@@ -242,7 +242,7 @@ namespace smsTest
             Assert.IsType<RedirectToPageResult>(result);
         }
         [Fact]
-        public async Task Grade_DeleteModel_OnPostAsync_NoGradeIsDeleted_WhenGradeIsNotFound()
+        public async Task Grades_DeleteModel_OnPostAsync_NoGradeIsDeleted_WhenGradeIsNotFound()
         {
             // Arrange
             var config = new ConfigurationBuilder().Build();
@@ -261,7 +261,7 @@ namespace smsTest
             Assert.IsType<RedirectToPageResult>(result);
         }
         [Fact]
-        public async Task Grade_EditModel_OnGetAsync_GradeIsFetched()
+        public async Task Grades_EditModel_OnGetAsync_GradeIsFetched()
         {
             // Arrange
             var config = new ConfigurationBuilder().Build();
@@ -280,7 +280,7 @@ namespace smsTest
             Assert.Equal("105", model.Room);
         }
         [Fact]
-        public async Task Grade_EditModel_OnPostAsync_GradeIsModified()
+        public async Task Grades_EditModel_OnPostAsync_GradeIsModified()
         {
             // Arrange
             var config = new ConfigurationBuilder().Build();
@@ -301,7 +301,7 @@ namespace smsTest
             Assert.Equal("ß", actualGrade.Letter);
         }
         [Fact]
-        public async Task Grade_EditModel_OnPostAsync_IfInvalidModel_ReturnPageResult()
+        public async Task Grades_EditModel_OnPostAsync_IfInvalidModel_ReturnPageResult()
         {
             // Arrange
             var config = new ConfigurationBuilder().Build();
@@ -319,7 +319,7 @@ namespace smsTest
             Assert.IsType<PageResult>(result);
         }
         [Fact]
-        public async Task Grade_DetailsModel_OnGetAsync_GradeIsFetched_WhenGradeIsFound()
+        public async Task Grades_DetailsModel_OnGetAsync_GradeIsFetched_WhenGradeIsFound()
         {
             // Arrange
             var config = new ConfigurationBuilder().Build();
@@ -340,7 +340,7 @@ namespace smsTest
 
         //DetailsModel
         [Fact]
-        public async Task Grade_DetailsModel_OnGetAsync_NotFoundResultReturned_WhenGradeIsNotFound()
+        public async Task Grades_DetailsModel_OnGetAsync_NotFoundResultReturned_WhenGradeIsNotFound()
         {
             // Arrange
             var config = new ConfigurationBuilder().Build();

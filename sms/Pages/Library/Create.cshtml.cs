@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Serilog;
 using sms.Data;
 using sms.Models;
 
@@ -41,6 +42,8 @@ namespace sms.Pages.Library
             //Збереження нового запису у БД
             _context.Books.Add(Book);
             await _context.SaveChangesAsync();
+
+            Log.Information("Користувач створив книгу {0}", Book.Name);
 
             return RedirectToPage("./Index");
         }

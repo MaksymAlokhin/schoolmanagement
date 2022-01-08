@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 using sms.Data;
 using sms.Models;
 
@@ -98,6 +99,10 @@ namespace sms.Pages.Remote
                     throw;
                 }
             }
+
+            Log.Information("Користувач відредагував завдання для дистанційного навчання " +
+                "для класу {0} з предмету {1}", Assignment.GradeId, Assignment.SubjectId);
+
             return RedirectToPage("./Index", new
             {
                 gradeId = $"{Assignment.GradeId}",

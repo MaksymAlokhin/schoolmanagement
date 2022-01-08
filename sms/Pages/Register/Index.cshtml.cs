@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using sms.Data;
 using sms.Models;
 using Microsoft.Extensions.Configuration;
+using Serilog;
 
 namespace sms.Pages.Register
 {
@@ -167,6 +168,8 @@ namespace sms.Pages.Register
                 .Include(g => g.Student)
                 .Where(g => g.LessonDate.Month == month && g.LessonDate.Year == year && g.SubjectId == subjectId && g.Student.GradeId == gradeId)
                 .ToListAsync();
+
+            Log.Information("Користувач переглядає сторінку {0} класного журналу", pageIndex ?? 1);
         }
         public async Task<IActionResult> OnPostAsync(int year, int month, int day,
              int gradeId, int studentId, int subjectId, string mark, int pageIndex)

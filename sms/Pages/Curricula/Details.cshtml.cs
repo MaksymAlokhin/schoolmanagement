@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 using sms.Data;
 using sms.Models;
 
@@ -49,6 +50,11 @@ namespace sms.Pages.Curricula
             {
                 return NotFound();
             }
+
+            Log.Information("Користувач переглядає детальну інформацію про навчальний план - " +
+                "Quantity: {0}, GradeId: {1}, SubjectId: {2}, TeacherId: {3}",
+                Curriculum.Quantity, Curriculum.GradeId, Curriculum.SubjectId, Curriculum.TeacherId);
+
             return Page();
         }
     }

@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using sms.Data;
 using sms.Models;
 using Microsoft.Extensions.Configuration;
+using Serilog;
 
 namespace sms.Pages.Grades
 {
@@ -74,6 +75,8 @@ namespace sms.Pages.Grades
             var pageSize = Configuration.GetValue("PageSize", 7);
             Grade = await PaginatedList<Grade>.CreateAsync(
                 gradesIQ.AsNoTracking(), pageIndex ?? 1, pageSize);
+
+            Log.Information("Користувач переглядає сторінку {0} списку класів", pageIndex ?? 1);
         }
     }
 }

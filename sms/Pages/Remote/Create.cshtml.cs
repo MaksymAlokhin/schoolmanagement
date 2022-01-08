@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Serilog;
 using sms.Data;
 using sms.Models;
 
@@ -70,6 +71,9 @@ namespace sms.Pages.Remote
             //Збереження даних у БД
             _context.Assignments.Add(Assignment);
             await _context.SaveChangesAsync();
+
+            Log.Information("Користувач створив завдання для дистанційного навчання " +
+                "для класу {0} з предмету {1}", Assignment.GradeId, Assignment.SubjectId);
 
             return RedirectToPage("./Index", new { gradeId = $"{Assignment.GradeId}", subjectId = $"{Assignment.SubjectId}" });
         }

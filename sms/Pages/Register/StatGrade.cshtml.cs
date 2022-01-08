@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Serilog;
 using sms.Models;
 
 namespace sms.Pages.Register
@@ -124,6 +125,8 @@ namespace sms.Pages.Register
             var pageSize = Configuration.GetValue("PageSize", 7);
             grades = PaginatedList<StatGrade>.CreateFromList(
                 gradesIE.ToList(), pageIndex ?? 1, pageSize);
+
+            Log.Information("Користувач переглядає сторінку {0} статистичних даних по класам", pageIndex ?? 1);
         }
         //Generate data for academic performance chart
         //Генерація даних для діаграми успішності по класам

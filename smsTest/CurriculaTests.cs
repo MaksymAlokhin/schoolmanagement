@@ -234,7 +234,7 @@ namespace smsTest
             Assert.Equal(2, model.TeacherId);
         }
         [Fact]
-        public async Task Curriculum_DeleteModel_OnPostAsync_CurriculumIsDeleted_WhenCurriculumIsFound()
+        public async Task Curricula_DeleteModel_OnPostAsync_CurriculumIsDeleted_WhenCurriculumIsFound()
         {
             // Arrange
             var config = new ConfigurationBuilder().Build();
@@ -253,7 +253,7 @@ namespace smsTest
             Assert.IsType<RedirectToPageResult>(result);
         }
         [Fact]
-        public async Task Curriculum_DeleteModel_OnPostAsync_NoCurriculumIsDeleted_WhenCurriculumIsNotFound()
+        public async Task Curricula_DeleteModel_OnPostAsync_NoCurriculumIsDeleted_WhenCurriculumIsNotFound()
         {
             // Arrange
             var config = new ConfigurationBuilder().Build();
@@ -272,7 +272,7 @@ namespace smsTest
             Assert.IsType<RedirectToPageResult>(result);
         }
         [Fact]
-        public async Task Curriculum_EditModel_OnGetAsync_CurriculumIsFetched()
+        public async Task Curricula_EditModel_OnGetAsync_CurriculumIsFetched()
         {
             // Arrange
             var config = new ConfigurationBuilder().Build();
@@ -292,7 +292,7 @@ namespace smsTest
             Assert.Equal(2, model.TeacherId);
         }
         [Fact]
-        public async Task Curriculum_EditModel_OnPostAsync_CurriculumIsModified()
+        public async Task Curricula_EditModel_OnPostAsync_CurriculumIsModified()
         {
             // Arrange
             var config = new ConfigurationBuilder().Build();
@@ -313,7 +313,7 @@ namespace smsTest
             Assert.Equal(33, actualCurriculum.Quantity);
         }
         [Fact]
-        public async Task Curriculum_EditModel_OnPostAsync_IfInvalidModel_ReturnPageResult()
+        public async Task Curricula_EditModel_OnPostAsync_IfInvalidModel_ReturnPageResult()
         {
             // Arrange
             var config = new ConfigurationBuilder().Build();
@@ -331,7 +331,7 @@ namespace smsTest
             Assert.IsType<PageResult>(result);
         }
         [Fact]
-        public async Task Curriculum_DetailsModel_OnGetAsync_CurriculumIsFetched_WhenCurriculumIsFound()
+        public async Task Curricula_DetailsModel_OnGetAsync_CurriculumIsFetched_WhenCurriculumIsFound()
         {
             // Arrange
             var config = new ConfigurationBuilder().Build();
@@ -353,7 +353,7 @@ namespace smsTest
 
         //DetailsModel
         [Fact]
-        public async Task Curriculum_DetailsModel_OnGetAsync_NotFoundResultReturned_WhenCurriculumIsNotFound()
+        public async Task Curricula_DetailsModel_OnGetAsync_NotFoundResultReturned_WhenCurriculumIsNotFound()
         {
             // Arrange
             var config = new ConfigurationBuilder().Build();

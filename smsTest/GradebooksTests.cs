@@ -69,7 +69,7 @@ namespace smsTest
             Assert.Equal(expectedListOfGradebooks, actualListOfGradebooks);
         }
         [Fact]
-        public async Task Inventory_IndexModel_OnPostAsync_GradebookIsAdded()
+        public async Task Gradebooks_IndexModel_OnPostAsync_GradebookIsAdded()
         {
             // Arrange
             int studentId = 1;
@@ -98,7 +98,7 @@ namespace smsTest
             Assert.NotNull(actualGradebook);
         }
         [Fact]
-        public async Task Inventory_IndexModel_OnPostAsync_GradebookIsEdited()
+        public async Task Gradebooks_IndexModel_OnPostAsync_GradebookIsEdited()
         {
             // Arrange
             int studentId = 1;
@@ -127,7 +127,7 @@ namespace smsTest
             Assert.Equal(mark, actualGradebook.Mark);
         }
         [Fact]
-        public async Task Inventory_IndexModel_OnPostAsync_GradebookIsDeleted()
+        public async Task Gradebooks_IndexModel_OnPostAsync_GradebookIsDeleted()
         {
             // Arrange
             int studentId = 1;
@@ -155,7 +155,7 @@ namespace smsTest
             Assert.Null(actualGradebook);
         }
         [Fact]
-        public async Task Inventory_StatGradeModel_OnGetAsync_StatisticsForAllGradesReturned()
+        public async Task Gradebooks_StatGradeModel_OnGetAsync_StatisticsForAllGradesReturned()
         {
             // Arrange
             int year = 2021;
@@ -203,7 +203,7 @@ namespace smsTest
                     .Select(s => s.Avg));
         }
         [Fact]
-        public async Task Inventory_StatGradeModel_OnGetAsync_StatisticsForAllGradesReturned_InDescendingOrder()
+        public async Task Gradebooks_StatGradeModel_OnGetAsync_StatisticsForAllGradesReturned_InDescendingOrder()
         {
             // Arrange
             int year = 2021;
@@ -250,7 +250,7 @@ namespace smsTest
                     .Select(s => s.Avg));
         }
         [Fact]
-        public async Task Inventory_StatGradeDetailsModel_OnGetAsync_StatisticsForSingleGradeReturned()
+        public async Task Gradebooks_StatGradeDetailsModel_OnGetAsync_StatisticsForSingleGradeReturned()
         {
             // Arrange
             int gradeId = 1;
@@ -289,7 +289,7 @@ namespace smsTest
                     .Select(s => s.Avg));
         }
         [Fact]
-        public async Task Inventory_StatGradeDetailsModel_OnGetAsync_StatisticsForSingleGradeReturned_InDescendingOrder()
+        public async Task Gradebooks_StatGradeDetailsModel_OnGetAsync_StatisticsForSingleGradeReturned_InDescendingOrder()
         {
             // Arrange
             int gradeId = 1;
@@ -328,7 +328,7 @@ namespace smsTest
                     .Select(s => s.Avg));
         }
         [Fact]
-        public void Inventory_StatStudentModel_OnGetAsync_StatisticsForSingleStudentReturned()
+        public void Gradebooks_StatStudentModel_OnGetAsync_StatisticsForSingleStudentReturned()
         {
             // Arrange
             int gradeId = 1;
@@ -370,7 +370,7 @@ namespace smsTest
                     .Select(s => s.Avg));
         }
         [Fact]
-        public void Inventory_StatStudentModel_OnGetAsync_StatisticsForSingleStudentReturned_InDescendingOrder()
+        public void Gradebooks_StatStudentModel_OnGetAsync_StatisticsForSingleStudentReturned_InDescendingOrder()
         {
             // Arrange
             int gradeId = 1;
@@ -412,7 +412,7 @@ namespace smsTest
                     .Select(s => s.Avg));
         }
         [Fact]
-        public async Task Inventory_StatSubjectModel_OnGetAsync_StatisticsForAllSubjectsReturned()
+        public async Task Gradebooks_StatSubjectModel_OnGetAsync_StatisticsForAllSubjectsReturned()
         {
             // Arrange
             int year = 2021;
@@ -448,7 +448,7 @@ namespace smsTest
                     .Select(s => s.Avg));
         }
         [Fact]
-        public async Task Inventory_StatSubjectModel_OnGetAsync_StatisticsForAllSubjectsReturned_InDescendingOrder()
+        public async Task Gradebooks_StatSubjectModel_OnGetAsync_StatisticsForAllSubjectsReturned_InDescendingOrder()
         {
             // Arrange
             int year = 2021;
@@ -484,7 +484,7 @@ namespace smsTest
                     .Select(s => s.Avg));
         }
         [Fact]
-        public void Inventory_StatSubjectDetailsModel_OnGetAsync_StatisticsForSingleSubjectReturned()
+        public void Gradebooks_StatSubjectDetailsModel_OnGetAsync_StatisticsForSingleSubjectReturned()
         {
             // Arrange
             int year = 2021;
@@ -534,7 +534,7 @@ namespace smsTest
                     .Select(s => s.Avg));
         }
         [Fact]
-        public void Inventory_StatSubjectDetailsModel_OnGetAsync_StatisticsForSingleSubjectReturned_InDescendingOrder()
+        public void Gradebooks_StatSubjectDetailsModel_OnGetAsync_StatisticsForSingleSubjectReturned_InDescendingOrder()
         {
             // Arrange
             int year = 2021;

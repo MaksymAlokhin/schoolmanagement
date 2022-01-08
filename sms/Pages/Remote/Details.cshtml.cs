@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 using sms.Data;
 using sms.Models;
 
@@ -46,6 +47,10 @@ namespace sms.Pages.Remote
             {
                 return NotFound();
             }
+
+            Log.Information("Користувач переглядає завдання для дистанційного навчання " +
+                "для класу {0} з предмету {1}", Assignment.GradeId, Assignment.SubjectId);
+
             return Page();
         }
     }

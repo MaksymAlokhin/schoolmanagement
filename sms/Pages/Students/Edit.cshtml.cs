@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 using sms;
 using sms.Data;
 using sms.Models;
@@ -179,6 +180,9 @@ namespace sms.Pages.Students
                     throw;
                 }
             }
+
+            Log.Information("Користувач відредагував запис про учня {0}", Student.FullName);
+
             return RedirectToPage("./Index", new
             {
                 pageIndex = $"{pageIndex}",

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Serilog;
 using sms.Data;
 using sms.Models;
 
@@ -72,6 +73,9 @@ namespace sms.Pages.Subjects
             //Збереження запису у БД
             _context.Subjects.Add(newSubject);
             await _context.SaveChangesAsync();
+
+            Log.Information("Користувач створив новий предмет {0}", newSubject.Name);
+
             return RedirectToPage("./Index");
         }
     }

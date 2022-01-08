@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Serilog;
 using sms;
 using sms.Data;
 using sms.Models;
@@ -90,6 +91,8 @@ namespace sms.Pages.Students
             var pageSize = Configuration.GetValue("PageSize", 7);
             Student = await PaginatedList<Student>.CreateAsync(
                 studentsIQ.AsNoTracking(), pageIndex ?? 1, pageSize);
+
+            Log.Information("Користувач переглядає сторінку {0} списку учнів", pageIndex ?? 1);
         }
     }
 }

@@ -10,6 +10,7 @@ using sms.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Authorization;
+using Serilog;
 
 namespace sms.Pages.Library
 {
@@ -126,6 +127,8 @@ namespace sms.Pages.Library
             var pageSize = Configuration.GetValue("PageSize", 7);
             Book = await PaginatedList<Book>.CreateAsync(
                 booksIQ.AsNoTracking(), pageIndex ?? 1, pageSize);
+
+            Log.Information("Користувач переглядає сторінку {0} бібліотеки", pageIndex ?? 1);
         }
     }
 }

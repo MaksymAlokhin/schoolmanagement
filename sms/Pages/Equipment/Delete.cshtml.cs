@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 using sms.Data;
 using sms.Models;
 
@@ -64,6 +65,9 @@ namespace sms.Pages.Equipment
 
             if (Inventory != null)
             {
+                Log.Information("Користувач видалив майно з інвентарним №{0}",
+                    Inventory.InventoryNumber);
+
                 _context.Inventories.Remove(Inventory);
                 await _context.SaveChangesAsync();
             }

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 using sms.Data;
 using sms.Models;
 
@@ -52,6 +53,9 @@ namespace sms.Pages.Grades
             {
                 return NotFound();
             }
+
+            Log.Information("Користувач переглядає детальну інформацію по класу {0}", Grade.FullName);
+
             return Page();
         }
         //Return students grouped by gender

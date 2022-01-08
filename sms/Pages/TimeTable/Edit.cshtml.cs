@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 using sms.Data;
 using sms.Models;
 
@@ -111,6 +112,9 @@ namespace sms.Pages.TimeTable
                     throw;
                 }
             }
+
+            Log.Information("Користувач відредагував урок - день: {0}, урок№: {1}", Lesson.Day, Lesson.Slot);
+
             return RedirectToPage("./Index", new { day = $"{Lesson.Day}" });
         }
 

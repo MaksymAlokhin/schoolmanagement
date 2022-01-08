@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 using sms.Data;
 using sms.Models;
 
@@ -46,6 +47,9 @@ namespace sms.Pages.Subjects
             {
                 return NotFound();
             }
+
+            Log.Information("Користувач переглядає детальну інформацію про предмет {0}", Subject.Name);
+
             return Page();
         }
     }

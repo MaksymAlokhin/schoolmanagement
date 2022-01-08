@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 using sms.Data;
 using sms.Models;
 
@@ -45,6 +46,10 @@ namespace sms.Pages.Equipment
             {
                 return NotFound();
             }
+
+            Log.Information("Користувач переглядає детальну інформацію про майно з інвентарним №{0}",
+                Inventory.InventoryNumber);
+
             return Page();
         }
         public async Task<IActionResult> OnPostAsync(string sortOrder,
@@ -65,6 +70,9 @@ namespace sms.Pages.Equipment
                 {
                     Inventory.DecommissionDate = null;
                     await _context.SaveChangesAsync();
+                    Log.Information("Користувач повторно поставив майно з інвентарним №{0} на облік",
+                        Inventory.InventoryNumber);
+
                     return RedirectToPage("./Decommissioned", new
                     {
                         pageIndex = $"{pageIndex}",
@@ -76,6 +84,10 @@ namespace sms.Pages.Equipment
                 {
                     Inventory.DecommissionDate = DateTime.Now;
                     await _context.SaveChangesAsync();
+
+                    Log.Information("Користувач списав майно з інвентарним №{0}",
+                        Inventory.InventoryNumber);
+
                     return RedirectToPage("./Index", new
                     {
                         pageIndex = $"{pageIndex}",

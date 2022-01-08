@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 using sms.Data;
 using sms.Models;
 
@@ -80,6 +81,8 @@ namespace sms.Pages.Library
                     throw;
                 }
             }
+
+            Log.Information("Користувач відредагував інформацію про книгу {0}", Book.Name);
 
             return RedirectToPage("./Index", new
             {

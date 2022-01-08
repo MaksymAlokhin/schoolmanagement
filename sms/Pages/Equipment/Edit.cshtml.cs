@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 using sms.Data;
 using sms.Models;
 
@@ -80,7 +81,11 @@ namespace sms.Pages.Equipment
                     throw;
                 }
             }
-            if(Inventory.DecommissionDate.HasValue)
+
+            Log.Information("Користувач відредагував майно з інвентарним №{0}",
+                Inventory.InventoryNumber);
+
+            if (Inventory.DecommissionDate.HasValue)
             {
                 return RedirectToPage("./Decommissioned", new
                 {

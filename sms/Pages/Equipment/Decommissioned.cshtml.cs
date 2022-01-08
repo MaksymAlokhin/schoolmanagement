@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Serilog;
 using sms.Data;
 using sms.Models;
 
@@ -104,6 +105,8 @@ namespace sms.Pages.Equipment
             var pageSize = Configuration.GetValue("PageSize", 7);
             Inventory = await PaginatedList<Inventory>.CreateAsync(
                 inventoryIQ.AsNoTracking(), pageIndex ?? 1, pageSize);
+
+            Log.Information("Користувач переглядає сторінку {0} списаного майна", pageIndex ?? 1);
         }
     }
 }

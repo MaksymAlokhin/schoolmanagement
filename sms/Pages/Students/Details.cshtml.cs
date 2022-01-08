@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 using sms;
 using sms.Data;
 using sms.Models;
@@ -49,6 +50,8 @@ namespace sms.Pages.Students
             }
 
             if (string.IsNullOrEmpty(Student.Gender)) Student.Gender = "Не вказано";
+
+            Log.Information("Користувач переглядає детальну інформацію про учня {0}", Student.FullName);
 
             return Page();
         }

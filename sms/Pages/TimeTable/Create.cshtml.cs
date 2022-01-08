@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 using sms.Data;
 using sms.Models;
 
@@ -109,6 +110,10 @@ namespace sms.Pages.TimeTable
             //Збереження нового запису у БД
             _context.Lessons.Add(newLesson);
             await _context.SaveChangesAsync();
+
+            Log.Information("Користувач створив новий урок - день: {0}, урок№: {1}",
+                newLesson.Day, newLesson.Slot);
+
             return RedirectToPage("./Index", new { day = $"{Lesson.Day}" });
         }
     }

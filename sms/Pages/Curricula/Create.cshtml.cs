@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 using sms.Data;
 using sms.Models;
 
@@ -75,6 +76,10 @@ namespace sms.Pages.Curricula
 
             _context.Curricula.Add(Curriculum);
             await _context.SaveChangesAsync();
+
+            Log.Information("Користувач створив навчальне навантаження - " +
+                "Quantity: {0}, GradeId: {1}, SubjectId: {2}, TeacherId: {3}", 
+                Curriculum.Quantity, Curriculum.GradeId, Curriculum.SubjectId, Curriculum.TeacherId);
 
             return RedirectToPage("./Index", new { gradeId = $"{Curriculum?.GradeId}" });
         }

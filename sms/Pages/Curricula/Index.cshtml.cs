@@ -10,6 +10,7 @@ using sms.Data;
 using sms.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Authorization;
+using Serilog;
 
 namespace sms.Pages.Curricula
 {
@@ -98,6 +99,8 @@ namespace sms.Pages.Curricula
             var pageSize = Configuration.GetValue("PageSize", 7);
             Curriculum = await PaginatedList<Curriculum>.CreateAsync(
                 curriculaIQ.Where(с => с.GradeId == gradeId).AsNoTracking(), pageIndex ?? 1, pageSize);
+
+            Log.Information("Користувач переглядає сторінку {0} навчального плану", pageIndex ?? 1);
         }
     }
 }

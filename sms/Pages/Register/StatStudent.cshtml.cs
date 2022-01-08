@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Serilog;
 using sms.Models;
 
 namespace sms.Pages.Register
@@ -159,6 +160,8 @@ namespace sms.Pages.Register
                 string concat = String.Join(", ", subj.Mark);
                 subj.ConcatenatedMarks = concat;
             }
+
+            Log.Information("Користувач переглядає сторінку {0} навчальних досягнень учня", pageIndex ?? 1);
         }
 
         //Get students names for dropdown

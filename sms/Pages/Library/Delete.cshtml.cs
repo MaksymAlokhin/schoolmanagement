@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 using sms.Data;
 using sms.Models;
 
@@ -64,6 +65,8 @@ namespace sms.Pages.Library
 
             if (Book != null)
             {
+                Log.Information("Користувач видалив книгу {0}", Book.Name);
+
                 _context.Books.Remove(Book);
                 await _context.SaveChangesAsync();
             }

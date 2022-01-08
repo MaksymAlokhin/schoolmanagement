@@ -12,12 +12,12 @@ namespace ERPSystem.Validators
         public InventoryDateValidator()
         {
             RuleFor(m => m.InventoryDate)
-                                .LessThan(m => m.DecommissionDate)
-                                .WithMessage("Дата оприбуткування повинна бути до дати списання");
+                .LessThan(m => m.DecommissionDate)
+                .WithMessage("Дата оприбуткування повинна бути до дати списання");
 
             RuleFor(m => m.DecommissionDate)
-                                .GreaterThan(m => m.InventoryDate)
-                                .WithMessage("Дата списання повинна бути пізніше дати оприбуткування");
+                .GreaterThan(m => m.InventoryDate)
+                .WithMessage("Дата списання повинна бути пізніше дати оприбуткування");
         }
     }
 }

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 using sms.Data;
 using sms.Models;
 
@@ -64,6 +65,8 @@ namespace sms.Pages.Subjects
 
             if (Subject != null)
             {
+                Log.Information("Користувач видалив предмет {0}", Subject.Name);
+
                 _context.Subjects.Remove(Subject);
                 await _context.SaveChangesAsync();
             }

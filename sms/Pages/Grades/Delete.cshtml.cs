@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 using sms.Data;
 using sms.Models;
 
@@ -64,9 +65,12 @@ namespace sms.Pages.Grades
 
             if (Grade != null)
             {
+                Log.Information("Користувач видалив клас {0}", Grade.FullName);
+
                 _context.Grades.Remove(Grade);
                 await _context.SaveChangesAsync();
             }
+
 
             return RedirectToPage("./Index", new
             {

@@ -222,7 +222,7 @@ namespace smsTest
             Assert.Equal("Миколаївна", model.Patronymic);
         }
         [Fact]
-        public async Task Teacher_DeleteModel_OnPostAsync_TeacherIsDeleted_WhenTeacherIsFound()
+        public async Task Teachers_DeleteModel_OnPostAsync_TeacherIsDeleted_WhenTeacherIsFound()
         {
             // Arrange
             var config = new ConfigurationBuilder().Build();
@@ -241,7 +241,7 @@ namespace smsTest
             Assert.IsType<RedirectToPageResult>(result);
         }
         [Fact]
-        public async Task Teacher_DeleteModel_OnPostAsync_NoTeacherIsDeleted_WhenTeacherIsNotFound()
+        public async Task Teachers_DeleteModel_OnPostAsync_NoTeacherIsDeleted_WhenTeacherIsNotFound()
         {
             // Arrange
             var config = new ConfigurationBuilder().Build();
@@ -260,7 +260,7 @@ namespace smsTest
             Assert.IsType<RedirectToPageResult>(result);
         }
         [Fact]
-        public async Task Teacher_EditModel_OnGetAsync_TeacherIsFetched()
+        public async Task Teachers_EditModel_OnGetAsync_TeacherIsFetched()
         {
             // Arrange
             var config = new ConfigurationBuilder().Build();
@@ -279,7 +279,7 @@ namespace smsTest
             Assert.Equal("Миколаївна", model.Patronymic);
         }
         [Fact]
-        public async Task Teacher_EditModel_OnPostAsync_TeacherIsModified()
+        public async Task Teachers_EditModel_OnPostAsync_TeacherIsModified()
         {
             // Arrange
             var config = new ConfigurationBuilder().Build();
@@ -300,7 +300,7 @@ namespace smsTest
             Assert.Equal("Modified", actualTeacher.LastName);
         }
         [Fact]
-        public async Task Teacher_EditModel_OnPostAsync_IfInvalidModel_ReturnPageResult()
+        public async Task Teachers_EditModel_OnPostAsync_IfInvalidModel_ReturnPageResult()
         {
             // Arrange
             var config = new ConfigurationBuilder().Build();
@@ -318,7 +318,7 @@ namespace smsTest
             Assert.IsType<PageResult>(result);
         }
         [Fact]
-        public async Task Teacher_DetailsModel_OnGetAsync_TeacherIsFetched_WhenTeacherIsFound()
+        public async Task Teachers_DetailsModel_OnGetAsync_TeacherIsFetched_WhenTeacherIsFound()
         {
             // Arrange
             var config = new ConfigurationBuilder().Build();
@@ -339,7 +339,7 @@ namespace smsTest
 
         //DetailsModel
         [Fact]
-        public async Task Teacher_DetailsModel_OnGetAsync_NotFoundResultReturned_WhenTeacherIsNotFound()
+        public async Task Teachers_DetailsModel_OnGetAsync_NotFoundResultReturned_WhenTeacherIsNotFound()
         {
             // Arrange
             var config = new ConfigurationBuilder().Build();

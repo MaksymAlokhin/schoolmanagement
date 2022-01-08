@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Serilog;
 using sms.Data;
 using sms.Models;
 
@@ -133,6 +134,8 @@ namespace sms.Pages.Library
                 Book = await _context.Books.Include(m => m.Students).FirstOrDefaultAsync(m => m.Id == id);
                 if (student.Books.Contains(Book))
                 {
+                    Log.Information("В учня {0} прийнято книгу {1}", student.FullName, Book.Name);
+
                     student.Books.Remove(Book);
                     Book.Qty++;
                     _context.SaveChanges();
@@ -147,6 +150,8 @@ namespace sms.Pages.Library
                 Book = await _context.Books.Include(m => m.Students).FirstOrDefaultAsync(m => m.Id == id);
                 if (teacher.Books.Contains(Book))
                 {
+                    Log.Information("В учителя {0} прийнято книгу {1}", teacher.FullName, Book.Name);
+
                     teacher.Books.Remove(Book);
                     Book.Qty++;
                     _context.SaveChanges();

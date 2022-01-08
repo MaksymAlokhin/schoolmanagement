@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 using sms.Data;
 using sms.Models;
 
@@ -108,6 +109,8 @@ namespace sms.Pages.Subjects
                     throw;
                 }
             }
+
+            Log.Information("Користувач відредагував предмет {0}", Subject.Name);
 
             return RedirectToPage("./Index", new
             {

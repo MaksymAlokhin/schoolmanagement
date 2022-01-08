@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Serilog;
 using sms;
 using sms.Data;
 using sms.Models;
@@ -124,6 +125,9 @@ namespace sms.Pages.Students
             //Збереження нового учня у БД
             _context.Students.Add(newStudent);
             await _context.SaveChangesAsync();
+
+            Log.Information("Користувач створив запис про учня {0}", newStudent.FullName);
+
             return RedirectToPage("./Index");
         }
     }

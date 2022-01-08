@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 using sms.Data;
 using sms.Models;
 
@@ -91,6 +92,8 @@ namespace sms.Pages.Teachers
             //Видалення вчителя з БД
             if (Teacher != null)
             {
+                Log.Information("Користувач видалив запис про вчителя {0}", Teacher.FullName);
+
                 _context.Teachers.Remove(Teacher);
                 await _context.SaveChangesAsync();
             }

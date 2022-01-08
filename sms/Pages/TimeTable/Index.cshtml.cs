@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using Serilog;
 using sms.Data;
 using sms.Models;
 
@@ -45,6 +46,8 @@ namespace sms.Pages.TimeTable
                 .Include(i => i.Grade)
                 .ToListAsync();
             selectedDay = day;
+
+            Log.Information("Користувач переглядає розклад вчителів");
         }
 
         public void OnGetGenerateAsync()
@@ -75,6 +78,8 @@ namespace sms.Pages.TimeTable
                 .Include(i => i.Grade)
                 .ToList();
             selectedDay = 1;
+
+            Log.Information("Користувач згенерував розклад уроків евристичним методом");
         }
 
         public void OnGetGeneticAsync()
@@ -140,7 +145,8 @@ namespace sms.Pages.TimeTable
                 .Include(i => i.Grade)
                 .ToList();
             selectedDay = 1;
-        }
 
+            Log.Information("Користувач згенерував розклад уроків генетичним методом");
+        }
     }
 }

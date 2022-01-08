@@ -141,7 +141,7 @@ namespace smsTest
             Assert.Equal(12, model.TeacherId);
         }
         [Fact]
-        public async Task Lesson_DeleteModel_OnPostAsync_LessonIsDeleted_WhenLessonIsFound()
+        public async Task Lessons_DeleteModel_OnPostAsync_LessonIsDeleted_WhenLessonIsFound()
         {
             // Arrange
             var config = new ConfigurationBuilder().Build();
@@ -160,7 +160,7 @@ namespace smsTest
             Assert.IsType<RedirectToPageResult>(result);
         }
         [Fact]
-        public async Task Lesson_DeleteModel_OnPostAsync_NoLessonIsDeleted_WhenLessonIsNotFound()
+        public async Task Lessons_DeleteModel_OnPostAsync_NoLessonIsDeleted_WhenLessonIsNotFound()
         {
             // Arrange
             var config = new ConfigurationBuilder().Build();
@@ -179,7 +179,7 @@ namespace smsTest
             Assert.IsType<RedirectToPageResult>(result);
         }
         [Fact]
-        public async Task Lesson_EditModel_OnGetAsync_LessonIsFetched()
+        public async Task Lessons_EditModel_OnGetAsync_LessonIsFetched()
         {
             // Arrange
             var config = new ConfigurationBuilder().Build();
@@ -198,7 +198,7 @@ namespace smsTest
             Assert.Equal(1, model.Slot);
         }
         [Fact]
-        public async Task Lesson_EditModel_OnPostAsync_LessonIsModified()
+        public async Task Lessons_EditModel_OnPostAsync_LessonIsModified()
         {
             // Arrange
             var config = new ConfigurationBuilder().Build();
@@ -219,7 +219,7 @@ namespace smsTest
             Assert.Equal("335", actualLesson.Room);
         }
         [Fact]
-        public async Task Lesson_EditModel_OnPostAsync_IfInvalidModel_ReturnPageResult()
+        public async Task Lessons_EditModel_OnPostAsync_IfInvalidModel_ReturnPageResult()
         {
             // Arrange
             var config = new ConfigurationBuilder().Build();
@@ -243,7 +243,7 @@ namespace smsTest
         [InlineData(3)]
         [InlineData(int.MinValue)]
         [InlineData(int.MaxValue)]
-        public async Task Lesson_StudentsTTModel_OnGetAsync_LessonsAreReturned(int gradeId)
+        public async Task Lessons_StudentsTTModel_OnGetAsync_LessonsAreReturned(int gradeId)
         {
             // Arrange
             var config = new ConfigurationBuilder().Build();

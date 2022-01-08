@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 using sms.Data;
 using sms.Models;
 
@@ -61,6 +62,8 @@ namespace sms.Pages.TimeTable
 
             if (Lesson != null)
             {
+                Log.Information("Користувач видалив урок - день: {0}, урок№: {1}", Lesson.Day, Lesson.Slot);
+
                 _context.Lessons.Remove(Lesson);
                 await _context.SaveChangesAsync();
             }

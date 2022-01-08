@@ -212,7 +212,7 @@ namespace smsTest
             Assert.Equal("Англійська мова", model.Name);
         }
         [Fact]
-        public async Task Subject_DeleteModel_OnPostAsync_SubjectIsDeleted_WhenSubjectIsFound()
+        public async Task Subjects_DeleteModel_OnPostAsync_SubjectIsDeleted_WhenSubjectIsFound()
         {
             // Arrange
             var config = new ConfigurationBuilder().Build();
@@ -231,7 +231,7 @@ namespace smsTest
             Assert.IsType<RedirectToPageResult>(result);
         }
         [Fact]
-        public async Task Subject_DeleteModel_OnPostAsync_NoSubjectIsDeleted_WhenSubjectIsNotFound()
+        public async Task Subjects_DeleteModel_OnPostAsync_NoSubjectIsDeleted_WhenSubjectIsNotFound()
         {
             // Arrange
             var config = new ConfigurationBuilder().Build();
@@ -250,7 +250,7 @@ namespace smsTest
             Assert.IsType<RedirectToPageResult>(result);
         }
         [Fact]
-        public async Task Subject_EditModel_OnGetAsync_SubjectIsFetched()
+        public async Task Subjects_EditModel_OnGetAsync_SubjectIsFetched()
         {
             // Arrange
             var config = new ConfigurationBuilder().Build();
@@ -267,7 +267,7 @@ namespace smsTest
             Assert.Equal("Англійська мова", model.Name);
         }
         [Fact]
-        public async Task Subject_EditModel_OnPostAsync_SubjectIsModified()
+        public async Task Subjects_EditModel_OnPostAsync_SubjectIsModified()
         {
             // Arrange
             var config = new ConfigurationBuilder().Build();
@@ -288,7 +288,7 @@ namespace smsTest
             Assert.Equal("Modified Subject", actualSubject.Name);
         }
         [Fact]
-        public async Task Subject_EditModel_OnPostAsync_IfInvalidModel_ReturnPageResult()
+        public async Task Subjects_EditModel_OnPostAsync_IfInvalidModel_ReturnPageResult()
         {
             // Arrange
             var config = new ConfigurationBuilder().Build();
@@ -306,7 +306,7 @@ namespace smsTest
             Assert.IsType<PageResult>(result);
         }
         [Fact]
-        public async Task Subject_DetailsModel_OnGetAsync_SubjectIsFetched_WhenSubjectIsFound()
+        public async Task Subjects_DetailsModel_OnGetAsync_SubjectIsFetched_WhenSubjectIsFound()
         {
             // Arrange
             var config = new ConfigurationBuilder().Build();
@@ -325,7 +325,7 @@ namespace smsTest
 
         //DetailsModel
         [Fact]
-        public async Task Subject_DetailsModel_OnGetAsync_NotFoundResultReturned_WhenSubjectIsNotFound()
+        public async Task Subjects_DetailsModel_OnGetAsync_NotFoundResultReturned_WhenSubjectIsNotFound()
         {
             // Arrange
             var config = new ConfigurationBuilder().Build();

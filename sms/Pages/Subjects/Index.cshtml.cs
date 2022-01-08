@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using sms.Data;
 using sms.Models;
 using Microsoft.Extensions.Configuration;
+using Serilog;
 
 namespace sms.Pages.Subjects
 {
@@ -69,6 +70,8 @@ namespace sms.Pages.Subjects
             var pageSize = Configuration.GetValue("PageSize", 7);
             Subject = await PaginatedList<Subject>.CreateAsync(
                 subjectsIQ.AsNoTracking(), pageIndex ?? 1, pageSize);
+
+            Log.Information("Користувач переглядає сторінку {0} списку предметів", pageIndex ?? 1);
         }
     }
 }

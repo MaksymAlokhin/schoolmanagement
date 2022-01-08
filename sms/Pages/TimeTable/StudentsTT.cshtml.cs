@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 using sms.Data;
 using sms.Models;
 
@@ -49,6 +50,8 @@ namespace sms.Pages.TimeTable
                 .Include(l => l.Grade)
                 .Include(l => l.Subject)
                 .ToListAsync();
+
+            Log.Information("Користувач переглядає розклад учнів");
         }
     }
 }

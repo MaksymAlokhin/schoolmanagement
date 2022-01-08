@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 using sms.Data;
 using sms.Models;
 
@@ -67,6 +68,10 @@ namespace sms.Pages.Curricula
 
             if (Curriculum != null)
             {
+                Log.Information("Користувач видалив навчальне навантаження - " +
+                    "Quantity: {0}, GradeId: {1}, SubjectId: {2}, TeacherId: {3}",
+                    Curriculum.Quantity, Curriculum.GradeId, Curriculum.SubjectId, Curriculum.TeacherId);
+
                 _context.Curricula.Remove(Curriculum);
                 await _context.SaveChangesAsync();
             }

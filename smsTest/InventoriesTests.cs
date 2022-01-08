@@ -228,7 +228,7 @@ namespace smsTest
             Assert.Equal(new DateTime(2014, 05, 05), model.InventoryDate);
         }
         [Fact]
-        public async Task Inventory_DeleteModel_OnPostAsync_InventoryIsDeleted_WhenInventoryIsFound()
+        public async Task Inventories_DeleteModel_OnPostAsync_InventoryIsDeleted_WhenInventoryIsFound()
         {
             // Arrange
             var config = new ConfigurationBuilder().Build();
@@ -247,7 +247,7 @@ namespace smsTest
             Assert.IsType<RedirectToPageResult>(result);
         }
         [Fact]
-        public async Task Inventory_DeleteModel_OnPostAsync_NoInventoryIsDeleted_WhenInventoryIsNotFound()
+        public async Task Inventories_DeleteModel_OnPostAsync_NoInventoryIsDeleted_WhenInventoryIsNotFound()
         {
             // Arrange
             var config = new ConfigurationBuilder().Build();
@@ -266,7 +266,7 @@ namespace smsTest
             Assert.IsType<RedirectToPageResult>(result);
         }
         [Fact]
-        public async Task Inventory_EditModel_OnGetAsync_InventoryIsFetched()
+        public async Task Inventories_EditModel_OnGetAsync_InventoryIsFetched()
         {
             // Arrange
             var config = new ConfigurationBuilder().Build();
@@ -287,7 +287,7 @@ namespace smsTest
             Assert.Equal(new DateTime(2014, 05, 05), model.InventoryDate);
         }
         [Fact]
-        public async Task Inventory_EditModel_OnPostAsync_InventoryIsModified()
+        public async Task Inventories_EditModel_OnPostAsync_InventoryIsModified()
         {
             // Arrange
             var config = new ConfigurationBuilder().Build();
@@ -306,10 +306,9 @@ namespace smsTest
             Assert.Equal(33, model.Quantity);
             var actualInventory = context.Inventories.Where(i => !i.DecommissionDate.HasValue).FirstOrDefault(m => m.Id == testId);
             Assert.Equal(33, actualInventory.Quantity);
-
         }
         [Fact]
-        public async Task Inventory_EditModel_OnPostAsync_IfInvalidModel_ReturnPageResult()
+        public async Task Inventories_EditModel_OnPostAsync_IfInvalidModel_ReturnPageResult()
         {
             // Arrange
             var config = new ConfigurationBuilder().Build();
@@ -327,7 +326,7 @@ namespace smsTest
             Assert.IsType<PageResult>(result);
         }
         [Fact]
-        public async Task Inventory_DetailsModel_OnGetAsync_InventoryIsFetched_WhenInventoryIsFound()
+        public async Task Inventories_DetailsModel_OnGetAsync_InventoryIsFetched_WhenInventoryIsFound()
         {
             // Arrange
             var config = new ConfigurationBuilder().Build();
@@ -350,7 +349,7 @@ namespace smsTest
 
         //DetailsModel
         [Fact]
-        public async Task Inventory_DetailsModel_OnGetAsync_NotFoundResultReturned_WhenInventoryIsNotFound()
+        public async Task Inventories_DetailsModel_OnGetAsync_NotFoundResultReturned_WhenInventoryIsNotFound()
         {
             // Arrange
             var config = new ConfigurationBuilder().Build();
@@ -363,6 +362,26 @@ namespace smsTest
             // Assert
             Assert.IsType<NotFoundResult>(result);
         }
+
+        [Fact]
+        public async Task Inventories_DetailsModel_OnPostAsync_Decomission_OrReverseDecomission_Works()
+        {
+            // Arrange
+            var pageModel = new sms.Pages.Equipment.DetailsModel(context);
+            int testId = 1; 
+
+            // Act
+            var result = await pageModel.OnPostAsync(null, null, null, testId);
+
+            // Assert
+            Assert.IsType<RedirectToPageResult>(result);
+            var actualInventory = context.Inventories.Find(testId);
+            Assert.True(actualInventory.DecommissionDate.HasValue);
+            result = await pageModel.OnPostAsync(null, null, null, testId);
+            Assert.IsType<RedirectToPageResult>(result);
+            Assert.False(actualInventory.DecommissionDate.HasValue);
+        }
+
         //*****************
         [Fact]
         public async Task Inventories_DecommissionedModel_OnGetAsync_InventoriesAreReturned()

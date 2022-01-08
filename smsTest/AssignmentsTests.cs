@@ -197,7 +197,7 @@ namespace smsTest
             Assert.Equal(17, model.TeacherId);
         }
         [Fact]
-        public async Task Assignment_DeleteModel_OnPostAsync_AssignmentIsDeleted_WhenAssignmentIsFound()
+        public async Task Assignments_DeleteModel_OnPostAsync_AssignmentIsDeleted_WhenAssignmentIsFound()
         {
             // Arrange
             var config = new ConfigurationBuilder().Build();
@@ -216,7 +216,7 @@ namespace smsTest
             Assert.IsType<RedirectToPageResult>(result);
         }
         [Fact]
-        public async Task Assignment_DeleteModel_OnPostAsync_NoAssignmentIsDeleted_WhenAssignmentIsNotFound()
+        public async Task Assignments_DeleteModel_OnPostAsync_NoAssignmentIsDeleted_WhenAssignmentIsNotFound()
         {
             // Arrange
             var config = new ConfigurationBuilder().Build();
@@ -235,7 +235,7 @@ namespace smsTest
             Assert.IsType<RedirectToPageResult>(result);
         }
         [Fact]
-        public async Task Assignment_EditModel_OnGetAsync_AssignmentIsFetched()
+        public async Task Assignments_EditModel_OnGetAsync_AssignmentIsFetched()
         {
             // Arrange
             var config = new ConfigurationBuilder().Build();
@@ -254,7 +254,7 @@ namespace smsTest
             Assert.Equal(17, model.TeacherId);
         }
         [Fact]
-        public async Task Assignment_EditModel_OnPostAsync_AssignmentIsModified()
+        public async Task Assignments_EditModel_OnPostAsync_AssignmentIsModified()
         {
             // Arrange
             var config = new ConfigurationBuilder().Build();
@@ -276,7 +276,7 @@ namespace smsTest
 
         }
         [Fact]
-        public async Task Assignment_EditModel_OnPostAsync_IfInvalidModel_ReturnPageResult()
+        public async Task Assignments_EditModel_OnPostAsync_IfInvalidModel_ReturnPageResult()
         {
             // Arrange
             var config = new ConfigurationBuilder().Build();
@@ -294,7 +294,7 @@ namespace smsTest
             Assert.IsType<PageResult>(result);
         }
         [Fact]
-        public async Task Assignment_DetailsModel_OnGetAsync_AssignmentIsFetched_WhenAssignmentIsFound()
+        public async Task Assignments_DetailsModel_OnGetAsync_AssignmentIsFetched_WhenAssignmentIsFound()
         {
             // Arrange
             var config = new ConfigurationBuilder().Build();
@@ -315,7 +315,7 @@ namespace smsTest
 
         //DetailsModel
         [Fact]
-        public async Task Assignment_DetailsModel_OnGetAsync_NotFoundResultReturned_WhenAssignmentIsNotFound()
+        public async Task Assignments_DetailsModel_OnGetAsync_NotFoundResultReturned_WhenAssignmentIsNotFound()
         {
             // Arrange
             var config = new ConfigurationBuilder().Build();

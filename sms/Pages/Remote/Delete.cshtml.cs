@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 using sms.Data;
 using sms.Models;
 
@@ -63,6 +64,9 @@ namespace sms.Pages.Remote
 
             if (Assignment != null)
             {
+                Log.Information("Користувач видалив завдання для дистанційного навчання " +
+                    "для класу {0} з предмету {1}", Assignment.GradeId, Assignment.SubjectId);
+
                 _context.Assignments.Remove(Assignment);
                 await _context.SaveChangesAsync();
             }

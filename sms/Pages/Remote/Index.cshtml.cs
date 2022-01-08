@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using sms.Data;
 using sms.Models;
 using Microsoft.Extensions.Configuration;
+using Serilog;
 
 namespace sms.Pages.Remote
 {
@@ -109,6 +110,8 @@ namespace sms.Pages.Remote
                     .Where(x=>x.DateOfPost == new DateTime(2,2,2)) //fictitious date
                     .AsNoTracking(), pageIndex ?? 1, 1); //pagesize of one
             }
+
+            Log.Information("Користувач переглядає сторінку {0} завдань з дистанційного навчання", pageIndex ?? 1);
         }
         //Give data for subjects dropdown list
         //Дані для ниспадаючого списку предметів

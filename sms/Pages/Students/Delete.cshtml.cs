@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using sms.Models;
 using sms.Data;
+using Serilog;
 
 namespace sms.Pages.Students
 {
@@ -95,6 +96,8 @@ namespace sms.Pages.Students
             //Видалення учня з БД
             if (Student != null)
             {
+                Log.Information("Користувач видалив запис про учня {0}", Student.FullName);
+
                 _context.Students.Remove(Student);
                 await _context.SaveChangesAsync();
             }

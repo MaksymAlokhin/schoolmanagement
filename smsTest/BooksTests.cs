@@ -227,7 +227,7 @@ namespace smsTest
             Assert.Equal(54, model.Qty);
         }
         [Fact]
-        public async Task Book_DeleteModel_OnPostAsync_BookIsDeleted_WhenBookIsFound()
+        public async Task Books_DeleteModel_OnPostAsync_BookIsDeleted_WhenBookIsFound()
         {
             // Arrange
             var config = new ConfigurationBuilder().Build();
@@ -246,7 +246,7 @@ namespace smsTest
             Assert.IsType<RedirectToPageResult>(result);
         }
         [Fact]
-        public async Task Book_DeleteModel_OnPostAsync_NoBookIsDeleted_WhenBookIsNotFound()
+        public async Task Books_DeleteModel_OnPostAsync_NoBookIsDeleted_WhenBookIsNotFound()
         {
             // Arrange
             var config = new ConfigurationBuilder().Build();
@@ -265,7 +265,7 @@ namespace smsTest
             Assert.IsType<RedirectToPageResult>(result);
         }
         [Fact]
-        public async Task Book_EditModel_OnGetAsync_BookIsFetched()
+        public async Task Books_EditModel_OnGetAsync_BookIsFetched()
         {
             // Arrange
             var config = new ConfigurationBuilder().Build();
@@ -287,7 +287,7 @@ namespace smsTest
             Assert.Equal(54, model.Qty);
         }
         [Fact]
-        public async Task Book_EditModel_OnPostAsync_BookIsModified()
+        public async Task Books_EditModel_OnPostAsync_BookIsModified()
         {
             // Arrange
             var config = new ConfigurationBuilder().Build();
@@ -308,7 +308,7 @@ namespace smsTest
             Assert.Equal("Англійська мова", actualBook.Name);
         }
         [Fact]
-        public async Task Book_EditModel_OnPostAsync_IfInvalidModel_ReturnPageResult()
+        public async Task Books_EditModel_OnPostAsync_IfInvalidModel_ReturnPageResult()
         {
             // Arrange
             var config = new ConfigurationBuilder().Build();
