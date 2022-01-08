@@ -13,9 +13,10 @@ Features:<br />
 
 Installation:<br />
 ---------------
-Everything should work out of the box.<br />
+Everything should work out of the box<br />
+Все повинно працювати без додаткових налаштувань.<br />
 
-Click [here](https://schoolmanagementapp.azurewebsites.net/) to view live demo.<br />
+Демо можна переглянути онлайн [за посиланням](https://schoolmanagementapp.azurewebsites.net/) (online demo).<br />
 
 Users are:
 ```
@@ -29,7 +30,20 @@ teacher@sms.com
 Password is:<br />
 `aA!111`
 
+Адміністратор може переглядати всі сторінки і змінювати будь-які дані.<br />
 Admin can view all pages and change any data.
+
+Built With:<br />
+--------------------
+- ASP.NET Core 5
+- Entity Framework Core 5
+- Razor Pages
+- SQL Server
+- Microsoft Identity
+- xUnit.net
+- Serilog
+- Chart.js
+- FluentValidation
 
 Система управління школою:<br />
 ---------------------------------
