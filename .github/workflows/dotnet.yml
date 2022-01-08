@@ -29,7 +29,7 @@ jobs:
       working-directory: sms
     - name: Test
       run: dotnet test --no-build --verbosity normal
-      working-directory: smstest
+      working-directory: smsTest
     - name: Publish
       run: dotnet publish sms/sms.csproj -c Release -o website
     - name: 'Deploy to Azure WebApp'
