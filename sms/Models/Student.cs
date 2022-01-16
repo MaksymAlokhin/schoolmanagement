@@ -31,6 +31,7 @@ namespace sms.Models
         [Display(Name = "По батькові")]
         public string Patronymic { get; set; }
 
+        [Required(ErrorMessage = "Поле \"Дата нар.\" обов'язкове")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name = "Дата нар.")]
