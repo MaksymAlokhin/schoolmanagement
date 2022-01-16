@@ -14,7 +14,7 @@ namespace sms.Models
         [Display(Name = "День")]
         public int Day { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Поле \"№ уроку\" обов'язкове")]
         [Display(Name = "№ уроку")]
         public int Slot { get; set; }
 

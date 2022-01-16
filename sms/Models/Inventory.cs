@@ -10,7 +10,7 @@ namespace sms.Models
     {
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Поле \"Найменування\" обов'язкове")]
         [Display(Name = "Найменування")]
         public string Name { get; set; }
 

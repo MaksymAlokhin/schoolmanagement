@@ -18,9 +18,6 @@ namespace ERPSystem.Validators
             RuleFor(m => m.DecommissionDate)
                 .GreaterThan(m => m.InventoryDate)
                 .WithMessage("Дата списання повинна бути пізніше дати оприбуткування");
-
-            RuleFor(m => m.Name).NotEmpty()
-                .WithMessage("Поле \"Найменування\" обов'язкове");
         }
     }
 }
