@@ -1,8 +1,8 @@
 {
-    "maxGenerations": 10000,
+    "maxGenerations": 500,
     "populationSize": 100,
-    "mutationRate": 0.01,
+    "mutationRate": 0.05,
     "crossoverRate": 0.9,
-    "gapScore": 0.78,
+    "gapScore": 0.75,
     "gapsRemovalRate": 0.7
 }

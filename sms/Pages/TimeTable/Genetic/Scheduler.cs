@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace sms.Pages.TimeTable
 {
@@ -35,6 +36,9 @@ namespace sms.Pages.TimeTable
         Random random;
         int numberOfGrades;
         int crossoverPoint;
+
+        Stopwatch stopwatch = new Stopwatch();
+
         public Scheduler(ApplicationDbContext context, ILogger<IndexModel> logger)
         {
             using (StreamReader r = new StreamReader("GeneticSettings.json"))
@@ -51,6 +55,7 @@ namespace sms.Pages.TimeTable
             crossoverPoint = numberOfGrades / 2;
             allGradeIds = cachedGrades.Select(g => g.Id).ToList();
             cachedTeachers = _context.Teachers.AsNoTracking().ToList();
+            stopwatch = new Stopwatch();
 
             _logger = logger;
             random = new Random();
@@ -70,6 +75,7 @@ namespace sms.Pages.TimeTable
         //Ініціалізація першого покоління
         public void InitializePopulation()
         {
+            stopwatch.Start();
             firstList = new List<Chromosome>();
             firstListFitness = 0;
 
@@ -149,8 +155,11 @@ namespace sms.Pages.TimeTable
                 //Якщо знайшли бездоганну хромосому
                 if (i < settings.populationSize)
                 {
-                    _logger.LogInformation($"Suitable Timetable has been generated in the {i}th Chromosome " +
-                        $"of {nogenerations + 2} generation with fitness of 1.");
+                    stopwatch.Stop();
+                    _logger.LogInformation($"Час на 1000 {stopwatch.ElapsedMilliseconds / nogenerations * 1000}");
+
+                    _logger.LogInformation($"Розклад згенеровано у {i} хромосомі " +
+                        $"{nogenerations + 2} покоління. Час {stopwatch.Elapsed}");
                     finalSon = son;
                     _logger.LogInformation($"Generation: {nogenerations + 1,6} " +
                         $"| Fitness: {firstListFitness,9:N5} " +
