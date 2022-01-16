@@ -79,6 +79,7 @@ namespace sms.Pages.Register
             //Генерація даних для таблиці успішності по класам
             var gradeBooks = await _context.Gradebooks
                 .Include(s => s.Student)
+                    .ThenInclude(s => s.Grade)
                 .Where(s => s.LessonDate >= startDate && s.LessonDate <= endDate && s.Mark != "0")
                 .ToListAsync();
             var gradesIE = gradeBooks
