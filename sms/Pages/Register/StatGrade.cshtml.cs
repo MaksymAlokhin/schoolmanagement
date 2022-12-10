@@ -47,7 +47,7 @@ namespace sms.Pages.Register
         public int selectedYear;
         public int selectedSemester;
 
-        public async Task OnGetAsync(string sortOrder, int year = 2021, int semester = 1, int? pageIndex = 1)
+        public async Task OnGetAsync(string sortOrder, int year = 2022, int semester = 1, int? pageIndex = 1)
         {
             CurrentSort = sortOrder; 
             YearList = new SelectList(YearSL, "Value", "Text", $"{DateTime.Now.Year}");

@@ -216,7 +216,7 @@ namespace sms.Data
                     InventoryNumber = 88873316,
                     Quantity = 47,
                     Price = 798.21m,
-                    InventoryDate = new DateTime(2021, 6, 3)
+                    InventoryDate = new DateTime(2022, 6, 3)
                 },
                 new Inventory
                 {
@@ -312,7 +312,7 @@ namespace sms.Data
                     InventoryNumber = 54559658,
                     Quantity = 19,
                     Price = 909.71m,
-                    InventoryDate = new DateTime(2021, 7, 8)
+                    InventoryDate = new DateTime(2022, 7, 8)
                 },
                 new Inventory
                 {
@@ -344,7 +344,7 @@ namespace sms.Data
                     InventoryNumber = 62729066,
                     Quantity = 30,
                     Price = 2457.33m,
-                    InventoryDate = new DateTime(2021, 7, 17)
+                    InventoryDate = new DateTime(2022, 7, 17)
                 },
                 new Inventory
                 {
@@ -400,7 +400,7 @@ namespace sms.Data
                     InventoryNumber = 86954851,
                     Quantity = 50,
                     Price = 2924.76m,
-                    InventoryDate = new DateTime(2021, 11, 21)
+                    InventoryDate = new DateTime(2022, 11, 21)
                 },
                 new Inventory
                 {
@@ -488,7 +488,7 @@ namespace sms.Data
                     InventoryNumber = 87331138,
                     Quantity = 5,
                     Price = 2854.96m,
-                    InventoryDate = new DateTime(2021, 12, 16)
+                    InventoryDate = new DateTime(2022, 12, 16)
                 },
                 new Inventory
                 {
@@ -624,7 +624,7 @@ namespace sms.Data
                     InventoryNumber = 25810410,
                     Quantity = 15,
                     Price = 1137.70m,
-                    InventoryDate = new DateTime(2021, 8, 16)
+                    InventoryDate = new DateTime(2022, 8, 16)
                 },
                 new Inventory
                 {
@@ -712,7 +712,7 @@ namespace sms.Data
                     InventoryNumber = 60244605,
                     Quantity = 40,
                     Price = 2479.86m,
-                    InventoryDate = new DateTime(2021, 1, 23)
+                    InventoryDate = new DateTime(2022, 1, 23)
                 },
                 new Inventory
                 {
@@ -880,7 +880,7 @@ namespace sms.Data
                     InventoryNumber = 14528044,
                     Quantity = 49,
                     Price = 2009.49m,
-                    InventoryDate = new DateTime(2021, 12, 5)
+                    InventoryDate = new DateTime(2022, 12, 5)
                 },
                 new Inventory
                 {
@@ -936,7 +936,7 @@ namespace sms.Data
                     InventoryNumber = 40674238,
                     Quantity = 27,
                     Price = 2362.68m,
-                    InventoryDate = new DateTime(2021, 2, 19)
+                    InventoryDate = new DateTime(2022, 2, 19)
                 },
                 new Inventory
                 {
@@ -944,7 +944,7 @@ namespace sms.Data
                     InventoryNumber = 85691113,
                     Quantity = 1,
                     Price = 918.37m,
-                    InventoryDate = new DateTime(2021, 4, 23)
+                    InventoryDate = new DateTime(2022, 4, 23)
                 },
                 new Inventory
                 {
@@ -984,7 +984,7 @@ namespace sms.Data
                     InventoryNumber = 39430792,
                     Quantity = 22,
                     Price = 1480.47m,
-                    InventoryDate = new DateTime(2021, 7, 23)
+                    InventoryDate = new DateTime(2022, 7, 23)
                 },
                 new Inventory
                 {
@@ -1072,7 +1072,7 @@ namespace sms.Data
                     InventoryNumber = 62934578,
                     Quantity = 21,
                     Price = 1530.19m,
-                    InventoryDate = new DateTime(2021, 4, 22)
+                    InventoryDate = new DateTime(2022, 4, 22)
                 },
                 new Inventory
                 {
@@ -1200,7 +1200,7 @@ namespace sms.Data
                     InventoryNumber = 74978092,
                     Quantity = 24,
                     Price = 1048.27m,
-                    InventoryDate = new DateTime(2021, 12, 16)
+                    InventoryDate = new DateTime(2022, 12, 16)
                 },
                 new Inventory
                 {
@@ -1288,7 +1288,7 @@ namespace sms.Data
                     InventoryNumber = 62041667,
                     Quantity = 16,
                     Price = 1168.49m,
-                    InventoryDate = new DateTime(2021, 11, 27)
+                    InventoryDate = new DateTime(2022, 11, 27)
                 },
                 new Inventory
                 {
@@ -1408,7 +1408,7 @@ namespace sms.Data
                     InventoryNumber = 29347034,
                     Quantity = 44,
                     Price = 2477.11m,
-                    InventoryDate = new DateTime(2021, 12, 2)
+                    InventoryDate = new DateTime(2022, 12, 2)
                 },
                 new Inventory
                 {
@@ -1440,7 +1440,7 @@ namespace sms.Data
                     InventoryNumber = 58502224,
                     Quantity = 27,
                     Price = 2348.70m,
-                    InventoryDate = new DateTime(2021, 3, 19)
+                    InventoryDate = new DateTime(2022, 3, 19)
                 },
                 new Inventory
                 {
@@ -1536,7 +1536,7 @@ namespace sms.Data
                     InventoryNumber = 17772082,
                     Quantity = 28,
                     Price = 1404.49m,
-                    InventoryDate = new DateTime(2021, 8, 4)
+                    InventoryDate = new DateTime(2022, 8, 4)
                 },
                 new Inventory
                 {
@@ -1664,7 +1664,7 @@ namespace sms.Data
                     InventoryNumber = 93916618,
                     Quantity = 42,
                     Price = 2554.97m,
-                    InventoryDate = new DateTime(2021, 11, 6)
+                    InventoryDate = new DateTime(2022, 11, 6)
                 },
                 new Inventory
                 {
@@ -1696,7 +1696,7 @@ namespace sms.Data
                     InventoryNumber = 68732113,
                     Quantity = 38,
                     Price = 563.97m,
-                    InventoryDate = new DateTime(2021, 4, 18)
+                    InventoryDate = new DateTime(2022, 4, 18)
                 },
                 new Inventory
                 {
@@ -1744,7 +1744,7 @@ namespace sms.Data
                     InventoryNumber = 13784375,
                     Quantity = 48,
                     Price = 2347.99m,
-                    InventoryDate = new DateTime(2021, 2, 25)
+                    InventoryDate = new DateTime(2022, 2, 25)
                 },
                 new Inventory
                 {
@@ -1784,7 +1784,7 @@ namespace sms.Data
                     InventoryNumber = 82290174,
                     Quantity = 11,
                     Price = 111.59m,
-                    InventoryDate = new DateTime(2021, 9, 27)
+                    InventoryDate = new DateTime(2022, 9, 27)
                 },
                 new Inventory
                 {
@@ -1848,7 +1848,7 @@ namespace sms.Data
                     InventoryNumber = 56481256,
                     Quantity = 15,
                     Price = 2418.91m,
-                    InventoryDate = new DateTime(2021, 8, 14)
+                    InventoryDate = new DateTime(2022, 8, 14)
                 },
                 new Inventory
                 {
@@ -1880,7 +1880,7 @@ namespace sms.Data
                     InventoryNumber = 44460561,
                     Quantity = 27,
                     Price = 2542.12m,
-                    InventoryDate = new DateTime(2021, 12, 26)
+                    InventoryDate = new DateTime(2022, 12, 26)
                 },
                 new Inventory
                 {
@@ -2304,7 +2304,7 @@ namespace sms.Data
                     InventoryNumber = 65118790,
                     Quantity = 43,
                     Price = 1265.68m,
-                    InventoryDate = new DateTime(2021, 1, 16)
+                    InventoryDate = new DateTime(2022, 1, 16)
                 },
                 new Inventory
                 {
@@ -2336,7 +2336,7 @@ namespace sms.Data
                     InventoryNumber = 65645729,
                     Quantity = 46,
                     Price = 459.65m,
-                    InventoryDate = new DateTime(2021, 7, 6)
+                    InventoryDate = new DateTime(2022, 7, 6)
                 },
                 new Inventory
                 {
@@ -2640,7 +2640,7 @@ namespace sms.Data
                     InventoryNumber = 77441127,
                     Quantity = 3,
                     Price = 421.32m,
-                    InventoryDate = new DateTime(2021, 8, 27)
+                    InventoryDate = new DateTime(2022, 8, 27)
                 },
                 new Inventory
                 {
@@ -2728,7 +2728,7 @@ namespace sms.Data
                     InventoryNumber = 75860385,
                     Quantity = 37,
                     Price = 2151.22m,
-                    InventoryDate = new DateTime(2021, 2, 2)
+                    InventoryDate = new DateTime(2022, 2, 2)
                 },
                 new Inventory
                 {
@@ -2736,7 +2736,7 @@ namespace sms.Data
                     InventoryNumber = 39871878,
                     Quantity = 18,
                     Price = 1085.56m,
-                    InventoryDate = new DateTime(2021, 7, 7)
+                    InventoryDate = new DateTime(2022, 7, 7)
                 },
                 new Inventory
                 {
@@ -2896,7 +2896,7 @@ namespace sms.Data
                     InventoryNumber = 61316202,
                     Quantity = 1,
                     Price = 2801.31m,
-                    InventoryDate = new DateTime(2021, 6, 13)
+                    InventoryDate = new DateTime(2022, 6, 13)
                 },
                 new Inventory
                 {
@@ -3008,7 +3008,7 @@ namespace sms.Data
                     InventoryNumber = 84582437,
                     Quantity = 14,
                     Price = 2974.04m,
-                    InventoryDate = new DateTime(2021, 7, 1)
+                    InventoryDate = new DateTime(2022, 7, 1)
                 },
                 new Inventory
                 {

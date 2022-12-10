@@ -44,7 +44,7 @@ namespace smsTest
             // Arrange
             int gradeId = 1;
             int subjectId = 24;
-            int year = 2021;
+            int year = 2022;
             int month = 9;
             var config = new ConfigurationBuilder().Build();
             var pageModel = new sms.Pages.Register.IndexModel(context, config);
@@ -75,7 +75,7 @@ namespace smsTest
             int studentId = 1;
             int day = 6;
             string mark = "12";
-            int year = 2021;
+            int year = 2022;
             int month = 9;
             int gradeId = 1;
             int subjectId = 38;
@@ -104,7 +104,7 @@ namespace smsTest
             int studentId = 1;
             int day = 7;
             string mark = "12";
-            int year = 2021;
+            int year = 2022;
             int month = 9;
             int gradeId = 1;
             int subjectId = 1;
@@ -132,7 +132,7 @@ namespace smsTest
             // Arrange
             int studentId = 1;
             int day = 7;
-            int year = 2021;
+            int year = 2022;
             int month = 9;
             int gradeId = 1;
             int subjectId = 1;
@@ -158,7 +158,7 @@ namespace smsTest
         public async Task Gradebooks_StatGradeModel_OnGetAsync_StatisticsForAllGradesReturned()
         {
             // Arrange
-            int year = 2021;
+            int year = 2022;
             DateTime startDate = new DateTime(year, 9, 1);
             DateTime endDate = new DateTime(year, 12, 31);
 
@@ -206,7 +206,7 @@ namespace smsTest
         public async Task Gradebooks_StatGradeModel_OnGetAsync_StatisticsForAllGradesReturned_InDescendingOrder()
         {
             // Arrange
-            int year = 2021;
+            int year = 2022;
             DateTime startDate = new DateTime(year, 9, 1);
             DateTime endDate = new DateTime(year, 12, 31);
 
@@ -254,7 +254,7 @@ namespace smsTest
         {
             // Arrange
             int gradeId = 1;
-            int year = 2021;
+            int year = 2022;
             DateTime startDate = new DateTime(year, 9, 1);
             DateTime endDate = new DateTime(year, 12, 31);
 
@@ -293,7 +293,7 @@ namespace smsTest
         {
             // Arrange
             int gradeId = 1;
-            int year = 2021;
+            int year = 2022;
             DateTime startDate = new DateTime(year, 9, 1);
             DateTime endDate = new DateTime(year, 12, 31);
 
@@ -333,7 +333,7 @@ namespace smsTest
             // Arrange
             int gradeId = 1;
             int studentId = 1;
-            int year = 2021;
+            int year = 2022;
             int month = 9;
 
             var config = new ConfigurationBuilder().Build();
@@ -375,7 +375,7 @@ namespace smsTest
             // Arrange
             int gradeId = 1;
             int studentId = 1;
-            int year = 2021;
+            int year = 2022;
             int month = 9;
 
             var config = new ConfigurationBuilder().Build();
@@ -415,7 +415,7 @@ namespace smsTest
         public async Task Gradebooks_StatSubjectModel_OnGetAsync_StatisticsForAllSubjectsReturned()
         {
             // Arrange
-            int year = 2021;
+            int year = 2022;
             int semester = 1;
             DateTime startDate = new DateTime(year, 9, 1);
             DateTime endDate = new DateTime(year, 12, 31);
@@ -451,7 +451,7 @@ namespace smsTest
         public async Task Gradebooks_StatSubjectModel_OnGetAsync_StatisticsForAllSubjectsReturned_InDescendingOrder()
         {
             // Arrange
-            int year = 2021;
+            int year = 2022;
             int semester = 1;
             DateTime startDate = new DateTime(year, 9, 1);
             DateTime endDate = new DateTime(year, 12, 31);
@@ -487,7 +487,7 @@ namespace smsTest
         public void Gradebooks_StatSubjectDetailsModel_OnGetAsync_StatisticsForSingleSubjectReturned()
         {
             // Arrange
-            int year = 2021;
+            int year = 2022;
             int semester = 1;
             int subjectId = 1;
             DateTime startDate = new DateTime(year, 9, 1);
@@ -537,7 +537,7 @@ namespace smsTest
         public void Gradebooks_StatSubjectDetailsModel_OnGetAsync_StatisticsForSingleSubjectReturned_InDescendingOrder()
         {
             // Arrange
-            int year = 2021;
+            int year = 2022;
             int semester = 1;
             int subjectId = 1;
             DateTime startDate = new DateTime(year, 9, 1);

@@ -10,7 +10,7 @@ using sms.Data;
 namespace sms.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210723170336_LessonEnumToString")]
+    [Migration("20221116170336_LessonEnumToString")]
     partial class LessonEnumToString
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

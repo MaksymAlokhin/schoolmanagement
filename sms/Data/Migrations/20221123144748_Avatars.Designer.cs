@@ -10,8 +10,8 @@ using sms.Data;
 namespace sms.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210809071249_Assignments")]
-    partial class Assignments
+    [Migration("20221123144748_Avatars")]
+    partial class Avatars
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -236,39 +236,6 @@ namespace sms.Data.Migrations
                     b.ToTable("SubjectTeacher");
                 });
 
-            modelBuilder.Entity("sms.Models.Assignment", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("DateOfPost")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("GradeId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Post")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("SubjectId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TeacherId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("GradeId");
-
-                    b.HasIndex("SubjectId");
-
-                    b.HasIndex("TeacherId");
-
-                    b.ToTable("Assignments");
-                });
-
             modelBuilder.Entity("sms.Models.Curriculum", b =>
                 {
                     b.Property<int>("Id")
@@ -461,10 +428,6 @@ namespace sms.Data.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<string>("Gender")
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
                     b.Property<int>("GradeId")
                         .HasColumnType("int");
 
@@ -552,33 +515,6 @@ namespace sms.Data.Migrations
                         .HasForeignKey("TeachersId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("sms.Models.Assignment", b =>
-                {
-                    b.HasOne("sms.Models.Grade", "Grade")
-                        .WithMany()
-                        .HasForeignKey("GradeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("sms.Models.Subject", "Subject")
-                        .WithMany()
-                        .HasForeignKey("SubjectId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("sms.Models.Teacher", "Teacher")
-                        .WithMany()
-                        .HasForeignKey("TeacherId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Grade");
-
-                    b.Navigation("Subject");
-
-                    b.Navigation("Teacher");
                 });
 
             modelBuilder.Entity("sms.Models.Curriculum", b =>

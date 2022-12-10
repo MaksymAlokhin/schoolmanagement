@@ -10,7 +10,7 @@ using sms.Data;
 namespace sms.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210808081047_StudentGender")]
+    [Migration("20221125081047_StudentGender")]
     partial class StudentGender
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
