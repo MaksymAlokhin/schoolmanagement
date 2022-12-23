@@ -79,7 +79,7 @@ namespace sms.Pages.TimeTable
                 .ToList();
             selectedDay = 1;
 
-            Log.Information("Користувач згенерував розклад уроків евристичним методом");
+            Log.Information("Користувач згенерував розклад уроків методом перебору");
         }
 
         public void OnGetGeneticAsync()
