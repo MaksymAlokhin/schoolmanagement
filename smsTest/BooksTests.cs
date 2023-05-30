@@ -166,7 +166,7 @@ namespace smsTest
             var expectedBooks = new Book
             {
                 Id = 182,
-                Year = 2022,
+                Year = 2023,
                 Qty = 30
             };
             pageModel.Book = expectedBooks;
@@ -175,7 +175,7 @@ namespace smsTest
 
             // Assert
             var actualBook = await context.Books
-                .Where(c => c.Year == 2022)
+                .Where(c => c.Year == 2023)
                 .FirstOrDefaultAsync();
             //var object1Json = JsonSerializer.Serialize(expectedBooks);
             //var object2Json = JsonSerializer.Serialize(actualBook);
@@ -191,7 +191,7 @@ namespace smsTest
             var expectedBooks = new Book
             {
                 Id = 182,
-                Year = 2022,
+                Year = 2023,
                 Qty = 30
             };
             pageModel.Book = expectedBooks;

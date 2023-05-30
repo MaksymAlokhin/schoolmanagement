@@ -26,7 +26,7 @@ namespace sms.Data
             {
                 new Assignment
             {
-                DateOfPost = new DateTime(2022, 8, 9, 21, 51, 46),
+                DateOfPost = new DateTime(2023, 8, 9, 21, 51, 46),
                 Grade = grades.a5,
                 Subject = subjects.ukrainian,
                 Teacher = teachers.havro,
@@ -55,7 +55,7 @@ namespace sms.Data
             },
                 new Assignment
             {
-                DateOfPost = new DateTime(2022, 8, 9, 22, 36, 55),
+                DateOfPost = new DateTime(2023, 8, 9, 22, 36, 55),
                 Grade = grades.a5,
                 Subject = subjects.ukrainian,
                 Teacher = teachers.havro,
@@ -90,7 +90,7 @@ namespace sms.Data
             },
                 new Assignment
             {
-                DateOfPost = new DateTime(2022, 8, 9, 22, 39, 11),
+                DateOfPost = new DateTime(2023, 8, 9, 22, 39, 11),
                 Grade = grades.a5,
                 Subject = subjects.english,
                 Teacher = teachers.martynenko,
@@ -301,7 +301,7 @@ namespace sms.Data
             },
                 new Assignment
             {
-                DateOfPost = new DateTime(2022, 8, 16, 15, 01, 48),
+                DateOfPost = new DateTime(2023, 8, 16, 15, 01, 48),
                 Grade = grades.a1,
                 Subject = subjects.english,
                 Teacher = teachers.vasylieva,

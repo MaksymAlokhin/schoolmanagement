@@ -164,7 +164,7 @@ namespace smsTest
                 LastName = "LastName",
                 FirstName = "FirstName",
                 Patronymic = "Patronymic",
-                DateOfBirth = DateTime.Parse("2022-01-01"),
+                DateOfBirth = DateTime.Parse("2023-01-01"),
                 Address = "Address",
                 Gender = "Gender",
             };
@@ -198,7 +198,7 @@ namespace smsTest
                 LastName = "LastName",
                 FirstName = "FirstName",
                 Patronymic = "Patronymic",
-                DateOfBirth = DateTime.Parse("2022-01-01"),
+                DateOfBirth = DateTime.Parse("2023-01-01"),
                 Address = "Address",
                 Gender = "Gender",
                 ProfilePicture = "ProfilePicture.jpg"

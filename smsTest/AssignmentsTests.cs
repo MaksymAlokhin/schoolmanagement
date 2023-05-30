@@ -135,7 +135,7 @@ namespace smsTest
             {
                 Id = 5,
                 Post = "New Assignment. Due tomorrow",
-                DateOfPost = new DateTime(2022, 1, 5),
+                DateOfPost = new DateTime(2023, 1, 5),
                 GradeId = 1,
                 SubjectId = 1,
                 TeacherId = 1
@@ -146,7 +146,7 @@ namespace smsTest
 
             // Assert
             var actualAssignment = await context.Assignments
-                .Where(c => c.DateOfPost == new DateTime(2022, 1, 5))
+                .Where(c => c.DateOfPost == new DateTime(2023, 1, 5))
                 .FirstOrDefaultAsync();
             //var object1Json = JsonSerializer.Serialize(expectedAssignments);
             //var object2Json = JsonSerializer.Serialize(actualAssignment);
@@ -163,7 +163,7 @@ namespace smsTest
             {
                 Id = 5,
                 Post = "New Assignment. Due tomorrow",
-                DateOfPost = new DateTime(2022, 1, 5),
+                DateOfPost = new DateTime(2023, 1, 5),
                 GradeId = 1,
                 SubjectId = 1,
                 TeacherId = 1
@@ -262,7 +262,7 @@ namespace smsTest
             int testId = 1;
             var expectedAssignment = context.Assignments.FirstOrDefault(m => m.Id == testId);
             pageModel.Assignment = expectedAssignment;
-            pageModel.Assignment.DateOfPost = new DateTime(2022, 1, 5);
+            pageModel.Assignment.DateOfPost = new DateTime(2023, 1, 5);
 
             // Act
             var result = await pageModel.OnPostAsync(null, null);
@@ -270,9 +270,9 @@ namespace smsTest
             // Assert
             Assert.IsType<RedirectToPageResult>(result);
             var model = Assert.IsAssignableFrom<Assignment>(pageModel.Assignment);
-            Assert.Equal(new DateTime(2022, 1, 5), model.DateOfPost);
+            Assert.Equal(new DateTime(2023, 1, 5), model.DateOfPost);
             var actualAssignment = context.Assignments.FirstOrDefault(m => m.Id == testId);
-            Assert.Equal(new DateTime(2022, 1, 5), actualAssignment.DateOfPost);
+            Assert.Equal(new DateTime(2023, 1, 5), actualAssignment.DateOfPost);
 
         }
         [Fact]
@@ -284,7 +284,7 @@ namespace smsTest
             int testId = 1;
             var expectedAssignment = context.Assignments.FirstOrDefault(m => m.Id == testId);
             pageModel.Assignment = expectedAssignment;
-            pageModel.Assignment.DateOfPost = new DateTime(2022, 1, 5);
+            pageModel.Assignment.DateOfPost = new DateTime(2023, 1, 5);
 
             // Act
             pageModel.ModelState.AddModelError("Error", "ModelState is invalid");
