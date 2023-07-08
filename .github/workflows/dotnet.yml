@@ -30,11 +30,11 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
       working-directory: smsTest
-    - name: Publish
-      run: dotnet publish sms/sms.csproj -c Release -o website
-    - name: 'Deploy to Azure WebApp'
-      uses: azure/webapps-deploy@v2
-      with:
-        app-name: ${{ env.AZURE_WEBAPP_NAME }}
-        publish-profile: ${{ secrets.SCHOOLMANAGEMENTAPP_WEBAPP_SECRET }}
-        package: '${{ env.WORKING_DIRECTORY }}/website'
+    #- name: Publish
+    #  run: dotnet publish sms/sms.csproj -c Release -o website
+    #- name: 'Deploy to Azure WebApp'
+    #  uses: azure/webapps-deploy@v2
+    #  with:
+    #    app-name: ${{ env.AZURE_WEBAPP_NAME }}
+    #    publish-profile: ${{ secrets.SCHOOLMANAGEMENTAPP_WEBAPP_SECRET }}
+    #    package: '${{ env.WORKING_DIRECTORY }}/website'

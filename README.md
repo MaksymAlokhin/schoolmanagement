@@ -16,8 +16,6 @@ Installation:<br />
 Everything should work out of the box<br />
 Все повинно працювати без додаткових налаштувань.<br />
 
-Демо можна переглянути онлайн [за посиланням](https://schoolmanagementapp.azurewebsites.net/) (online demo).<br />
-
 Users are:
 ```
 newuser@sms.com
