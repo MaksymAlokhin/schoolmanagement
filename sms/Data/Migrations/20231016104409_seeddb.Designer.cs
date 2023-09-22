@@ -10,15 +10,15 @@ using sms.Data;
 namespace sms.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221116170336_LessonEnumToString")]
-    partial class LessonEnumToString
+    [Migration("20231016104409_seeddb")]
+    partial class seeddb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.8")
+                .HasAnnotation("ProductVersion", "5.0.7")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -261,11 +261,6 @@ namespace sms.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Day")
-                        .IsRequired()
-                        .HasMaxLength(16)
-                        .HasColumnType("nvarchar(16)");
-
                     b.Property<int>("GradeId")
                         .HasColumnType("int");
 
@@ -281,6 +276,10 @@ namespace sms.Data.Migrations
 
                     b.Property<int>("TeacherId")
                         .HasColumnType("int");
+
+                    b.Property<string>("day")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(16)");
 
                     b.HasKey("Id");
 

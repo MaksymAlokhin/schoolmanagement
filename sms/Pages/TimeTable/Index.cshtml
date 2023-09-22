@@ -17,10 +17,14 @@
     @if (ViewContext.HttpContext.User.IsInRole("Адміністратор"))
     {
         <div class="col-sm-auto">
-            <a asp-page-handler="Generate" class="btn btn-secondary" role="button" aria-pressed="true">Генерація методом перестановок</a>
+            <form asp-page-handler="Generate" method="post">
+                <button class="btn btn-secondary" role="button" aria-pressed="true">Генерація методом перестановок</button>
+            </form>
         </div>
         <div class="col-sm-auto">
-            <a asp-page-handler="Genetic" class="btn btn-secondary" role="button" aria-pressed="true">Генерація генетичним методом</a>
+            <form asp-page-handler="Genetic" method="post">
+                <button class="btn btn-secondary" role="button" aria-pressed="true">Генерація генетичним методом</button>
+            </form>
         </div>
     }
 </div>

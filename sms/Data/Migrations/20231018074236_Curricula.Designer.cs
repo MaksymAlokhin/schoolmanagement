@@ -10,8 +10,8 @@ using sms.Data;
 namespace sms.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221120100551_Gradebook")]
-    partial class Gradebook
+    [Migration("20231018074236_Curricula")]
+    partial class Curricula
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -288,40 +288,6 @@ namespace sms.Data.Migrations
                     b.ToTable("Grades");
                 });
 
-            modelBuilder.Entity("sms.Models.Gradebook", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("LessonDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Mark")
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.Property<int>("StudentId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SubjectId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TeacherId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("StudentId");
-
-                    b.HasIndex("SubjectId");
-
-                    b.HasIndex("TeacherId");
-
-                    b.ToTable("Gradebooks");
-                });
-
             modelBuilder.Entity("sms.Models.Lesson", b =>
                 {
                     b.Property<int>("Id")
@@ -530,33 +496,6 @@ namespace sms.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("Grade");
-
-                    b.Navigation("Subject");
-
-                    b.Navigation("Teacher");
-                });
-
-            modelBuilder.Entity("sms.Models.Gradebook", b =>
-                {
-                    b.HasOne("sms.Student", "Student")
-                        .WithMany()
-                        .HasForeignKey("StudentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("sms.Models.Subject", "Subject")
-                        .WithMany()
-                        .HasForeignKey("SubjectId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("sms.Models.Teacher", "Teacher")
-                        .WithMany()
-                        .HasForeignKey("TeacherId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Student");
 
                     b.Navigation("Subject");
 

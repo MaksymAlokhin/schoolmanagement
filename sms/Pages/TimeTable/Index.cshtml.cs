@@ -50,7 +50,7 @@ namespace sms.Pages.TimeTable
             Log.Information("Користувач переглядає розклад вчителів");
         }
 
-        public void OnGetGenerateAsync()
+        public void OnPostGenerateAsync()
         {
             //Generate timetable
             //Генерація розкладу
@@ -82,7 +82,7 @@ namespace sms.Pages.TimeTable
             Log.Information("Користувач згенерував розклад уроків методом перестановок");
         }
 
-        public void OnGetGeneticAsync()
+        public void OnPostGeneticAsync()
         {
             //Generate timetable
             //Генерація розкладу
