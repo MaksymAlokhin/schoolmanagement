@@ -70,7 +70,7 @@ namespace sms.Pages.TimeTable
                             //Якщо немає конфліктів, додати урок на це місце
                             if (NoConflicts(day, slot, curriculum.TeacherId, curriculum.GradeId))
                             {
-                                _logger.LogInformation("Teacher {1}", teacher);
+                                //_logger.LogInformation("Teacher {1}", teacher);
                                 var grade = _context.Grades
                                                 .Where(g => g.Id == curriculum.GradeId)
                                                 .SingleOrDefault();
@@ -171,7 +171,7 @@ namespace sms.Pages.TimeTable
                                  && l.Slot == slot - 1
                                  && l.GradeId == grade))
                         {
-                            _logger.LogInformation("Gap detected at day {1}, slot {2}, grade {3}", day, slot - 1, grade);
+                            //_logger.LogInformation("Gap detected at day {1}, slot {2}, grade {3}", day, slot - 1, grade);
 
                             //Lesson that has a gap before
                             //Урок, що має вікно перед собою
@@ -204,7 +204,7 @@ namespace sms.Pages.TimeTable
                                                     && l.GradeId == lonelyLesson.GradeId))
                                 {
                                     lonelyLesson.Slot--;
-                                    _logger.LogInformation("Gap removed  at day {1}, slot {2}, grade {3}", day, slot - 1, grade);
+                                    //_logger.LogInformation("Gap removed  at day {1}, slot {2}, grade {3}", day, slot - 1, grade);
 
                                     //Recursion
                                     //Рекурсія
@@ -312,7 +312,7 @@ namespace sms.Pages.TimeTable
                                             {
                                                 lonelyLesson.Day = conflictSpot.Day;
                                                 lonelyLesson.Slot = lesson.Slot;
-                                                _logger.LogInformation("Gap removed  at day {1}, slot {2}, grade {3}", day, slot - 1, grade);
+                                                //_logger.LogInformation("Gap removed  at day {1}, slot {2}, grade {3}", day, slot - 1, grade);
 
                                                 //Recursion
                                                 //Рекурсія
@@ -332,7 +332,7 @@ namespace sms.Pages.TimeTable
                                     {
                                         lonelyLesson.Day = daySlotCombo.Item1; //day
                                         lonelyLesson.Slot = daySlotCombo.Item2; //slot
-                                        _logger.LogInformation("Gap removed  at day {1}, slot {2}, grade {3}", day, slot - 1, grade);
+                                        //_logger.LogInformation("Gap removed  at day {1}, slot {2}, grade {3}", day, slot - 1, grade);
 
                                         //Recursion
                                         //Рекурсія

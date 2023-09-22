@@ -199,12 +199,12 @@ namespace sms.Pages.TimeTable
                 //    finalSon = firstList[0];
 
                 //if (finalSon.fitness == 1.0)
-                _logger.LogInformation($"Generation: {nogenerations + 1,6} " +
-                        $"| Fitness: {firstListFitness,9:N5} " +
-                        $"| finalSon: {finalSon.fitness,7:N5} " +
-                        $"| Gaps: {finalSon.gaps,4} " +
-                        $"| GapScore: {finalSon.gapScore,7:N5} " +
-                        $"| Min: {min,4}");
+                //_logger.LogInformation($"Generation: {nogenerations + 1,6} " +
+                //        $"| Fitness: {firstListFitness,9:N5} " +
+                //        $"| finalSon: {finalSon.fitness,7:N5} " +
+                //        $"| Gaps: {finalSon.gaps,4} " +
+                //        $"| GapScore: {finalSon.gapScore,7:N5} " +
+                //        $"| Min: {min,4}");
 
                 nogenerations++;
             }
